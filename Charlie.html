@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Team 13 Unit 6</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--
+Jumbotron for the title, styled to be gray and white
+Two cards using differnt stylings and colors with individual dropdowns. 
+One collapseable per card
+Modal button with a mystical tale of wonders
+Link block button at the bottom for the "lols" as the kids say
+-->
+
+ <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="home.html">HOME</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="Arthur.html">Arthur</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="Robert.html">Robert</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Charlie <span class="badge badge-pill badge-danger">HOT HOT HOT</span></a>
+                      </li>
+                    </ul>
+            </nav>
+	<div class="jumbotron jumbotron-fluid" style = "background-color:gray; color:white">
+        <div class="container">
+          <h1>Charlie McConnell</h1> 
+          <p>What even is web design? I'd rather be skiing.</p> 
+        </div>
+      </div>
+
+	<div class="container">
+	<div class="row">
+		<div class="col">
+		<div class="card img-fluid" style="width:450px">
+			<img class="card-img-top" src="images/CharlieCardImage.jpg" alt="Card image" style="width:100%; height:100%;">
+			<div class="card-img-overlay">
+				<h4 class="card-title">Charlie McConnell</h4>
+				<p class="card-text" style = "color:red;">Charlie is a Colorado native that was born and bread to shred some "sick gnar" as the kids are calling it these days.</p>
+				<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#stats">Skiier Stats</button>
+					<div id="stats" class="collapse">
+						<h4 style= "color:white;">Days Spent Shredding</h4>
+						<ul style = "background-color:powderblue;">
+							<li>Arapaho Basin: 12 <span class="badge badge-primary">Radical!</span></li>
+							<li>Keystone: 8</li>
+							<li>Vail & Beaver Creek: 2</li>
+							<li>Powder Days: 2</li>
+						</ul>
+					</div>
+			</div>
+		</div>
+		 <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal">
+		 Super Secret do not press. Seriously, Don't.
+		 </button>
+		</div>
+		<div class = "col">
+		<div class="card img-fluid" style="width:450px">
+			<img class="card-img-top" src="images/CharlieSelfie2.jpg" alt="Card image" style="width:100%; height:100%;">
+			<div class="card-img-overlay">
+				<h4 class="card-title"><span class="badge badge-warning">Charlie McConnell Goon edition</span></h4>
+				<p class="card-text" style = "color:red;">Charlie in his goon form is also a Colorado native that was born and bread to shred some "sick gnar"However due to his
+				existance as a goon, Charlie is forced to yell catch phrases regularly and fistbump any and all skiiers he sees on the mountain. Only conditions considered exceptionally raddical can bring the goon version of
+				Charlie to the surface</p>
+				<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#phrases">Super Rad Catch Phrases</button>
+					<div id="phrases"class = "collapse">
+						<ul style = "background-color:maroon; color:white;">
+							<li>Dude, bro, thats some gnar pow </li>
+							<li>Oh you know I'm gonna send it</li>
+							<li>shockabrrrruuuuh  <span class="badge badge-pill badge-success">Wow! thats cool!</span></li>
+							<li> OHHH ZYEAH do ze nordic ski zhaaa <span class="badge badge-pill badge-warning">Note: Must be done in best norwegian accent </span></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!-- The Modal -->
+			<div class="modal fade" id="myModal">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content" style = "background-color:gray;">
+      
+						<!-- Modal Header -->
+							<div class="modal-header">
+								<h4 class="modal-title" style = "color:white;">What did I just tell you?!</h4>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+							</div>
+        
+						<!-- Modal body -->
+							<div class="modal-body">
+								Due to your inability to follow directions I shall regale you, regale with a tale. A tale most magical and filled with wonders that the world has never known. 
+								Tis the tale of . . . . . .
+							</div>
+        
+						<!-- Modal footer -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							</div>
+        
+      </div>
+    </div>
+  </div>
+	</div>
+	<div class = "row">
+		<div class = "col">
+		<a href="http://hemansings.com" class="btn btn-warning btn-block btn-lg active" role="button" aria-pressed="true"><h4 style= "color:white;">Press for adventure</h4></a>
+			
+			
+</body>
+</html>

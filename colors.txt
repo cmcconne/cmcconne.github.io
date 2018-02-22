@@ -1,0 +1,7 @@
+some colors
+nice blue - #33B5FF
+gray blue - #A3C0D1
+neat gray - #434E55
+dark blue - #092D42
+light gray- #BEBEBE
+off black - #141C20

@@ -1,0 +1,131 @@
+<!-- 
+    Robert Imbler
+    CSCI446 - Web Developement
+    Unit 6 - Bootstrap
+-->
+<!--
+    (10) site must have real content
+    (5) site must explore responsive design
+    (10) site must include a carousel with at least 4 pictures
+    (10) at least 5 additional bootstrap capabilities (2 points each)
+      - Jumbotron with name and such
+      - alert button, with sticky top
+      - cards with information inside a scrollspy
+      - Data toggles
+      - a badge on the nav bar
+    (5) site must be submitted to competition on CS CONNECT
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Includes for BOOTSTRAP4 -->
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!-- For optimal mobile browsing use this line -->
+        <title>Robert Imbler and Bootstrap4</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8"> 
+    </head>
+    <body>
+      <!-- SHARED NAV BAR -->
+      <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="./home.html">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./Arthur.html">Arthur</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Robert
+              <span class="badge badge-secondary">
+                It is Wednesday, my dudes
+              </span>
+            </a>      
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./Charlie.html">Charlie</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1>Robert Imbler</h1> 
+          <p>Has a terrific grasp of web design and a love for fly fishing!</p> 
+        </div>
+      </div>
+      <!-- ALERTS, sticky top -->
+      <div class="alert alert-success alert-dismissable fade show sticky-top">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Notice!</strong> Certain elements may not be available based on location or country.
+      </div>
+      <div>
+        <p>
+        <button data-toggle="collapse" data-target="#pbjTime">Click me to optionally ruin your childhood!</button>
+        <br>Hopefully you know not to click.<br>
+        <div id="pbjTime" class="collapse">
+          <img class="img-fluid" src="Images/bip.jpg" alt="Peanut Butter Jelly Time">
+        </div></p>  
+      </div>
+      <!-- SCROLL SPY -->
+      <div data-spy="scroll" data-target=".nav-bar" data-offset="30px">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark left">  
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#section1">Fishing!</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section2">Cooking!</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#section3">Feline!</a>
+            </li>
+          </ul>          
+        </nav>  
+        <!-- FISHING CARD -->
+        <!-- SECTION 1 -->
+        <div id="section1">
+          <div class="card" style="margin:10x; padding:10px">
+              <div class="card-header">Fly Fishing</div>
+              <div class="card-body">
+                <img src="Images/robFishing.jpg" alt="Rob Fishing">
+              </div> 
+            <div class="card-footer">Rob has always enjoyed fishing and loves being outdoors</div>
+          </div>
+        </div>
+        <!-- Cooking Card -->
+        <!-- SECTION 2 -->
+        <div id="section2">
+          <div class="card" style="margin:10x; padding:10px">
+              <div class="card-header">Cooking!</div>
+              <div class="card-body">
+                <img src="Images/robCooking.jpg" alt="Rob Cooking">
+              </div> 
+            <div class="card-footer">
+              <div>Rob cooks every day, and always uses the right tool for the job!
+                <br>He really likes to watch the Cooking Channel!
+                PUT A LINK HERE
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Cat CARD -->
+        <!-- SECTION 3 -->
+        <div id="section3">
+          <div class="card" style="margin:10x; padding:10px">
+              <div class="card-header">Calvin the Cat</div>
+              <div class="card-body">
+                <img src="Images/robCat.jpg" alt="Calvin the Cat">
+              </div> 
+            <div class="card-footer">This is the bougiest siamsese ever and his name is Calvin.</div>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
