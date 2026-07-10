@@ -1,0 +1,38 @@
+/* Global styles for Charlie's Hall of Fame */
+
+:root {
+  --bg: #faf9f6;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6b7280;
+  --border: #e5e3dd;
+  --accent: #c8952b; /* trophy gold */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16161a;
+    --surface: #1f1f25;
+    --text: #f3f3f3;
+    --muted: #9ca3af;
+    --border: #2c2c34;
+    --accent: #e0b04a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
