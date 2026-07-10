@@ -30,25 +30,26 @@ export const SECTIONS: Section[] = [
       },
     ],
     statsFeed: '/lol-stats.json',
+    statsType: 'lol',
   },
   {
     slug: 'runescape',
-    name: 'RuneScape',
+    name: 'Old School RuneScape',
     icon: '🐉',
     tagline: 'Adventurer of Gielinor',
-    intro:
-      'Skilling, questing, and bossing across Gielinor — my stats, favourite skills, and proudest achievements.',
+    intro: '',
     accent: '#b5892f',
-    highlights: [
-      { label: 'Total Level', value: '1500+' },
-      { label: 'Favourite Skill', value: 'Slayer' },
-      { label: 'Game Mode', value: 'Main' },
-      { label: 'Notable Quest', value: 'Recipe for Disaster' },
+    // Driven entirely by live OSRS Hiscores data below.
+    highlights: [],
+    notes: [],
+    profiles: [
+      {
+        label: 'OSRS Hiscores',
+        url: 'https://secure.runescape.com/m=hiscore_oldschool/hiscorepersonal?user1=Stupid+Hands',
+      },
     ],
-    notes: [
-      'Chasing 99s one skill at a time.',
-      'Love a good boss grind.',
-    ],
+    statsFeed: '/runescape-stats.json',
+    statsType: 'osrs',
   },
   {
     slug: 'magic-the-gathering',

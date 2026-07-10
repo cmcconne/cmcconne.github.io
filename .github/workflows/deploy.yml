@@ -42,6 +42,11 @@ jobs:
           RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
         run: node scripts/fetch-lol-stats.mjs
 
+      # Public OSRS Hiscores — no key needed. On failure the committed data stays.
+      - name: Fetch RuneScape stats
+        continue-on-error: true
+        run: node scripts/fetch-runescape-stats.mjs
+
       - name: Build
         run: npm run build -- --configuration production --base-href /
 

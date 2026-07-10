@@ -1,0 +1,156 @@
+{
+  "username": "Stupid Hands",
+  "updatedAt": "2026-07-10T18:45:37.958Z",
+  "overall": {
+    "level": 2376,
+    "xp": 514314532,
+    "rank": 29318
+  },
+  "combatLevel": 126,
+  "skills": [
+    {
+      "name": "Attack",
+      "level": 99,
+      "xp": 16380860,
+      "rank": 196939
+    },
+    {
+      "name": "Defence",
+      "level": 99,
+      "xp": 20800281,
+      "rank": 67414
+    },
+    {
+      "name": "Strength",
+      "level": 99,
+      "xp": 74521544,
+      "rank": 32289
+    },
+    {
+      "name": "Hitpoints",
+      "level": 99,
+      "xp": 67570758,
+      "rank": 52192
+    },
+    {
+      "name": "Ranged",
+      "level": 99,
+      "xp": 59581749,
+      "rank": 66754
+    },
+    {
+      "name": "Prayer",
+      "level": 99,
+      "xp": 13162344,
+      "rank": 98537
+    },
+    {
+      "name": "Magic",
+      "level": 99,
+      "xp": 31627193,
+      "rank": 66898
+    },
+    {
+      "name": "Cooking",
+      "level": 99,
+      "xp": 13184205,
+      "rank": 254882
+    },
+    {
+      "name": "Woodcutting",
+      "level": 99,
+      "xp": 15558498,
+      "rank": 62921
+    },
+    {
+      "name": "Fletching",
+      "level": 99,
+      "xp": 13476063,
+      "rank": 89278
+    },
+    {
+      "name": "Fishing",
+      "level": 99,
+      "xp": 13050812,
+      "rank": 152092
+    },
+    {
+      "name": "Firemaking",
+      "level": 99,
+      "xp": 13424089,
+      "rank": 137924
+    },
+    {
+      "name": "Crafting",
+      "level": 99,
+      "xp": 13995459,
+      "rank": 83300
+    },
+    {
+      "name": "Smithing",
+      "level": 99,
+      "xp": 13071101,
+      "rank": 119154
+    },
+    {
+      "name": "Mining",
+      "level": 99,
+      "xp": 13869293,
+      "rank": 86252
+    },
+    {
+      "name": "Herblore",
+      "level": 99,
+      "xp": 13307949,
+      "rank": 74681
+    },
+    {
+      "name": "Agility",
+      "level": 99,
+      "xp": 13056563,
+      "rank": 105533
+    },
+    {
+      "name": "Thieving",
+      "level": 99,
+      "xp": 13283480,
+      "rank": 139570
+    },
+    {
+      "name": "Slayer",
+      "level": 99,
+      "xp": 15534037,
+      "rank": 131044
+    },
+    {
+      "name": "Farming",
+      "level": 99,
+      "xp": 13258337,
+      "rank": 300137
+    },
+    {
+      "name": "Runecraft",
+      "level": 99,
+      "xp": 13035460,
+      "rank": 116846
+    },
+    {
+      "name": "Hunter",
+      "level": 99,
+      "xp": 13034586,
+      "rank": 150000
+    },
+    {
+      "name": "Construction",
+      "level": 99,
+      "xp": 13239938,
+      "rank": 62996
+    },
+    {
+      "name": "Sailing",
+      "level": 99,
+      "xp": 13289933,
+      "rank": 25731
+    }
+  ]
+}

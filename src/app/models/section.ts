@@ -36,4 +36,6 @@ export interface Section {
    * the section page fetches it and renders an embedded live-stats block.
    */
   statsFeed?: string;
+  /** Which live-stats component renders the feed. */
+  statsType?: 'lol' | 'osrs';
 }

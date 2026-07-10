@@ -1,0 +1,118 @@
+.rs-stats {
+  margin-bottom: 2rem;
+}
+
+.stats-pending {
+  padding: 1rem 1.25rem;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent) 12%, var(--surface)),
+    var(--surface)
+  );
+  margin-bottom: 1.25rem;
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+  }
+
+  .username {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .sub {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .totals {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .total-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .total-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  .updated {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 0.6rem;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+
+  .skill-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    // Keep the pixel-art skill icons crisp when scaled.
+    image-rendering: pixelated;
+  }
+
+  .skill-level {
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    min-width: 1.6ch;
+    text-align: left;
+  }
+}
+
+.overall-rank {
+  margin: 1.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+
+  strong {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+}

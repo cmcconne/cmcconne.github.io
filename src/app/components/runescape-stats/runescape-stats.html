@@ -1,0 +1,48 @@
+<section class="rs-stats" aria-label="RuneScape stats">
+  @if (stats(); as st) {
+    @if (st.skills?.length) {
+      <div class="profile-card">
+        <div class="profile-info">
+          <span class="username">{{ st.username }}</span>
+          <span class="sub">Old School RuneScape</span>
+        </div>
+        <div class="totals">
+          <div class="total">
+            <span class="total-value">{{ st.overall?.level | number }}</span>
+            <span class="total-label">Total level</span>
+          </div>
+          <div class="total">
+            <span class="total-value">{{ st.combatLevel }}</span>
+            <span class="total-label">Combat</span>
+          </div>
+        </div>
+        @if (st.updatedAt) {
+          <span class="updated">Updated {{ st.updatedAt | date: 'short' }}</span>
+        }
+      </div>
+
+      <div class="skills-grid">
+        @for (skill of st.skills; track skill.name) {
+          <div class="skill" [attr.title]="skillTitle(skill)">
+            <img class="skill-icon" [src]="skillIcon(skill)" [alt]="skill.name" loading="lazy" />
+            <span class="skill-level">{{ skill.level }}</span>
+          </div>
+        }
+      </div>
+
+      @if (st.overall?.rank) {
+        <p class="overall-rank">
+          Overall Hiscores rank <strong>#{{ st.overall?.rank | number }}</strong>
+        </p>
+      }
+    } @else {
+      <div class="stats-pending">
+        {{ st.note || 'No RuneScape stats available — the account may not be on the Hiscores.' }}
+      </div>
+    }
+  } @else if (statsLoaded()) {
+    <div class="stats-pending">Couldn't load RuneScape stats right now.</div>
+  } @else {
+    <div class="stats-pending">Loading RuneScape stats…</div>
+  }
+</section>
