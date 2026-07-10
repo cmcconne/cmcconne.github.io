@@ -1,16 +1,23 @@
 <section class="hero">
-  <h1>Charlie's Hall of Fame</h1>
-  <p>Celebrating the people worth remembering.</p>
+  <p class="eyebrow">Personal showcase</p>
+  <h1>Charlie McConnell</h1>
+  <p class="lead">
+    Gamer, brewer, and lifelong hobbyist. Here's a look at the worlds I spend my
+    time in.
+  </p>
 </section>
 
-<section class="grid" aria-label="Inductees">
-  @for (inductee of inductees(); track inductee.slug) {
-    <a class="card" [routerLink]="['/inductee', inductee.slug]">
-      <span class="year">{{ inductee.yearInducted }}</span>
-      <h2>{{ inductee.name }}</h2>
-      <p class="title">{{ inductee.title }}</p>
+<section class="grid" aria-label="Sections">
+  @for (section of sections(); track section.slug) {
+    <a
+      class="card"
+      [routerLink]="['/', section.slug]"
+      [style.--card-accent]="section.accent"
+    >
+      <span class="icon" aria-hidden="true">{{ section.icon }}</span>
+      <h2>{{ section.name }}</h2>
+      <p class="tagline">{{ section.tagline }}</p>
+      <span class="explore">Explore →</span>
     </a>
-  } @empty {
-    <p class="empty">No inductees yet.</p>
   }
 </section>

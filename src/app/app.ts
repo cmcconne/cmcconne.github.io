@@ -8,5 +8,5 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = "Charlie's Hall of Fame";
+  protected readonly title = 'Charlie McConnell';
 }

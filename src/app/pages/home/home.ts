@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { InducteeService } from '../../services/inductee-service';
-import { Inductee } from '../../models/inductee';
+import { SectionService } from '../../services/section-service';
+import { Section } from '../../models/section';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +10,6 @@ import { Inductee } from '../../models/inductee';
   styleUrl: './home.scss',
 })
 export class Home {
-  private readonly inducteeService = inject(InducteeService);
-  protected readonly inductees = signal<Inductee[]>(this.inducteeService.getAll());
+  private readonly sectionService = inject(SectionService);
+  protected readonly sections = signal<Section[]>(this.sectionService.getAll());
 }

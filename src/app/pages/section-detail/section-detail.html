@@ -1,0 +1,38 @@
+@if (section(); as s) {
+  <article class="detail" [style.--accent]="s.accent">
+    <a class="back" routerLink="/">← Back to home</a>
+
+    <header class="head">
+      <span class="icon" aria-hidden="true">{{ s.icon }}</span>
+      <div>
+        <h1>{{ s.name }}</h1>
+        <p class="tagline">{{ s.tagline }}</p>
+      </div>
+    </header>
+
+    <p class="intro">{{ s.intro }}</p>
+
+    <section class="highlights" aria-label="Highlights">
+      @for (h of s.highlights; track h.label) {
+        <div class="stat">
+          <span class="stat-label">{{ h.label }}</span>
+          <span class="stat-value">{{ h.value }}</span>
+        </div>
+      }
+    </section>
+
+    @if (s.notes.length) {
+      <h2>Notes</h2>
+      <ul class="notes">
+        @for (note of s.notes; track note) {
+          <li>{{ note }}</li>
+        }
+      </ul>
+    }
+  </article>
+} @else {
+  <div class="not-found">
+    <h1>Section not found</h1>
+    <a routerLink="/">← Back to home</a>
+  </div>
+}

@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
-import { InducteeDetail } from './pages/inductee-detail/inductee-detail';
+import { SectionDetail } from './pages/section-detail/section-detail';
 
 export const routes: Routes = [
-  { path: '', component: Home, title: "Charlie's Hall of Fame" },
+  { path: '', component: Home, title: 'Charlie McConnell' },
   {
-    path: 'inductee/:slug',
-    component: InducteeDetail,
-    title: 'Inductee · Hall of Fame',
+    path: ':slug',
+    component: SectionDetail,
+    title: 'Charlie McConnell · Showcase',
   },
   { path: '**', redirectTo: '' },
 ];
