@@ -1,0 +1,136 @@
+{
+  "updatedAt": "2026-07-10T21:05:06.584Z",
+  "profileUrl": "https://topdeck.gg/profile/jsJThSNXDeSSBY1FDBqOpBEnpZC3",
+  "elo": 1463,
+  "eloGames": 40,
+  "tdcsPoints": 135,
+  "totals": {
+    "tournaments": 12,
+    "wins": 6,
+    "losses": 33,
+    "draws": 9,
+    "winRate": 12.5
+  },
+  "events": [
+    {
+      "name": "SIEGE cEDH 10K",
+      "date": "2026-06-13T14:30:00.000Z",
+      "record": "1-5-0",
+      "placement": "178th",
+      "placementNumber": 178,
+      "size": 308,
+      "bracketLink": "https://topdeck.gg/bracket/level-7s-siege-at-the-castle-10k",
+      "topCut": 40
+    },
+    {
+      "name": "LEVEL SEVEN'S WEEKLY CEDH EVENT",
+      "date": "2026-05-30T23:30:00.000Z",
+      "record": "0-2-2",
+      "placement": "19th",
+      "placementNumber": 19,
+      "size": 23,
+      "bracketLink": "https://topdeck.gg/bracket/level-sevens-weekly-cedh-event-68",
+      "topCut": 4
+    },
+    {
+      "name": "LEVEL SEVEN'S WEEKLY CEDH EVENT",
+      "date": "2026-05-23T23:30:00.000Z",
+      "record": "0-3-0",
+      "placement": "25th",
+      "placementNumber": 25,
+      "size": 36,
+      "bracketLink": "https://topdeck.gg/bracket/level-sevens-weekly-cedh-event-67",
+      "topCut": 10
+    },
+    {
+      "name": "Level 7 Games Engelwood Cedh But its Friday The 13th Again",
+      "date": "2026-03-14T00:45:00.000Z",
+      "record": "0-1-1",
+      "placement": "20th",
+      "placementNumber": 20,
+      "size": 38,
+      "bracketLink": "https://topdeck.gg/bracket/level-7-games-engelwood-cedh-but-its-friday-the-13th-again",
+      "topCut": 4
+    },
+    {
+      "name": "Dawn: Before the Siege 1K",
+      "date": "2026-03-08T17:30:00.000Z",
+      "record": "1-2-2",
+      "placement": "10th",
+      "placementNumber": 10,
+      "size": 66,
+      "bracketLink": "https://topdeck.gg/bracket/level-7s-dawn-before-the-battle",
+      "topCut": 13
+    },
+    {
+      "name": "Enchanted Grounds Littleton $1k cEDH - The Fringe Festival 2",
+      "date": "2025-12-27T18:00:00.000Z",
+      "record": "0-3-1",
+      "placement": "30th",
+      "placementNumber": 30,
+      "size": 40,
+      "bracketLink": "https://topdeck.gg/bracket/enchanted-grounds-littleton-1k-cedh-december-2025",
+      "topCut": 13
+    },
+    {
+      "name": "Colorado Card Conquest CEDH Cash Tournament 2025",
+      "date": "2025-11-22T17:45:00.000Z",
+      "record": "1-2-2",
+      "placement": "27th",
+      "placementNumber": 27,
+      "size": 67,
+      "bracketLink": "https://topdeck.gg/bracket/advantage-games-charity-cedh",
+      "topCut": 16
+    },
+    {
+      "name": "Level 7 Games cEDH Win a Dual Land Tournament",
+      "date": "2025-09-28T17:00:00.000Z",
+      "record": "0-3-0",
+      "placement": "51st",
+      "placementNumber": 51,
+      "size": 52,
+      "bracketLink": "https://topdeck.gg/bracket/blight-club-x-level-7-games-cedh-tournament",
+      "topCut": 13
+    },
+    {
+      "name": "LAST CHANCE FOR POINTS 2.5K",
+      "date": "2025-07-13T17:00:00.000Z",
+      "record": "0-3-1",
+      "placement": "33rd",
+      "placementNumber": 33,
+      "size": 53,
+      "bracketLink": "https://topdeck.gg/bracket/last-chance-to-get-your-points-l7-tournament",
+      "topCut": 10
+    },
+    {
+      "name": "Enchanted Grounds Littleton $1k cEDH - June 2025",
+      "date": "2025-06-28T17:00:00.000Z",
+      "record": "2-3-0",
+      "placement": "9th",
+      "placementNumber": 9,
+      "size": 33,
+      "bracketLink": "https://topdeck.gg/bracket/enchanted-grounds-littleton-monthly-cedh-may-2025-copy-1748125613771",
+      "topCut": 13
+    },
+    {
+      "name": "Commander Tournament",
+      "date": "2024-07-20T18:00:00.000Z",
+      "record": "1-3-0",
+      "placement": "10th",
+      "placementNumber": 10,
+      "size": 19,
+      "bracketLink": "https://topdeck.gg/bracket/FGiSi3gzGcyrqHnG51ez",
+      "topCut": 4
+    },
+    {
+      "name": "Snowy Summit cEDH 5k Hosted By Mythic Games",
+      "date": "2024-07-13T14:00:00.000Z",
+      "record": "0-3-0",
+      "placement": "110th",
+      "placementNumber": 110,
+      "size": 129,
+      "bracketLink": "https://topdeck.gg/bracket/V2DHDt9YXINxCGquxxoI",
+      "topCut": 16
+    }
+  ]
+}

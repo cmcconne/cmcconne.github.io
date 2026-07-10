@@ -1,6 +1,7 @@
-<section class="mtg" aria-label="Magic decks">
+<section class="mtg" aria-label="Magic">
   @if (data(); as d) {
     @if (d.decks.length) {
+      <h2 class="mtg-heading">Decks</h2>
       <div class="deck-grid">
         @for (deck of d.decks; track deck.name) {
           <a
@@ -40,12 +41,67 @@
           </a>
         }
       </div>
-    } @else {
-      <div class="mtg-pending">No decks yet.</div>
     }
   } @else if (loaded()) {
     <div class="mtg-pending">Couldn't load decks right now.</div>
   } @else {
     <div class="mtg-pending">Loading decks…</div>
+  }
+
+  @if (topdeck(); as t) {
+    @if (t.events?.length) {
+      <div class="td-head">
+        <h2 class="mtg-heading">Tournament results</h2>
+        <a class="td-link" [href]="t.profileUrl" target="_blank" rel="noopener">
+          TopDeck ↗
+        </a>
+      </div>
+
+      <div class="td-stats">
+        <div class="td-stat">
+          <span class="v">{{ t.totals?.tournaments }}</span>
+          <span class="l">Events</span>
+        </div>
+        <div class="td-stat">
+          <span class="v">{{ recordLine(t) }}</span>
+          <span class="l">Record · W–L–D</span>
+        </div>
+        <div class="td-stat">
+          <span class="v">{{ t.totals?.winRate }}%</span>
+          <span class="l">Win rate</span>
+        </div>
+        @if (t.elo) {
+          <div class="td-stat">
+            <span class="v">{{ t.elo }}</span>
+            <span class="l">EDH ELO</span>
+          </div>
+        }
+        @if (t.tdcsPoints) {
+          <div class="td-stat">
+            <span class="v">{{ t.tdcsPoints }}</span>
+            <span class="l">TDCS pts</span>
+          </div>
+        }
+      </div>
+
+      <ul class="td-events">
+        @for (e of t.events; track e.bracketLink || e.name + e.date) {
+          <li class="td-event">
+            <span class="td-place">
+              {{ e.placement }}<span class="td-of"> / {{ e.size }}</span>
+            </span>
+            <div class="td-main">
+              @if (e.bracketLink) {
+                <a class="td-name" [href]="e.bracketLink" target="_blank" rel="noopener">{{ e.name }}</a>
+              } @else {
+                <span class="td-name">{{ e.name }}</span>
+              }
+              <span class="td-date">{{ e.date | date: 'mediumDate' }}</span>
+            </div>
+            <span class="td-record">{{ e.record }}</span>
+          </li>
+        }
+      </ul>
+    }
   }
 </section>

@@ -52,6 +52,11 @@ jobs:
         continue-on-error: true
         run: node scripts/fetch-mtg-decks.mjs
 
+      # Public TopDeck profile stats — no key needed.
+      - name: Fetch TopDeck results
+        continue-on-error: true
+        run: node scripts/fetch-topdeck.mjs
+
       - name: Build
         run: npm run build -- --configuration production --base-href /
 
