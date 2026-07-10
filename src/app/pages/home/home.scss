@@ -72,8 +72,8 @@
   // Subtle accent-tinted backdrop so every logo (incl. the metallic MTG one) reads.
   background: radial-gradient(
     120% 100% at 50% 30%,
-    color-mix(in srgb, var(--accent) 14%, transparent),
-    transparent 70%
+    color-mix(in srgb, var(--accent) 20%, transparent),
+    transparent 72%
   );
   transition: transform 0.2s ease, background 0.2s ease;
 
@@ -81,8 +81,8 @@
     transform: translateY(-5px);
     background: radial-gradient(
       120% 100% at 50% 30%,
-      color-mix(in srgb, var(--accent) 26%, transparent),
-      transparent 72%
+      color-mix(in srgb, var(--accent) 34%, transparent),
+      transparent 74%
     );
 
     .showcase-logo,
