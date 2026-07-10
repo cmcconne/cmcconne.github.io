@@ -3,10 +3,11 @@ import { RouterLink } from '@angular/router';
 import { SectionService } from '../../services/section-service';
 import { LolStatsComponent } from '../../components/lol-stats/lol-stats';
 import { RunescapeStatsComponent } from '../../components/runescape-stats/runescape-stats';
+import { MtgDecksComponent } from '../../components/mtg-decks/mtg-decks';
 
 @Component({
   selector: 'app-section-detail',
-  imports: [RouterLink, LolStatsComponent, RunescapeStatsComponent],
+  imports: [RouterLink, LolStatsComponent, RunescapeStatsComponent, MtgDecksComponent],
   templateUrl: './section-detail.html',
   styleUrl: './section-detail.scss',
 })

@@ -1,0 +1,62 @@
+{
+  "updatedAt": "2026-07-10T20:52:57.734Z",
+  "decks": [
+    {
+      "name": "Tymna ❤️ Dargo",
+      "commanders": [
+        "Tymna the Weaver",
+        "Dargo, the Shipwrecker"
+      ],
+      "format": "cEDH",
+      "moxfield": "https://www.moxfield.com/decks/oCeOqlA8DkmSz9SDq6Yxlg",
+      "description": "Dargo storm",
+      "arts": [
+        "https://cards.scryfall.io/art_crop/front/b/c/bc7cbe9b-324e-42b8-94e2-36e91cb32163.jpg?1782711440",
+        "https://cards.scryfall.io/art_crop/front/5/c/5cd87cf8-4d5d-4aba-8dfa-800b1fb3799b.jpg?1782705988"
+      ],
+      "colors": [
+        "W",
+        "B",
+        "R"
+      ],
+      "scryfallUri": "https://scryfall.com/card/c16/48/tymna-the-weaver?utm_source=api"
+    },
+    {
+      "name": "Cast spells:✔ resolve spells:?",
+      "commanders": [
+        "Ral, Monsoon Mage"
+      ],
+      "format": "cEDH",
+      "moxfield": "https://www.moxfield.com/decks/TetRqZpKZ0aWEVCZdb4zUw",
+      "description": "Ruby storm",
+      "arts": [
+        "https://cards.scryfall.io/art_crop/front/4/3/438d8a26-ddc9-4829-8aff-22d6af6575cf.jpg?1782691166"
+      ],
+      "colors": [
+        "U",
+        "R"
+      ],
+      "scryfallUri": "https://scryfall.com/card/mh3/247/ral-monsoon-mage-ral-leyline-prodigy?utm_source=api"
+    },
+    {
+      "name": "Casual cEDH",
+      "commanders": [
+        "Rograkh, Son of Rohgahh",
+        "Thrasios, Triton Hero"
+      ],
+      "format": "cEDH",
+      "moxfield": "https://www.moxfield.com/decks/GHCGjcFpnEe8smALLiG2XA",
+      "description": "Semi-blue",
+      "arts": [
+        "https://cards.scryfall.io/art_crop/front/a/4/a4fab67f-00c2-4125-9262-d21a29411797.jpg?1782705973",
+        "https://cards.scryfall.io/art_crop/front/2/1/21e27b91-c7f1-4709-aa0d-8b5d81b22a0a.jpg?1782711441"
+      ],
+      "colors": [
+        "U",
+        "R",
+        "G"
+      ],
+      "scryfallUri": "https://scryfall.com/card/cmr/197/rograkh-son-of-rohgahh?utm_source=api"
+    }
+  ]
+}

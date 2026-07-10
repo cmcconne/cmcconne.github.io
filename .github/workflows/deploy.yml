@@ -47,6 +47,11 @@ jobs:
         continue-on-error: true
         run: node scripts/fetch-runescape-stats.mjs
 
+      # Enrich curated MTG decks with Scryfall art. No key needed.
+      - name: Fetch Magic decks
+        continue-on-error: true
+        run: node scripts/fetch-mtg-decks.mjs
+
       - name: Build
         run: npm run build -- --configuration production --base-href /
 

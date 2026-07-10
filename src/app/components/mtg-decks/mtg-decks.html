@@ -1,0 +1,51 @@
+<section class="mtg" aria-label="Magic decks">
+  @if (data(); as d) {
+    @if (d.decks.length) {
+      <div class="deck-grid">
+        @for (deck of d.decks; track deck.name) {
+          <a
+            class="deck-card"
+            [class.no-link]="!link(deck)"
+            [href]="link(deck)"
+            [attr.target]="link(deck) ? '_blank' : null"
+            rel="noopener"
+          >
+            <div class="deck-art" [class.split]="(deck.arts?.length ?? 0) > 1">
+              @if (deck.arts?.length) {
+                @for (art of deck.arts; track $index) {
+                  <div
+                    class="art-slice"
+                    [style.background-image]="art ? 'url(' + art + ')' : null"
+                  ></div>
+                }
+              } @else {
+                <div class="art-slice"></div>
+              }
+            </div>
+            <div class="deck-body">
+              <div class="deck-head">
+                <h3>{{ deck.name }}</h3>
+                <span class="pips" aria-hidden="true">
+                  @for (c of pips(deck); track c) {
+                    <span class="pip" [class]="'pip-' + c" [attr.title]="colorName(c)"></span>
+                  }
+                </span>
+              </div>
+              <p class="deck-commander">{{ deck.commanders.join(' + ') }}</p>
+              <p class="deck-format">{{ deck.format }}</p>
+              @if (deck.description) {
+                <p class="deck-desc">{{ deck.description }}</p>
+              }
+            </div>
+          </a>
+        }
+      </div>
+    } @else {
+      <div class="mtg-pending">No decks yet.</div>
+    }
+  } @else if (loaded()) {
+    <div class="mtg-pending">Couldn't load decks right now.</div>
+  } @else {
+    <div class="mtg-pending">Loading decks…</div>
+  }
+</section>

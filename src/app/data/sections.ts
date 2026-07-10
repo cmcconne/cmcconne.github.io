@@ -58,18 +58,15 @@ export const SECTIONS: Section[] = [
     icon: '🃏',
     logoImage: '/images/mtg-logo.png',
     tagline: 'Planeswalker & deck brewer',
-    intro:
-      'The formats I play, the colours I favour, and the decks I\'ve brewed at the kitchen table and beyond.',
+    intro: 'The decks I\'ve brewed — commander art and colours via Scryfall.',
     accent: '#7c3aed',
-    highlights: [
-      { label: 'Favourite Format', value: 'Commander' },
-      { label: 'Colours', value: 'Golgari (B/G)' },
-      { label: 'Favourite Deck', value: 'Graveyard value' },
-      { label: 'Playing Since', value: 'Kitchen-table days' },
+    highlights: [],
+    notes: [],
+    profiles: [
+      { label: 'Moxfield', url: 'https://www.moxfield.com/users/Cyrikk' },
+      { label: 'TopDeck', url: 'https://topdeck.gg/profile/jsJThSNXDeSSBY1FDBqOpBEnpZC3' },
     ],
-    notes: [
-      'Happiest grinding value out of the graveyard.',
-      'Always down for a Commander pod.',
-    ],
+    statsFeed: '/mtg-decks.json',
+    statsType: 'mtg',
   },
 ];

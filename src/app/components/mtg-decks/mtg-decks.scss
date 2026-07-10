@@ -1,0 +1,114 @@
+.mtg {
+  --accent: var(--accent);
+}
+
+.mtg-pending {
+  padding: 1rem 1.25rem;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.deck-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+
+  &:not(.no-link):hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+  }
+
+  &.no-link {
+    cursor: default;
+  }
+}
+
+.deck-art {
+  display: flex;
+  height: 130px;
+  gap: 2px;
+
+  .art-slice {
+    flex: 1;
+    min-width: 0;
+    background-size: cover;
+    background-position: center 22%;
+    background-color: color-mix(in srgb, var(--accent) 25%, var(--surface));
+  }
+}
+
+.deck-body {
+  padding: 1rem 1.1rem 1.2rem;
+}
+
+.deck-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.25;
+  }
+}
+
+.pips {
+  display: inline-flex;
+  gap: 3px;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.pip {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+// MTG mana colours.
+.pip-W { background: #f8f6d8; }
+.pip-U { background: #0e68ab; }
+.pip-B { background: #4b4b4b; }
+.pip-R { background: #d3202a; }
+.pip-G { background: #00733e; }
+.pip-C { background: #b3aca4; }
+
+.deck-commander {
+  margin: 0.5rem 0 0;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.deck-format {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.deck-desc {
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
