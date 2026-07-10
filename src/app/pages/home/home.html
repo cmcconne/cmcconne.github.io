@@ -14,8 +14,12 @@
       [routerLink]="['/', section.slug]"
       [style.--card-accent]="section.accent"
     >
-      <span class="icon" aria-hidden="true">{{ section.icon }}</span>
-      <h2>{{ section.name }}</h2>
+      @if (section.logoImage) {
+        <img class="card-logo" [src]="section.logoImage" [alt]="section.name" />
+      } @else {
+        <span class="icon" aria-hidden="true">{{ section.icon }}</span>
+        <h2>{{ section.name }}</h2>
+      }
       <p class="tagline">{{ section.tagline }}</p>
       <span class="explore">Explore →</span>
     </a>
