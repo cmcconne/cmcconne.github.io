@@ -57,6 +57,19 @@ try {
 
   out.clan = rp.clan ? { name: rp.clan.name, title: rp.clan.title } : undefined;
   out.collectionCount = (rp.items ?? []).length;
+
+  const caTiers = rp.combatAchievementTiers ?? [];
+  out.combatAchievements = {
+    points: rp.totalCombatAchievementPoints ?? 0,
+    tierReached: rp.combatAchievementTierReached ?? 0,
+    tierReachedName:
+      caTiers.find((t) => t.id === rp.combatAchievementTierReached)?.name ?? null,
+    tiers: caTiers.map((t) => ({
+      name: t.name,
+      completed: t.completedCount,
+      total: t.tasksCount,
+    })),
+  };
   out.recentItems = (rp.recentItems ?? []).map((r) => ({
     itemId: r.data.itemId,
     name: itemNames[r.data.itemId],

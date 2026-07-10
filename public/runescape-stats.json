@@ -1,10 +1,10 @@
 {
   "username": "Stupid Hands",
-  "updatedAt": "2026-07-10T18:58:16.955Z",
+  "updatedAt": "2026-07-10T19:11:42.392Z",
   "overall": {
     "level": 2376,
     "xp": 514314532,
-    "rank": 29318
+    "rank": 29321
   },
   "combatLevel": 126,
   "skills": [
@@ -12,25 +12,25 @@
       "name": "Attack",
       "level": 99,
       "xp": 16380860,
-      "rank": 196941
+      "rank": 196943
     },
     {
       "name": "Defence",
       "level": 99,
       "xp": 20800281,
-      "rank": 67416
+      "rank": 67419
     },
     {
       "name": "Strength",
       "level": 99,
       "xp": 74521544,
-      "rank": 32290
+      "rank": 32291
     },
     {
       "name": "Hitpoints",
       "level": 99,
       "xp": 67570758,
-      "rank": 52193
+      "rank": 52196
     },
     {
       "name": "Ranged",
@@ -42,13 +42,13 @@
       "name": "Prayer",
       "level": 99,
       "xp": 13162344,
-      "rank": 98539
+      "rank": 98540
     },
     {
       "name": "Magic",
       "level": 99,
       "xp": 31627193,
-      "rank": 66899
+      "rank": 66901
     },
     {
       "name": "Cooking",
@@ -60,7 +60,7 @@
       "name": "Woodcutting",
       "level": 99,
       "xp": 15558498,
-      "rank": 62921
+      "rank": 62922
     },
     {
       "name": "Fletching",
@@ -78,13 +78,13 @@
       "name": "Firemaking",
       "level": 99,
       "xp": 13424089,
-      "rank": 137924
+      "rank": 137925
     },
     {
       "name": "Crafting",
       "level": 99,
       "xp": 13995459,
-      "rank": 83300
+      "rank": 83301
     },
     {
       "name": "Smithing",
@@ -126,7 +126,7 @@
       "name": "Farming",
       "level": 99,
       "xp": 13258337,
-      "rank": 300137
+      "rank": 300139
     },
     {
       "name": "Runecraft",
@@ -158,6 +158,43 @@
     "title": "Imp"
   },
   "collectionCount": 505,
+  "combatAchievements": {
+    "points": 1245,
+    "tierReached": 4,
+    "tierReachedName": "Elite",
+    "tiers": [
+      {
+        "name": "Easy",
+        "completed": 36,
+        "total": 41
+      },
+      {
+        "name": "Medium",
+        "completed": 50,
+        "total": 60
+      },
+      {
+        "name": "Hard",
+        "completed": 54,
+        "total": 85
+      },
+      {
+        "name": "Elite",
+        "completed": 104,
+        "total": 162
+      },
+      {
+        "name": "Master",
+        "completed": 81,
+        "total": 168
+      },
+      {
+        "name": "Grandmaster",
+        "completed": 21,
+        "total": 121
+      }
+    ]
+  },
   "recentItems": [
     {
       "itemId": 33663,

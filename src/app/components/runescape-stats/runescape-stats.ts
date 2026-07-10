@@ -49,6 +49,23 @@ export class RunescapeStatsComponent {
     return `https://static.runelite.net/cache/item/icon/${itemId}.png`;
   }
 
+  private readonly TIER_COLORS: Record<string, string> = {
+    Easy: '#b06f3a',
+    Medium: '#9aa0a6',
+    Hard: '#5aa9d6',
+    Elite: '#57c98a',
+    Master: '#b57ded',
+    Grandmaster: '#e8b23a',
+  };
+
+  protected tierColor(name: string): string {
+    return this.TIER_COLORS[name] ?? 'var(--accent)';
+  }
+
+  protected pct(completed: number, total: number): number {
+    return total ? Math.round((completed / total) * 100) : 0;
+  }
+
   /** Tooltip with rank and XP for a skill. */
   protected skillTitle(skill: OsrsSkill): string {
     const rank = skill.rank >= 0 ? skill.rank.toLocaleString() : 'unranked';

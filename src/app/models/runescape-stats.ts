@@ -48,4 +48,18 @@ export interface RunescapeStats {
   collectionCount?: number;
   recentItems?: RsRecentItem[];
   recentActivities?: RsActivity[];
+  combatAchievements?: CombatAchievements;
+}
+
+export interface CaTier {
+  name: string;
+  completed: number;
+  total: number;
+}
+
+export interface CombatAchievements {
+  points: number;
+  tierReached: number;
+  tierReachedName: string | null;
+  tiers: CaTier[];
 }
