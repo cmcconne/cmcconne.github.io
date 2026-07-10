@@ -11,6 +11,17 @@ export interface RankedEntry {
   winRate: number;
 }
 
+/** One coaching note, tagged so recurring themes can be counted. */
+export interface Insight {
+  tag: string;
+  text: string;
+}
+
+export interface MatchInsights {
+  good: Insight[];
+  bad: Insight[];
+}
+
 /** A single recent match from Riot's match-v5 API. */
 export interface Match {
   matchId: string;
@@ -26,6 +37,43 @@ export interface Match {
   durationSec: number;
   /** Epoch milliseconds of when the game ended */
   endTimestamp: number;
+  // --- deeper stats (present on newer feeds) ---
+  /** TOP / JUNGLE / MIDDLE / BOTTOM / UTILITY */
+  position?: string | null;
+  cs?: number;
+  csPerMin?: number;
+  goldPerMin?: number;
+  damage?: number;
+  /** Whole percentage of team damage. */
+  damageShare?: number | null;
+  visionScore?: number;
+  visionPerMin?: number;
+  /** Whole percentage. */
+  killParticipation?: number | null;
+  soloKills?: number;
+  controlWards?: number;
+  wardsPlaced?: number;
+  largestMultiKill?: number;
+  firstBlood?: boolean;
+  /** Max CS lead over lane opponent. */
+  csLead?: number | null;
+  /** Item ids (final build + trinket). */
+  items?: number[];
+  remake?: boolean;
+  insights?: MatchInsights;
+}
+
+/** Aggregate over the recent matches — the improvement dashboard. */
+export interface LolSummary {
+  games: number;
+  wins: number;
+  avgKda: number;
+  avgDeaths: number;
+  avgCsPerMin: number | null;
+  avgKp: number;
+  avgVisionPerMin: number;
+  strengths: { tag: string; count: number }[];
+  focusAreas: { tag: string; count: number }[];
 }
 
 /**
@@ -41,6 +89,9 @@ export interface LolStats {
   updatedAt?: string;
   summonerLevel?: number;
   profileIconId?: number;
+  /** Data Dragon version for item icons. */
+  ddragonVersion?: string | null;
   ranked?: RankedEntry[];
   matches?: Match[];
+  summary?: LolSummary | null;
 }

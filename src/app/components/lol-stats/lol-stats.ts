@@ -1,5 +1,5 @@
 import { Component, effect, inject, input, signal } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { LolStats, Match, RankedEntry } from '../../models/lol-stats';
 
@@ -28,9 +28,33 @@ const QUEUE_IDS: Record<number, string> = {
   1900: 'URF',
 };
 
+// Human labels for insight tags (used in the improvement summary chips).
+const TAG_LABELS: Record<string, string> = {
+  deaths: 'Deaths',
+  discipline: 'Low deaths',
+  kda: 'Strong KDA',
+  kp: 'Kill participation',
+  cs: 'CS / farming',
+  laning: 'Lane dominance',
+  vision: 'Vision control',
+  'control-wards': 'Control wards',
+  damage: 'Damage output',
+  'solo-kills': 'Solo kills',
+  'first-blood': 'First bloods',
+  multikill: 'Multikills',
+};
+
+const POSITION_LABELS: Record<string, string> = {
+  TOP: 'Top',
+  JUNGLE: 'Jungle',
+  MIDDLE: 'Mid',
+  BOTTOM: 'ADC',
+  UTILITY: 'Support',
+};
+
 @Component({
   selector: 'app-lol-stats',
-  imports: [DatePipe],
+  imports: [DatePipe, DecimalPipe],
   templateUrl: './lol-stats.html',
   styleUrl: './lol-stats.scss',
 })
@@ -46,6 +70,9 @@ export class LolStatsComponent {
   /** null = not loaded/failed; otherwise the fetched feed. */
   protected readonly stats = signal<LolStats | null>(null);
   protected readonly statsLoaded = signal(false);
+
+  /** Which match row is expanded (matchId), if any. */
+  protected readonly expandedId = signal<string | null>(null);
 
   constructor() {
     effect(() => {
@@ -132,5 +159,36 @@ export class LolStatsComponent {
     if (hours < 24) return `${hours}h ago`;
     const days = Math.floor(hours / 24);
     return `${days}d ago`;
+  }
+
+  // --- Improvement tracker helpers -----------------------------------------
+
+  protected toggle(matchId: string): void {
+    this.expandedId.set(this.expandedId() === matchId ? null : matchId);
+  }
+
+  /** Whether this match has the deeper stats (newer feeds only). */
+  protected hasDetail(m: Match): boolean {
+    return m.csPerMin !== undefined;
+  }
+
+  protected positionLabel(m: Match): string | null {
+    return m.position ? (POSITION_LABELS[m.position] ?? m.position) : null;
+  }
+
+  protected tagLabel(tag: string): string {
+    return TAG_LABELS[tag] ?? tag;
+  }
+
+  /** Item icon via Data Dragon (needs the feed's ddragonVersion). */
+  protected itemIcon(stats: LolStats, itemId: number): string | null {
+    return stats.ddragonVersion
+      ? `https://ddragon.leagueoflegends.com/cdn/${stats.ddragonVersion}/img/item/${itemId}.png`
+      : null;
+  }
+
+  protected summaryWinRate(stats: LolStats): number {
+    const s = stats.summary;
+    return s?.games ? Math.round((s.wins / s.games) * 100) : 0;
   }
 }

@@ -48,6 +48,59 @@
         }
       </div>
 
+      @if (st.summary; as sum) {
+        <div class="coach">
+          <div class="stats-head">
+            <h2>Improvement tracker</h2>
+            <span class="coach-sub">last {{ sum.games }} games</span>
+          </div>
+          <div class="coach-tiles">
+            <div class="coach-tile">
+              <span class="v">{{ summaryWinRate(st) }}%</span>
+              <span class="l">Win rate</span>
+            </div>
+            <div class="coach-tile">
+              <span class="v">{{ sum.avgKda | number: '1.1-1' }}</span>
+              <span class="l">Avg KDA</span>
+            </div>
+            <div class="coach-tile">
+              <span class="v">{{ sum.avgDeaths | number: '1.1-1' }}</span>
+              <span class="l">Avg deaths</span>
+            </div>
+            @if (sum.avgCsPerMin !== null) {
+              <div class="coach-tile">
+                <span class="v">{{ sum.avgCsPerMin | number: '1.1-1' }}</span>
+                <span class="l">CS / min</span>
+              </div>
+            }
+            <div class="coach-tile">
+              <span class="v">{{ sum.avgKp }}%</span>
+              <span class="l">Kill participation</span>
+            </div>
+            <div class="coach-tile">
+              <span class="v">{{ sum.avgVisionPerMin | number: '1.2-2' }}</span>
+              <span class="l">Vision / min</span>
+            </div>
+          </div>
+          @if (sum.strengths.length) {
+            <div class="coach-row">
+              <span class="coach-label good">Strengths</span>
+              @for (s of sum.strengths; track s.tag) {
+                <span class="coach-chip good">{{ tagLabel(s.tag) }} ×{{ s.count }}</span>
+              }
+            </div>
+          }
+          @if (sum.focusAreas.length) {
+            <div class="coach-row">
+              <span class="coach-label bad">Focus areas</span>
+              @for (f of sum.focusAreas; track f.tag) {
+                <span class="coach-chip bad">{{ tagLabel(f.tag) }} ×{{ f.count }}</span>
+              }
+            </div>
+          }
+        </div>
+      }
+
       @if (st.matches?.length) {
         <div class="stats-head matches-head">
           <h2>Recent matches</h2>
@@ -59,27 +112,91 @@
         </div>
         <ul class="matches">
           @for (m of st.matches; track m.matchId) {
-            <li class="match" [class.win]="m.win" [class.loss]="!m.win">
-              <img
-                class="champ-icon"
-                [src]="championIcon(m)"
-                [alt]="m.champion"
-                loading="lazy"
-                width="40"
-                height="40"
-              />
-              <div class="match-main">
-                <span class="champ-name">{{ m.champion }}</span>
-                <span class="match-queue">{{ matchQueue(m) }}</span>
-              </div>
-              <div class="match-kda">
-                <span class="kda">{{ kda(m) }}</span>
-                <span class="kda-ratio">{{ kdaRatio(m) }} KDA</span>
-              </div>
-              <div class="match-meta">
-                <span class="result">{{ m.win ? 'Win' : 'Loss' }}</span>
-                <span class="when">{{ duration(m) }} · {{ timeAgo(m) }}</span>
-              </div>
+            <li class="match" [class.win]="m.win" [class.loss]="!m.win" [class.open]="expandedId() === m.matchId">
+              <button
+                class="match-row"
+                (click)="hasDetail(m) && toggle(m.matchId)"
+                [disabled]="!hasDetail(m)"
+                [attr.aria-expanded]="expandedId() === m.matchId"
+              >
+                <img
+                  class="champ-icon"
+                  [src]="championIcon(m)"
+                  [alt]="m.champion"
+                  loading="lazy"
+                  width="40"
+                  height="40"
+                />
+                <span class="match-main">
+                  <span class="champ-name">
+                    {{ m.champion }}
+                    @if (positionLabel(m); as pos) {
+                      <span class="match-pos">{{ pos }}</span>
+                    }
+                    @if (m.remake) {
+                      <span class="match-remake">Remake</span>
+                    }
+                  </span>
+                  <span class="match-queue">{{ matchQueue(m) }}</span>
+                </span>
+                <span class="match-kda">
+                  <span class="kda">{{ kda(m) }}</span>
+                  <span class="kda-ratio">{{ kdaRatio(m) }} KDA</span>
+                </span>
+                <span class="match-meta">
+                  <span class="result">{{ m.win ? 'Win' : 'Loss' }}</span>
+                  <span class="when">{{ duration(m) }} · {{ timeAgo(m) }}</span>
+                </span>
+                @if (hasDetail(m)) {
+                  <span class="match-chevron" aria-hidden="true">▾</span>
+                }
+              </button>
+
+              @if (expandedId() === m.matchId && hasDetail(m)) {
+                <div class="match-detail">
+                  <div class="detail-grid">
+                    <div class="dstat"><span class="dv">{{ m.cs }} <em>({{ m.csPerMin }}/m)</em></span><span class="dl">CS</span></div>
+                    <div class="dstat"><span class="dv">{{ m.goldPerMin }}</span><span class="dl">Gold / min</span></div>
+                    @if (m.damageShare !== null) {
+                      <div class="dstat"><span class="dv">{{ m.damageShare }}%</span><span class="dl">Dmg share</span></div>
+                    }
+                    @if (m.killParticipation !== null) {
+                      <div class="dstat"><span class="dv">{{ m.killParticipation }}%</span><span class="dl">Kill part.</span></div>
+                    }
+                    <div class="dstat"><span class="dv">{{ m.visionScore }} <em>({{ m.visionPerMin }}/m)</em></span><span class="dl">Vision</span></div>
+                    <div class="dstat"><span class="dv">{{ m.controlWards }}</span><span class="dl">Ctrl wards</span></div>
+                    @if (m.soloKills) {
+                      <div class="dstat"><span class="dv">{{ m.soloKills }}</span><span class="dl">Solo kills</span></div>
+                    }
+                  </div>
+
+                  @if (m.items?.length && st.ddragonVersion) {
+                    <div class="detail-items">
+                      @for (it of m.items; track $index) {
+                        <img [src]="itemIcon(st, it)" alt="" loading="lazy" width="28" height="28" />
+                      }
+                    </div>
+                  }
+
+                  @if (m.insights?.good?.length) {
+                    <ul class="insights good">
+                      @for (i of m.insights!.good; track i.text) {
+                        <li>{{ i.text }}</li>
+                      }
+                    </ul>
+                  }
+                  @if (m.insights?.bad?.length) {
+                    <ul class="insights bad">
+                      @for (i of m.insights!.bad; track i.text) {
+                        <li>{{ i.text }}</li>
+                      }
+                    </ul>
+                  }
+                  @if (!m.insights?.good?.length && !m.insights?.bad?.length && !m.remake) {
+                    <p class="insights-none">A steady, unremarkable game — nothing stood out either way.</p>
+                  }
+                </div>
+              }
             </li>
           }
         </ul>
