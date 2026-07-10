@@ -49,6 +49,9 @@ export interface RunescapeStats {
   recentItems?: RsRecentItem[];
   recentActivities?: RsActivity[];
   combatAchievements?: CombatAchievements;
+  /** Whether a self-hosted 3D player/pet model is available to render. */
+  hasModel?: boolean;
+  hasPet?: boolean;
 }
 
 export interface CaTier {

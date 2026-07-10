@@ -1,18 +1,29 @@
 import { Component, computed, effect, inject, input, signal } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { OsrsSkill, RunescapeStats } from '../../models/runescape-stats';
+import { OsrsCharacterComponent } from '../osrs-character/osrs-character';
+
+// OSRS in-game stats-panel order (fills the 3-column grid row by row).
+const SKILL_ORDER = [
+  'Attack', 'Hitpoints', 'Mining',
+  'Strength', 'Agility', 'Smithing',
+  'Defence', 'Herblore', 'Fishing',
+  'Ranged', 'Thieving', 'Cooking',
+  'Prayer', 'Crafting', 'Firemaking',
+  'Magic', 'Fletching', 'Woodcutting',
+  'Runecraft', 'Slayer', 'Farming',
+  'Construction', 'Hunter', 'Sailing',
+];
 
 @Component({
   selector: 'app-runescape-stats',
-  imports: [DatePipe, DecimalPipe],
+  imports: [DatePipe, DecimalPipe, OsrsCharacterComponent],
   templateUrl: './runescape-stats.html',
   styleUrl: './runescape-stats.scss',
 })
 export class RunescapeStatsComponent {
   private readonly http = inject(HttpClient);
-  private readonly sanitizer = inject(DomSanitizer);
 
   /** Path to the stats JSON feed. */
   readonly feed = input.required<string>();
@@ -20,17 +31,24 @@ export class RunescapeStatsComponent {
   protected readonly stats = signal<RunescapeStats | null>(null);
   protected readonly statsLoaded = signal(false);
 
-  /** Trusted RuneProfile embed URL for the current player. */
-  protected readonly embedUrl = computed<SafeResourceUrl | null>(() => {
-    const username = this.stats()?.username;
-    return username
-      ? this.sanitizer.bypassSecurityTrustResourceUrl(
-          `https://runeprofile.com/${encodeURIComponent(username)}`,
-        )
-      : null;
+  /** Skills reordered to match the OSRS in-game stats panel. */
+  protected readonly orderedSkills = computed<OsrsSkill[]>(() => {
+    const skills = this.stats()?.skills ?? [];
+    const byName = new Map(skills.map((s) => [s.name, s]));
+    return SKILL_ORDER.map(
+      (name) =>
+        byName.get(name) ?? { name, level: 1, xp: 0, rank: -1 },
+    );
   });
 
-  /** Plain RuneProfile URL (for the open-in-new-tab link). */
+  /** OSRS level colour: green at 99, red at 1, yellow otherwise. */
+  protected levelClass(skill: OsrsSkill): string {
+    if (skill.level >= 99) return 'lvl-max';
+    if (skill.level <= 1) return 'lvl-min';
+    return '';
+  }
+
+  /** Plain RuneProfile URL (for the credit / open-in-new-tab link). */
   protected readonly profileUrl = computed(() => {
     const username = this.stats()?.username;
     return username

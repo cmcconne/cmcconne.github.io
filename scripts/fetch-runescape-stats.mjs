@@ -3,7 +3,7 @@
 // A failed fetch exits non-zero; the deploy step is continue-on-error, so the
 // last committed data stays in place.
 
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, mkdirSync } from 'node:fs';
 
 const PLAYER = 'Stupid Hands';
 const OUT = 'public/runescape-stats.json';
@@ -95,6 +95,28 @@ try {
   );
 } catch (err) {
   console.error(`RuneProfile enrich skipped: ${err.message}`);
+}
+
+// Fetch the RuneProfile 3D player/pet models (binary PLY) for native rendering.
+try {
+  mkdirSync('public/models', { recursive: true });
+  const mRes = await fetch(
+    `https://api.runeprofile.com/profiles/models/${encodeURIComponent(PLAYER.toLowerCase())}?pet=true`,
+    { headers: { 'User-Agent': 'charlies-showcase (personal site)' } },
+  );
+  if (!mRes.ok) throw new Error(`${mRes.status} ${mRes.statusText}`);
+  const m = await mRes.json();
+  if (m.playerModelBase64) {
+    writeFileSync('public/models/osrs-player.ply', Buffer.from(m.playerModelBase64, 'base64'));
+    out.hasModel = true;
+  }
+  if (m.petModelBase64) {
+    writeFileSync('public/models/osrs-pet.ply', Buffer.from(m.petModelBase64, 'base64'));
+    out.hasPet = true;
+  }
+  console.log(`Models: player=${!!m.playerModelBase64} pet=${!!m.petModelBase64}`);
+} catch (err) {
+  console.error(`Model fetch skipped: ${err.message}`);
 }
 
 writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');

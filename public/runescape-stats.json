@@ -1,10 +1,10 @@
 {
   "username": "Stupid Hands",
-  "updatedAt": "2026-07-10T19:11:42.392Z",
+  "updatedAt": "2026-07-10T19:37:39.935Z",
   "overall": {
     "level": 2376,
-    "xp": 514314532,
-    "rank": 29321
+    "xp": 514315084,
+    "rank": 29323
   },
   "combatLevel": 126,
   "skills": [
@@ -12,7 +12,7 @@
       "name": "Attack",
       "level": 99,
       "xp": 16380860,
-      "rank": 196943
+      "rank": 196945
     },
     {
       "name": "Defence",
@@ -24,25 +24,25 @@
       "name": "Strength",
       "level": 99,
       "xp": 74521544,
-      "rank": 32291
+      "rank": 32292
     },
     {
       "name": "Hitpoints",
       "level": 99,
       "xp": 67570758,
-      "rank": 52196
+      "rank": 52199
     },
     {
       "name": "Ranged",
       "level": 99,
       "xp": 59581749,
-      "rank": 66755
+      "rank": 66756
     },
     {
       "name": "Prayer",
       "level": 99,
       "xp": 13162344,
-      "rank": 98540
+      "rank": 98541
     },
     {
       "name": "Magic",
@@ -54,31 +54,31 @@
       "name": "Cooking",
       "level": 99,
       "xp": 13184205,
-      "rank": 254883
+      "rank": 254885
     },
     {
       "name": "Woodcutting",
       "level": 99,
       "xp": 15558498,
-      "rank": 62922
+      "rank": 62924
     },
     {
       "name": "Fletching",
       "level": 99,
       "xp": 13476063,
-      "rank": 89278
+      "rank": 89281
     },
     {
       "name": "Fishing",
       "level": 99,
       "xp": 13050812,
-      "rank": 152092
+      "rank": 152094
     },
     {
       "name": "Firemaking",
       "level": 99,
       "xp": 13424089,
-      "rank": 137925
+      "rank": 137927
     },
     {
       "name": "Crafting",
@@ -107,8 +107,8 @@
     {
       "name": "Agility",
       "level": 99,
-      "xp": 13056563,
-      "rank": 105533
+      "xp": 13057115,
+      "rank": 105325
     },
     {
       "name": "Thieving",
@@ -120,25 +120,25 @@
       "name": "Slayer",
       "level": 99,
       "xp": 15534037,
-      "rank": 131044
+      "rank": 131047
     },
     {
       "name": "Farming",
       "level": 99,
       "xp": 13258337,
-      "rank": 300139
+      "rank": 300142
     },
     {
       "name": "Runecraft",
       "level": 99,
       "xp": 13035460,
-      "rank": 116847
+      "rank": 116848
     },
     {
       "name": "Hunter",
       "level": 99,
       "xp": 13034586,
-      "rank": 150001
+      "rank": 150002
     },
     {
       "name": "Construction",
@@ -150,7 +150,7 @@
       "name": "Sailing",
       "level": 99,
       "xp": 13289933,
-      "rank": 25734
+      "rank": 25736
     }
   ],
   "clan": {
@@ -324,5 +324,7 @@
       "name": "Broken zombie axe",
       "value": 1107003
     }
-  ]
+  ],
+  "hasModel": true,
+  "hasPet": true
 }

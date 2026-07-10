@@ -1,6 +1,42 @@
 <section class="rs-stats" aria-label="RuneScape stats">
   @if (stats(); as st) {
     @if (st.skills?.length) {
+      <div class="rs-top">
+        @if (st.hasModel) {
+          <div class="character-panel">
+            @defer (on idle) {
+              <app-osrs-character
+                [playerUrl]="'/models/osrs-player.ply'"
+                [petUrl]="st.hasPet ? '/models/osrs-pet.ply' : null"
+              />
+            } @placeholder {
+              <div class="character-loading">Loading character…</div>
+            }
+          </div>
+        }
+
+        <div class="skills-panel">
+          <div class="skills-grid">
+            @for (skill of orderedSkills(); track skill.name) {
+              <div class="rs-tile" [attr.title]="skillTitle(skill)">
+                <img class="rs-tile-icon" [src]="skillIcon(skill)" [alt]="skill.name" loading="lazy" />
+                <span class="rs-level" [class]="levelClass(skill)">{{ skill.level }}</span>
+              </div>
+            }
+          </div>
+          <div class="skills-summary">
+            <div class="rs-tile summary">
+              <img class="rs-tile-icon" src="/images/osrs/combat.png" alt="Combat level" />
+              <span class="rs-level" [class.lvl-max]="st.combatLevel === 126">{{ st.combatLevel }}</span>
+            </div>
+            <div class="rs-tile summary">
+              <img class="rs-tile-icon" src="/images/osrs/total-level.png" alt="Total level" />
+              <span class="rs-level" [class.lvl-max]="st.overall?.level === 2376">{{ st.overall?.level | number }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="profile-card">
         <div class="profile-info">
           <span class="username">{{ st.username }}</span>
@@ -12,14 +48,6 @@
           </span>
         </div>
         <div class="totals">
-          <div class="total">
-            <span class="total-value">{{ st.overall?.level | number }}</span>
-            <span class="total-label">Total level</span>
-          </div>
-          <div class="total">
-            <span class="total-value">{{ st.combatLevel }}</span>
-            <span class="total-label">Combat</span>
-          </div>
           @if (st.overall?.xp) {
             <div class="total">
               <span class="total-value">{{ gp(st.overall!.xp) }}</span>
@@ -29,15 +57,6 @@
         </div>
         @if (st.updatedAt) {
           <span class="updated">Updated {{ st.updatedAt | date: 'short' }}</span>
-        }
-      </div>
-
-      <div class="skills-grid">
-        @for (skill of st.skills; track skill.name) {
-          <div class="skill" [attr.title]="skillTitle(skill)">
-            <img class="skill-icon" [src]="skillIcon(skill)" [alt]="skill.name" loading="lazy" />
-            <span class="skill-level">{{ skill.level }}</span>
-          </div>
         }
       </div>
 
@@ -126,27 +145,10 @@
         </p>
       }
 
-      @if (embedUrl(); as url) {
-        <div class="panel embed-panel">
-          <div class="panel-head">
-            <h2>Full RuneProfile</h2>
-            <a class="panel-link" [href]="profileUrl()" target="_blank" rel="noopener">
-              Open ↗
-            </a>
-          </div>
-          <p class="embed-note">
-            Live from runeprofile.com — includes the 3D character render and full
-            collection log.
-          </p>
-          <iframe
-            class="rp-embed"
-            [src]="url"
-            title="RuneProfile — Stupid Hands"
-            loading="lazy"
-            referrerpolicy="no-referrer"
-          ></iframe>
-        </div>
-      }
+      <p class="rp-credit">
+        Character render & data via
+        <a [href]="profileUrl()" target="_blank" rel="noopener">RuneProfile</a>.
+      </p>
     } @else {
       <div class="stats-pending">
         {{ st.note || 'No RuneScape stats available — the account may not be on the Hiscores.' }}

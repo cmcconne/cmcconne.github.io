@@ -1,5 +1,21 @@
 /* Global styles for Charlie's Hall of Fame */
 
+/* OSRS RuneScape font (used by the skills panel) */
+@font-face {
+  font-family: 'RuneScape';
+  src: url('/fonts/runescape.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RuneScape';
+  src: url('/fonts/runescape-bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #faf9f6;
   --surface: #ffffff;
