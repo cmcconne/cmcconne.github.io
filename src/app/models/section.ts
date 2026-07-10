@@ -15,8 +15,10 @@ export interface Section {
   /** URL-friendly unique id, e.g. "league-of-legends" */
   slug: string;
   name: string;
-  /** Emoji shown as the section icon */
+  /** Emoji shown as the section icon (fallback when logoImage is unset) */
   icon: string;
+  /** Optional logo/wordmark image shown in the section header instead of the emoji + title */
+  logoImage?: string;
   /** Short one-liner shown on the home card */
   tagline: string;
   /** Longer intro shown at the top of the section page */

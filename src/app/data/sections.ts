@@ -12,9 +12,9 @@ export const SECTIONS: Section[] = [
     slug: 'league-of-legends',
     name: 'League of Legends',
     icon: '⚔️',
+    logoImage: '/images/league-of-legends-logo.svg',
     tagline: 'Summoner on the Rift',
-    intro:
-      'My journey on Summoner\'s Rift — the roles I main, the champions I love, and where I\'ve climbed. Live rank and level are pulled from Riot\'s API below.',
+    intro: '',
     accent: '#0596aa',
     // The LoL page is driven entirely by live Riot data below.
     highlights: [],

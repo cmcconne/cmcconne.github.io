@@ -38,6 +38,24 @@
   }
 }
 
+// Header showing an official wordmark logo instead of emoji + text.
+.head-logo {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+
+  .wordmark {
+    margin: 0;
+    line-height: 0;
+
+    img {
+      display: block;
+      width: clamp(220px, 42vw, 320px);
+      height: auto;
+    }
+  }
+}
+
 .intro {
   margin: 1.75rem 0 2rem;
   font-size: 1.15rem;
