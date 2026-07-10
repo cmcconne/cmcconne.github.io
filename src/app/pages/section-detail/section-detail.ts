@@ -8,6 +8,8 @@ import { LolStats, RankedEntry } from '../../models/lol-stats';
 const QUEUE_NAMES: Record<string, string> = {
   RANKED_SOLO_5x5: 'Ranked Solo/Duo',
   RANKED_FLEX_SR: 'Ranked Flex',
+  RANKED_PREMADE_5x5: 'Ranked 5v5',
+  RANKED_TFT: 'Teamfight Tactics',
 };
 
 @Component({
@@ -51,7 +53,15 @@ export class SectionDetail {
   }
 
   protected queueName(entry: RankedEntry): string {
-    return QUEUE_NAMES[entry.queue] ?? entry.queue;
+    if (QUEUE_NAMES[entry.queue]) {
+      return QUEUE_NAMES[entry.queue];
+    }
+    // Fallback: "RANKED_PREMADE_5x5" -> "Premade 5x5"
+    return entry.queue
+      .replace(/^RANKED_/, '')
+      .toLowerCase()
+      .replace(/_/g, ' ')
+      .replace(/\b\w/g, (c) => c.toUpperCase());
   }
 
   /** "GOLD" + "II" -> "Gold II" */
