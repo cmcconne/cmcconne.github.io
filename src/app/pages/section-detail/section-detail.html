@@ -60,6 +60,41 @@
                 </div>
               }
             </div>
+
+            @if (st.matches?.length) {
+              <div class="stats-head matches-head">
+                <h2>Recent matches</h2>
+                <a class="matches-source" [href]="s.profiles?.[1]?.url" target="_blank" rel="noopener">
+                  Full history on u.gg ↗
+                </a>
+              </div>
+              <ul class="matches">
+                @for (m of st.matches; track m.matchId) {
+                  <li class="match" [class.win]="m.win" [class.loss]="!m.win">
+                    <img
+                      class="champ-icon"
+                      [src]="championIcon(m)"
+                      [alt]="m.champion"
+                      loading="lazy"
+                      width="40"
+                      height="40"
+                    />
+                    <div class="match-main">
+                      <span class="champ-name">{{ m.champion }}</span>
+                      <span class="match-queue">{{ matchQueue(m) }}</span>
+                    </div>
+                    <div class="match-kda">
+                      <span class="kda">{{ kda(m) }}</span>
+                      <span class="kda-ratio">{{ kdaRatio(m) }} KDA</span>
+                    </div>
+                    <div class="match-meta">
+                      <span class="result">{{ m.win ? 'Win' : 'Loss' }}</span>
+                      <span class="when">{{ duration(m) }} · {{ timeAgo(m) }}</span>
+                    </div>
+                  </li>
+                }
+              </ul>
+            }
           }
         } @else if (statsLoaded()) {
           <div class="stats-pending">Couldn't load live stats right now.</div>

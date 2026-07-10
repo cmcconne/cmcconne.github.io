@@ -21,10 +21,19 @@ if (!API_KEY) {
   process.exit(0);
 }
 
+const MATCH_COUNT = 20;
+
 const headers = { 'X-Riot-Token': API_KEY };
 
-async function riot(url) {
+async function riot(url, retries = 2) {
   const res = await fetch(url, { headers });
+  // Respect Riot's rate limits — back off and retry on 429.
+  if (res.status === 429 && retries > 0) {
+    const wait = Number(res.headers.get('retry-after') ?? 2);
+    console.log(`  rate limited, waiting ${wait + 1}s…`);
+    await new Promise((r) => setTimeout(r, (wait + 1) * 1000));
+    return riot(url, retries - 1);
+  }
   if (!res.ok) {
     const body = await res.text().catch(() => '');
     throw new Error(`${res.status} ${res.statusText} for ${url}\n${body}`);
@@ -60,16 +69,52 @@ try {
     };
   });
 
+  // Recent matches (match-v5 uses regional routing, same as account-v1).
+  const matchIds = await riot(
+    `https://${REGION}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids` +
+      `?start=0&count=${MATCH_COUNT}`,
+  );
+
+  const matches = [];
+  for (const id of matchIds) {
+    try {
+      const m = await riot(
+        `https://${REGION}.api.riotgames.com/lol/match/v5/matches/${id}`,
+      );
+      const p = m.info.participants.find((x) => x.puuid === puuid);
+      if (!p) continue;
+      matches.push({
+        matchId: id,
+        champion: p.championName,
+        championId: p.championId,
+        win: p.win,
+        kills: p.kills,
+        deaths: p.deaths,
+        assists: p.assists,
+        queueId: m.info.queueId,
+        durationSec: m.info.gameDuration,
+        endTimestamp:
+          m.info.gameEndTimestamp ??
+          m.info.gameCreation + m.info.gameDuration * 1000,
+      });
+    } catch (err) {
+      console.error(`  skipped match ${id}: ${err.message}`);
+    }
+  }
+
   const data = {
     riotId: `${account.gameName}#${account.tagLine}`,
     updatedAt: new Date().toISOString(),
     summonerLevel: summoner.summonerLevel,
     profileIconId: summoner.profileIconId,
     ranked,
+    matches,
   };
 
   writeFileSync(OUT, JSON.stringify(data, null, 2) + '\n');
-  console.log(`Wrote ${OUT} — ${ranked.length} ranked queue(s).`);
+  console.log(
+    `Wrote ${OUT} — ${ranked.length} ranked queue(s), ${matches.length} match(es).`,
+  );
 } catch (err) {
   console.error('Failed to fetch LoL stats:', err.message);
   process.exit(1);
