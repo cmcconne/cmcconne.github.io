@@ -4,6 +4,12 @@ export interface Highlight {
   value: string;
 }
 
+/** An outbound link to an external profile (op.gg, u.gg, etc.). */
+export interface ProfileLink {
+  label: string;
+  url: string;
+}
+
 /** A showcase section — one of Charlie's interests. */
 export interface Section {
   /** URL-friendly unique id, e.g. "league-of-legends" */
@@ -21,4 +27,11 @@ export interface Section {
   highlights: Highlight[];
   /** Free-form bullet points (favourites, goals, fun facts) */
   notes: string[];
+  /** Optional external profile links (rendered as buttons) */
+  profiles?: ProfileLink[];
+  /**
+   * Optional path to a JSON stats feed (served as a static asset). When set,
+   * the section page fetches it and renders an embedded live-stats block.
+   */
+  statsFeed?: string;
 }

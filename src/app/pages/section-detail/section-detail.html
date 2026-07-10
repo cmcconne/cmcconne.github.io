@@ -12,6 +12,63 @@
 
     <p class="intro">{{ s.intro }}</p>
 
+    @if (s.profiles?.length) {
+      <div class="profiles">
+        @for (profile of s.profiles; track profile.url) {
+          <a class="profile-btn" [href]="profile.url" target="_blank" rel="noopener">
+            {{ profile.label }} ↗
+          </a>
+        }
+      </div>
+    }
+
+    <!-- Embedded live stats (currently League of Legends only) -->
+    @if (s.statsFeed) {
+      <section class="live-stats" aria-label="Live stats">
+        @if (stats(); as st) {
+          @if (st.placeholder) {
+            <div class="stats-pending">
+              <strong>Live stats pending.</strong> Rank and level will appear here
+              once the Riot API key is connected. Meanwhile, use the profile links
+              above.
+            </div>
+          } @else {
+            <div class="stats-head">
+              <h2>Live stats</h2>
+              @if (st.updatedAt) {
+                <span class="updated">Updated {{ st.updatedAt | date: 'medium' }}</span>
+              }
+            </div>
+
+            <div class="highlights">
+              @if (st.summonerLevel) {
+                <div class="stat">
+                  <span class="stat-label">Level</span>
+                  <span class="stat-value">{{ st.summonerLevel }}</span>
+                </div>
+              }
+              @for (r of st.ranked; track r.queue) {
+                <div class="stat">
+                  <span class="stat-label">{{ queueName(r) }}</span>
+                  <span class="stat-value">{{ rankLabel(r) }} · {{ r.leaguePoints }} LP</span>
+                  <span class="stat-sub">{{ r.wins }}W / {{ r.losses }}L · {{ r.winRate }}% WR</span>
+                </div>
+              } @empty {
+                <div class="stat">
+                  <span class="stat-label">Ranked</span>
+                  <span class="stat-value">Unranked</span>
+                </div>
+              }
+            </div>
+          }
+        } @else if (statsLoaded()) {
+          <div class="stats-pending">Couldn't load live stats right now.</div>
+        } @else {
+          <div class="stats-pending">Loading live stats…</div>
+        }
+      </section>
+    }
+
     <section class="highlights" aria-label="Highlights">
       @for (h of s.highlights; track h.label) {
         <div class="stat">

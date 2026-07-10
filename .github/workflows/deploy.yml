@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Refresh live stats every 6 hours.
+  schedule:
+    - cron: '0 */6 * * *'
 
 permissions:
   contents: read
@@ -30,6 +33,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # Pulls real LoL stats into public/lol-stats.json. No-ops without the
+      # secret; a failed fetch (e.g. expired key) leaves the placeholder intact.
+      - name: Fetch League of Legends stats
+        continue-on-error: true
+        env:
+          RIOT_API_KEY: ${{ secrets.RIOT_API_KEY }}
+        run: node scripts/fetch-lol-stats.mjs
 
       - name: Build
         run: npm run build -- --configuration production --base-href /

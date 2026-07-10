@@ -14,10 +14,10 @@ export const SECTIONS: Section[] = [
     icon: '⚔️',
     tagline: 'Summoner on the Rift',
     intro:
-      'My journey on Summoner\'s Rift — the roles I main, the champions I love, and where I\'ve climbed.',
+      'My journey on Summoner\'s Rift — the roles I main, the champions I love, and where I\'ve climbed. Live rank and level are pulled from Riot\'s API below.',
     accent: '#0596aa',
+    // Curated facts the API doesn't provide (edit freely).
     highlights: [
-      { label: 'Peak Rank', value: 'Platinum IV' },
       { label: 'Main Role', value: 'Mid' },
       { label: 'Favourite Champions', value: 'Ahri · Syndra · Yasuo' },
       { label: 'Playing Since', value: 'Season 6' },
@@ -26,6 +26,17 @@ export const SECTIONS: Section[] = [
       'Prefer control mages and outplay-heavy champions.',
       'Goal: hit Diamond this season.',
     ],
+    profiles: [
+      {
+        label: 'op.gg',
+        url: 'https://www.op.gg/summoners/na/Naked%20and%20Afraid-lost',
+      },
+      {
+        label: 'u.gg',
+        url: 'https://u.gg/lol/profile/na1/Naked%20and%20Afraid-lost/overview',
+      },
+    ],
+    statsFeed: '/lol-stats.json',
   },
   {
     slug: 'runescape',
