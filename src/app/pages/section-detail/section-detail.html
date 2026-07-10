@@ -64,7 +64,7 @@
             <div class="rank-cards">
               @for (r of st.ranked; track r.queue) {
                 <div class="rank-card">
-                  <img class="rank-emblem" [src]="rankEmblem(r)" [alt]="r.tier" width="176" height="176" />
+                  <img class="rank-emblem" [src]="rankEmblem(r)" [alt]="r.tier" />
                   <div class="rank-info">
                     <span class="queue">{{ queueName(r) }}</span>
                     <span class="tier">{{ rankLabel(r) }}</span>

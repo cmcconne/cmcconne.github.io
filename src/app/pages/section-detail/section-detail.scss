@@ -195,12 +195,11 @@
   }
 
   .rank-emblem {
-    width: 176px;
-    height: 176px;
+    width: auto;
+    height: 112px;
+    max-width: 100%;
     object-fit: contain;
-    // The emblem art has transparent padding; scaling up shows the crest larger.
-    transform: scale(1.15);
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.35));
   }
 
   .rank-info {

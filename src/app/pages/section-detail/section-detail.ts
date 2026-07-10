@@ -91,12 +91,9 @@ export class SectionDetail {
     return `${tier} ${entry.rank}`.trim();
   }
 
-  /** Ranked emblem image for a tier (Iron … Challenger). */
+  /** Ranked emblem image for a tier (Iron … Challenger). Self-hosted, trimmed. */
   protected rankEmblem(entry: RankedEntry): string {
-    return (
-      'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/' +
-      `global/default/images/ranked-emblem/emblem-${entry.tier.toLowerCase()}.png`
-    );
+    return `/images/ranks/${entry.tier.toLowerCase()}.png`;
   }
 
   /** Summoner profile icon image. */
