@@ -125,6 +125,28 @@
           Overall Hiscores rank <strong>#{{ st.overall?.rank | number }}</strong>
         </p>
       }
+
+      @if (embedUrl(); as url) {
+        <div class="panel embed-panel">
+          <div class="panel-head">
+            <h2>Full RuneProfile</h2>
+            <a class="panel-link" [href]="profileUrl()" target="_blank" rel="noopener">
+              Open ↗
+            </a>
+          </div>
+          <p class="embed-note">
+            Live from runeprofile.com — includes the 3D character render and full
+            collection log.
+          </p>
+          <iframe
+            class="rp-embed"
+            [src]="url"
+            title="RuneProfile — Stupid Hands"
+            loading="lazy"
+            referrerpolicy="no-referrer"
+          ></iframe>
+        </div>
+      }
     } @else {
       <div class="stats-pending">
         {{ st.note || 'No RuneScape stats available — the account may not be on the Hiscores.' }}

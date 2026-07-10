@@ -1,5 +1,6 @@
-import { Component, effect, inject, input, signal } from '@angular/core';
+import { Component, computed, effect, inject, input, signal } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { OsrsSkill, RunescapeStats } from '../../models/runescape-stats';
 
@@ -11,12 +12,31 @@ import { OsrsSkill, RunescapeStats } from '../../models/runescape-stats';
 })
 export class RunescapeStatsComponent {
   private readonly http = inject(HttpClient);
+  private readonly sanitizer = inject(DomSanitizer);
 
   /** Path to the stats JSON feed. */
   readonly feed = input.required<string>();
 
   protected readonly stats = signal<RunescapeStats | null>(null);
   protected readonly statsLoaded = signal(false);
+
+  /** Trusted RuneProfile embed URL for the current player. */
+  protected readonly embedUrl = computed<SafeResourceUrl | null>(() => {
+    const username = this.stats()?.username;
+    return username
+      ? this.sanitizer.bypassSecurityTrustResourceUrl(
+          `https://runeprofile.com/${encodeURIComponent(username)}`,
+        )
+      : null;
+  });
+
+  /** Plain RuneProfile URL (for the open-in-new-tab link). */
+  protected readonly profileUrl = computed(() => {
+    const username = this.stats()?.username;
+    return username
+      ? `https://runeprofile.com/${encodeURIComponent(username)}`
+      : '';
+  });
 
   constructor() {
     effect(() => {
