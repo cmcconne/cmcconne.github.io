@@ -108,10 +108,14 @@
 }
 
 .skills-panel {
-  flex: 1.4 1 340px;
+  flex: 1.1 1 300px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
 }
 
 .skills-grid {

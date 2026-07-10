@@ -104,14 +104,21 @@ export class OsrsCharacterComponent implements OnDestroy {
       }
     }
 
-    // Centre the content at the origin (equivalent to drei's <Center>).
-    const box = new Box3().setFromObject(inner);
-    const center = box.getCenter(new Vector3());
-    const size = box.getSize(new Vector3());
-    const halfW = size.x / 2;
-    const halfH = size.y / 2;
-    inner.position.sub(center);
+    // Vertically centre the PLAYER (so the pet & ground shadows don't skew it
+    // upward), but horizontally centre player+pet so both stay in view.
+    const playerBox = new Box3().setFromObject(player);
+    const contentBox = playerBox.clone();
+    if (pet) contentBox.union(new Box3().setFromObject(pet));
+    const offset = new Vector3(
+      (contentBox.min.x + contentBox.max.x) / 2,
+      (playerBox.min.y + playerBox.max.y) / 2,
+      (playerBox.min.z + playerBox.max.z) / 2,
+    );
+    inner.position.sub(offset);
     scene.add(inner);
+
+    const halfH = (playerBox.max.y - playerBox.min.y) / 2;
+    const halfW = (contentBox.max.x - contentBox.min.x) / 2;
 
     // Auto-frame: pull the camera back just far enough to fit the figure's
     // width/height for the current aspect ratio (tight, small padding).
@@ -122,7 +129,8 @@ export class OsrsCharacterComponent implements OnDestroy {
         halfH / Math.tan(vFov / 2),
         halfW / Math.tan(hFov / 2),
       );
-      camera.position.z = dist * 1.15;
+      // A little headroom for the sway animation.
+      camera.position.z = dist * 1.22;
       camera.updateProjectionMatrix();
     };
 
