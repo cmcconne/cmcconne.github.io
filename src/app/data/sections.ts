@@ -16,16 +16,9 @@ export const SECTIONS: Section[] = [
     intro:
       'My journey on Summoner\'s Rift — the roles I main, the champions I love, and where I\'ve climbed. Live rank and level are pulled from Riot\'s API below.',
     accent: '#0596aa',
-    // Curated facts the API doesn't provide (edit freely).
-    highlights: [
-      { label: 'Main Role', value: 'Mid' },
-      { label: 'Favourite Champions', value: 'Ahri · Syndra · Yasuo' },
-      { label: 'Playing Since', value: 'Season 6' },
-    ],
-    notes: [
-      'Prefer control mages and outplay-heavy champions.',
-      'Goal: hit Diamond this season.',
-    ],
+    // The LoL page is driven entirely by live Riot data below.
+    highlights: [],
+    notes: [],
     profiles: [
       {
         label: 'op.gg',

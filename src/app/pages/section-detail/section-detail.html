@@ -33,30 +33,44 @@
               above.
             </div>
           } @else {
-            <div class="stats-head">
-              <h2>Live stats</h2>
+            <div class="profile-card">
+              @if (st.profileIconId) {
+                <img
+                  class="profile-icon"
+                  [src]="profileIcon(st)"
+                  [alt]="st.riotId"
+                  width="64"
+                  height="64"
+                />
+              }
+              <div class="profile-info">
+                <span class="riot-id">{{ st.riotId }}</span>
+                <span class="level">Level {{ st.summonerLevel }}</span>
+              </div>
               @if (st.updatedAt) {
-                <span class="updated">Updated {{ st.updatedAt | date: 'medium' }}</span>
+                <span class="updated">Updated {{ st.updatedAt | date: 'short' }}</span>
               }
             </div>
 
-            <div class="highlights">
-              @if (st.summonerLevel) {
-                <div class="stat">
-                  <span class="stat-label">Level</span>
-                  <span class="stat-value">{{ st.summonerLevel }}</span>
-                </div>
-              }
+            <div class="rank-cards">
               @for (r of st.ranked; track r.queue) {
-                <div class="stat">
-                  <span class="stat-label">{{ queueName(r) }}</span>
-                  <span class="stat-value">{{ rankLabel(r) }} · {{ r.leaguePoints }} LP</span>
-                  <span class="stat-sub">{{ r.wins }}W / {{ r.losses }}L · {{ r.winRate }}% WR</span>
+                <div class="rank-card">
+                  <img class="rank-emblem" [src]="rankEmblem(r)" [alt]="r.tier" width="56" height="56" />
+                  <div class="rank-info">
+                    <span class="queue">{{ queueName(r) }}</span>
+                    <span class="tier">{{ rankLabel(r) }}</span>
+                    <span class="lp">{{ r.leaguePoints }} LP</span>
+                  </div>
+                  <div class="rank-record">
+                    <div class="wr-bar" [attr.title]="r.winRate + '% win rate'">
+                      <span [style.width.%]="r.winRate"></span>
+                    </div>
+                    <span class="wr-text">{{ r.wins }}W {{ r.losses }}L · {{ r.winRate }}%</span>
+                  </div>
                 </div>
               } @empty {
-                <div class="stat">
-                  <span class="stat-label">Ranked</span>
-                  <span class="stat-value">Unranked</span>
+                <div class="rank-card unranked">
+                  <span class="tier">Unranked</span>
                 </div>
               }
             </div>
@@ -104,14 +118,16 @@
       </section>
     }
 
-    <section class="highlights" aria-label="Highlights">
-      @for (h of s.highlights; track h.label) {
-        <div class="stat">
-          <span class="stat-label">{{ h.label }}</span>
-          <span class="stat-value">{{ h.value }}</span>
-        </div>
-      }
-    </section>
+    @if (s.highlights.length) {
+      <section class="highlights" aria-label="Highlights">
+        @for (h of s.highlights; track h.label) {
+          <div class="stat">
+            <span class="stat-label">{{ h.label }}</span>
+            <span class="stat-value">{{ h.value }}</span>
+          </div>
+        }
+      </section>
+    }
 
     @if (s.notes.length) {
       <h2>Notes</h2>

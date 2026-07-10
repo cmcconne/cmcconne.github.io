@@ -91,6 +91,22 @@ export class SectionDetail {
     return `${tier} ${entry.rank}`.trim();
   }
 
+  /** Ranked emblem image for a tier (Iron … Challenger). */
+  protected rankEmblem(entry: RankedEntry): string {
+    return (
+      'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/' +
+      `global/default/images/ranked-emblem/emblem-${entry.tier.toLowerCase()}.png`
+    );
+  }
+
+  /** Summoner profile icon image. */
+  protected profileIcon(stats: LolStats): string {
+    return (
+      'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/' +
+      `global/default/v1/profile-icons/${stats.profileIconId}.jpg`
+    );
+  }
+
   protected matchQueue(m: Match): string {
     return QUEUE_IDS[m.queueId] ?? 'Custom';
   }
