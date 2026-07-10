@@ -60,6 +60,13 @@ jobs:
           TOPDECK_API_KEY: ${{ secrets.TOPDECK_API_KEY }}
         run: node scripts/fetch-topdeck.mjs
 
+      # playgroup.gg casual Commander stats. No-ops without the secret.
+      - name: Fetch playgroup.gg stats
+        continue-on-error: true
+        env:
+          PLAYGROUP_API_KEY: ${{ secrets.PLAYGROUP_API_KEY }}
+        run: node scripts/fetch-playgroup.mjs
+
       - name: Build
         run: npm run build -- --configuration production --base-href /
 

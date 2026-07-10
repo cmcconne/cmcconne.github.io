@@ -125,6 +125,202 @@
   line-height: 1.5;
 }
 
+// --- Bottom tabs -------------------------------------------------------------
+.mtg-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.mtg-tab {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  &.active {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    color: var(--text);
+  }
+}
+
+// When tabs are shown, the section headings below sit closer.
+.mtg-tabs + .td-head,
+.mtg-tabs ~ .td-head {
+  margin-top: 1.25rem;
+}
+
+// --- Playgroup (casual) -------------------------------------------------------
+.pg-subheading {
+  margin: 1.75rem 0 0.75rem;
+  font-size: 1.05rem;
+}
+
+.pg-decks,
+.pg-games {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pg-deck {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--border);
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.pg-deck-art {
+  width: 56px;
+  height: 40px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center 25%;
+  background-color: color-mix(in srgb, var(--accent) 25%, var(--surface));
+  border: 1px solid var(--border);
+}
+
+.pg-deck-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pg-deck-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}
+
+.pg-bracket {
+  display: inline-block;
+  margin-left: 0.45rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+}
+
+.pg-deck-cmdr {
+  font-size: 0.8rem;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pg-deck-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+  white-space: nowrap;
+
+  .pg-elo {
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pg-wr {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.pg-game {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border);
+
+  &:first-child {
+    border-top: none;
+  }
+
+  .pg-result {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 800;
+    background: color-mix(in srgb, #d5493f 22%, transparent);
+    color: #d5493f;
+  }
+
+  &.won .pg-result {
+    background: color-mix(in srgb, #2e9e5b 22%, transparent);
+    color: #2e9e5b;
+  }
+}
+
+.pg-game-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pg-game-line {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pg-game-sub {
+  font-size: 0.78rem;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pg-game-when {
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
 // --- Tournament results -----------------------------------------------------
 .td-head {
   display: flex;

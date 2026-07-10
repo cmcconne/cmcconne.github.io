@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { MtgDeck, MtgDecks } from '../../models/mtg-deck';
 import { TopdeckEvent, TopdeckStats } from '../../models/topdeck';
+import { PlaygroupGame, PlaygroupStats } from '../../models/playgroup';
 
 const COLOR_NAMES: Record<string, string> = {
   W: 'White',
@@ -26,11 +27,19 @@ export class MtgDecksComponent {
   protected readonly data = signal<MtgDecks | null>(null);
   protected readonly loaded = signal(false);
   protected readonly topdeck = signal<TopdeckStats | null>(null);
+  protected readonly playgroup = signal<PlaygroupStats | null>(null);
 
   /** Which event row is expanded (event id), if any. */
   protected readonly expandedId = signal<string | null>(null);
   /** Year filter: 'all' or a 4-digit year string. */
   protected readonly yearFilter = signal('all');
+  /** Bottom tab selection. */
+  protected readonly activeTab = signal<'tournaments' | 'playgroup'>('tournaments');
+
+  /** Playgroup data is only shown once real (non-placeholder) data exists. */
+  protected readonly hasPlaygroup = computed(
+    () => !!this.playgroup() && !this.playgroup()!.placeholder,
+  );
 
   constructor() {
     effect(() => {
@@ -50,6 +59,13 @@ export class MtgDecksComponent {
         .subscribe({
           next: (t) => this.topdeck.set(t),
           error: () => this.topdeck.set(null),
+        });
+      // playgroup.gg casual stats (best-effort; tab hides if unavailable).
+      this.http
+        .get<PlaygroupStats>(`/playgroup-stats.json?t=${Date.now()}`)
+        .subscribe({
+          next: (p) => this.playgroup.set(p),
+          error: () => this.playgroup.set(null),
         });
     });
   }
@@ -112,5 +128,44 @@ export class MtgDecksComponent {
   protected recordLine(t: TopdeckStats): string {
     const r = t.totals;
     return r ? `${r.wins}–${r.losses}–${r.draws}` : '';
+  }
+
+  // --- Playgroup helpers ----------------------------------------------------
+
+  protected setTab(tab: 'tournaments' | 'playgroup'): void {
+    this.activeTab.set(tab);
+  }
+
+  /** "combat_damage" -> "Combat damage". */
+  protected winConLabel(g: PlaygroupGame): string {
+    if (!g.winCon) return '';
+    const s = g.winCon.replace(/_/g, ' ');
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  }
+
+  /** Compact relative time for playgroup games, e.g. "3d ago". */
+  protected gameAgo(g: PlaygroupGame): string {
+    const diff = Date.now() - new Date(g.endedAt).getTime();
+    const days = Math.floor(diff / 86400000);
+    if (days >= 30) return `${Math.floor(days / 30)}mo ago`;
+    if (days >= 1) return `${days}d ago`;
+    const hours = Math.floor(diff / 3600000);
+    return hours >= 1 ? `${hours}h ago` : 'today';
+  }
+
+  /** "played <my deck>" note for games someone else won. */
+  protected myDeckNote(g: PlaygroupGame): string | null {
+    return g.myDeck && !g.wonByMe ? `played ${g.myDeck}` : null;
+  }
+
+  protected bracketLabel(bracket: number | null | undefined): string | null {
+    const names: Record<number, string> = {
+      1: 'Exhibition',
+      2: 'Core',
+      3: 'Upgraded',
+      4: 'Optimized',
+      5: 'cEDH',
+    };
+    return bracket ? (names[bracket] ?? null) : null;
   }
 }
