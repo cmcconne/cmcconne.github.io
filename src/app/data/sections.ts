@@ -36,6 +36,7 @@ export const SECTIONS: Section[] = [
     slug: 'runescape',
     name: 'Old School RuneScape',
     icon: '🐉',
+    logoImage: '/images/osrs-logo.png',
     tagline: 'Adventurer of Gielinor',
     intro: '',
     accent: '#b5892f',
