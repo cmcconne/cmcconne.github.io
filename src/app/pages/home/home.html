@@ -1,27 +1,29 @@
 <section class="hero">
   <p class="eyebrow">Personal showcase</p>
   <h1>Charlie McConnell</h1>
-  <p class="lead">
-    Gamer, brewer, and lifelong hobbyist. Here's a look at the worlds I spend my
-    time in.
-  </p>
+  <p class="lead">Gamer, brewer, and lifelong hobbyist.</p>
+  <div class="links">
+    <a href="https://www.moxfield.com/users/Cyrikk" target="_blank" rel="noopener">Moxfield</a>
+    <a href="https://topdeck.gg/profile/jsJThSNXDeSSBY1FDBqOpBEnpZC3" target="_blank" rel="noopener">TopDeck</a>
+    <a href="https://github.com/cmcconne" target="_blank" rel="noopener">GitHub</a>
+    <a href="mailto:charlie.b.mcconnell@gmail.com">Email</a>
+  </div>
 </section>
 
-<section class="grid" aria-label="Sections">
+<nav class="showcase" aria-label="Sections">
   @for (section of sections(); track section.slug) {
     <a
-      class="card"
+      class="showcase-item"
       [routerLink]="['/', section.slug]"
-      [style.--card-accent]="section.accent"
+      [style.--accent]="section.accent"
     >
       @if (section.logoImage) {
-        <img class="card-logo" [src]="section.logoImage" [alt]="section.name" />
+        <img class="showcase-logo" [src]="section.logoImage" [alt]="section.name" />
       } @else {
-        <span class="icon" aria-hidden="true">{{ section.icon }}</span>
-        <h2>{{ section.name }}</h2>
+        <span class="showcase-emoji" aria-hidden="true">{{ section.icon }}</span>
+        <span class="showcase-name">{{ section.name }}</span>
       }
-      <p class="tagline">{{ section.tagline }}</p>
-      <span class="explore">Explore →</span>
+      <span class="showcase-tagline">{{ section.tagline }}</span>
     </a>
   }
-</section>
+</nav>

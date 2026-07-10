@@ -1,6 +1,6 @@
 .hero {
   text-align: center;
-  padding: 3.5rem 1rem 2.5rem;
+  padding: 3.5rem 1rem 2rem;
 
   .eyebrow {
     margin: 0 0 0.5rem;
@@ -18,78 +18,99 @@
   }
 
   .lead {
-    margin: 1rem auto 0;
+    margin: 0.75rem auto 0;
     max-width: 34rem;
     color: var(--muted);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+
+    a {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.15s ease, color 0.15s ease;
+
+      &:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+    }
   }
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.25rem;
-  padding: 0 0 3.5rem;
-}
-
-.card {
-  --card-accent: var(--accent);
+.showcase {
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  padding: 1.75rem;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--surface);
-  color: inherit;
-  text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem 4rem;
+}
 
-  // Accent bar down the left edge.
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 4px;
-    background: var(--card-accent);
-  }
+.showcase-item {
+  --accent: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 520px;
+  padding: 2.25rem 1.5rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: inherit;
+  // Subtle accent-tinted backdrop so every logo (incl. the metallic MTG one) reads.
+  background: radial-gradient(
+    120% 100% at 50% 30%,
+    color-mix(in srgb, var(--accent) 14%, transparent),
+    transparent 70%
+  );
+  transition: transform 0.2s ease, background 0.2s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    border-color: var(--card-accent);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.14);
-  }
+    transform: translateY(-5px);
+    background: radial-gradient(
+      120% 100% at 50% 30%,
+      color-mix(in srgb, var(--accent) 26%, transparent),
+      transparent 72%
+    );
 
-  .icon {
-    font-size: 2.25rem;
-    line-height: 1;
+    .showcase-logo,
+    .showcase-emoji {
+      filter: drop-shadow(0 8px 24px color-mix(in srgb, var(--accent) 60%, transparent));
+    }
   }
+}
 
-  h2 {
-    margin: 1rem 0 0.25rem;
-    font-size: 1.35rem;
-  }
+.showcase-logo {
+  width: clamp(220px, 60vw, 360px);
+  height: auto;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
+  transition: filter 0.2s ease;
+}
 
-  // Wordmark logo used in place of the emoji + title (e.g. League of Legends).
-  .card-logo {
-    align-self: flex-start;
-    width: 165px;
-    max-width: 100%;
-    height: auto;
-    margin: 0.35rem 0 0.6rem;
-  }
+.showcase-emoji {
+  font-size: 3.5rem;
+  line-height: 1;
+  transition: filter 0.2s ease;
+}
 
-  .tagline {
-    margin: 0;
-    color: var(--muted);
-    flex: 1;
-  }
+.showcase-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
 
-  .explore {
-    margin-top: 1.25rem;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--card-accent);
-  }
+.showcase-tagline {
+  color: var(--muted);
+  font-size: 0.95rem;
 }

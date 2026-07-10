@@ -56,6 +56,7 @@ export const SECTIONS: Section[] = [
     slug: 'magic-the-gathering',
     name: 'Magic: The Gathering',
     icon: '🃏',
+    logoImage: '/images/mtg-logo.png',
     tagline: 'Planeswalker & deck brewer',
     intro:
       'The formats I play, the colours I favour, and the decks I\'ve brewed at the kitchen table and beyond.',
