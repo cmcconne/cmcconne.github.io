@@ -60,7 +60,8 @@ export class SectionDetail {
       if (!feed) {
         return;
       }
-      this.http.get<LolStats>(feed).subscribe({
+      // Cache-bust so visitors always get the latest deployed stats.
+      this.http.get<LolStats>(`${feed}?t=${Date.now()}`).subscribe({
         next: (data) => {
           this.stats.set(data);
           this.statsLoaded.set(true);
