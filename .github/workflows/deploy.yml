@@ -52,9 +52,12 @@ jobs:
         continue-on-error: true
         run: node scripts/fetch-mtg-decks.mjs
 
-      # Public TopDeck profile stats — no key needed.
+      # Public TopDeck profile stats; TOPDECK_API_KEY additionally enriches
+      # each event with the commander played and decklist link.
       - name: Fetch TopDeck results
         continue-on-error: true
+        env:
+          TOPDECK_API_KEY: ${{ secrets.TOPDECK_API_KEY }}
         run: node scripts/fetch-topdeck.mjs
 
       - name: Build

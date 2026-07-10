@@ -82,26 +82,97 @@
             <span class="l">TDCS pts</span>
           </div>
         }
+        @if (bestFinish(); as bf) {
+          <div class="td-stat">
+            <span class="v">{{ bf.placement }} <span class="v-sub">/ {{ bf.size }}</span></span>
+            <span class="l">Best finish</span>
+          </div>
+        }
       </div>
 
+      @if (years().length > 1) {
+        <div class="td-filter" role="group" aria-label="Filter by year">
+          <button
+            class="chip"
+            [class.active]="yearFilter() === 'all'"
+            (click)="setYear('all')"
+          >All</button>
+          @for (y of years(); track y) {
+            <button
+              class="chip"
+              [class.active]="yearFilter() === y"
+              (click)="setYear(y)"
+            >{{ y }}</button>
+          }
+        </div>
+      }
+
       <ul class="td-events">
-        @for (e of t.events; track e.bracketLink || e.name + e.date) {
-          <li class="td-event">
-            <span class="td-place">
-              {{ e.placement }}<span class="td-of"> / {{ e.size }}</span>
-            </span>
-            <div class="td-main">
-              @if (e.bracketLink) {
-                <a class="td-name" [href]="e.bracketLink" target="_blank" rel="noopener">{{ e.name }}</a>
-              } @else {
-                <span class="td-name">{{ e.name }}</span>
-              }
-              <span class="td-date">{{ e.date | date: 'mediumDate' }}</span>
-            </div>
-            <span class="td-record">{{ e.record }}</span>
+        @for (e of filteredEvents(); track e.id) {
+          <li class="td-event" [class.open]="expandedId() === e.id">
+            <button
+              class="td-row"
+              (click)="toggle(e.id)"
+              [attr.aria-expanded]="expandedId() === e.id"
+            >
+              <span class="td-place">
+                {{ e.placement }}<span class="td-of"> / {{ e.size }}</span>
+              </span>
+              <span class="td-main">
+                <span class="td-name">
+                  {{ e.name }}
+                  @if (madeTopCut(e)) {
+                    <span class="td-badge">Top cut</span>
+                  }
+                </span>
+                <span class="td-date">{{ e.date | date: 'mediumDate' }}</span>
+              </span>
+              <span class="td-record">{{ e.record }}</span>
+              <span class="td-chevron" aria-hidden="true">▾</span>
+            </button>
+
+            @if (expandedId() === e.id) {
+              <div class="td-detail">
+                @if (e.commanders?.length) {
+                  <div class="td-commanders">
+                    @for (c of e.commanders; track c) {
+                      <span class="td-cmdr">
+                        @if (commanderArt(t, c); as art) {
+                          <img [src]="art" [alt]="c" loading="lazy" />
+                        }
+                        {{ c }}
+                      </span>
+                    }
+                  </div>
+                }
+                <div class="td-facts">
+                  @if (e.winRatePct !== undefined) {
+                    <span>{{ e.winRatePct }}% game win rate</span>
+                  }
+                  @if (e.byes) {
+                    <span>{{ e.byes }} bye{{ e.byes > 1 ? 's' : '' }}</span>
+                  }
+                  @if (e.topCut) {
+                    <span>Top cut of {{ e.topCut }}</span>
+                  }
+                </div>
+                <div class="td-detail-links">
+                  @if (e.decklistUrl) {
+                    <a [href]="e.decklistUrl" target="_blank" rel="noopener">Decklist ↗</a>
+                  }
+                  @if (e.bracketLink) {
+                    <a [href]="e.bracketLink" target="_blank" rel="noopener">Bracket ↗</a>
+                  }
+                </div>
+              </div>
+            }
           </li>
         }
       </ul>
+
+      @if (t.updatedAt) {
+        <p class="td-updated">Updated {{ t.updatedAt | date: 'short' }}</p>
+      }
     }
   }
 </section>

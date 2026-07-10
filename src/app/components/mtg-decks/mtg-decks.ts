@@ -1,8 +1,8 @@
-import { Component, effect, inject, input, signal } from '@angular/core';
+import { Component, computed, effect, inject, input, signal } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { MtgDeck, MtgDecks } from '../../models/mtg-deck';
-import { TopdeckStats } from '../../models/topdeck';
+import { TopdeckEvent, TopdeckStats } from '../../models/topdeck';
 
 const COLOR_NAMES: Record<string, string> = {
   W: 'White',
@@ -27,6 +27,11 @@ export class MtgDecksComponent {
   protected readonly loaded = signal(false);
   protected readonly topdeck = signal<TopdeckStats | null>(null);
 
+  /** Which event row is expanded (event id), if any. */
+  protected readonly expandedId = signal<string | null>(null);
+  /** Year filter: 'all' or a 4-digit year string. */
+  protected readonly yearFilter = signal('all');
+
   constructor() {
     effect(() => {
       const feed = this.feed();
@@ -47,6 +52,46 @@ export class MtgDecksComponent {
           error: () => this.topdeck.set(null),
         });
     });
+  }
+
+  /** Distinct event years, newest first (for the filter chips). */
+  protected readonly years = computed<string[]>(() => {
+    const ys = new Set(
+      (this.topdeck()?.events ?? []).map((e) => e.date.slice(0, 4)),
+    );
+    return [...ys].sort().reverse();
+  });
+
+  protected readonly filteredEvents = computed<TopdeckEvent[]>(() => {
+    const events = this.topdeck()?.events ?? [];
+    const y = this.yearFilter();
+    return y === 'all' ? events : events.filter((e) => e.date.startsWith(y));
+  });
+
+  /** Best (lowest) placement across all events. */
+  protected readonly bestFinish = computed<TopdeckEvent | null>(() => {
+    const events = this.topdeck()?.events ?? [];
+    if (!events.length) return null;
+    return events.reduce((best, e) =>
+      e.placementNumber < best.placementNumber ? e : best,
+    );
+  });
+
+  protected toggle(id: string): void {
+    this.expandedId.set(this.expandedId() === id ? null : id);
+  }
+
+  protected setYear(y: string): void {
+    this.yearFilter.set(y);
+    this.expandedId.set(null);
+  }
+
+  protected madeTopCut(e: TopdeckEvent): boolean {
+    return !!e.topCut && e.topCut > 0 && e.placementNumber <= e.topCut;
+  }
+
+  protected commanderArt(t: TopdeckStats, name: string): string | null {
+    return t.commanderArts?.[name] ?? null;
   }
 
   /** Colour identity to display, defaulting to Colorless. */
