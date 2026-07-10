@@ -39,10 +39,38 @@ export class RunescapeStatsComponent {
     return `/images/osrs-skills/${skill.name.toLowerCase()}.png`;
   }
 
+  /** Self-hosted skill icon by name (for activities). */
+  protected skillIconByName(name: string): string {
+    return `/images/osrs-skills/${name.toLowerCase()}.png`;
+  }
+
+  /** RuneLite item icon by id. */
+  protected itemIcon(itemId: number): string {
+    return `https://static.runelite.net/cache/item/icon/${itemId}.png`;
+  }
+
   /** Tooltip with rank and XP for a skill. */
   protected skillTitle(skill: OsrsSkill): string {
     const rank = skill.rank >= 0 ? skill.rank.toLocaleString() : 'unranked';
     const xp = skill.xp >= 0 ? skill.xp.toLocaleString() : '0';
     return `${skill.name} — level ${skill.level}, ${xp} xp, rank ${rank}`;
+  }
+
+  /** 12881561 -> "12.9M". */
+  protected gp(value: number): string {
+    if (value >= 1e9) return (value / 1e9).toFixed(1).replace(/\.0$/, '') + 'B';
+    if (value >= 1e6) return (value / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (value >= 1e3) return (value / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
+    return String(value);
+  }
+
+  /** Compact relative time, e.g. "3d ago". */
+  protected timeAgo(dateStr: string): string {
+    const diff = Date.now() - new Date(dateStr).getTime();
+    const days = Math.floor(diff / 86400000);
+    if (days >= 1) return `${days}d ago`;
+    const hours = Math.floor(diff / 3600000);
+    if (hours >= 1) return `${hours}h ago`;
+    return 'recently';
   }
 }

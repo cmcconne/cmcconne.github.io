@@ -1,6 +1,6 @@
 {
   "username": "Stupid Hands",
-  "updatedAt": "2026-07-10T18:45:37.958Z",
+  "updatedAt": "2026-07-10T18:58:16.955Z",
   "overall": {
     "level": 2376,
     "xp": 514314532,
@@ -12,49 +12,49 @@
       "name": "Attack",
       "level": 99,
       "xp": 16380860,
-      "rank": 196939
+      "rank": 196941
     },
     {
       "name": "Defence",
       "level": 99,
       "xp": 20800281,
-      "rank": 67414
+      "rank": 67416
     },
     {
       "name": "Strength",
       "level": 99,
       "xp": 74521544,
-      "rank": 32289
+      "rank": 32290
     },
     {
       "name": "Hitpoints",
       "level": 99,
       "xp": 67570758,
-      "rank": 52192
+      "rank": 52193
     },
     {
       "name": "Ranged",
       "level": 99,
       "xp": 59581749,
-      "rank": 66754
+      "rank": 66755
     },
     {
       "name": "Prayer",
       "level": 99,
       "xp": 13162344,
-      "rank": 98537
+      "rank": 98539
     },
     {
       "name": "Magic",
       "level": 99,
       "xp": 31627193,
-      "rank": 66898
+      "rank": 66899
     },
     {
       "name": "Cooking",
       "level": 99,
       "xp": 13184205,
-      "rank": 254882
+      "rank": 254883
     },
     {
       "name": "Woodcutting",
@@ -102,7 +102,7 @@
       "name": "Herblore",
       "level": 99,
       "xp": 13307949,
-      "rank": 74681
+      "rank": 74682
     },
     {
       "name": "Agility",
@@ -132,25 +132,160 @@
       "name": "Runecraft",
       "level": 99,
       "xp": 13035460,
-      "rank": 116846
+      "rank": 116847
     },
     {
       "name": "Hunter",
       "level": 99,
       "xp": 13034586,
-      "rank": 150000
+      "rank": 150001
     },
     {
       "name": "Construction",
       "level": 99,
       "xp": 13239938,
-      "rank": 62996
+      "rank": 62998
     },
     {
       "name": "Sailing",
       "level": 99,
       "xp": 13289933,
-      "rank": 25731
+      "rank": 25734
+    }
+  ],
+  "clan": {
+    "name": "ChubbyIron",
+    "title": "Imp"
+  },
+  "collectionCount": 505,
+  "recentItems": [
+    {
+      "itemId": 33663,
+      "name": "Venator tooth"
+    },
+    {
+      "itemId": 30070,
+      "name": "Dragon hunter wand"
+    },
+    {
+      "itemId": 33423,
+      "name": "Bosun's workbench schematic"
+    },
+    {
+      "itemId": 21439,
+      "name": "Champion's cape"
+    },
+    {
+      "itemId": 6806,
+      "name": "Skeleton champion scroll"
+    },
+    {
+      "itemId": 6807,
+      "name": "Zombie champion scroll"
+    },
+    {
+      "itemId": 28813,
+      "name": "Broken zombie axe"
+    },
+    {
+      "itemId": 6798,
+      "name": "Earth warrior champion scroll"
+    },
+    {
+      "itemId": 6800,
+      "name": "Giant champion scroll"
+    },
+    {
+      "itemId": 6805,
+      "name": "Lesser demon champion scroll"
+    },
+    {
+      "itemId": 6802,
+      "name": "Hobgoblin champion scroll"
+    },
+    {
+      "itemId": 6799,
+      "name": "Ghoul champion scroll"
+    }
+  ],
+  "recentActivities": [
+    {
+      "kind": "quest",
+      "date": "2026-07-09T03:31:03.322Z",
+      "label": "The Blood Moon Rises"
+    },
+    {
+      "kind": "drop",
+      "date": "2026-06-30T00:56:42.869Z",
+      "itemId": 30070,
+      "name": "Dragon hunter wand",
+      "value": 12881561
+    },
+    {
+      "kind": "xp",
+      "date": "2026-06-22T05:51:47.513Z",
+      "skill": "Woodcutting",
+      "xp": 15000000
+    },
+    {
+      "kind": "drop",
+      "date": "2026-06-15T01:00:56.252Z",
+      "itemId": 22983,
+      "name": "Hydra leather",
+      "value": 13360999
+    },
+    {
+      "kind": "quest",
+      "date": "2026-05-20T18:11:05.608Z",
+      "label": "The Red Reef"
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-17T07:17:57.196Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1131750
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-17T02:29:17.975Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1131750
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-17T01:54:19.627Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1131750
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-17T00:07:11.654Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1131750
+    },
+    {
+      "kind": "xp",
+      "date": "2026-05-16T23:25:12.552Z",
+      "skill": "Magic",
+      "xp": 30000000
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-16T21:24:30.361Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1131750
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-15T05:49:49.015Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1107003
     }
   ]
 }

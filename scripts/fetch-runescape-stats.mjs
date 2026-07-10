@@ -41,6 +41,49 @@ const out = {
   skills,
 };
 
+// Enrich with RuneProfile (collection log, recent items/activities, clan).
+// Best-effort: any failure just leaves the Hiscores data as-is.
+try {
+  const rpRes = await fetch(
+    `https://api.runeprofile.com/profiles/${encodeURIComponent(PLAYER)}`,
+    { headers: { 'User-Agent': 'charlies-showcase (personal site)' } },
+  );
+  if (!rpRes.ok) throw new Error(`${rpRes.status} ${rpRes.statusText}`);
+  const rp = await rpRes.json();
+
+  const itemNames = Object.fromEntries((rp.items ?? []).map((i) => [i.id, i.name]));
+  const questNames = Object.fromEntries((rp.quests ?? []).map((q) => [q.id, q.name]));
+  const iso = (d) => d.replace(' ', 'T').slice(0, 23) + 'Z';
+
+  out.clan = rp.clan ? { name: rp.clan.name, title: rp.clan.title } : undefined;
+  out.collectionCount = (rp.items ?? []).length;
+  out.recentItems = (rp.recentItems ?? []).map((r) => ({
+    itemId: r.data.itemId,
+    name: itemNames[r.data.itemId],
+  }));
+  out.recentActivities = (rp.recentActivities ?? [])
+    .map((a) => {
+      const date = iso(a.createdAt);
+      if (a.type === 'quest_completed') {
+        return { kind: 'quest', date, label: questNames[a.data.questId] ?? 'Quest completed' };
+      }
+      if (a.type === 'valuable_drop') {
+        return { kind: 'drop', date, itemId: a.data.itemId, name: itemNames[a.data.itemId], value: a.data.value };
+      }
+      if (a.type === 'xp_milestone') {
+        return { kind: 'xp', date, skill: a.data.name, xp: a.data.xp };
+      }
+      return null;
+    })
+    .filter(Boolean);
+
+  console.log(
+    `RuneProfile: ${out.collectionCount} clog items, ${out.recentItems.length} recent, ${out.recentActivities.length} activities.`,
+  );
+} catch (err) {
+  console.error(`RuneProfile enrich skipped: ${err.message}`);
+}
+
 writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
 console.log(
   `Wrote ${OUT} — total ${overall.level}, combat ${combatLevel}, ${skills.length} skills.`,

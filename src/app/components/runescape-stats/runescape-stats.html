@@ -4,7 +4,12 @@
       <div class="profile-card">
         <div class="profile-info">
           <span class="username">{{ st.username }}</span>
-          <span class="sub">Old School RuneScape</span>
+          <span class="sub">
+            Old School RuneScape
+            @if (st.clan) {
+              <span class="clan-badge">{{ st.clan.name }} · {{ st.clan.title }}</span>
+            }
+          </span>
         </div>
         <div class="totals">
           <div class="total">
@@ -15,6 +20,12 @@
             <span class="total-value">{{ st.combatLevel }}</span>
             <span class="total-label">Combat</span>
           </div>
+          @if (st.overall?.xp) {
+            <div class="total">
+              <span class="total-value">{{ gp(st.overall!.xp) }}</span>
+              <span class="total-label">Total XP</span>
+            </div>
+          }
         </div>
         @if (st.updatedAt) {
           <span class="updated">Updated {{ st.updatedAt | date: 'short' }}</span>
@@ -29,6 +40,60 @@
           </div>
         }
       </div>
+
+      @if (st.recentItems?.length) {
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Collection log</h2>
+            @if (st.collectionCount) {
+              <span class="panel-sub">{{ st.collectionCount | number }} items</span>
+            }
+          </div>
+          <div class="item-row">
+            @for (it of st.recentItems; track $index) {
+              <img
+                class="clog-item"
+                [src]="itemIcon(it.itemId)"
+                [attr.title]="it.name || 'Item ' + it.itemId"
+                [alt]="it.name || 'Item'"
+                loading="lazy"
+              />
+            }
+          </div>
+        </div>
+      }
+
+      @if (st.recentActivities?.length) {
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Latest activities</h2>
+          </div>
+          <ul class="activity-list">
+            @for (a of st.recentActivities; track $index) {
+              <li class="activity">
+                @switch (a.kind) {
+                  @case ('quest') {
+                    <span class="act-icon act-quest" aria-hidden="true">📜</span>
+                    <span class="act-label">{{ a.label }}</span>
+                    <span class="act-value">Quest</span>
+                  }
+                  @case ('drop') {
+                    <img class="act-icon" [src]="itemIcon(a.itemId!)" [alt]="a.name || 'Drop'" loading="lazy" />
+                    <span class="act-label">{{ a.name || 'Valuable drop' }}</span>
+                    <span class="act-value">{{ gp(a.value!) }} gp</span>
+                  }
+                  @case ('xp') {
+                    <img class="act-icon" [src]="skillIconByName(a.skill!)" [alt]="a.skill" loading="lazy" />
+                    <span class="act-label">{{ a.skill }} milestone</span>
+                    <span class="act-value">{{ gp(a.xp!) }} XP</span>
+                  }
+                }
+                <span class="act-time">{{ timeAgo(a.date) }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
 
       @if (st.overall?.rank) {
         <p class="overall-rank">
