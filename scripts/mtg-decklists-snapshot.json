@@ -1,0 +1,71 @@
+{
+  "_comment": "Decklist snapshot extracted from Moxfield (api2.moxfield.com/v3/decks/all/{id}) via browser on 2026-07-10. Moxfield blocks server-side API calls, so CI falls back to this. Re-extract when decklists change materially.",
+  "oCeOqlA8DkmSz9SDq6Yxlg": {
+    "mainboard": [
+      "Ad Nauseam", "Altar of Dementia", "Altar of the Wretched // Wretched Bonemass", "Ancient Tomb", "Animate Dead",
+      "Arcane Signet", "Arid Mesa", "Badlands", "Beseech the Mirror", "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
+      "Blood Crypt", "Bloodstained Mire", "Bolas's Citadel", "Burnt Offering", "Cabal Ritual", "Chrome Mox",
+      "City of Brass", "City of Traitors", "Command Tower", "Culling the Weak", "Cursed Mirror", "Dark Ritual",
+      "Deadpool, Trading Card", "Deflecting Swat", "Demonic Tutor", "Diabolic Intent", "Dragon's Rage Channeler",
+      "Elegant Parlor", "Enlightened Tutor", "Entomb", "Esper Sentinel", "Exotic Orchard", "Final Fortune",
+      "Flooded Strand", "Gamble", "Gemstone Caverns", "Goblin Bombardment", "Goblin Engineer", "Godless Shrine",
+      "Grand Abolisher", "Greedy Freebooter", "Hexing Squelcher", "Hope of Ghirapur", "Imperial Recruiter",
+      "Imperial Seal", "Impulsive Pilferer", "Knuckles the Echidna", "Lion's Eye Diamond", "Lotho, Corrupt Shirriff",
+      "Lotus Petal", "Luxury Suite", "Magda, Brazen Outlaw", "Mana Confluence", "Mana Vault", "Mardu Devotee",
+      "Marsh Flats", "Mayhem Devil", "Molten Duplication", "Mox Diamond", "Mox Opal", "Orcish Bowmasters",
+      "Peer into the Abyss", "Phelia, Exuberant Shepherd", "Plateau", "Polluted Delta", "Portable Hole",
+      "Praetor's Grasp", "Prized Statue", "Professional Face-Breaker", "Pyroblast", "Ragavan, Nimble Pilferer",
+      "Ranger-Captain of Eos", "Raucous Theater", "Red Elemental Blast", "Relic of Legends", "Rite of Flame",
+      "Ruthless Technomancer", "Sacred Foundry", "Sacrifice", "Scalding Tarn", "Scrubland", "Sevinne's Reclamation",
+      "Shambling Ghast", "Silence", "Simian Spirit Guide", "Sol Ring", "Static Prison", "Stitcher's Supplier",
+      "Tainted Pact", "The Jolly Balloon Man", "Underworld Breach", "Vampiric Tutor", "Verdant Catacombs",
+      "Voice of Victory", "Wheel of Fortune", "Windswept Heath", "Wishclaw Talisman", "Wooded Foothills"
+    ]
+  },
+  "TetRqZpKZ0aWEVCZdb4zUw": {
+    "mainboard": [
+      "An Offer You Can't Refuse", "Ancient Tomb", "Arid Mesa", "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
+      "Bloodstained Mire", "Bonus Round", "Brain Freeze", "Chain of Vapor", "Chrome Mox", "City of Traitors",
+      "Command Tower", "Daze", "Deflecting Swat", "Demand Answers", "Desperate Ritual", "Echo of Eons",
+      "Fierce Guardianship", "Fiery Islet", "Flare of Duplication", "Flooded Strand", "Flusterstorm", "Frantic Search",
+      "Gamble", "Gemstone Caverns", "Gitaxian Probe", "Grapeshot", "Great Furnace", "Gut Shot", "Helm of Awakening",
+      "Hidden Strings", "Highway Robbery", "Inspired Tinkering", "Intuition", "Jeska's Will", "Lava Dart",
+      "Lion's Eye Diamond", "Lotus Petal", "Mana Vault", "March of Reckless Joy", "Mental Misstep", "Mountain",
+      "Mox Amber", "Mox Diamond", "Mox Opal", "Mystic Remora", "Mystical Tutor", "Opera Love Song", "Overmaster",
+      "Pact of Negation", "Past in Flames", "Polluted Delta", "Pyretic Ritual", "Pyroblast", "Quiet Speculation",
+      "Ragavan, Nimble Pilferer", "Reckless Impulse", "Recoup", "Red Elemental Blast", "Reiterate", "Rhystic Study",
+      "Rite of Flame", "Rob the Archives", "Ruby Medallion", "Runaway Steam-Kin", "Scalding Tarn",
+      "Sea Gate Restoration // Sea Gate, Reborn", "Seething Song", "Shatterskull Smashing // Shatterskull, the Hammer Pass",
+      "Simian Spirit Guide", "Sink into Stupor // Soporific Springs", "Snap", "Sol Ring", "Solve the Equation",
+      "Springleaf Drum", "Steam Vents", "Storm of Memories", "Storm-Kiln Artist", "Strike It Rich",
+      "Sundering Eruption // Volcanic Fissure", "Tavern Scoundrel", "Thundering Falls", "Tibalt's Trickery",
+      "Timetwister", "Training Center", "Treasonous Ogre", "Twinferno", "Underworld Breach",
+      "Valakut Awakening // Valakut Stoneforge", "Vexing Bauble", "Volcanic Island", "Wheel of Fortune",
+      "Wheel of Misfortune", "Will of the Jeskai", "Windfall", "Witch's Mark", "Wooded Foothills", "Wrenn's Resolve",
+      "Zoyowa's Justice", "________ Goblin"
+    ]
+  },
+  "GHCGjcFpnEe8smALLiG2XA": {
+    "mainboard": [
+      "Ancient Tomb", "Apex Devastator", "Arbor Elf", "Ashaya, Soul of the Wild", "Badgermole Cub", "Birds of Paradise",
+      "Bloom Tender", "Boseiju, Who Endures", "Breeding Pool", "Call Forth the Tempest", "Candelabra of Tawnos",
+      "Chrome Mox", "City of Brass", "Cloud of Faeries", "Command Tower", "Creative Technique", "Crop Rotation",
+      "Deadeye Navigator", "Delighted Halfling", "Deserted Temple", "Disciple of Freyalise // Garden of Freyalise",
+      "Eldritch Evolution", "Elvish Mystic", "Emergence Zone", "Enduring Vitality",
+      "Etali, Primal Conqueror // Etali, Primal Sickness", "Eternal Witness", "Eureka", "Exotic Orchard",
+      "Expedition Map", "Flesh Duplicate", "Flooded Strand", "Forest", "Formidable Speaker", "Fyndhorn Elves",
+      "Gaea's Cradle", "Gemstone Caverns", "Genesis Storm", "Ghalta, Stampede Tyrant", "Great Whale",
+      "Green Sun's Zenith", "Hullbreaker Horror", "Imperial Recruiter", "Island", "Jeska's Will",
+      "Kiki-Jiki, Mirror Breaker", "Kinnan, Bonder Prodigy", "Kiora, Behemoth Beckoner", "Last March of the Ents",
+      "Llanowar Elves", "Maelstrom Wanderer", "Mana Confluence", "Mana Vault", "Minamo, School at Water's Edge",
+      "Mind's Desire", "Misty Rainforest", "Mox Amber", "Mox Diamond", "Mystical Tutor", "Natural Order",
+      "Nyxbloom Ancient", "Oboro Breezecaller", "Otawara, Soaring City", "Palinchron", "Peregrine Drake",
+      "Phantasmal Image", "Phyrexian Metamorph", "Polluted Delta", "Rhythm of the Wild", "Scalding Tarn",
+      "Show and Tell", "Snap", "Sneak Attack", "Sol Ring", "Sowing Mycospawn", "Spellseeker", "Springleaf Drum",
+      "Starfield Vocalist", "Steam Vents", "Stunt Double", "Sylvan Scrying", "Taiga", "Talon Gates of Madara",
+      "Tezzeret, Cruel Captain", "Tinder Wall", "Tishana, Voice of Thunder", "Tooth and Nail", "Tropical Island",
+      "Trumpeting Carnosaur", "Verdant Catacombs", "Vibrance", "Volcanic Island", "Windswept Heath",
+      "Wooded Foothills", "Woodland Bellower", "Worldly Tutor", "Yavimaya, Cradle of Growth", "Zealous Conscripts"
+    ]
+  }
+}

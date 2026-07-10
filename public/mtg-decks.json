@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10T20:52:57.734Z",
+  "updatedAt": "2026-07-10T22:32:24.885Z",
   "decks": [
     {
       "name": "Tymna ❤️ Dargo",
@@ -19,7 +19,59 @@
         "B",
         "R"
       ],
-      "scryfallUri": "https://scryfall.com/card/c16/48/tymna-the-weaver?utm_source=api"
+      "scryfallUri": "https://scryfall.com/card/c16/48/tymna-the-weaver?utm_source=api",
+      "newCards": [
+        {
+          "name": "Hexing Squelcher",
+          "set": "Lorwyn Eclipsed",
+          "date": "2026-01-23",
+          "rank": 810,
+          "art": "https://cards.scryfall.io/art_crop/front/6/7/674960ce-ff33-4d5e-a24a-a4582b2e9809.jpg?1782684015",
+          "uri": "https://scryfall.com/card/ecl/145/hexing-squelcher?utm_source=api"
+        },
+        {
+          "name": "Knuckles the Echidna",
+          "set": "Secret Lair Drop",
+          "date": "2025-07-14",
+          "rank": 2146,
+          "art": "https://cards.scryfall.io/art_crop/front/5/4/54b65cca-7844-4d3e-9d7f-ed1f49f94425.jpg?1782725309",
+          "uri": "https://scryfall.com/card/sld/2082/knuckles-the-echidna?utm_source=api"
+        }
+      ],
+      "spiceCards": [
+        {
+          "name": "Mardu Devotee",
+          "set": "Tarkir: Dragonstorm",
+          "date": "2025-04-11",
+          "rank": 14174,
+          "art": "https://cards.scryfall.io/art_crop/front/d/a/da45e9b0-a4f6-413b-9e62-666c511eb5b0.jpg?1782687305",
+          "uri": "https://scryfall.com/card/tdm/16/mardu-devotee?utm_source=api"
+        },
+        {
+          "name": "Portable Hole",
+          "set": "Adventures in the Forgotten Realms",
+          "date": "2021-07-23",
+          "rank": 9970,
+          "art": "https://cards.scryfall.io/art_crop/front/8/0/80fca8c0-ae3e-439e-b202-228b9f360e9a.jpg?1782704423",
+          "uri": "https://scryfall.com/card/afr/33/portable-hole?utm_source=api"
+        },
+        {
+          "name": "Altar of the Wretched // Wretched Bonemass",
+          "set": "The Lost Caverns of Ixalan Commander",
+          "date": "2023-11-17",
+          "rank": 7458,
+          "art": "https://cards.scryfall.io/art_crop/front/e/2/e2c812bb-19f8-4a22-bda9-f2a6233cf700.jpg?1782694872",
+          "uri": "https://scryfall.com/card/lcc/10/altar-of-the-wretched-wretched-bonemass?utm_source=api"
+        },
+        {
+          "name": "Static Prison",
+          "set": "Modern Horizons 3",
+          "date": "2024-06-14",
+          "rank": 6974,
+          "art": "https://cards.scryfall.io/art_crop/front/d/d/dd16222e-349c-4a2b-a7c8-8eb35a8ab332.jpg?1782691371",
+          "uri": "https://scryfall.com/card/mh3/44/static-prison?utm_source=api"
+        }
+      ]
     },
     {
       "name": "Cast spells:✔ resolve spells:?",
@@ -36,7 +88,51 @@
         "U",
         "R"
       ],
-      "scryfallUri": "https://scryfall.com/card/mh3/247/ral-monsoon-mage-ral-leyline-prodigy?utm_source=api"
+      "scryfallUri": "https://scryfall.com/card/mh3/247/ral-monsoon-mage-ral-leyline-prodigy?utm_source=api",
+      "newCards": [
+        {
+          "name": "Storm of Memories",
+          "set": "Avatar: The Last Airbender Eternal",
+          "date": "2025-11-21",
+          "rank": 14540,
+          "art": "https://cards.scryfall.io/art_crop/front/2/5/253266de-0eeb-46c7-9912-145586661fc4.jpg?1782724364",
+          "uri": "https://scryfall.com/card/tle/126/storm-of-memories?utm_source=api"
+        }
+      ],
+      "spiceCards": [
+        {
+          "name": "Recoup",
+          "set": "Duel Decks: Sorin vs. Tibalt",
+          "date": "2013-03-15",
+          "rank": 13025,
+          "art": "https://cards.scryfall.io/art_crop/front/7/7/77ac0e4e-71ae-4a4b-aa73-64079bd50308.jpg?1782751854",
+          "uri": "https://scryfall.com/card/ddk/63/recoup?utm_source=api"
+        },
+        {
+          "name": "Quiet Speculation",
+          "set": "Eternal Masters",
+          "date": "2016-06-10",
+          "rank": 11890,
+          "art": "https://cards.scryfall.io/art_crop/front/c/d/cd12fd06-26c5-42d8-936c-fe10b778a561.jpg?1782749911",
+          "uri": "https://scryfall.com/card/ema/68/quiet-speculation?utm_source=api"
+        },
+        {
+          "name": "Rob the Archives",
+          "set": "Streets of New Capenna",
+          "date": "2022-04-29",
+          "rank": 8832,
+          "art": "https://cards.scryfall.io/art_crop/front/a/3/a3ec95f6-88c8-4daf-882f-8b4bc73452c3.jpg?1782701590",
+          "uri": "https://scryfall.com/card/snc/122/rob-the-archives?utm_source=api"
+        },
+        {
+          "name": "March of Reckless Joy",
+          "set": "Kamigawa: Neon Dynasty",
+          "date": "2022-02-18",
+          "rank": 7534,
+          "art": "https://cards.scryfall.io/art_crop/front/7/8/780e1bf1-e392-40f2-9e84-764dedc5fcd4.jpg?1782702228",
+          "uri": "https://scryfall.com/card/neo/154/march-of-reckless-joy?utm_source=api"
+        }
+      ]
     },
     {
       "name": "Casual cEDH",
@@ -56,7 +152,83 @@
         "R",
         "G"
       ],
-      "scryfallUri": "https://scryfall.com/card/cmr/197/rograkh-son-of-rohgahh?utm_source=api"
+      "scryfallUri": "https://scryfall.com/card/cmr/197/rograkh-son-of-rohgahh?utm_source=api",
+      "newCards": [
+        {
+          "name": "Formidable Speaker",
+          "set": "Lorwyn Eclipsed",
+          "date": "2026-01-23",
+          "rank": 1780,
+          "art": "https://cards.scryfall.io/art_crop/front/2/6/265522eb-4f6a-40e7-b374-3833fa63c80b.jpg?1782683987",
+          "uri": "https://scryfall.com/card/ecl/176/formidable-speaker?utm_source=api"
+        },
+        {
+          "name": "Vibrance",
+          "set": "Lorwyn Eclipsed",
+          "date": "2026-01-23",
+          "rank": 9130,
+          "art": "https://cards.scryfall.io/art_crop/front/b/9/b9f71c3b-0840-475f-9c17-fdacbc7f3213.jpg?1782683925",
+          "uri": "https://scryfall.com/card/ecl/249/vibrance?utm_source=api"
+        },
+        {
+          "name": "Badgermole Cub",
+          "set": "Avatar: The Last Airbender",
+          "date": "2025-11-21",
+          "rank": 1452,
+          "art": "https://cards.scryfall.io/art_crop/front/3/4/340c5799-4964-44dd-8c48-8f3f3aba5211.jpg?1782684544",
+          "uri": "https://scryfall.com/card/tla/167/badgermole-cub?utm_source=api"
+        },
+        {
+          "name": "Starfield Vocalist",
+          "set": "Edge of Eternities",
+          "date": "2025-08-01",
+          "rank": 2109,
+          "art": "https://cards.scryfall.io/art_crop/front/d/e/deca0b2a-e7f3-444a-883d-7c41dd62c9cc.jpg?1782685533",
+          "uri": "https://scryfall.com/card/eoe/78/starfield-vocalist?utm_source=api"
+        },
+        {
+          "name": "Tezzeret, Cruel Captain",
+          "set": "Edge of Eternities",
+          "date": "2025-08-01",
+          "rank": 1392,
+          "art": "https://cards.scryfall.io/art_crop/front/0/2/02e8e540-8aa3-4e6a-9a11-c3949cab5f0f.jpg?1782685585",
+          "uri": "https://scryfall.com/card/eoe/2/tezzeret-cruel-captain?utm_source=api"
+        }
+      ],
+      "spiceCards": [
+        {
+          "name": "Eureka",
+          "set": "Vintage Masters",
+          "date": "2014-06-16",
+          "rank": 17868,
+          "art": "https://cards.scryfall.io/art_crop/front/7/1/71725234-14fa-4a29-9efc-6dd2366d9798.jpg?1782751389",
+          "uri": "https://scryfall.com/card/vma/208/eureka?utm_source=api"
+        },
+        {
+          "name": "Genesis Storm",
+          "set": "Commander 2018",
+          "date": "2018-08-10",
+          "rank": 13186,
+          "art": "https://cards.scryfall.io/art_crop/front/0/6/066578ed-ffaf-473d-87b8-e614035748b6.jpg?1782709399",
+          "uri": "https://scryfall.com/card/c18/30/genesis-storm?utm_source=api"
+        },
+        {
+          "name": "Great Whale",
+          "set": "Urza's Saga",
+          "date": "1998-10-12",
+          "rank": 11456,
+          "art": "https://cards.scryfall.io/art_crop/front/5/8/58a2acf1-dad8-4f93-a34e-891e5178a48f.jpg?1782720729",
+          "uri": "https://scryfall.com/card/usg/77/great-whale?utm_source=api"
+        },
+        {
+          "name": "Palinchron",
+          "set": "Vintage Masters",
+          "date": "2014-06-16",
+          "rank": 7565,
+          "art": "https://cards.scryfall.io/art_crop/front/e/f/ef772879-44aa-428d-8c12-50d38f8bac80.jpg?1782751440",
+          "uri": "https://scryfall.com/card/vma/86/palinchron?utm_source=api"
+        }
+      ]
     }
   ]
 }

@@ -1,7 +1,7 @@
 import { Component, computed, effect, inject, input, signal } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { MtgDeck, MtgDecks } from '../../models/mtg-deck';
+import { CardChip, MtgDeck, MtgDecks } from '../../models/mtg-deck';
 import { TopdeckEvent, TopdeckStats } from '../../models/topdeck';
 import { PlaygroupGame, PlaygroupStats } from '../../models/playgroup';
 
@@ -122,6 +122,21 @@ export class MtgDecksComponent {
   /** Best outbound link for a deck: Moxfield if set, else Scryfall. */
   protected link(deck: MtgDeck): string | null {
     return deck.moxfield || deck.scryfallUri || null;
+  }
+
+  /** Front-face name for double-faced cards. */
+  protected frontName(name: string): string {
+    return name.split(' // ')[0];
+  }
+
+  protected newTitle(c: CardChip): string {
+    return c.set ? `${c.set}${c.date ? ' · ' + c.date : ''}` : c.name;
+  }
+
+  protected spiceTitle(c: CardChip): string {
+    return c.rank
+      ? `EDHREC rank #${c.rank.toLocaleString()} — a rare pick`
+      : c.name;
   }
 
   /** Career record as "6–33–9". */

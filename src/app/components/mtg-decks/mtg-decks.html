@@ -4,41 +4,89 @@
       <h2 class="mtg-heading">Decks</h2>
       <div class="deck-grid">
         @for (deck of d.decks; track deck.name) {
-          <a
-            class="deck-card"
-            [class.no-link]="!link(deck)"
-            [href]="link(deck)"
-            [attr.target]="link(deck) ? '_blank' : null"
-            rel="noopener"
-          >
-            <div class="deck-art" [class.split]="(deck.arts?.length ?? 0) > 1">
-              @if (deck.arts?.length) {
-                @for (art of deck.arts; track $index) {
-                  <div
-                    class="art-slice"
-                    [style.background-image]="art ? 'url(' + art + ')' : null"
-                  ></div>
-                }
-              } @else {
-                <div class="art-slice"></div>
-              }
-            </div>
-            <div class="deck-body">
-              <div class="deck-head">
-                <h3>{{ deck.name }}</h3>
-                <span class="pips" aria-hidden="true">
-                  @for (c of pips(deck); track c) {
-                    <span class="pip" [class]="'pip-' + c" [attr.title]="colorName(c)"></span>
+          <div class="deck-card">
+            <a
+              class="deck-top"
+              [href]="link(deck)"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="deck-art" [class.split]="(deck.arts?.length ?? 0) > 1">
+                @if (deck.arts?.length) {
+                  @for (art of deck.arts; track $index) {
+                    <div
+                      class="art-slice"
+                      [style.background-image]="art ? 'url(' + art + ')' : null"
+                    ></div>
                   }
-                </span>
+                } @else {
+                  <div class="art-slice"></div>
+                }
               </div>
-              <p class="deck-commander">{{ deck.commanders.join(' + ') }}</p>
-              <p class="deck-format">{{ deck.format }}</p>
-              @if (deck.description) {
-                <p class="deck-desc">{{ deck.description }}</p>
-              }
-            </div>
-          </a>
+              <div class="deck-body">
+                <div class="deck-head">
+                  <h3>{{ deck.name }}</h3>
+                  <span class="pips" aria-hidden="true">
+                    @for (c of pips(deck); track c) {
+                      <span class="pip" [class]="'pip-' + c" [attr.title]="colorName(c)"></span>
+                    }
+                  </span>
+                </div>
+                <p class="deck-commander">{{ deck.commanders.join(' + ') }}</p>
+                <p class="deck-format">{{ deck.format }}</p>
+                @if (deck.description) {
+                  <p class="deck-desc">{{ deck.description }}</p>
+                }
+              </div>
+            </a>
+
+            @if (deck.newCards?.length || deck.spiceCards?.length) {
+              <div class="deck-notables">
+                @if (deck.newCards?.length) {
+                  <div class="notable-row">
+                    <span class="notable-label" title="Cards that debuted in a set from the last year">🆕 New</span>
+                    <span class="notable-chips">
+                      @for (c of deck.newCards; track c.name) {
+                        <a
+                          class="card-chip"
+                          [href]="c.uri"
+                          target="_blank"
+                          rel="noopener"
+                          [attr.title]="newTitle(c)"
+                        >
+                          @if (c.art) {
+                            <img [src]="c.art" [alt]="c.name" loading="lazy" />
+                          }
+                          {{ frontName(c.name) }}
+                        </a>
+                      }
+                    </span>
+                  </div>
+                }
+                @if (deck.spiceCards?.length) {
+                  <div class="notable-row">
+                    <span class="notable-label" title="The deck's rarest picks — cards few other decks play">🌶️ Spice</span>
+                    <span class="notable-chips">
+                      @for (c of deck.spiceCards; track c.name) {
+                        <a
+                          class="card-chip"
+                          [href]="c.uri"
+                          target="_blank"
+                          rel="noopener"
+                          [attr.title]="spiceTitle(c)"
+                        >
+                          @if (c.art) {
+                            <img [src]="c.art" [alt]="c.name" loading="lazy" />
+                          }
+                          {{ frontName(c.name) }}
+                        </a>
+                      }
+                    </span>
+                  </div>
+                }
+              </div>
+            }
+          </div>
         }
       </div>
     }
