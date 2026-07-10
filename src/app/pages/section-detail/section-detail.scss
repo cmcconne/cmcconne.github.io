@@ -174,23 +174,23 @@
 }
 
 .rank-card {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.9rem;
-  padding: 1rem 1.1rem;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1.25rem 1.1rem;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: var(--surface);
 
   &.unranked {
     color: var(--muted);
-    justify-items: start;
   }
 
   .rank-emblem {
-    width: 88px;
-    height: 88px;
+    width: 176px;
+    height: 176px;
     object-fit: contain;
     // The emblem art has transparent padding; scaling up shows the crest larger.
     transform: scale(1.15);
@@ -200,6 +200,7 @@
   .rank-info {
     display: flex;
     flex-direction: column;
+    align-items: center;
     line-height: 1.25;
   }
 
@@ -221,7 +222,7 @@
   }
 
   .rank-record {
-    grid-column: 1 / -1;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
