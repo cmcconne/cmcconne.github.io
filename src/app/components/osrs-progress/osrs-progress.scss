@@ -153,67 +153,106 @@ $bevel: rgba(255, 255, 255, 0.12);
 }
 
 .diary {
-  padding: 0.3rem 0.6rem;
-
   &:not(:last-child) {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
   }
+
+  &.open {
+    background: rgba(0, 0, 0, 0.18);
+  }
+}
+
+// Region row (click to expand its four tiers) — in-game diary drill-down.
+.diary-row {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.32rem 0.6rem;
+  border: none;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-shadow: 1px 1px black;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .diary-caret {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
 }
 
 .diary-area {
-  display: block;
-  margin-bottom: 0.28rem;
   font-size: 1.08rem;
   font-weight: bold;
-  text-shadow: 1px 1px black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   &.done { color: var(--green); }
   &.partial { color: var(--yellow); }
   &.none { color: var(--red); }
 }
 
+.diary-status {
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+
+  &.done { color: rgba(13, 193, 13, 0.8); }
+  &.partial { color: var(--yellow); }
+  &.none { color: rgba(255, 81, 81, 0.85); }
+}
+
+// Expanded tier list for the open region.
 .diary-tiers {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 3px;
+  list-style: none;
+  margin: 0;
+  padding: 0.15rem 0.6rem 0.4rem 1.7rem;
 }
 
 .diary-tier {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto 1.1rem;
   align-items: center;
-  gap: 1px;
-  padding: 0.12rem 0.15rem;
-  border: 1px solid rgba(0, 0, 0, 0.55);
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.26);
-  cursor: default;
+  gap: 0.6rem;
+  padding: 0.16rem 0.4rem;
+  border-left: 2px solid rgba(0, 0, 0, 0.45);
+  text-shadow: 1px 1px black;
 
-  .diary-tier-name {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.65);
-    text-shadow: 1px 1px black;
+  .dt-name {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
   }
 
-  .diary-tier-mark {
-    font-size: 0.95rem;
-    font-weight: bold;
+  .dt-count {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.6);
     font-variant-numeric: tabular-nums;
-    text-shadow: 1px 1px black;
+  }
+
+  .dt-mark {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
   }
 
   &.done {
-    border-color: rgba(13, 193, 13, 0.5);
-    background: rgba(13, 193, 13, 0.12);
-    .diary-tier-mark { color: var(--green); }
+    border-left-color: rgba(13, 193, 13, 0.6);
+    .dt-name { color: var(--green); }
+    .dt-mark { color: var(--green); }
   }
   &.partial {
-    border-color: rgba(255, 255, 0, 0.4);
-    .diary-tier-mark { color: var(--yellow); }
+    border-left-color: rgba(255, 255, 0, 0.5);
+    .dt-name { color: var(--yellow); }
   }
   &.none {
-    .diary-tier-mark { color: var(--red); }
+    .dt-name { color: rgba(255, 255, 255, 0.7); }
   }
 }
 

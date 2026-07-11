@@ -39,6 +39,8 @@ export class OsrsProgressComponent {
 
   protected readonly data = signal<QuestsDiaries | null>(null);
   protected readonly search = signal('');
+  /** The diary area whose tiers are expanded (in-game diary drill-down). */
+  protected readonly openArea = signal<string | null>(null);
 
   constructor() {
     this.http.get<QuestsDiaries>(`/osrs-quests-diaries.json?t=${Date.now()}`).subscribe({
@@ -76,6 +78,14 @@ export class OsrsProgressComponent {
   protected areaClass(a: DiaryArea): string {
     if (a.complete) return 'done';
     return a.tiers.some((t) => t.done > 0) ? 'partial' : 'none';
+  }
+
+  protected tiersDone(a: DiaryArea): number {
+    return a.tiers.filter((t) => t.complete).length;
+  }
+
+  protected toggleArea(name: string): void {
+    this.openArea.set(this.openArea() === name ? null : name);
   }
 
   protected onSearch(value: string): void {

@@ -1,7 +1,15 @@
-$window-bg: #584f3f;
-$side-bg: #3a3228;
-$border: #100c07;
-$bevel: rgba(255, 255, 255, 0.12);
+// RuneLite Combat Achievements "Task List" — dark grey plugin styling.
+$panel: #3c3c3c;
+$tile: #4a4a4a;
+$tile-hover: #565656;
+$bar-track: #2b2b2b;
+$edge-light: #5c5c5c;
+$edge-dark: #232323;
+$text: #dcdccb;
+$orange: #ff981f;
+$green: #4fb24f;
+$yellow: #e5c03a;
+$red: #c24a3a;
 
 :host {
   display: block;
@@ -10,283 +18,264 @@ $bevel: rgba(255, 255, 255, 0.12);
 
 .ca {
   font-family: 'RuneScape', system-ui, sans-serif;
-  --orange: #ff981f;
-  --yellow: #ffff00;
-  --green: #0dc10d;
-  --red: #ff5555;
-  --white: #fff;
-  border: 2px solid $border;
+  color: $text;
+  background: $panel;
+  border: 1px solid $edge-dark;
   border-radius: 4px;
-  box-shadow: inset 0 0 0 1px $bevel;
-  background: $window-bg url('/images/osrs/panel-tile.png') repeat;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
   overflow: hidden;
-  color: var(--white);
 }
 
-// --- Title -----------------------------------------------------------------
-.ca-head {
-  display: flex;
-  justify-content: center;
-  padding: 0.45rem 1rem;
-  background: rgba(0, 0, 0, 0.33);
-  border-bottom: 1px solid $border;
-
-  .ca-title {
-    font-weight: bold;
-    font-size: 1.35rem;
-    color: var(--orange);
-    text-shadow: 1.5px 1.5px black;
-  }
-
-  .ca-total {
-    color: var(--orange);
-    font-variant-numeric: tabular-nums;
-
-    &.done {
-      color: var(--green);
-    }
-  }
-
-  .ca-pts {
-    color: var(--yellow);
-    font-variant-numeric: tabular-nums;
-  }
-}
-
-// --- Tier filter chips ------------------------------------------------------
-.ca-tiers {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  padding: 6px;
-  background: rgba(0, 0, 0, 0.18);
-  border-bottom: 1px solid $border;
-}
-
-.ca-tier-chip {
-  flex: 1 1 90px;
+// --- Top bar ----------------------------------------------------------------
+.ca-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 5px;
-  padding: 0.3rem 0.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.22);
-  color: var(--white);
+  gap: 8px;
+  padding: 8px;
+  background: #363636;
+  border-bottom: 1px solid $edge-dark;
+}
+
+.ca-tab {
+  padding: 0.32rem 0.9rem;
+  border: 1px solid $edge-light;
+  border-radius: 3px;
+  background: #2f2f2f;
+  color: $orange;
   font: inherit;
+  font-size: 1.05rem;
   font-weight: bold;
   text-shadow: 1px 1px black;
-  cursor: pointer;
+  white-space: nowrap;
 
-  img {
+  &.active {
+    background: #454545;
+    box-shadow: inset 0 0 0 1px rgba(255, 152, 31, 0.25);
+  }
+
+  &.back {
+    cursor: pointer;
+    &:hover { background: #454545; }
+  }
+}
+
+.ca-bar-boss {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: $orange;
+  text-shadow: 1px 1px black;
+}
+
+.ca-search {
+  flex: 1;
+  min-width: 60px;
+  padding: 0.32rem 0.6rem;
+  border: 1px solid $edge-dark;
+  border-radius: 3px;
+  background: #2b2b2b;
+  color: $text;
+  font-family: inherit;
+  font-size: 1rem;
+
+  &::placeholder { color: rgba(220, 220, 203, 0.4); }
+  &:focus { outline: 1px solid $orange; }
+}
+
+.ca-count {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+
+  .ca-count-icon {
     width: 18px;
     height: 18px;
     object-fit: contain;
     image-rendering: pixelated;
   }
 
-  .ca-tier-name {
-    color: var(--orange);
-    font-size: 1rem;
-  }
-
-  .ca-tier-count {
-    font-size: 0.95rem;
-    color: var(--white);
+  .ca-count-num {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: $orange;
+    text-shadow: 1px 1px black;
     font-variant-numeric: tabular-nums;
 
-    &.done {
-      color: var(--green);
-    }
+    &.done { color: $green; }
   }
+}
+
+.ca-viewclog {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: none;
+  color: $orange;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+  white-space: nowrap;
+  cursor: pointer;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.08);
+    border-color: $edge-light;
+    background: #2f2f2f;
   }
 
-  &.active {
-    background: rgba(255, 152, 31, 0.22);
-    border-color: var(--orange);
-  }
+  .ca-clog-icon { font-size: 0.95rem; }
 }
 
-// --- Body -------------------------------------------------------------------
-.ca-body {
+// --- Boss grid --------------------------------------------------------------
+.ca-grid {
   display: grid;
-  grid-template-columns: 250px 1fr;
-  min-height: 400px;
-  margin: 6px;
-  border: 2px solid $border;
-  box-shadow: inset 0 0 0 1px $bevel;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 6px;
+  padding: 8px;
+  max-height: 520px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #5c5c5c #2b2b2b;
 }
 
-// --- Boss sidebar -----------------------------------------------------------
-.ca-side {
+.boss {
   display: flex;
   flex-direction: column;
-  background: $side-bg url('/images/osrs/panel-tile-side.png') repeat;
-  border-right: 2px solid $border;
-}
-
-.ca-search {
-  margin: 6px;
-  padding: 0.28rem 0.55rem;
-  border: 1px solid #241f18;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.28);
-  color: var(--white);
-  font-family: inherit;
-  font-size: 1rem;
-
-  &::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-  }
-
-  &:focus {
-    outline: 1px solid var(--orange);
-  }
-}
-
-.ca-monsters {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 0.4rem;
-  overflow-y: auto;
-  max-height: 520px;
-  scrollbar-width: thin;
-  scrollbar-color: #241f18 transparent;
-
-  li:nth-child(even) {
-    background: rgba(0, 0, 0, 0.22);
-  }
-}
-
-.ca-monster {
-  display: grid;
-  grid-template-columns: 30px 1fr auto;
   align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-  padding: 0.2rem 0.6rem;
-  border: none;
-  background: none;
-  font: inherit;
-  font-weight: bold;
-  text-align: left;
+  gap: 8px;
+  padding: 12px 8px 10px;
+  border: 1px solid $edge-light;
+  border-top-color: #6a6a6a;
+  border-radius: 3px;
+  background: $tile;
   cursor: pointer;
-  text-shadow: 1px 1px black;
-
-  .ca-monster-icon {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
-    image-rendering: pixelated;
-    justify-self: center;
-  }
-
-  .ca-monster-name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 1.05rem;
-
-    &.none { color: var(--orange); }
-    &.partial { color: var(--yellow); }
-    &.done { color: var(--green); }
-  }
-
-  .ca-monster-count {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-variant-numeric: tabular-nums;
-
-    &.done {
-      color: var(--green);
-    }
-  }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: $tile-hover;
+    border-color: $orange;
   }
 
-  &.selected {
-    background: rgba(255, 255, 255, 0.14);
+  .boss-icon {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.5));
   }
 }
 
-.ca-nomatch {
-  padding: 0.6rem 0.75rem;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 1rem;
+// Segmented progress bar under each boss (green complete / yellow partial).
+.boss-bar {
+  position: relative;
+  width: 100%;
+  height: 9px;
+  background: $bar-track;
+  border: 1px solid $edge-dark;
+  border-radius: 2px;
+  overflow: hidden;
+
+  .boss-bar-fill {
+    height: 100%;
+    transition: width 0.2s ease;
+  }
+
+  // Segment notches (6 divisions) drawn over the fill.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(16.666% - 1px),
+      rgba(0, 0, 0, 0.55) calc(16.666% - 1px),
+      rgba(0, 0, 0, 0.55) 16.666%
+    );
+    pointer-events: none;
+  }
+
+  &.done .boss-bar-fill { background: $green; }
+  &.partial .boss-bar-fill { background: $yellow; }
+  &.none .boss-bar-fill { background: transparent; }
 }
 
-// --- Task detail ------------------------------------------------------------
+// --- Boss task detail -------------------------------------------------------
 .ca-detail {
-  padding: 0.6rem 1rem 1rem;
-  overflow-y: auto;
-  max-height: 560px;
-  scrollbar-width: thin;
-  scrollbar-color: #2b241c transparent;
+  padding: 8px 10px 10px;
 }
 
 .ca-detail-head {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-}
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $edge-dark;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 
-.ca-monster-title {
-  margin: 0;
-  font-size: 1.45rem;
-  font-weight: bold;
-  color: var(--orange);
-  text-shadow: 1.5px 1.5px black;
+  .ca-detail-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.5));
+  }
+
+  .ca-detail-titles {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ca-detail-name {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: $orange;
+    text-shadow: 1px 1px black;
+  }
+
+  .ca-detail-count {
+    font-size: 0.95rem;
+    font-variant-numeric: tabular-nums;
+
+    &.done { color: $green; }
+    &.partial { color: $yellow; }
+    &.none { color: $red; }
+  }
 }
 
 .ca-hide-toggle {
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.25);
-  color: rgba(255, 255, 255, 0.75);
+  padding: 0.28rem 0.6rem;
+  border: 1px solid $edge-light;
+  border-radius: 3px;
+  background: #2f2f2f;
+  color: rgba(220, 220, 203, 0.8);
   font: inherit;
   font-size: 0.9rem;
-  padding: 0.2rem 0.6rem;
   cursor: pointer;
   white-space: nowrap;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  &.on {
-    color: var(--orange);
-    border-color: var(--orange);
-  }
-}
-
-.ca-obt {
-  margin: 0 0 0.6rem;
-  font-size: 1.08rem;
-  font-weight: bold;
-  color: var(--orange);
-  text-shadow: 1px 1px black;
-
-  span {
-    color: var(--white);
-    &.done { color: var(--green); }
-    &.partial { color: var(--yellow); }
-    &.none { color: var(--red); }
-  }
+  &:hover { background: #3a3a3a; }
+  &.on { color: $orange; border-color: $orange; }
 }
 
 .ca-tasks {
   list-style: none;
   margin: 0;
-  padding-top: 0.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 0;
+  max-height: 460px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #5c5c5c #2b2b2b;
 }
 
 .ca-task {
@@ -294,22 +283,17 @@ $bevel: rgba(255, 255, 255, 0.12);
   grid-template-columns: 1.3rem 22px 1fr auto;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.4rem 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 0.4rem 0.2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.35);
 
-  &:first-child {
-    border-top: none;
-  }
-
-  &.done {
-    opacity: 0.62;
-  }
+  &:first-child { border-top: none; }
+  &.done { opacity: 0.6; }
 }
 
 .ca-check {
   font-size: 1.1rem;
   font-weight: bold;
-  color: var(--green);
+  color: $green;
   text-align: center;
 }
 
@@ -328,14 +312,14 @@ $bevel: rgba(255, 255, 255, 0.12);
 
 .ca-task-name {
   font-weight: bold;
-  font-size: 1.08rem;
-  color: var(--white);
+  font-size: 1.05rem;
+  color: $text;
   text-shadow: 1px 1px black;
 }
 
 .ca-task-desc {
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.9rem;
+  color: rgba(220, 220, 203, 0.58);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -351,35 +335,30 @@ $bevel: rgba(255, 255, 255, 0.12);
 
 .ca-task-type {
   font-size: 0.85rem;
-  color: var(--orange);
+  color: $orange;
 }
 
 .ca-task-comp {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(220, 220, 203, 0.55);
   font-variant-numeric: tabular-nums;
   cursor: help;
 }
 
-@media (max-width: 640px) {
-  .ca-body {
-    grid-template-columns: 1fr;
-  }
+.ca-nomatch {
+  padding: 1rem;
+  text-align: center;
+  color: rgba(220, 220, 203, 0.55);
+  font-size: 1rem;
+}
 
-  .ca-side {
-    border-right: none;
-    border-bottom: 2px solid $border;
-  }
-
-  .ca-monsters {
-    max-height: 200px;
+@media (max-width: 520px) {
+  .ca-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   }
 
   .ca-task {
     grid-template-columns: 1.1rem 20px 1fr;
-
-    .ca-task-meta {
-      display: none;
-    }
+    .ca-task-meta { display: none; }
   }
 }

@@ -1,5 +1,4 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
 export interface CaTask {
@@ -30,7 +29,6 @@ const TIER_NAMES = ['', 'Easy', 'Medium', 'Hard', 'Elite', 'Master', 'Grandmaste
 
 @Component({
   selector: 'app-osrs-ca',
-  imports: [DecimalPipe],
   templateUrl: './osrs-ca.html',
   styleUrl: './osrs-ca.scss',
 })
@@ -38,9 +36,9 @@ export class OsrsCaComponent {
   private readonly http = inject(HttpClient);
 
   protected readonly data = signal<CaData | null>(null);
+  /** null = boss grid ("Task List"); a name = that boss's task detail. */
   protected readonly selectedName = signal<string | null>(null);
   protected readonly search = signal('');
-  protected readonly tierFilter = signal(0); // 0 = all
   protected readonly hideDone = signal(false);
 
   constructor() {
@@ -50,27 +48,7 @@ export class OsrsCaComponent {
     });
   }
 
-  /** Per-tier done/total, computed from the task set. */
-  protected readonly tierSummary = computed(() => {
-    const d = this.data();
-    const rows = TIER_NAMES.slice(1).map((name, i) => ({
-      tier: i + 1,
-      name,
-      done: 0,
-      total: 0,
-    }));
-    for (const m of d?.monsters ?? []) {
-      for (const t of m.tasks) {
-        const r = rows[t.tier - 1];
-        if (!r) continue;
-        r.total++;
-        if (t.done) r.done++;
-      }
-    }
-    return rows;
-  });
-
-  /** Monsters filtered by the search box. */
+  /** Monsters filtered by the search box (grid view). */
   protected readonly monsterList = computed<CaMonster[]>(() => {
     const d = this.data();
     if (!d) return [];
@@ -83,42 +61,53 @@ export class OsrsCaComponent {
     );
   });
 
+  /** The boss whose tasks are open, or null in grid view. */
   protected readonly activeMonster = computed<CaMonster | null>(() => {
-    const list = this.monsterList();
     const sel = this.selectedName();
-    return list.find((m) => m.name === sel) ?? list[0] ?? null;
+    if (!sel) return null;
+    return this.data()?.monsters.find((m) => m.name === sel) ?? null;
   });
 
-  /** Tasks of the active monster after tier / hide-completed filters. */
+  /** Tasks of the active monster after the hide-completed filter. */
   protected readonly activeTasks = computed<CaTask[]>(() => {
     const m = this.activeMonster();
     if (!m) return [];
-    const tier = this.tierFilter();
     const hide = this.hideDone();
-    return m.tasks.filter(
-      (t) => (tier === 0 || t.tier === tier) && (!hide || !t.done),
-    );
+    return [...m.tasks]
+      .filter((t) => !hide || !t.done)
+      .sort((a, b) => a.tier - b.tier || a.name.localeCompare(b.name));
   });
 
   protected select(name: string): void {
     this.selectedName.set(name);
   }
 
-  protected onSearch(v: string): void {
-    this.search.set(v);
+  protected back(): void {
     this.selectedName.set(null);
   }
 
-  protected setTier(t: number): void {
-    this.tierFilter.set(t);
+  protected onSearch(v: string): void {
+    this.search.set(v);
   }
 
   protected toggleHideDone(): void {
     this.hideDone.set(!this.hideDone());
   }
 
+  /** Scroll up to the collection log (the "View Clog" button). */
+  protected viewClog(): void {
+    document
+      .querySelector('app-osrs-clog')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   protected monsterClass(m: CaMonster): string {
     return m.done >= m.total ? 'done' : m.done > 0 ? 'partial' : 'none';
+  }
+
+  /** Progress-bar fill percentage for a boss card. */
+  protected pct(m: CaMonster): number {
+    return m.total ? Math.round((m.done / m.total) * 100) : 0;
   }
 
   protected tierName(t: number): string {
