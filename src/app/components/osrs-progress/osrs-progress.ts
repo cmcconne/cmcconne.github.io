@@ -38,7 +38,6 @@ export class OsrsProgressComponent {
   private readonly http = inject(HttpClient);
 
   protected readonly data = signal<QuestsDiaries | null>(null);
-  protected readonly tab = signal<'quests' | 'diaries'>('quests');
   protected readonly search = signal('');
 
   constructor() {
@@ -61,13 +60,13 @@ export class OsrsProgressComponent {
     return [...list].sort((a, b) => rank(a.state) - rank(b.state));
   });
 
-  /** Green = complete, yellow = started, red = not started. */
+  /** In-game quest-list colours: red = not started, yellow = started, green = complete. */
   protected questClass(state: number): string {
     return state === 2 ? 'done' : state === 1 ? 'partial' : 'none';
   }
 
   protected questLabel(state: number): string {
-    return state === 2 ? 'Complete' : state === 1 ? 'Started' : 'Not started';
+    return state === 2 ? 'Complete' : state === 1 ? 'In progress' : 'Not started';
   }
 
   protected tierClass(t: DiaryTier): string {
@@ -77,11 +76,6 @@ export class OsrsProgressComponent {
   protected areaClass(a: DiaryArea): string {
     if (a.complete) return 'done';
     return a.tiers.some((t) => t.done > 0) ? 'partial' : 'none';
-  }
-
-  protected setTab(t: 'quests' | 'diaries'): void {
-    this.tab.set(t);
-    this.search.set('');
   }
 
   protected onSearch(value: string): void {
