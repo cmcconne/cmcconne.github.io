@@ -195,6 +195,42 @@ try {
     /* icons just won't render */
   }
 
+  // Champion id -> name/title/tags, from Data Dragon (labels mastery + pool).
+  const champById = {};
+  try {
+    if (ddragonVersion) {
+      const cj = await (
+        await fetch(
+          `https://ddragon.leagueoflegends.com/cdn/${ddragonVersion}/data/en_US/champion.json`,
+        )
+      ).json();
+      for (const c of Object.values(cj.data ?? {})) {
+        champById[c.key] = { name: c.name, title: c.title, tags: c.tags ?? [] };
+      }
+    }
+  } catch {
+    /* names fall back to champion ids */
+  }
+
+  // Champion mastery — top champions by mastery points (champion-mastery-v4).
+  let championMastery = [];
+  try {
+    const mast = await riot(
+      `https://${PLATFORM}.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/${puuid}/top?count=12`,
+    );
+    championMastery = mast.map((x) => ({
+      championId: x.championId,
+      name: champById[x.championId]?.name ?? null,
+      level: x.championLevel,
+      points: x.championPoints,
+      chest: !!x.chestGranted,
+      tokens: x.tokensEarned ?? 0,
+      lastPlay: x.lastPlayTime ?? null,
+    }));
+  } catch (err) {
+    console.error(`  champion mastery skipped: ${err.message}`);
+  }
+
   // Recent matches (match-v5 uses regional routing, same as account-v1).
   const matchIds = await riot(
     `https://${REGION}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids` +
@@ -274,13 +310,14 @@ try {
     profileIconId: summoner.profileIconId,
     ddragonVersion,
     ranked,
+    championMastery,
     matches,
     summary,
   };
 
   writeFileSync(OUT, JSON.stringify(data, null, 2) + '\n');
   console.log(
-    `Wrote ${OUT} — ${ranked.length} ranked queue(s), ${matches.length} match(es).`,
+    `Wrote ${OUT} — ${ranked.length} ranked queue(s), ${championMastery.length} mastery, ${matches.length} match(es).`,
   );
 } catch (err) {
   console.error('Failed to fetch LoL stats:', err.message);

@@ -63,6 +63,17 @@ export interface Match {
   insights?: MatchInsights;
 }
 
+/** One champion-mastery entry from Riot's champion-mastery-v4 API. */
+export interface ChampionMastery {
+  championId: number;
+  name: string | null;
+  level: number;
+  points: number;
+  chest: boolean;
+  tokens: number;
+  lastPlay: number | null;
+}
+
 /** Aggregate over the recent matches — the improvement dashboard. */
 export interface LolSummary {
   games: number;
@@ -92,6 +103,30 @@ export interface LolStats {
   /** Data Dragon version for item icons. */
   ddragonVersion?: string | null;
   ranked?: RankedEntry[];
+  championMastery?: ChampionMastery[];
   matches?: Match[];
   summary?: LolSummary | null;
+}
+
+/** Aggregated per-champion performance over the recent matches. */
+export interface ChampionPoolEntry {
+  champion: string;
+  championId: number;
+  games: number;
+  wins: number;
+  kills: number;
+  deaths: number;
+  assists: number;
+  kda: number;
+  csPerMin: number;
+  winRate: number;
+}
+
+/** Games played in one role over the recent matches. */
+export interface RoleStat {
+  role: string;
+  label: string;
+  games: number;
+  wins: number;
+  pct: number;
 }

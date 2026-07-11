@@ -1,7 +1,14 @@
-import { Component, effect, inject, input, signal } from '@angular/core';
+import { Component, computed, effect, inject, input, signal } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { LolStats, Match, RankedEntry } from '../../models/lol-stats';
+import {
+  ChampionMastery,
+  ChampionPoolEntry,
+  LolStats,
+  Match,
+  RankedEntry,
+  RoleStat,
+} from '../../models/lol-stats';
 
 const QUEUE_NAMES: Record<string, string> = {
   RANKED_SOLO_5x5: 'Ranked Solo/Duo',
@@ -74,6 +81,121 @@ export class LolStatsComponent {
   /** Which match row is expanded (matchId), if any. */
   protected readonly expandedId = signal<string | null>(null);
 
+  /** Real (non-remake) recent matches. */
+  private readonly realMatches = computed<Match[]>(() =>
+    (this.stats()?.matches ?? []).filter((m) => !m.remake),
+  );
+
+  /** Per-champion performance aggregated from the recent matches. */
+  protected readonly championPool = computed<ChampionPoolEntry[]>(() => {
+    const acc = new Map<
+      string,
+      {
+        champion: string;
+        championId: number;
+        games: number;
+        wins: number;
+        kills: number;
+        deaths: number;
+        assists: number;
+        csSum: number;
+        csGames: number;
+      }
+    >();
+    for (const m of this.realMatches()) {
+      let e = acc.get(m.champion);
+      if (!e) {
+        e = {
+          champion: m.champion,
+          championId: m.championId,
+          games: 0,
+          wins: 0,
+          kills: 0,
+          deaths: 0,
+          assists: 0,
+          csSum: 0,
+          csGames: 0,
+        };
+        acc.set(m.champion, e);
+      }
+      e.games++;
+      if (m.win) e.wins++;
+      e.kills += m.kills;
+      e.deaths += m.deaths;
+      e.assists += m.assists;
+      if (m.csPerMin != null && m.position !== 'UTILITY') {
+        e.csSum += m.csPerMin;
+        e.csGames++;
+      }
+    }
+    return [...acc.values()]
+      .map((e) => ({
+        champion: e.champion,
+        championId: e.championId,
+        games: e.games,
+        wins: e.wins,
+        kills: e.kills,
+        deaths: e.deaths,
+        assists: e.assists,
+        kda: +((e.kills + e.assists) / Math.max(1, e.deaths)).toFixed(2),
+        csPerMin: e.csGames ? +(e.csSum / e.csGames).toFixed(1) : 0,
+        winRate: Math.round((e.wins / e.games) * 100),
+      }))
+      .sort((a, b) => b.games - a.games || b.winRate - a.winRate);
+  });
+
+  /** Games played per role across the recent matches. */
+  protected readonly roleStats = computed<RoleStat[]>(() => {
+    const ms = this.realMatches().filter((m) => m.position);
+    const total = ms.length;
+    const acc = new Map<string, { games: number; wins: number }>();
+    for (const m of ms) {
+      const e = acc.get(m.position!) ?? { games: 0, wins: 0 };
+      e.games++;
+      if (m.win) e.wins++;
+      acc.set(m.position!, e);
+    }
+    return [...acc.entries()]
+      .map(([role, e]) => ({
+        role,
+        label: POSITION_LABELS[role] ?? role,
+        games: e.games,
+        wins: e.wins,
+        pct: total ? Math.round((e.games / total) * 100) : 0,
+      }))
+      .sort((a, b) => b.games - a.games);
+  });
+
+  /** Recent win/loss sequence (most recent first). */
+  protected readonly recentForm = computed(() =>
+    this.realMatches()
+      .slice(0, 15)
+      .map((m) => ({ win: m.win, champion: m.champion, id: m.matchId })),
+  );
+
+  /** Headline aggregate over the recent matches. */
+  protected readonly overall = computed(() => {
+    const ms = this.realMatches();
+    if (!ms.length) return null;
+    const wins = ms.filter((m) => m.win).length;
+    const kills = ms.reduce((s, m) => s + m.kills, 0);
+    const deaths = ms.reduce((s, m) => s + m.deaths, 0);
+    const assists = ms.reduce((s, m) => s + m.assists, 0);
+    return {
+      games: ms.length,
+      wins,
+      losses: ms.length - wins,
+      winRate: Math.round((wins / ms.length) * 100),
+      kda: +((kills + assists) / Math.max(1, deaths)).toFixed(2),
+      kills,
+      deaths,
+      assists,
+      favChampion: this.championPool()[0] ?? null,
+      favRole: this.roleStats()[0] ?? null,
+      pentakills: ms.filter((m) => (m.largestMultiKill ?? 0) >= 5).length,
+    };
+  });
+
   constructor() {
     effect(() => {
       const feed = this.feed();
@@ -128,11 +250,36 @@ export class LolStatsComponent {
   }
 
   /** Reliable champion square icon by numeric id (no version/name mapping). */
-  protected championIcon(m: Match): string {
+  protected champSquare(championId: number): string {
     return (
       'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/' +
-      `global/default/v1/champion-icons/${m.championId}.png`
+      `global/default/v1/champion-icons/${championId}.png`
     );
+  }
+
+  protected championIcon(m: Match): string {
+    return this.champSquare(m.championId);
+  }
+
+  /** Centred splash art for a champion key (used as the header backdrop). */
+  protected splashUrl(championKey: string): string {
+    return `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championKey}_0.jpg`;
+  }
+
+  /** 1_234_567 -> "1.2M", 45_300 -> "45.3K". */
+  protected masteryPoints(points: number): string {
+    if (points >= 1e6) return (points / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (points >= 1e3) return (points / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
+    return String(points);
+  }
+
+  /** Colour tier for a mastery crest badge. */
+  protected masteryClass(level: number): string {
+    if (level >= 10) return 'm-gold';
+    if (level >= 8) return 'm-purple';
+    if (level >= 7) return 'm-teal';
+    if (level >= 5) return 'm-red';
+    return 'm-grey';
   }
 
   protected kda(m: Match): string {

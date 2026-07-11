@@ -1,4 +1,4 @@
-<section class="live-stats" aria-label="Live stats">
+<section class="lol" aria-label="League of Legends stats">
   @if (stats(); as st) {
     @if (st.placeholder) {
       <div class="stats-pending">
@@ -6,25 +6,33 @@
         the Riot API key is connected. Meanwhile, use the profile links above.
       </div>
     } @else {
-      <div class="profile-card">
-        @if (st.profileIconId) {
-          <img
-            class="profile-icon"
-            [src]="profileIcon(st)"
-            [alt]="st.riotId"
-            width="64"
-            height="64"
-          />
+      <!-- Hero header -->
+      <div class="lol-hero">
+        @if (overall()?.favChampion; as fav) {
+          <div class="hero-bg" [style.background-image]="'url(' + splashUrl(fav.champion) + ')'"></div>
         }
-        <div class="profile-info">
-          <span class="riot-id">{{ st.riotId }}</span>
-          <span class="level">Level {{ st.summonerLevel }}</span>
+        <div class="hero-inner">
+          @if (st.profileIconId) {
+            <img class="profile-icon" [src]="profileIcon(st)" [alt]="st.riotId" width="72" height="72" />
+          }
+          <div class="hero-id">
+            <span class="riot-id">{{ st.riotId }}</span>
+            <span class="level">Level {{ st.summonerLevel }}</span>
+          </div>
+          @if (recentForm().length) {
+            <div class="hero-form" [attr.title]="'Recent form (newest first)'">
+              @for (f of recentForm(); track f.id) {
+                <span class="form-pip" [class.win]="f.win" [class.loss]="!f.win" [attr.title]="f.champion + ' — ' + (f.win ? 'Win' : 'Loss')"></span>
+              }
+            </div>
+          }
+          @if (st.updatedAt) {
+            <span class="updated">Updated {{ st.updatedAt | date: 'short' }}</span>
+          }
         </div>
-        @if (st.updatedAt) {
-          <span class="updated">Updated {{ st.updatedAt | date: 'short' }}</span>
-        }
       </div>
 
+      <!-- Ranked queues -->
       <div class="rank-cards">
         @for (r of st.ranked; track r.queue) {
           <div class="rank-card">
@@ -42,44 +50,148 @@
             </div>
           </div>
         } @empty {
-          <div class="rank-card unranked">
-            <span class="tier">Unranked</span>
-          </div>
+          <div class="rank-card unranked"><span class="tier">Unranked</span></div>
         }
       </div>
 
+      <!-- Overall snapshot (recent games) -->
+      @if (overall(); as ov) {
+        <div class="panel snapshot">
+          <div class="panel-head">
+            <h2>Recent form</h2>
+            <span class="panel-sub">last {{ ov.games }} games</span>
+          </div>
+          <div class="snap-tiles">
+            <div class="snap-tile">
+              <span class="v" [class.good]="ov.winRate >= 50" [class.bad]="ov.winRate < 50">{{ ov.winRate }}%</span>
+              <span class="l">{{ ov.wins }}W {{ ov.losses }}L</span>
+            </div>
+            <div class="snap-tile">
+              <span class="v">{{ ov.kda | number: '1.2-2' }}</span>
+              <span class="l">KDA</span>
+            </div>
+            <div class="snap-tile kda-split">
+              <span class="v">{{ ov.kills }} / {{ ov.deaths }} / {{ ov.assists }}</span>
+              <span class="l">Totals</span>
+            </div>
+            @if (ov.favChampion; as fc) {
+              <div class="snap-tile">
+                <img class="snap-champ" [src]="champSquare(fc.championId)" [alt]="fc.champion" loading="lazy" />
+                <span class="l">{{ fc.champion }} · {{ fc.games }}g</span>
+              </div>
+            }
+            @if (ov.favRole; as fr) {
+              <div class="snap-tile">
+                <span class="v small">{{ fr.label }}</span>
+                <span class="l">{{ fr.pct }}% of games</span>
+              </div>
+            }
+            @if (ov.pentakills) {
+              <div class="snap-tile">
+                <span class="v good">{{ ov.pentakills }}</span>
+                <span class="l">Pentakill{{ ov.pentakills === 1 ? '' : 's' }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Champion mastery -->
+      @if (st.championMastery?.length) {
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Champion mastery</h2>
+            <span class="panel-sub">top {{ st.championMastery!.length }}</span>
+          </div>
+          <div class="mastery-grid">
+            @for (cm of st.championMastery; track cm.championId) {
+              <div class="mastery" [attr.title]="(cm.name || 'Champion') + ' — mastery ' + cm.level + ', ' + (cm.points | number) + ' pts'">
+                <div class="mastery-portrait">
+                  <img [src]="champSquare(cm.championId)" [alt]="cm.name || 'Champion'" loading="lazy" />
+                  <span class="mastery-crest" [class]="masteryClass(cm.level)">{{ cm.level }}</span>
+                </div>
+                <span class="mastery-name">{{ cm.name || 'Champion ' + cm.championId }}</span>
+                <span class="mastery-pts">{{ masteryPoints(cm.points) }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Champion pool (recent games) -->
+      @if (championPool().length) {
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Champion pool</h2>
+            <span class="panel-sub">recent games</span>
+          </div>
+          <ul class="pool">
+            @for (c of championPool(); track c.champion) {
+              <li class="pool-row">
+                <img class="pool-icon" [src]="champSquare(c.championId)" [alt]="c.champion" loading="lazy" />
+                <span class="pool-name">{{ c.champion }}</span>
+                <span class="pool-games">{{ c.games }}g</span>
+                <div class="pool-wr">
+                  <div class="pool-wr-bar" [attr.title]="c.winRate + '% win rate'">
+                    <span [class.good]="c.winRate >= 50" [class.bad]="c.winRate < 50" [style.width.%]="c.winRate"></span>
+                  </div>
+                  <span class="pool-wr-text" [class.good]="c.winRate >= 50" [class.bad]="c.winRate < 50">{{ c.winRate }}%</span>
+                </div>
+                <span class="pool-kda">{{ c.kda | number: '1.2-2' }} <em>KDA</em></span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+
+      <!-- Role distribution -->
+      @if (roleStats().length) {
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Roles</h2>
+            <span class="panel-sub">recent games</span>
+          </div>
+          <ul class="roles">
+            @for (r of roleStats(); track r.role) {
+              <li class="role-row">
+                <span class="role-name">{{ r.label }}</span>
+                <div class="role-bar">
+                  <span [style.width.%]="r.pct"></span>
+                </div>
+                <span class="role-meta">{{ r.games }}g · {{ r.pct }}%</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+
+      <!-- Improvement tracker -->
       @if (st.summary; as sum) {
-        <div class="coach">
-          <div class="stats-head">
+        <div class="panel coach">
+          <div class="panel-head">
             <h2>Improvement tracker</h2>
-            <span class="coach-sub">last {{ sum.games }} games</span>
+            <span class="panel-sub">last {{ sum.games }} games</span>
           </div>
           <div class="coach-tiles">
             <div class="coach-tile">
-              <span class="v">{{ summaryWinRate(st) }}%</span>
-              <span class="l">Win rate</span>
+              <span class="v">{{ summaryWinRate(st) }}%</span><span class="l">Win rate</span>
             </div>
             <div class="coach-tile">
-              <span class="v">{{ sum.avgKda | number: '1.1-1' }}</span>
-              <span class="l">Avg KDA</span>
+              <span class="v">{{ sum.avgKda | number: '1.1-1' }}</span><span class="l">Avg KDA</span>
             </div>
             <div class="coach-tile">
-              <span class="v">{{ sum.avgDeaths | number: '1.1-1' }}</span>
-              <span class="l">Avg deaths</span>
+              <span class="v">{{ sum.avgDeaths | number: '1.1-1' }}</span><span class="l">Avg deaths</span>
             </div>
             @if (sum.avgCsPerMin !== null) {
               <div class="coach-tile">
-                <span class="v">{{ sum.avgCsPerMin | number: '1.1-1' }}</span>
-                <span class="l">CS / min</span>
+                <span class="v">{{ sum.avgCsPerMin | number: '1.1-1' }}</span><span class="l">CS / min</span>
               </div>
             }
             <div class="coach-tile">
-              <span class="v">{{ sum.avgKp }}%</span>
-              <span class="l">Kill participation</span>
+              <span class="v">{{ sum.avgKp }}%</span><span class="l">Kill participation</span>
             </div>
             <div class="coach-tile">
-              <span class="v">{{ sum.avgVisionPerMin | number: '1.2-2' }}</span>
-              <span class="l">Vision / min</span>
+              <span class="v">{{ sum.avgVisionPerMin | number: '1.2-2' }}</span><span class="l">Vision / min</span>
             </div>
           </div>
           @if (sum.strengths.length) {
@@ -101,8 +213,9 @@
         </div>
       }
 
+      <!-- Recent matches -->
       @if (st.matches?.length) {
-        <div class="stats-head matches-head">
+        <div class="panel-head matches-head">
           <h2>Recent matches</h2>
           @if (historyUrl()) {
             <a class="matches-source" [href]="historyUrl()" target="_blank" rel="noopener">
@@ -119,23 +232,12 @@
                 [disabled]="!hasDetail(m)"
                 [attr.aria-expanded]="expandedId() === m.matchId"
               >
-                <img
-                  class="champ-icon"
-                  [src]="championIcon(m)"
-                  [alt]="m.champion"
-                  loading="lazy"
-                  width="40"
-                  height="40"
-                />
+                <img class="champ-icon" [src]="championIcon(m)" [alt]="m.champion" loading="lazy" width="44" height="44" />
                 <span class="match-main">
                   <span class="champ-name">
                     {{ m.champion }}
-                    @if (positionLabel(m); as pos) {
-                      <span class="match-pos">{{ pos }}</span>
-                    }
-                    @if (m.remake) {
-                      <span class="match-remake">Remake</span>
-                    }
+                    @if (positionLabel(m); as pos) { <span class="match-pos">{{ pos }}</span> }
+                    @if (m.remake) { <span class="match-remake">Remake</span> }
                   </span>
                   <span class="match-queue">{{ matchQueue(m) }}</span>
                 </span>
@@ -147,9 +249,7 @@
                   <span class="result">{{ m.win ? 'Win' : 'Loss' }}</span>
                   <span class="when">{{ duration(m) }} · {{ timeAgo(m) }}</span>
                 </span>
-                @if (hasDetail(m)) {
-                  <span class="match-chevron" aria-hidden="true">▾</span>
-                }
+                @if (hasDetail(m)) { <span class="match-chevron" aria-hidden="true">▾</span> }
               </button>
 
               @if (expandedId() === m.matchId && hasDetail(m)) {
@@ -173,23 +273,19 @@
                   @if (m.items?.length && st.ddragonVersion) {
                     <div class="detail-items">
                       @for (it of m.items; track $index) {
-                        <img [src]="itemIcon(st, it)" alt="" loading="lazy" width="28" height="28" />
+                        <img [src]="itemIcon(st, it)" alt="" loading="lazy" width="30" height="30" />
                       }
                     </div>
                   }
 
                   @if (m.insights?.good?.length) {
                     <ul class="insights good">
-                      @for (i of m.insights!.good; track i.text) {
-                        <li>{{ i.text }}</li>
-                      }
+                      @for (i of m.insights!.good; track i.text) { <li>{{ i.text }}</li> }
                     </ul>
                   }
                   @if (m.insights?.bad?.length) {
                     <ul class="insights bad">
-                      @for (i of m.insights!.bad; track i.text) {
-                        <li>{{ i.text }}</li>
-                      }
+                      @for (i of m.insights!.bad; track i.text) { <li>{{ i.text }}</li> }
                     </ul>
                   }
                   @if (!m.insights?.good?.length && !m.insights?.bad?.length && !m.remake) {
