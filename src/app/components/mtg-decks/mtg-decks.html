@@ -33,6 +33,34 @@
           </div>
         }
 
+        <div class="dd-goldfish">
+          <button class="dd-draw" (click)="drawHand()">
+            🎴 {{ hand().length ? 'Mulligan' : 'Draw opening hand' }}
+          </button>
+          @if (hand().length) {
+            <span class="hand-read">{{ handLands() }} land{{ handLands() === 1 ? '' : 's' }} · {{ 7 - handLands() }} spells</span>
+            <button class="dd-draw ghost" (click)="clearHand()">Clear</button>
+          }
+        </div>
+        @if (hand().length) {
+          <div class="dd-hand">
+            @for (c of hand(); track $index) {
+              <a
+                class="hand-card"
+                [href]="c.uri"
+                target="_blank"
+                rel="noopener"
+                (mouseenter)="setHover(c)"
+                [attr.title]="c.name"
+              >
+                @if (c.image) {
+                  <img [src]="c.image" [alt]="c.name" loading="lazy" />
+                }
+              </a>
+            }
+          </div>
+        }
+
         @if (alteredCards().length) {
           <div class="dd-alters">
             <h3>🎨 Alters &amp; proofs · {{ alteredCards().length }}</h3>

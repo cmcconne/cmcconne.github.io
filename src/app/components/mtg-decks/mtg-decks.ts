@@ -49,6 +49,8 @@ export class MtgDecksComponent {
   protected readonly deckSearch = signal('');
   /** Card currently hovered in the decklist (drives the image preview). */
   protected readonly hoveredCard = signal<DeckCard | null>(null);
+  /** A drawn sample opening hand (7 cards from the library). */
+  protected readonly hand = signal<DeckCard[]>([]);
 
   /** Which event row is expanded (event id), if any. */
   protected readonly expandedId = signal<string | null>(null);
@@ -210,12 +212,36 @@ export class MtgDecksComponent {
     this.selectedDeck.set(deck.name);
     this.deckSearch.set('');
     this.hoveredCard.set(null);
+    this.hand.set([]);
   }
 
   protected closeDeck(): void {
     this.selectedDeck.set(null);
     this.hoveredCard.set(null);
+    this.hand.set([]);
   }
+
+  /** Draw a random 7-card opening hand from the deck's library (no commander). */
+  protected drawHand(): void {
+    const lib = (this.activeDeck()?.cards ?? []).filter(
+      (c) => c.type !== 'Commander',
+    );
+    const a = [...lib];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    this.hand.set(a.slice(0, 7));
+  }
+
+  protected clearHand(): void {
+    this.hand.set([]);
+  }
+
+  /** Lands in the current sample hand (for the keep/mulligan read). */
+  protected readonly handLands = computed(
+    () => this.hand().filter((c) => c.type === 'Land').length,
+  );
 
   protected onDeckSearch(v: string): void {
     this.deckSearch.set(v);

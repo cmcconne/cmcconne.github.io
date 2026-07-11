@@ -482,6 +482,64 @@
 .pg-subheading { @include mtg-title; font-size: 1rem; margin: 1.3rem 0 0.6rem; }
 .mtg-tab.active { border-color: var(--accent); color: var(--accent-bright); }
 
+// --- Sample opening hand (goldfish) -----------------------------------------
+.dd-goldfish {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.1rem 0;
+
+  .hand-read {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.dd-draw {
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent-bright);
+  font: inherit;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover { background: color-mix(in srgb, var(--accent) 24%, transparent); }
+
+  &.ghost {
+    border-color: var(--border);
+    background: none;
+    color: var(--muted);
+    &:hover { color: var(--parch); background: color-mix(in srgb, var(--border) 40%, transparent); }
+  }
+}
+
+.dd-hand {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.8rem 1.1rem 0.2rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.hand-card {
+  flex: 0 0 auto;
+  width: 92px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s ease;
+
+  &:hover { transform: translateY(-5px); }
+
+  img { width: 100%; aspect-ratio: 488 / 680; object-fit: cover; display: block; }
+}
+
 // --- Alters & artist proofs -------------------------------------------------
 .dd-alters {
   padding: 0.8rem 1.1rem;
