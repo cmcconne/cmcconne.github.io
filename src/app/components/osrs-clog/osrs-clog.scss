@@ -1,8 +1,12 @@
-// In-game collection log palette.
-$clog-bg: #3e3529;
-$clog-dark: #2f2822;
-$clog-border: #211c15;
-$clog-inner-border: #4d4335;
+// In-game collection log palette (textures derived from the authentic
+// interface noise tile, tinted to the game's browns).
+$window-bg: #584f3f;      // lighter brown main / detail area
+$window-dark: #2b241c;
+$window-border: #100c07;  // dark outer frame line
+$window-bevel: rgba(255, 255, 255, 0.12); // light inner bevel
+$tab-text: #ff981f;
+$side-bg: #3a3228;        // darker brown sidebar
+$side-bg-dark: #241f18;
 
 :host {
   display: block;
@@ -11,25 +15,28 @@ $clog-inner-border: #4d4335;
 
 .clog {
   font-family: 'RuneScape', system-ui, sans-serif;
-  --osrs-yellow: oklch(0.97 0.18 100);
-  --osrs-orange: oklch(0.77 0.23 55);
-  --osrs-green: oklch(0.73 0.24 145);
-  --osrs-red: oklch(0.62 0.24 30);
-  --osrs-white: #f5f2ea;
-  border: 2px solid $clog-border;
-  border-radius: 8px;
-  background: $clog-bg;
+  --osrs-yellow: #ffff00;
+  --osrs-orange: #ff981f;
+  --osrs-green: #0dc10d;
+  --osrs-red: #f23030;
+  --osrs-white: #ffffff;
+  // External dark frame + internal light bevel.
+  border: 2px solid $window-border;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px $window-bevel;
+  background: $window-bg url('/images/osrs/panel-tile.png') repeat;
   overflow: hidden;
   color: var(--osrs-white);
 }
 
+// --- Title bar -----------------------------------------------------------
 .clog-head {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0.55rem 1rem;
-  background: $clog-dark;
-  border-bottom: 1px solid $clog-border;
+  justify-content: center;
+  padding: 0.45rem 1rem;
+  background: rgba(0, 0, 0, 0.33);
+  border-bottom: 1px solid $window-border;
 
   .clog-title {
     font-weight: bold;
@@ -39,10 +46,7 @@ $clog-inner-border: #4d4335;
   }
 
   .clog-total {
-    font-weight: bold;
-    font-size: 1.25rem;
-    color: var(--osrs-yellow);
-    text-shadow: 1.5px 1.5px black;
+    color: var(--osrs-orange);
     font-variant-numeric: tabular-nums;
 
     &.done {
@@ -56,9 +60,9 @@ $clog-inner-border: #4d4335;
   align-items: center;
   flex-wrap: wrap;
   gap: 0.4rem;
-  padding: 0.45rem 1rem;
-  border-bottom: 1px solid $clog-border;
-  background: color-mix(in srgb, $clog-dark 55%, $clog-bg);
+  padding: 0.4rem 1rem;
+  border-bottom: 1px solid $window-border;
+  background: rgba(0, 0, 0, 0.18);
 
   .recent-label {
     font-size: 1rem;
@@ -76,62 +80,69 @@ $clog-inner-border: #4d4335;
   }
 }
 
+// --- Tabs (joined stone buttons) -------------------------------------------
 .clog-tabs {
   display: flex;
-  gap: 4px;
-  padding: 0.5rem 0.75rem 0;
+  gap: 3px;
+  padding: 4px 4px 0;
+  background: rgba(0, 0, 0, 0.24);
 }
 
 .clog-tab {
   flex: 1;
-  padding: 0.35rem 0.5rem;
-  border: 1px solid $clog-border;
+  padding: 0.4rem 0.25rem 0.3rem;
+  border: 6px solid transparent;
   border-bottom: none;
-  border-radius: 6px 6px 0 0;
-  background: $clog-dark;
-  color: var(--osrs-orange);
+  border-image: url('/images/osrs/skill-tile.png') 10 fill / 6px round;
+  color: $tab-text;
   font-family: inherit;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  text-shadow: 1px 1px black;
+  text-shadow: 1.2px 1.2px black;
   cursor: pointer;
+  filter: brightness(0.78);
+  transition: filter 0.1s ease;
 
   &:hover {
-    background: color-mix(in srgb, $clog-dark 60%, $clog-bg);
+    filter: brightness(1);
   }
 
   &.active {
-    background: $clog-bg;
-    color: var(--osrs-white);
+    filter: brightness(1.18);
   }
 }
 
+// --- Body (inset framed area) ----------------------------------------------
 .clog-body {
   display: grid;
-  grid-template-columns: 230px 1fr;
-  border-top: 1px solid $clog-border;
+  grid-template-columns: 235px 1fr;
   min-height: 380px;
+  margin: 6px;
+  // Internal border framing the collection-log content area.
+  border: 2px solid $window-border;
+  box-shadow: inset 0 0 0 1px $window-bevel;
 }
 
+// --- Sidebar (page list) ----------------------------------------------------
 .clog-side {
   display: flex;
   flex-direction: column;
-  border-right: 1px solid $clog-inner-border;
-  background: color-mix(in srgb, $clog-dark 40%, $clog-bg);
+  background: $side-bg url('/images/osrs/panel-tile-side.png') repeat;
+  border-right: 2px solid $window-border;
 }
 
 .clog-search {
-  margin: 0.5rem;
-  padding: 0.35rem 0.6rem;
-  border: 1px solid $clog-inner-border;
-  border-radius: 6px;
-  background: $clog-dark;
+  margin: 6px 6px 4px;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid $side-bg-dark;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.28);
   color: var(--osrs-white);
   font-family: inherit;
   font-size: 1rem;
 
   &::placeholder {
-    color: color-mix(in srgb, var(--osrs-white) 45%, transparent);
+    color: rgba(255, 255, 255, 0.4);
   }
 
   &:focus {
@@ -142,35 +153,38 @@ $clog-inner-border: #4d4335;
 .clog-pages {
   list-style: none;
   margin: 0;
-  padding: 0 0 0.5rem;
+  padding: 0 0 0.4rem;
   overflow-y: auto;
   max-height: 430px;
   scrollbar-width: thin;
-  scrollbar-color: $clog-inner-border transparent;
+  scrollbar-color: $side-bg-dark transparent;
+
+  // Alternating row bands, like the in-game page list.
+  li:nth-child(even) {
+    background: rgba(0, 0, 0, 0.22);
+  }
 }
 
 .page-btn {
   display: block;
   width: 100%;
-  padding: 0.28rem 0.75rem;
+  padding: 0.16rem 0.7rem;
   border: none;
   background: none;
   font-family: inherit;
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: bold;
   text-align: left;
-  text-shadow: 1px 1px black;
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.25;
+  text-shadow: 1px 1px black;
 
+  // In-game: orange (same as the boss title) until complete, then green.
   &.none {
-    color: var(--osrs-red);
-  }
-
-  &.partial {
-    color: var(--osrs-yellow);
+    color: var(--osrs-orange);
   }
 
   &.done {
@@ -182,57 +196,73 @@ $clog-inner-border: #4d4335;
   }
 
   &.selected {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.14);
   }
 }
 
 .no-match {
   padding: 0.5rem 0.75rem;
-  color: color-mix(in srgb, var(--osrs-white) 55%, transparent);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 1rem;
 }
 
+// --- Detail pane -------------------------------------------------------------
 .clog-detail {
-  padding: 0.75rem 1rem 1rem;
+  padding: 0.6rem 1rem 1rem;
+  overflow-y: auto;
+  max-height: 470px;
+  scrollbar-width: thin;
+  scrollbar-color: $window-dark transparent;
 }
 
 .page-name {
-  margin: 0 0 0.2rem;
-  font-size: 1.4rem;
+  margin: 0;
+  font-size: 1.45rem;
   font-weight: bold;
+  line-height: 1.15;
   color: var(--osrs-orange);
   text-shadow: 1.5px 1.5px black;
 }
 
 .kc,
 .obt {
-  margin: 0 0 0.15rem;
-  font-size: 1.05rem;
-  color: var(--osrs-white);
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: bold;
+  line-height: 1.2;
+  color: var(--osrs-orange);
   text-shadow: 1px 1px black;
 
   span {
-    color: var(--osrs-yellow);
+    color: var(--osrs-white);
     font-variant-numeric: tabular-nums;
-
-    &.done {
-      color: var(--osrs-green);
-    }
-
-    &.none {
-      color: var(--osrs-red);
-    }
   }
 }
 
-.obt {
-  margin-bottom: 0.75rem;
+.obt span {
+  &.done {
+    color: var(--osrs-green);
+  }
+
+  &.partial {
+    color: var(--osrs-yellow);
+  }
+
+  &.none {
+    color: var(--osrs-red);
+  }
 }
 
+// --- Item grid (items float on the brown background, in-game style) ----------
 .item-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
-  gap: 6px;
+  grid-template-columns: repeat(auto-fill, 52px);
+  gap: 6px 4px;
+  margin-top: 0.5rem;
+  padding-top: 0.6rem;
+  // Grooved divider between the kill-count header and the items, like in-game.
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.09);
 }
 
 .slot {
@@ -240,29 +270,29 @@ $clog-inner-border: #4d4335;
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.22);
-  border: 1px solid $clog-inner-border;
+  width: 52px;
+  height: 46px;
 
   img {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
     image-rendering: pixelated;
+    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.55));
   }
 
+  // Unobtained items render as dark silhouettes, like in-game.
   &.missing img {
-    opacity: 0.28;
-    filter: grayscale(0.5);
+    filter: brightness(0.22) grayscale(1);
+    opacity: 0.9;
   }
 
   .qty {
     position: absolute;
-    top: 1px;
-    left: 3px;
+    top: -3px;
+    left: 2px;
     z-index: 1;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: bold;
     color: var(--osrs-yellow);
     text-shadow: 1px 1px black;
@@ -277,7 +307,7 @@ $clog-inner-border: #4d4335;
 
   .clog-side {
     border-right: none;
-    border-bottom: 1px solid $clog-inner-border;
+    border-bottom: 2px solid $window-border;
   }
 
   .clog-pages {

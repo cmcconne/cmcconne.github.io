@@ -115,10 +115,15 @@ export class OsrsClogComponent {
     this.selected.set(null);
   }
 
-  /** In-game colours: green = complete, yellow = started, red = untouched. */
+  /** Detail-pane colours: green = complete, yellow = started, red = untouched. */
   protected pageClass(p: ClogPage): string {
     if (p.obtained >= p.total) return 'done';
     return p.obtained > 0 ? 'partial' : 'none';
+  }
+
+  /** Sidebar colours match the in-game log: red until complete, then green. */
+  protected sideClass(p: ClogPage): string {
+    return p.obtained >= p.total ? 'done' : 'none';
   }
 
   protected itemIcon(id: number): string {
