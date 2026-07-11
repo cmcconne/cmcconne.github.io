@@ -12,6 +12,8 @@ export interface CaTask {
 export interface CaMonster {
   name: string;
   icon: string;
+  /** Hiscores pixel-icon key, or null when the boss isn't on the hiscores. */
+  hs: string | null;
   done: number;
   total: number;
   tasks: CaTask[];
@@ -118,12 +120,21 @@ export class OsrsCaComponent {
     return `/images/osrs-ca/tier-${(TIER_NAMES[t] ?? 'easy').toLowerCase()}.png`;
   }
 
+  /** Hiscores pixel icon when available, else the wiki boss image. */
   protected monsterIcon(m: CaMonster): string {
-    return `/images/osrs-monsters/${m.icon}.png`;
+    return m.hs
+      ? `/images/osrs-hiscores/${m.hs}.png`
+      : `/images/osrs-monsters/${m.icon}.png`;
   }
 
-  /** Swap a missing monster icon (Giants / General) for the generic emblem. */
-  protected onIconError(e: Event): void {
-    (e.target as HTMLImageElement).src = '/images/osrs-ca/generic.png';
+  /** Fallback chain: hiscores icon → wiki image → generic emblem. */
+  protected onIconError(e: Event, m: CaMonster): void {
+    const img = e.target as HTMLImageElement;
+    const wiki = `/images/osrs-monsters/${m.icon}.png`;
+    if (!img.src.endsWith(wiki) && !img.src.includes('/osrs-ca/generic')) {
+      img.src = wiki;
+    } else {
+      img.src = '/images/osrs-ca/generic.png';
+    }
   }
 }

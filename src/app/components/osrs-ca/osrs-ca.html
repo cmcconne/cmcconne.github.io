@@ -33,7 +33,7 @@
             class="ca-detail-icon"
             [src]="monsterIcon(m)"
             [alt]="m.name"
-            (error)="onIconError($event)"
+            (error)="onIconError($event, m)"
           />
           <div class="ca-detail-titles">
             <h3 class="ca-detail-name">{{ m.name }}</h3>
@@ -79,7 +79,7 @@
               [src]="monsterIcon(m)"
               [alt]="m.name"
               loading="lazy"
-              (error)="onIconError($event)"
+              (error)="onIconError($event, m)"
             />
             <div class="boss-bar" [class]="monsterClass(m)">
               <div class="boss-bar-fill" [style.width.%]="pct(m)"></div>

@@ -1,6 +1,6 @@
 {
   "username": "Stupid Hands",
-  "updatedAt": "2026-07-11T05:55:15.167Z",
+  "updatedAt": "2026-07-11T06:07:11.999Z",
   "overall": {
     "level": 2376,
     "xp": 514651082,
@@ -18,7 +18,7 @@
       "name": "Defence",
       "level": 99,
       "xp": 20800281,
-      "rank": 67444
+      "rank": 67445
     },
     {
       "name": "Strength",
@@ -36,31 +36,31 @@
       "name": "Ranged",
       "level": 99,
       "xp": 59716812,
-      "rank": 66496
+      "rank": 66497
     },
     {
       "name": "Prayer",
       "level": 99,
       "xp": 13162344,
-      "rank": 98564
+      "rank": 98566
     },
     {
       "name": "Magic",
       "level": 99,
       "xp": 31632169,
-      "rank": 66935
+      "rank": 66936
     },
     {
       "name": "Cooking",
       "level": 99,
       "xp": 13184205,
-      "rank": 254946
+      "rank": 254947
     },
     {
       "name": "Woodcutting",
       "level": 99,
       "xp": 15558498,
-      "rank": 62947
+      "rank": 62948
     },
     {
       "name": "Fletching",
@@ -78,7 +78,7 @@
       "name": "Firemaking",
       "level": 99,
       "xp": 13424089,
-      "rank": 137949
+      "rank": 137950
     },
     {
       "name": "Crafting",
@@ -96,13 +96,13 @@
       "name": "Mining",
       "level": 99,
       "xp": 13869293,
-      "rank": 86289
+      "rank": 86290
     },
     {
       "name": "Herblore",
       "level": 99,
       "xp": 13307949,
-      "rank": 74701
+      "rank": 74704
     },
     {
       "name": "Agility",
@@ -114,7 +114,7 @@
       "name": "Thieving",
       "level": 99,
       "xp": 13283480,
-      "rank": 139606
+      "rank": 139608
     },
     {
       "name": "Slayer",
@@ -126,13 +126,13 @@
       "name": "Farming",
       "level": 99,
       "xp": 13258337,
-      "rank": 300207
+      "rank": 300209
     },
     {
       "name": "Runecraft",
       "level": 99,
       "xp": 13035460,
-      "rank": 116882
+      "rank": 116884
     },
     {
       "name": "Hunter",

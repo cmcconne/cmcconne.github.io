@@ -3,7 +3,7 @@
 // A failed fetch exits non-zero; the deploy step is continue-on-error, so the
 // last committed data stays in place.
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 
 const PLAYER = 'Stupid Hands';
 const OUT = 'public/runescape-stats.json';
@@ -197,6 +197,31 @@ try {
   const slug = (s) =>
     s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
+  // Hiscores pixel icon for a boss: normalise the name to the hiscores
+  // game_icon key (self-hosted under public/images/osrs-hiscores/ by
+  // scripts/gen-hiscores-icons.mjs). A few CA groupings need an alias because
+  // the hiscores names them differently; ~21 slayer-type monsters have no
+  // hiscores icon and fall back to the wiki icon in the component.
+  const HS_ALIAS = {
+    barrows: 'barrowschests',
+    whisperer: 'thewhisperer',
+    leviathan: 'theleviathan',
+    royaltitans: 'theroyaltitans',
+    moonsofperil: 'lunarchests',
+    thenightmare: 'nightmare',
+    themimic: 'mimic',
+    corruptedhunllef: 'thecorruptedgauntlet',
+    crystallinehunllef: 'thegauntlet',
+    fortiscolosseum: 'colosseumglory',
+    theatreofbloodentrymode: 'theatreofblood',
+    tombsofamascutentrymode: 'tombsofamascut',
+  };
+  const hsIcon = (name) => {
+    const norm = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const key = HS_ALIAS[norm] ?? norm;
+    return existsSync(`public/images/osrs-hiscores/${key}.png`) ? key : null;
+  };
+
   // Completed combat achievements by task index, from WikiSync (fetched above).
   const done = new Set();
   for (const i of ws.combat_achievements ?? []) {
@@ -218,13 +243,17 @@ try {
   }
 
   const monsters = [...groups.entries()]
-    .map(([monster, list]) => ({
-      name: monster === 'N/A' ? 'General' : monster,
-      icon: slug(monster),
-      tasks: list.sort((a, b) => a.tier - b.tier || a.name.localeCompare(b.name)),
-      done: list.filter((t) => t.done).length,
-      total: list.length,
-    }))
+    .map(([monster, list]) => {
+      const name = monster === 'N/A' ? 'General' : monster;
+      return {
+        name,
+        icon: slug(monster),
+        hs: hsIcon(name),
+        tasks: list.sort((a, b) => a.tier - b.tier || a.name.localeCompare(b.name)),
+        done: list.filter((t) => t.done).length,
+        total: list.length,
+      };
+    })
     .sort((a, b) => b.done - a.done || a.name.localeCompare(b.name));
 
   const totalDone = wikiTasks.filter((t) => done.has(t.name)).length;
