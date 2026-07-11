@@ -80,9 +80,9 @@
                           <span class="dd-alter-badge" [attr.title]="alterLabel(c.alter.kind) + (c.alter.artist ? ' by ' + c.alter.artist : '')">🎨</span>
                         }
                       </span>
-                      <span class="dd-pips" aria-hidden="true">
-                        @for (col of c.colors; track col) {
-                          <span class="pip small" [class]="'pip-' + col"></span>
+                      <span class="dd-mana" aria-hidden="true">
+                        @for (s of manaSymbols(c.mana); track $index) {
+                          <img [src]="symbolUrl(s)" [alt]="s" loading="lazy" />
                         }
                       </span>
                       @if (c.price) {
@@ -156,6 +156,27 @@
                   }
                 </ul>
               </div>
+
+              @if (topValueCards().length) {
+                <div class="dd-chart">
+                  <h4>Priciest cards</h4>
+                  <ul class="value-list">
+                    @for (c of topValueCards(); track c.name) {
+                      <li
+                        class="value-row"
+                        (mouseenter)="setHover(c)"
+                        (focusin)="setHover(c)"
+                      >
+                        @if (c.image) {
+                          <img class="value-thumb" [src]="c.image" [alt]="c.name" loading="lazy" />
+                        }
+                        <a class="value-name" [href]="c.uri" target="_blank" rel="noopener">{{ frontName(c.name) }}</a>
+                        <span class="value-price">${{ c.price | number: '1.0-0' }}</span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              }
             }
           </div>
         </div>

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T23:39:02.858Z",
+  "updatedAt": "2026-07-11T23:44:14.244Z",
   "decks": [
     {
       "name": "Tymna ❤️ Dargo",
@@ -77,6 +77,7 @@
           "name": "Tymna the Weaver",
           "type": "Commander",
           "cmc": 3,
+          "mana": "{1}{W}{B}",
           "colors": [
             "B",
             "W"
@@ -90,6 +91,7 @@
           "name": "Dargo, the Shipwrecker",
           "type": "Commander",
           "cmc": 7,
+          "mana": "{6}{R}",
           "colors": [
             "R"
           ],
@@ -102,6 +104,7 @@
           "name": "Underworld Breach",
           "type": "Enchantment",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -114,6 +117,7 @@
           "name": "Dark Ritual",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{B}",
           "colors": [
             "B"
           ],
@@ -126,6 +130,7 @@
           "name": "Goblin Bombardment",
           "type": "Enchantment",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -138,6 +143,7 @@
           "name": "Lotus Petal",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/f/8/f85ab5f9-508e-45de-8fa1-ce1f16552ffc.jpg?1782750662",
           "rank": 118,
@@ -148,6 +154,7 @@
           "name": "Peer into the Abyss",
           "type": "Sorcery",
           "cmc": 7,
+          "mana": "{4}{B}{B}{B}",
           "colors": [
             "B"
           ],
@@ -160,6 +167,7 @@
           "name": "Exotic Orchard",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/8/8/8853ff94-bf44-4cfd-9d3a-0743c361fb0d.jpg?1782682474",
           "rank": 9,
@@ -170,6 +178,7 @@
           "name": "Cabal Ritual",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{B}",
           "colors": [
             "B"
           ],
@@ -182,6 +191,7 @@
           "name": "Bloodstained Mire",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/7/579743fe-f71e-4cb2-8629-d6b02ed1591d.jpg?1782691202",
           "rank": 43,
@@ -192,6 +202,7 @@
           "name": "Diabolic Intent",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{B}",
           "colors": [
             "B"
           ],
@@ -204,6 +215,7 @@
           "name": "Luxury Suite",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/3/c/3c409d1e-f634-44a2-8fcf-dcdcb0babc3f.jpg?1782682467",
           "rank": 162,
@@ -214,6 +226,7 @@
           "name": "Imperial Seal",
           "type": "Sorcery",
           "cmc": 1,
+          "mana": "{B}",
           "colors": [
             "B"
           ],
@@ -226,6 +239,7 @@
           "name": "Gamble",
           "type": "Sorcery",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -238,6 +252,7 @@
           "name": "Blood Crypt",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/6/d/6da63cc5-4624-4491-abd9-9b600c3fefe2.jpg?1782683915",
           "rank": 69,
@@ -248,6 +263,7 @@
           "name": "Sevinne's Reclamation",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{W}",
           "colors": [
             "W"
           ],
@@ -260,6 +276,7 @@
           "name": "Arid Mesa",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/5/25ac5405-df7b-4097-914a-022cb18e20d4.jpg?1782704587",
           "rank": 56,
@@ -270,6 +287,7 @@
           "name": "Marsh Flats",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/9/d/9db3ba6d-eb7f-4f5b-9a3b-c6239c3baa42.jpg?1782704585",
           "rank": 51,
@@ -280,6 +298,7 @@
           "name": "Mana Confluence",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/0/504a69eb-3c2d-4bb1-b117-252b15acf0c2.jpg?1782713352",
           "rank": 119,
@@ -290,6 +309,7 @@
           "name": "Windswept Heath",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/d/bd1d13f7-fd38-4f0b-a8e0-1eac78668117.jpg?1782691186",
           "rank": 45,
@@ -300,6 +320,7 @@
           "name": "Silence",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{W}",
           "colors": [
             "W"
           ],
@@ -312,6 +333,7 @@
           "name": "Rite of Flame",
           "type": "Sorcery",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -324,6 +346,7 @@
           "name": "Mayhem Devil",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{1}{B}{R}",
           "colors": [
             "B",
             "R"
@@ -337,6 +360,7 @@
           "name": "Ranger-Captain of Eos",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{1}{W}{W}",
           "colors": [
             "W"
           ],
@@ -349,6 +373,7 @@
           "name": "Altar of Dementia",
           "type": "Artifact",
           "cmc": 2,
+          "mana": "{2}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/1/6/169356e0-46dc-4096-8e66-36726454f104.jpg?1782708418",
           "rank": 624,
@@ -359,6 +384,7 @@
           "name": "Praetor's Grasp",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{1}{B}{B}",
           "colors": [
             "B"
           ],
@@ -371,6 +397,7 @@
           "name": "Ad Nauseam",
           "type": "Instant",
           "cmc": 5,
+          "mana": "{3}{B}{B}",
           "colors": [
             "B"
           ],
@@ -383,6 +410,7 @@
           "name": "Magda, Brazen Outlaw",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -395,6 +423,7 @@
           "name": "Portable Hole",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{W}",
           "colors": [
             "W"
           ],
@@ -407,6 +436,7 @@
           "name": "Ragavan, Nimble Pilferer",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -419,6 +449,7 @@
           "name": "Gemstone Caverns",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/f/7f273641-c5f3-48bc-b89e-3cff52d26a0b.jpg?1782741752",
           "rank": 178,
@@ -429,6 +460,7 @@
           "name": "Simian Spirit Guide",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -441,6 +473,7 @@
           "name": "Tainted Pact",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{B}",
           "colors": [
             "B"
           ],
@@ -453,6 +486,7 @@
           "name": "Ruthless Technomancer",
           "type": "Creature",
           "cmc": 4,
+          "mana": "{3}{B}",
           "colors": [
             "B"
           ],
@@ -465,6 +499,7 @@
           "name": "Professional Face-Breaker",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -477,6 +512,7 @@
           "name": "Relic of Legends",
           "type": "Artifact",
           "cmc": 3,
+          "mana": "{3}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/8/9/89691cda-e38b-4f53-bee6-4c234186e6ad.jpg?1782682494",
           "rank": 558,
@@ -487,6 +523,7 @@
           "name": "Orcish Bowmasters",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{B}",
           "colors": [
             "B"
           ],
@@ -499,6 +536,7 @@
           "name": "Lotho, Corrupt Shirriff",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{W}{B}",
           "colors": [
             "B",
             "W"
@@ -512,6 +550,7 @@
           "name": "Altar of the Wretched // Wretched Bonemass",
           "type": "Artifact",
           "cmc": 3,
+          "mana": "{2}{B}",
           "colors": [
             "B"
           ],
@@ -524,6 +563,7 @@
           "name": "Elegant Parlor",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/2/72c6d541-e2cb-4d6e-acac-90a8f53b7006.jpg?1782693779",
           "rank": 778,
@@ -534,6 +574,7 @@
           "name": "Molten Duplication",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -546,6 +587,7 @@
           "name": "Voice of Victory",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{W}",
           "colors": [
             "W"
           ],
@@ -558,6 +600,7 @@
           "name": "Arcane Signet",
           "type": "Artifact",
           "cmc": 2,
+          "mana": "{2}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/1/c/1cad1bd2-7c56-4ce0-99a6-b2a49c1288dd.jpg?1782682506",
           "rank": 3,
@@ -568,6 +611,7 @@
           "name": "Command Tower",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/0/5/0548fb60-c843-4f8f-a029-6f10efc63a41.jpg?1782682479",
           "rank": 2,
@@ -578,6 +622,7 @@
           "name": "Wishclaw Talisman",
           "type": "Artifact",
           "cmc": 2,
+          "mana": "{1}{B}",
           "colors": [
             "B"
           ],
@@ -590,6 +635,7 @@
           "name": "Animate Dead",
           "type": "Enchantment",
           "cmc": 2,
+          "mana": "{1}{B}",
           "colors": [
             "B"
           ],
@@ -602,6 +648,7 @@
           "name": "Demonic Tutor",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{B}",
           "colors": [
             "B"
           ],
@@ -614,6 +661,7 @@
           "name": "Sol Ring",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/9/1/91fdb56b-54d5-4272-8319-505ff987fe9b.jpg?1782682494",
           "rank": 1,
@@ -624,6 +672,7 @@
           "name": "Mana Vault",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/c/1/c1a31d52-a407-4ded-bfca-cc812f11afa0.jpg?1782737761",
           "rank": 146,
@@ -634,6 +683,7 @@
           "name": "Red Elemental Blast",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -646,6 +696,7 @@
           "name": "Burnt Offering",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{B}",
           "colors": [
             "B"
           ],
@@ -658,6 +709,7 @@
           "name": "Entomb",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{B}",
           "colors": [
             "B"
           ],
@@ -670,6 +722,7 @@
           "name": "Flooded Strand",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/8/f/8f85e12c-196b-4459-b81f-0c9c854e9f57.jpg?1782691197",
           "rank": 39,
@@ -680,6 +733,7 @@
           "name": "Godless Shrine",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/8/c/8c542ea4-98c3-4c2d-9066-205ab7aa697a.jpg?1782685408",
           "rank": 61,
@@ -690,6 +744,7 @@
           "name": "Sacred Foundry",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/8/b/8b4e2642-3c87-4708-b9b4-2e7f7359ac7d.jpg?1782685406",
           "rank": 75,
@@ -700,6 +755,7 @@
           "name": "Chrome Mox",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/f/3/f340cbf7-5bbe-45b9-a4bf-d1caa500ff93.jpg?1782743879",
           "rank": 144,
@@ -710,6 +766,7 @@
           "name": "Enlightened Tutor",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{W}",
           "colors": [
             "W"
           ],
@@ -722,6 +779,7 @@
           "name": "Vampiric Tutor",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{B}",
           "colors": [
             "B"
           ],
@@ -734,6 +792,7 @@
           "name": "Ancient Tomb",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/d/bd3d4b4b-cf31-4f89-8140-9650edb03c7b.jpg?1782746952",
           "rank": 65,
@@ -744,6 +803,7 @@
           "name": "Badlands",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/3/73403d04-fe97-4830-8b80-16dd1a1a6cc1.jpg?1782751353",
           "rank": 386,
@@ -754,6 +814,7 @@
           "name": "Plateau",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/b/bb979a96-a57d-4fb5-8ebe-0bd398272abe.jpg?1782751346",
           "rank": 449,
@@ -764,6 +825,7 @@
           "name": "Scrubland",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/9/d/9d471e36-a3ab-4a96-ba4b-8eca921ea37a.jpg?1782751345",
           "rank": 388,
@@ -774,6 +836,7 @@
           "name": "Sacrifice",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{B}",
           "colors": [
             "B"
           ],
@@ -786,6 +849,7 @@
           "name": "Wheel of Fortune",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -798,6 +862,7 @@
           "name": "City of Brass",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/c/2/c21565d0-fc40-4d89-9b27-87c03385e0af.jpg?1782723682",
           "rank": 98,
@@ -808,6 +873,7 @@
           "name": "Hope of Ghirapur",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/6/f/6f4bcadd-7eff-4294-94d5-52482a734d5b.jpg?1782711236",
           "rank": 3217,
@@ -818,6 +884,7 @@
           "name": "Scalding Tarn",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/1/71e491c5-8c07-449b-b2f1-ffa052e6d311.jpg?1782704583",
           "rank": 49,
@@ -828,6 +895,7 @@
           "name": "Verdant Catacombs",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/9/4/94c229ea-90da-4aa0-bfda-b162fb3b5b8b.jpg?1782704579",
           "rank": 48,
@@ -838,6 +906,7 @@
           "name": "Polluted Delta",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/6/e/6e288374-2b71-4ace-b1d2-a19fee6cb4af.jpg?1782691195",
           "rank": 36,
@@ -848,6 +917,7 @@
           "name": "Wooded Foothills",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/4/e/4e11ea8a-f895-438d-a3b7-f070238e4161.jpg?1782691183",
           "rank": 47,
@@ -858,6 +928,7 @@
           "name": "Mox Diamond",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/f/bf9fecfd-d122-422f-bd0a-5bf69b434dfe.jpg?1782750660",
           "rank": 246,
@@ -868,6 +939,7 @@
           "name": "Mox Opal",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/6/56001a36-126b-4c08-af98-a6cc4d84210e.jpg?1782743853",
           "rank": 239,
@@ -878,6 +950,7 @@
           "name": "Bolas's Citadel",
           "type": "Artifact",
           "cmc": 6,
+          "mana": "{3}{B}{B}{B}",
           "colors": [
             "B"
           ],
@@ -890,6 +963,7 @@
           "name": "Goblin Engineer",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -902,6 +976,7 @@
           "name": "Deflecting Swat",
           "type": "Instant",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -914,6 +989,7 @@
           "name": "Grand Abolisher",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{W}{W}",
           "colors": [
             "W"
           ],
@@ -926,6 +1002,7 @@
           "name": "Lion's Eye Diamond",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/5/758f95f8-bcb0-43ae-b474-56ebd855951e.jpg?1782751362",
           "rank": 724,
@@ -936,6 +1013,7 @@
           "name": "Pyroblast",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -948,6 +1026,7 @@
           "name": "City of Traitors",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/1/71624139-a255-48be-93ca-594a4beba487.jpg?1782750656",
           "rank": 1219,
@@ -958,6 +1037,7 @@
           "name": "Culling the Weak",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{B}",
           "colors": [
             "B"
           ],
@@ -970,6 +1050,7 @@
           "name": "Final Fortune",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{R}{R}",
           "colors": [
             "R"
           ],
@@ -982,6 +1063,7 @@
           "name": "Impulsive Pilferer",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -994,6 +1076,7 @@
           "name": "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -1006,6 +1089,7 @@
           "name": "Cursed Mirror",
           "type": "Artifact",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -1018,6 +1102,7 @@
           "name": "Dragon's Rage Channeler",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -1030,6 +1115,7 @@
           "name": "Esper Sentinel",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{W}",
           "colors": [
             "W"
           ],
@@ -1042,6 +1128,7 @@
           "name": "Stitcher's Supplier",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{B}",
           "colors": [
             "B"
           ],
@@ -1054,6 +1141,7 @@
           "name": "Imperial Recruiter",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -1066,6 +1154,7 @@
           "name": "Shambling Ghast",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{B}",
           "colors": [
             "B"
           ],
@@ -1078,6 +1167,7 @@
           "name": "Prized Statue",
           "type": "Artifact",
           "cmc": 2,
+          "mana": "{2}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/8/58a49829-c354-4823-8cc1-a159fc46c0d7.jpg?1782701141",
           "rank": 2333,
@@ -1088,6 +1178,7 @@
           "name": "Beseech the Mirror",
           "type": "Sorcery",
           "cmc": 4,
+          "mana": "{1}{B}{B}{B}",
           "colors": [
             "B"
           ],
@@ -1100,6 +1191,7 @@
           "name": "Greedy Freebooter",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{B}",
           "colors": [
             "B"
           ],
@@ -1112,6 +1204,7 @@
           "name": "Raucous Theater",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/5/b598c93e-dae1-4d71-a9e4-917abf76d2d0.jpg?1782693775",
           "rank": 566,
@@ -1122,6 +1215,7 @@
           "name": "Phelia, Exuberant Shepherd",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{W}",
           "colors": [
             "W"
           ],
@@ -1134,6 +1228,7 @@
           "name": "Static Prison",
           "type": "Enchantment",
           "cmc": 1,
+          "mana": "{W}",
           "colors": [
             "W"
           ],
@@ -1146,6 +1241,7 @@
           "name": "The Jolly Balloon Man",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{1}{R}{W}",
           "colors": [
             "R",
             "W"
@@ -1159,6 +1255,7 @@
           "name": "Mardu Devotee",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{W}",
           "colors": [
             "W"
           ],
@@ -1171,6 +1268,7 @@
           "name": "Deadpool, Trading Card",
           "type": "Creature",
           "cmc": 4,
+          "mana": "{2}{B}{R}",
           "colors": [
             "B",
             "R"
@@ -1184,6 +1282,7 @@
           "name": "Knuckles the Echidna",
           "type": "Creature",
           "cmc": 4,
+          "mana": "{2}{R}{R}",
           "colors": [
             "R"
           ],
@@ -1196,6 +1295,7 @@
           "name": "Hexing Squelcher",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1305,6 +1405,7 @@
           "name": "Ral, Monsoon Mage // Ral, Leyline Prodigy",
           "type": "Commander",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1317,6 +1418,7 @@
           "name": "City of Traitors",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/1/71624139-a255-48be-93ca-594a4beba487.jpg?1782750656",
           "rank": 1219,
@@ -1327,6 +1429,7 @@
           "name": "Bonus Round",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{1}{R}{R}",
           "colors": [
             "R"
           ],
@@ -1339,6 +1442,7 @@
           "name": "Runaway Steam-Kin",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1351,6 +1455,7 @@
           "name": "Pyretic Ritual",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1363,6 +1468,7 @@
           "name": "Rite of Flame",
           "type": "Sorcery",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -1375,6 +1481,7 @@
           "name": "Brain Freeze",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{U}",
           "colors": [
             "U"
           ],
@@ -1387,6 +1494,7 @@
           "name": "Ancient Tomb",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/d/bd3d4b4b-cf31-4f89-8140-9650edb03c7b.jpg?1782746952",
           "rank": 65,
@@ -1397,6 +1505,7 @@
           "name": "Lotus Petal",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/f/8/f85ab5f9-508e-45de-8fa1-ce1f16552ffc.jpg?1782750662",
           "rank": 118,
@@ -1407,6 +1516,7 @@
           "name": "Snap",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{U}",
           "colors": [
             "U"
           ],
@@ -1419,6 +1529,7 @@
           "name": "Red Elemental Blast",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -1431,6 +1542,7 @@
           "name": "Helm of Awakening",
           "type": "Artifact",
           "cmc": 2,
+          "mana": "{2}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/e/9/e9e4ff9c-6244-43e1-b569-32a270c4e014.jpg?1782735175",
           "rank": 1887,
@@ -1441,6 +1553,7 @@
           "name": "Fiery Islet",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/a/3/a3aab13c-9d9d-4507-ae5d-da979990ae1b.jpg?1782708405",
           "rank": 821,
@@ -1451,6 +1564,7 @@
           "name": "Deflecting Swat",
           "type": "Instant",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -1463,6 +1577,7 @@
           "name": "Gitaxian Probe",
           "type": "Sorcery",
           "cmc": 1,
+          "mana": "{U/P}",
           "colors": [
             "U"
           ],
@@ -1475,6 +1590,7 @@
           "name": "Gut Shot",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{R/P}",
           "colors": [
             "R"
           ],
@@ -1487,6 +1603,7 @@
           "name": "Mental Misstep",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{U/P}",
           "colors": [
             "U"
           ],
@@ -1499,6 +1616,7 @@
           "name": "Rhystic Study",
           "type": "Enchantment",
           "cmc": 3,
+          "mana": "{2}{U}",
           "colors": [
             "U"
           ],
@@ -1511,6 +1629,7 @@
           "name": "Windfall",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{U}",
           "colors": [
             "U"
           ],
@@ -1523,6 +1642,7 @@
           "name": "Lion's Eye Diamond",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/5/758f95f8-bcb0-43ae-b474-56ebd855951e.jpg?1782751362",
           "rank": 724,
@@ -1533,6 +1653,7 @@
           "name": "Mystical Tutor",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{U}",
           "colors": [
             "U"
           ],
@@ -1545,6 +1666,7 @@
           "name": "Mana Vault",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/c/1/c1a31d52-a407-4ded-bfca-cc812f11afa0.jpg?1782737761",
           "rank": 146,
@@ -1555,6 +1677,7 @@
           "name": "Volcanic Island",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/f/2f607e7e-30c0-45e9-8f61-bf6e9fe63f2b.jpg?1782751340",
           "rank": 339,
@@ -1565,6 +1688,7 @@
           "name": "Wheel of Fortune",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -1577,6 +1701,7 @@
           "name": "Timetwister",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{U}",
           "colors": [
             "U"
           ],
@@ -1589,6 +1714,7 @@
           "name": "Mox Diamond",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/f/bf9fecfd-d122-422f-bd0a-5bf69b434dfe.jpg?1782750660",
           "rank": 246,
@@ -1599,6 +1725,7 @@
           "name": "Chain of Vapor",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{U}",
           "colors": [
             "U"
           ],
@@ -1611,6 +1738,7 @@
           "name": "Polluted Delta",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/6/e/6e288374-2b71-4ace-b1d2-a19fee6cb4af.jpg?1782691195",
           "rank": 36,
@@ -1621,6 +1749,7 @@
           "name": "Reiterate",
           "type": "Instant",
           "cmc": 3,
+          "mana": "{1}{R}{R}",
           "colors": [
             "R"
           ],
@@ -1633,6 +1762,7 @@
           "name": "Springleaf Drum",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/e/1/e15ab0aa-4059-4923-9816-6f7a9e5b5a18.jpg?1782683915",
           "rank": 585,
@@ -1643,6 +1773,7 @@
           "name": "Wooded Foothills",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/4/e/4e11ea8a-f895-438d-a3b7-f070238e4161.jpg?1782691183",
           "rank": 47,
@@ -1653,6 +1784,7 @@
           "name": "Great Furnace",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/4/74c5bb44-d72c-4c1a-a38f-86b4a8f49ae1.jpg?1782685606",
           "rank": 400,
@@ -1663,6 +1795,7 @@
           "name": "Mox Amber",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/6/6/66024e69-ad60-4c9a-a0ca-da138d33ad80.jpg?1782710061",
           "rank": 206,
@@ -1673,6 +1806,7 @@
           "name": "Hidden Strings",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{U}",
           "colors": [
             "U"
           ],
@@ -1685,6 +1819,7 @@
           "name": "Chrome Mox",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/f/3/f340cbf7-5bbe-45b9-a4bf-d1caa500ff93.jpg?1782743879",
           "rank": 144,
@@ -1695,6 +1830,7 @@
           "name": "Seething Song",
           "type": "Instant",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -1707,6 +1843,7 @@
           "name": "Lava Dart",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -1719,6 +1856,7 @@
           "name": "Quiet Speculation",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{U}",
           "colors": [
             "U"
           ],
@@ -1731,6 +1869,7 @@
           "name": "Valakut Awakening // Valakut Stoneforge",
           "type": "Instant",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -1743,6 +1882,7 @@
           "name": "Sea Gate Restoration // Sea Gate, Reborn",
           "type": "Sorcery",
           "cmc": 7,
+          "mana": "{4}{U}{U}{U}",
           "colors": [
             "U"
           ],
@@ -1755,6 +1895,7 @@
           "name": "Shatterskull Smashing // Shatterskull, the Hammer Pass",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{X}{R}{R}",
           "colors": [
             "R"
           ],
@@ -1767,6 +1908,7 @@
           "name": "Jeska's Will",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -1779,6 +1921,7 @@
           "name": "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -1791,6 +1934,7 @@
           "name": "Pact of Negation",
           "type": "Instant",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [
             "U"
           ],
@@ -1803,6 +1947,7 @@
           "name": "Scalding Tarn",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/1/71e491c5-8c07-449b-b2f1-ffa052e6d311.jpg?1782704583",
           "rank": 49,
@@ -1813,6 +1958,7 @@
           "name": "Tavern Scoundrel",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1825,6 +1971,7 @@
           "name": "Reckless Impulse",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1837,6 +1984,7 @@
           "name": "March of Reckless Joy",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{X}{R}",
           "colors": [
             "R"
           ],
@@ -1849,6 +1997,7 @@
           "name": "Rob the Archives",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1861,6 +2010,7 @@
           "name": "Twinferno",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1873,6 +2023,7 @@
           "name": "Wrenn's Resolve",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1885,6 +2036,7 @@
           "name": "Mountain",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/4/2/426b0211-3d5d-4e53-bcf6-21823c655ffd.jpg?1782681935",
           "rank": null,
@@ -1895,6 +2047,7 @@
           "name": "Storm-Kiln Artist",
           "type": "Creature",
           "cmc": 4,
+          "mana": "{3}{R}",
           "colors": [
             "R"
           ],
@@ -1907,6 +2060,7 @@
           "name": "Training Center",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/8/78a39d22-5e3b-4ba0-b728-dbf16b61fc8f.jpg?1782733008",
           "rank": 148,
@@ -1917,6 +2071,7 @@
           "name": "Witch's Mark",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1929,6 +2084,7 @@
           "name": "Zoyowa's Justice",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1941,6 +2097,7 @@
           "name": "Thundering Falls",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/1/7/17260fff-b239-4af4-9306-3236ae3fa5a5.jpg?1782693773",
           "rank": 622,
@@ -1951,6 +2108,7 @@
           "name": "Command Tower",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/0/5/0548fb60-c843-4f8f-a029-6f10efc63a41.jpg?1782682479",
           "rank": 2,
@@ -1961,6 +2119,7 @@
           "name": "Flooded Strand",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/8/f/8f85e12c-196b-4459-b81f-0c9c854e9f57.jpg?1782691197",
           "rank": 39,
@@ -1971,6 +2130,7 @@
           "name": "Highway Robbery",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -1983,6 +2143,7 @@
           "name": "Flare of Duplication",
           "type": "Instant",
           "cmc": 3,
+          "mana": "{1}{R}{R}",
           "colors": [
             "R"
           ],
@@ -1995,6 +2156,7 @@
           "name": "Ragavan, Nimble Pilferer",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -2007,6 +2169,7 @@
           "name": "Sink into Stupor // Soporific Springs",
           "type": "Instant",
           "cmc": 3,
+          "mana": "{1}{U}{U}",
           "colors": [
             "U"
           ],
@@ -2019,6 +2182,7 @@
           "name": "Sundering Eruption // Volcanic Fissure",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -2031,6 +2195,7 @@
           "name": "Vexing Bauble",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/9/29f11089-658f-42e6-aeb0-09b512ad2479.jpg?1782691205",
           "rank": 1317,
@@ -2041,6 +2206,7 @@
           "name": "Pyroblast",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -2053,6 +2219,7 @@
           "name": "Echo of Eons",
           "type": "Sorcery",
           "cmc": 6,
+          "mana": "{4}{U}{U}",
           "colors": [
             "U"
           ],
@@ -2065,6 +2232,7 @@
           "name": "Simian Spirit Guide",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -2077,6 +2245,7 @@
           "name": "Inspired Tinkering",
           "type": "Sorcery",
           "cmc": 5,
+          "mana": "{4}{R}",
           "colors": [
             "R"
           ],
@@ -2089,6 +2258,7 @@
           "name": "Will of the Jeskai",
           "type": "Sorcery",
           "cmc": 4,
+          "mana": "{3}{R}",
           "colors": [
             "R"
           ],
@@ -2101,6 +2271,7 @@
           "name": "Opera Love Song",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -2113,6 +2284,7 @@
           "name": "Storm of Memories",
           "type": "Sorcery",
           "cmc": 5,
+          "mana": "{2}{R}{R}{R}",
           "colors": [
             "R"
           ],
@@ -2125,6 +2297,7 @@
           "name": "Intuition",
           "type": "Instant",
           "cmc": 3,
+          "mana": "{2}{U}",
           "colors": [
             "U"
           ],
@@ -2137,6 +2310,7 @@
           "name": "Overmaster",
           "type": "Sorcery",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -2149,6 +2323,7 @@
           "name": "Daze",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{U}",
           "colors": [
             "U"
           ],
@@ -2161,6 +2336,7 @@
           "name": "Frantic Search",
           "type": "Instant",
           "cmc": 3,
+          "mana": "{2}{U}",
           "colors": [
             "U"
           ],
@@ -2173,6 +2349,7 @@
           "name": "Mox Opal",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/6/56001a36-126b-4c08-af98-a6cc4d84210e.jpg?1782743853",
           "rank": 239,
@@ -2183,6 +2360,7 @@
           "name": "Treasonous Ogre",
           "type": "Creature",
           "cmc": 4,
+          "mana": "{3}{R}",
           "colors": [
             "R"
           ],
@@ -2195,6 +2373,7 @@
           "name": "Grapeshot",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -2207,6 +2386,7 @@
           "name": "Recoup",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -2219,6 +2399,7 @@
           "name": "Sol Ring",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/9/1/91fdb56b-54d5-4272-8319-505ff987fe9b.jpg?1782682494",
           "rank": 1,
@@ -2229,6 +2410,7 @@
           "name": "Past in Flames",
           "type": "Sorcery",
           "cmc": 4,
+          "mana": "{3}{R}",
           "colors": [
             "R"
           ],
@@ -2241,6 +2423,7 @@
           "name": "Arid Mesa",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/5/25ac5405-df7b-4097-914a-022cb18e20d4.jpg?1782704587",
           "rank": 56,
@@ -2251,6 +2434,7 @@
           "name": "Mystic Remora",
           "type": "Enchantment",
           "cmc": 1,
+          "mana": "{U}",
           "colors": [
             "U"
           ],
@@ -2263,6 +2447,7 @@
           "name": "Steam Vents",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/6/b66daa94-d367-4812-9f18-f35378c1febb.jpg?1782683912",
           "rank": 66,
@@ -2273,6 +2458,7 @@
           "name": "________ Goblin",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -2285,6 +2471,7 @@
           "name": "Gamble",
           "type": "Sorcery",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -2297,6 +2484,7 @@
           "name": "Gemstone Caverns",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/f/7f273641-c5f3-48bc-b89e-3cff52d26a0b.jpg?1782741752",
           "rank": 178,
@@ -2307,6 +2495,7 @@
           "name": "Wheel of Misfortune",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -2319,6 +2508,7 @@
           "name": "Underworld Breach",
           "type": "Enchantment",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -2331,6 +2521,7 @@
           "name": "Demand Answers",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -2343,6 +2534,7 @@
           "name": "Bloodstained Mire",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/7/579743fe-f71e-4cb2-8629-d6b02ed1591d.jpg?1782691202",
           "rank": 43,
@@ -2353,6 +2545,7 @@
           "name": "Flusterstorm",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{U}",
           "colors": [
             "U"
           ],
@@ -2365,6 +2558,7 @@
           "name": "Ruby Medallion",
           "type": "Artifact",
           "cmc": 2,
+          "mana": "{2}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/6/3/630febf5-58ff-4dab-a5a8-575ebc5435a6.jpg?1782691115",
           "rank": 301,
@@ -2375,6 +2569,7 @@
           "name": "Strike It Rich",
           "type": "Sorcery",
           "cmc": 1,
+          "mana": "{R}",
           "colors": [
             "R"
           ],
@@ -2387,6 +2582,7 @@
           "name": "Fierce Guardianship",
           "type": "Instant",
           "cmc": 3,
+          "mana": "{2}{U}",
           "colors": [
             "U"
           ],
@@ -2399,6 +2595,7 @@
           "name": "Solve the Equation",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{U}",
           "colors": [
             "U"
           ],
@@ -2411,6 +2608,7 @@
           "name": "An Offer You Can't Refuse",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{U}",
           "colors": [
             "U"
           ],
@@ -2423,6 +2621,7 @@
           "name": "Desperate Ritual",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -2435,6 +2634,7 @@
           "name": "Tibalt's Trickery",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{R}",
           "colors": [
             "R"
           ],
@@ -2579,6 +2779,7 @@
           "name": "Rograkh, Son of Rohgahh",
           "type": "Commander",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [
             "R"
           ],
@@ -2591,6 +2792,7 @@
           "name": "Thrasios, Triton Hero",
           "type": "Commander",
           "cmc": 2,
+          "mana": "{G}{U}",
           "colors": [
             "G",
             "U"
@@ -2604,6 +2806,7 @@
           "name": "Eureka",
           "type": "Sorcery",
           "cmc": 4,
+          "mana": "{2}{G}{G}",
           "colors": [
             "G"
           ],
@@ -2616,6 +2819,7 @@
           "name": "Eternal Witness",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{1}{G}{G}",
           "colors": [
             "G"
           ],
@@ -2628,6 +2832,7 @@
           "name": "Kiki-Jiki, Mirror Breaker",
           "type": "Creature",
           "cmc": 5,
+          "mana": "{2}{R}{R}{R}",
           "colors": [
             "R"
           ],
@@ -2640,6 +2845,7 @@
           "name": "Minamo, School at Water's Edge",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/5/7536292c-da25-41c8-ba28-1e35758a7f3d.jpg?1782718142",
           "rank": 600,
@@ -2650,6 +2856,7 @@
           "name": "Spellseeker",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{2}{U}",
           "colors": [
             "U"
           ],
@@ -2662,6 +2869,7 @@
           "name": "Mind's Desire",
           "type": "Sorcery",
           "cmc": 6,
+          "mana": "{4}{U}{U}",
           "colors": [
             "U"
           ],
@@ -2674,6 +2882,7 @@
           "name": "Cloud of Faeries",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{U}",
           "colors": [
             "U"
           ],
@@ -2686,6 +2895,7 @@
           "name": "Crop Rotation",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{G}",
           "colors": [
             "G"
           ],
@@ -2698,6 +2908,7 @@
           "name": "Palinchron",
           "type": "Creature",
           "cmc": 7,
+          "mana": "{5}{U}{U}",
           "colors": [
             "U"
           ],
@@ -2710,6 +2921,7 @@
           "name": "Snap",
           "type": "Instant",
           "cmc": 2,
+          "mana": "{1}{U}",
           "colors": [
             "U"
           ],
@@ -2722,6 +2934,7 @@
           "name": "Emergence Zone",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/a/b/ab95f6e7-b806-47fe-a071-6c38b3176d94.jpg?1782708583",
           "rank": 537,
@@ -2732,6 +2945,7 @@
           "name": "Candelabra of Tawnos",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/e/5e8416b8-aae1-4599-9e22-650dd86aefcb.jpg?1782752695",
           "rank": 6893,
@@ -2742,6 +2956,7 @@
           "name": "Green Sun's Zenith",
           "type": "Sorcery",
           "cmc": 1,
+          "mana": "{X}{G}",
           "colors": [
             "G"
           ],
@@ -2754,6 +2969,7 @@
           "name": "Oboro Breezecaller",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{U}",
           "colors": [
             "U"
           ],
@@ -2766,6 +2982,7 @@
           "name": "Gaea's Cradle",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/5/25b0b816-0583-44aa-9dc5-f3ff48993a51.jpg?1782720620",
           "rank": 447,
@@ -2776,6 +2993,7 @@
           "name": "Great Whale",
           "type": "Creature",
           "cmc": 7,
+          "mana": "{5}{U}{U}",
           "colors": [
             "U"
           ],
@@ -2788,6 +3006,7 @@
           "name": "Peregrine Drake",
           "type": "Creature",
           "cmc": 5,
+          "mana": "{4}{U}",
           "colors": [
             "U"
           ],
@@ -2800,6 +3019,7 @@
           "name": "Worldly Tutor",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{G}",
           "colors": [
             "G"
           ],
@@ -2812,6 +3032,7 @@
           "name": "Tinder Wall",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{G}",
           "colors": [
             "G"
           ],
@@ -2824,6 +3045,7 @@
           "name": "Mana Vault",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/c/1/c1a31d52-a407-4ded-bfca-cc812f11afa0.jpg?1782737761",
           "rank": 146,
@@ -2834,6 +3056,7 @@
           "name": "Tropical Island",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/4/7/47033ba4-8f26-4a6b-97bd-5b366327325e.jpg?1782751341",
           "rank": 356,
@@ -2844,6 +3067,7 @@
           "name": "Taiga",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/0/c/0c2c39fc-b564-4ab5-833c-ff029760b7a7.jpg?1782751342",
           "rank": 437,
@@ -2854,6 +3078,7 @@
           "name": "Volcanic Island",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/f/2f607e7e-30c0-45e9-8f61-bf6e9fe63f2b.jpg?1782751340",
           "rank": 339,
@@ -2864,6 +3089,7 @@
           "name": "Nyxbloom Ancient",
           "type": "Creature",
           "cmc": 7,
+          "mana": "{4}{G}{G}{G}",
           "colors": [
             "G"
           ],
@@ -2876,6 +3102,7 @@
           "name": "Kinnan, Bonder Prodigy",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{G}{U}",
           "colors": [
             "G",
             "U"
@@ -2889,6 +3116,7 @@
           "name": "Mox Diamond",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/f/bf9fecfd-d122-422f-bd0a-5bf69b434dfe.jpg?1782750660",
           "rank": 246,
@@ -2899,6 +3127,7 @@
           "name": "Flooded Strand",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/8/f/8f85e12c-196b-4459-b81f-0c9c854e9f57.jpg?1782691197",
           "rank": 39,
@@ -2909,6 +3138,7 @@
           "name": "Windswept Heath",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/d/bd1d13f7-fd38-4f0b-a8e0-1eac78668117.jpg?1782691186",
           "rank": 45,
@@ -2919,6 +3149,7 @@
           "name": "Wooded Foothills",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/4/e/4e11ea8a-f895-438d-a3b7-f070238e4161.jpg?1782691183",
           "rank": 47,
@@ -2929,6 +3160,7 @@
           "name": "Woodland Bellower",
           "type": "Creature",
           "cmc": 6,
+          "mana": "{4}{G}{G}",
           "colors": [
             "G"
           ],
@@ -2941,6 +3173,7 @@
           "name": "Genesis Storm",
           "type": "Sorcery",
           "cmc": 6,
+          "mana": "{4}{G}{G}",
           "colors": [
             "G"
           ],
@@ -2953,6 +3186,7 @@
           "name": "Expedition Map",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/0/8/08e66835-c228-48fa-bcaa-eb96edbd4f5a.jpg?1782688637",
           "rank": 452,
@@ -2963,6 +3197,7 @@
           "name": "Bloom Tender",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{G}",
           "colors": [
             "G"
           ],
@@ -2975,6 +3210,7 @@
           "name": "Sylvan Scrying",
           "type": "Sorcery",
           "cmc": 2,
+          "mana": "{1}{G}",
           "colors": [
             "G"
           ],
@@ -2987,6 +3223,7 @@
           "name": "Llanowar Elves",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{G}",
           "colors": [
             "G"
           ],
@@ -2999,6 +3236,7 @@
           "name": "Zealous Conscripts",
           "type": "Creature",
           "cmc": 5,
+          "mana": "{4}{R}",
           "colors": [
             "R"
           ],
@@ -3011,6 +3249,7 @@
           "name": "Creative Technique",
           "type": "Sorcery",
           "cmc": 5,
+          "mana": "{4}{R}",
           "colors": [
             "R"
           ],
@@ -3023,6 +3262,7 @@
           "name": "Misty Rainforest",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/8/8/88231c0d-0cc8-44ec-bf95-81d1710ac141.jpg?1782704585",
           "rank": 41,
@@ -3033,6 +3273,7 @@
           "name": "Scalding Tarn",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/1/71e491c5-8c07-449b-b2f1-ffa052e6d311.jpg?1782704583",
           "rank": 49,
@@ -3043,6 +3284,7 @@
           "name": "Verdant Catacombs",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/9/4/94c229ea-90da-4aa0-bfda-b162fb3b5b8b.jpg?1782704579",
           "rank": 48,
@@ -3053,6 +3295,7 @@
           "name": "Ancient Tomb",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/d/bd3d4b4b-cf31-4f89-8140-9650edb03c7b.jpg?1782746952",
           "rank": 65,
@@ -3063,6 +3306,7 @@
           "name": "Boseiju, Who Endures",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.jpg?1782702161",
           "rank": 79,
@@ -3073,6 +3317,7 @@
           "name": "Otawara, Soaring City",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/4/8/486d7edc-d983-41f0-8b78-c99aecd72996.jpg?1782702159",
           "rank": 88,
@@ -3083,6 +3328,7 @@
           "name": "Chrome Mox",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/f/3/f340cbf7-5bbe-45b9-a4bf-d1caa500ff93.jpg?1782743879",
           "rank": 144,
@@ -3093,6 +3339,7 @@
           "name": "Birds of Paradise",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{G}",
           "colors": [
             "G"
           ],
@@ -3105,6 +3352,7 @@
           "name": "Sneak Attack",
           "type": "Enchantment",
           "cmc": 4,
+          "mana": "{3}{R}",
           "colors": [
             "R"
           ],
@@ -3117,6 +3365,7 @@
           "name": "Phyrexian Metamorph",
           "type": "Creature",
           "cmc": 4,
+          "mana": "{3}{U/P}",
           "colors": [
             "U"
           ],
@@ -3129,6 +3378,7 @@
           "name": "Mox Amber",
           "type": "Artifact",
           "cmc": 0,
+          "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/6/6/66024e69-ad60-4c9a-a0ca-da138d33ad80.jpg?1782710061",
           "rank": 206,
@@ -3139,6 +3389,7 @@
           "name": "Springleaf Drum",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/e/1/e15ab0aa-4059-4923-9816-6f7a9e5b5a18.jpg?1782683915",
           "rank": 585,
@@ -3149,6 +3400,7 @@
           "name": "Eldritch Evolution",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{1}{G}{G}",
           "colors": [
             "G"
           ],
@@ -3161,6 +3413,7 @@
           "name": "Etali, Primal Conqueror // Etali, Primal Sickness",
           "type": "Creature",
           "cmc": 7,
+          "mana": "{5}{R}{R}",
           "colors": [
             "R"
           ],
@@ -3173,6 +3426,7 @@
           "name": "Delighted Halfling",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{G}",
           "colors": [
             "G"
           ],
@@ -3185,6 +3439,7 @@
           "name": "Last March of the Ents",
           "type": "Sorcery",
           "cmc": 8,
+          "mana": "{6}{G}{G}",
           "colors": [
             "G"
           ],
@@ -3197,6 +3452,7 @@
           "name": "Deserted Temple",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/f/d/fd51f8f0-779b-40bb-b65c-5907f816676e.jpg?1782691110",
           "rank": 1663,
@@ -3207,6 +3463,7 @@
           "name": "Forest",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/2/22463284-2478-4b1e-9a37-6dd2383266cf.jpg?1782681657",
           "rank": null,
@@ -3217,6 +3474,7 @@
           "name": "Island",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/a/5a74175b-2418-4226-8435-1490532e644f.jpg?1782681662",
           "rank": null,
@@ -3227,6 +3485,7 @@
           "name": "Tooth and Nail",
           "type": "Sorcery",
           "cmc": 7,
+          "mana": "{5}{G}{G}",
           "colors": [
             "G"
           ],
@@ -3239,6 +3498,7 @@
           "name": "Call Forth the Tempest",
           "type": "Sorcery",
           "cmc": 8,
+          "mana": "{5}{R}{R}{R}",
           "colors": [
             "R"
           ],
@@ -3251,6 +3511,7 @@
           "name": "Flesh Duplicate",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{U}{U}",
           "colors": [
             "U"
           ],
@@ -3263,6 +3524,7 @@
           "name": "Exotic Orchard",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/8/8/8853ff94-bf44-4cfd-9d3a-0743c361fb0d.jpg?1782682474",
           "rank": 9,
@@ -3273,6 +3535,7 @@
           "name": "Tishana, Voice of Thunder",
           "type": "Creature",
           "cmc": 7,
+          "mana": "{5}{G}{U}",
           "colors": [
             "G",
             "U"
@@ -3286,6 +3549,7 @@
           "name": "Ghalta, Stampede Tyrant",
           "type": "Creature",
           "cmc": 8,
+          "mana": "{5}{G}{G}{G}",
           "colors": [
             "G"
           ],
@@ -3298,6 +3562,7 @@
           "name": "Trumpeting Carnosaur",
           "type": "Creature",
           "cmc": 6,
+          "mana": "{4}{R}{R}",
           "colors": [
             "R"
           ],
@@ -3310,6 +3575,7 @@
           "name": "Stunt Double",
           "type": "Creature",
           "cmc": 4,
+          "mana": "{3}{U}",
           "colors": [
             "U"
           ],
@@ -3322,6 +3588,7 @@
           "name": "Jeska's Will",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -3334,6 +3601,7 @@
           "name": "Polluted Delta",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/6/e/6e288374-2b71-4ace-b1d2-a19fee6cb4af.jpg?1782691195",
           "rank": 36,
@@ -3344,6 +3612,7 @@
           "name": "Disciple of Freyalise // Garden of Freyalise",
           "type": "Creature",
           "cmc": 6,
+          "mana": "{3}{G}{G}{G}",
           "colors": [
             "G"
           ],
@@ -3356,6 +3625,7 @@
           "name": "Apex Devastator",
           "type": "Creature",
           "cmc": 10,
+          "mana": "{8}{G}{G}",
           "colors": [
             "G"
           ],
@@ -3368,6 +3638,7 @@
           "name": "Sowing Mycospawn",
           "type": "Creature",
           "cmc": 4,
+          "mana": "{3}{G}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/c/d/cdfadb17-76ad-4d4d-9fa7-33c4b88b4c0a.jpg?1782691245",
           "rank": 2096,
@@ -3378,6 +3649,7 @@
           "name": "Yavimaya, Cradle of Growth",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/4/e/4e4b6e22-93b2-4896-bba5-0ceaa5d8ea3c.jpg?1782704579",
           "rank": 77,
@@ -3388,6 +3660,7 @@
           "name": "Talon Gates of Madara",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/d/e/de92facf-762b-4a23-8d5e-bb673b0500c0.jpg?1782691678",
           "rank": 582,
@@ -3398,6 +3671,7 @@
           "name": "Arbor Elf",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{G}",
           "colors": [
             "G"
           ],
@@ -3410,6 +3684,7 @@
           "name": "Command Tower",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/0/5/0548fb60-c843-4f8f-a029-6f10efc63a41.jpg?1782682479",
           "rank": 2,
@@ -3420,6 +3695,7 @@
           "name": "Kiora, Behemoth Beckoner",
           "type": "Planeswalker",
           "cmc": 3,
+          "mana": "{2}{G/U}",
           "colors": [
             "G",
             "U"
@@ -3433,6 +3709,7 @@
           "name": "Show and Tell",
           "type": "Sorcery",
           "cmc": 3,
+          "mana": "{2}{U}",
           "colors": [
             "U"
           ],
@@ -3445,6 +3722,7 @@
           "name": "Phantasmal Image",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{U}",
           "colors": [
             "U"
           ],
@@ -3457,6 +3735,7 @@
           "name": "Enduring Vitality",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{1}{G}{G}",
           "colors": [
             "G"
           ],
@@ -3469,6 +3748,7 @@
           "name": "Ashaya, Soul of the Wild",
           "type": "Creature",
           "cmc": 5,
+          "mana": "{3}{G}{G}",
           "colors": [
             "G"
           ],
@@ -3481,6 +3761,7 @@
           "name": "Tezzeret, Cruel Captain",
           "type": "Planeswalker",
           "cmc": 3,
+          "mana": "{3}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/0/2/02e8e540-8aa3-4e6a-9a11-c3949cab5f0f.jpg?1782685585",
           "rank": 1392,
@@ -3491,6 +3772,7 @@
           "name": "Formidable Speaker",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{2}{G}",
           "colors": [
             "G"
           ],
@@ -3503,6 +3785,7 @@
           "name": "Hullbreaker Horror",
           "type": "Creature",
           "cmc": 7,
+          "mana": "{5}{U}{U}",
           "colors": [
             "U"
           ],
@@ -3515,6 +3798,7 @@
           "name": "Badgermole Cub",
           "type": "Creature",
           "cmc": 2,
+          "mana": "{1}{G}",
           "colors": [
             "G"
           ],
@@ -3527,6 +3811,7 @@
           "name": "Vibrance",
           "type": "Creature",
           "cmc": 5,
+          "mana": "{3}{R/G}{R/G}",
           "colors": [
             "G",
             "R"
@@ -3540,6 +3825,7 @@
           "name": "Rhythm of the Wild",
           "type": "Enchantment",
           "cmc": 3,
+          "mana": "{1}{R}{G}",
           "colors": [
             "G",
             "R"
@@ -3553,6 +3839,7 @@
           "name": "Imperial Recruiter",
           "type": "Creature",
           "cmc": 3,
+          "mana": "{2}{R}",
           "colors": [
             "R"
           ],
@@ -3565,6 +3852,7 @@
           "name": "Natural Order",
           "type": "Sorcery",
           "cmc": 4,
+          "mana": "{2}{G}{G}",
           "colors": [
             "G"
           ],
@@ -3577,6 +3865,7 @@
           "name": "Mystical Tutor",
           "type": "Instant",
           "cmc": 1,
+          "mana": "{U}",
           "colors": [
             "U"
           ],
@@ -3589,6 +3878,7 @@
           "name": "Breeding Pool",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/3/c/3c750d5a-f743-41ff-b5ba-02025ca0bec2.jpg?1782685411",
           "rank": 62,
@@ -3599,6 +3889,7 @@
           "name": "Fyndhorn Elves",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{G}",
           "colors": [
             "G"
           ],
@@ -3611,6 +3902,7 @@
           "name": "City of Brass",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/c/2/c21565d0-fc40-4d89-9b27-87c03385e0af.jpg?1782723682",
           "rank": 98,
@@ -3621,6 +3913,7 @@
           "name": "Elvish Mystic",
           "type": "Creature",
           "cmc": 1,
+          "mana": "{G}",
           "colors": [
             "G"
           ],
@@ -3633,6 +3926,7 @@
           "name": "Maelstrom Wanderer",
           "type": "Creature",
           "cmc": 8,
+          "mana": "{5}{G}{U}{R}",
           "colors": [
             "G",
             "R",
@@ -3647,6 +3941,7 @@
           "name": "Deadeye Navigator",
           "type": "Creature",
           "cmc": 6,
+          "mana": "{4}{U}{U}",
           "colors": [
             "U"
           ],
@@ -3659,6 +3954,7 @@
           "name": "Starfield Vocalist",
           "type": "Creature",
           "cmc": 4,
+          "mana": "{3}{U}",
           "colors": [
             "U"
           ],
@@ -3671,6 +3967,7 @@
           "name": "Gemstone Caverns",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/f/7f273641-c5f3-48bc-b89e-3cff52d26a0b.jpg?1782741752",
           "rank": 178,
@@ -3681,6 +3978,7 @@
           "name": "Mana Confluence",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/0/504a69eb-3c2d-4bb1-b117-252b15acf0c2.jpg?1782713352",
           "rank": 119,
@@ -3691,6 +3989,7 @@
           "name": "Steam Vents",
           "type": "Land",
           "cmc": 0,
+          "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/6/b66daa94-d367-4812-9f18-f35378c1febb.jpg?1782683912",
           "rank": 66,
@@ -3701,6 +4000,7 @@
           "name": "Sol Ring",
           "type": "Artifact",
           "cmc": 1,
+          "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/9/1/91fdb56b-54d5-4272-8319-505ff987fe9b.jpg?1782682494",
           "rank": 1,

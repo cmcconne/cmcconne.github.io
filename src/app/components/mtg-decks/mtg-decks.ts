@@ -136,6 +136,15 @@ export class MtgDecksComponent {
     () => this.activeDeck()?.cards?.filter((c) => c.alter) ?? [],
   );
 
+  /** Priciest cards in the open deck (top 5 by USD value). */
+  protected readonly topValueCards = computed<DeckCard[]>(
+    () =>
+      [...(this.activeDeck()?.cards ?? [])]
+        .filter((c) => c.price)
+        .sort((a, b) => (b.price ?? 0) - (a.price ?? 0))
+        .slice(0, 5),
+  );
+
   /** Distinct event years, newest first (for the filter chips). */
   protected readonly years = computed<string[]>(() => {
     const ys = new Set(
@@ -219,6 +228,19 @@ export class MtgDecksComponent {
 
   protected toggleOfficial(): void {
     this.previewOfficial.set(!this.previewOfficial());
+  }
+
+  /** Mana-cost symbols, e.g. "{2}{U}{U}" -> ["2","U","U"]. */
+  protected manaSymbols(mana: string | undefined): string[] {
+    if (!mana) return [];
+    return (mana.match(/\{([^}]+)\}/g) ?? []).map((t) =>
+      t.slice(1, -1).replace(/\//g, ''),
+    );
+  }
+
+  /** Scryfall SVG for a mana symbol code. */
+  protected symbolUrl(code: string): string {
+    return `https://svgs.scryfall.io/card-symbols/${code}.svg`;
   }
 
   protected alterLabel(kind: string): string {

@@ -24,6 +24,8 @@ export interface DeckCard {
   /** Category: Commander/Creature/Instant/Sorcery/Artifact/Enchantment/Land/… */
   type: string;
   cmc: number;
+  /** Raw mana cost, e.g. "{2}{U}{U}" (empty for lands). */
+  mana?: string;
   colors: string[];
   image: string | null;
   rank: number | null;

@@ -112,6 +112,7 @@ function buildCard(c, category) {
     name: c.name,
     type: category ?? categorize(c.type_line),
     cmc: c.cmc ?? c.card_faces?.[0]?.cmc ?? 0,
+    mana: c.mana_cost ?? c.card_faces?.[0]?.mana_cost ?? '',
     colors: c.colors ?? c.card_faces?.[0]?.colors ?? [],
     image: imgs.normal ?? imgs.large ?? null,
     rank: c.edhrec_rank ?? null,
