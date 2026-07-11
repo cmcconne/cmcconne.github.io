@@ -76,6 +76,77 @@ async function scryfallCollection(names) {
   return results;
 }
 
+// Deck-list categories, in display order.
+const TYPE_ORDER = [
+  'Commander',
+  'Creature',
+  'Planeswalker',
+  'Instant',
+  'Sorcery',
+  'Artifact',
+  'Enchantment',
+  'Battle',
+  'Land',
+  'Other',
+];
+
+/** Primary deck-list category for a Scryfall type line. */
+function categorize(typeLine) {
+  const t = (typeLine ?? '').split('//')[0];
+  if (/Land/.test(t)) return 'Land';
+  if (/Creature/.test(t)) return 'Creature';
+  if (/Planeswalker/.test(t)) return 'Planeswalker';
+  if (/Instant/.test(t)) return 'Instant';
+  if (/Sorcery/.test(t)) return 'Sorcery';
+  if (/Artifact/.test(t)) return 'Artifact';
+  if (/Enchantment/.test(t)) return 'Enchantment';
+  if (/Battle/.test(t)) return 'Battle';
+  return 'Other';
+}
+
+/** Compact card record for the interactive decklist. */
+function buildCard(c, category) {
+  const imgs = c.image_uris ?? c.card_faces?.[0]?.image_uris ?? {};
+  return {
+    name: c.name,
+    type: category ?? categorize(c.type_line),
+    cmc: c.cmc ?? c.card_faces?.[0]?.cmc ?? 0,
+    colors: c.colors ?? c.card_faces?.[0]?.colors ?? [],
+    image: imgs.normal ?? imgs.large ?? null,
+    rank: c.edhrec_rank ?? null,
+    uri: c.scryfall_uri ?? null,
+    price: c.prices?.usd ? +c.prices.usd : null,
+  };
+}
+
+/** Mana curve, colour, type, price + average CMC over a deck's cards. */
+function deckStats(cards) {
+  const nonCmdr = cards.filter((c) => c.type !== 'Commander');
+  const spells = nonCmdr.filter((c) => c.type !== 'Land');
+  const curve = [0, 0, 0, 0, 0, 0, 0, 0]; // 0,1,2,3,4,5,6,7+
+  for (const c of spells) curve[Math.min(7, Math.floor(c.cmc))]++;
+  const typeCounts = {};
+  for (const c of cards) typeCounts[c.type] = (typeCounts[c.type] ?? 0) + 1;
+  const colorCounts = { W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 };
+  for (const c of spells) {
+    if (!c.colors.length) colorCounts.C++;
+    else for (const x of c.colors) colorCounts[x] = (colorCounts[x] ?? 0) + 1;
+  }
+  const avgCmc = spells.length
+    ? +(spells.reduce((s, c) => s + c.cmc, 0) / spells.length).toFixed(2)
+    : 0;
+  const price = Math.round(cards.reduce((s, c) => s + (c.price ?? 0), 0));
+  return {
+    count: cards.length,
+    lands: nonCmdr.filter((c) => c.type === 'Land').length,
+    avgCmc,
+    price,
+    curve,
+    typeCounts,
+    colorCounts,
+  };
+}
+
 /** Analyse a deck's cards into newCards / spiceCards. */
 function analyseCards(cards) {
   const cutoff = new Date();
@@ -122,6 +193,7 @@ for (const d of source) {
   const commanders = d.commanders ?? (d.commander ? [d.commander] : []);
   const arts = [];
   const colorSet = new Set();
+  const commanderCards = [];
   let scryfallUri = null;
 
   for (const name of commanders) {
@@ -135,6 +207,7 @@ for (const d of source) {
         const imgs = c.image_uris ?? c.card_faces?.[0]?.image_uris ?? {};
         arts.push(imgs.art_crop ?? null);
         (c.color_identity ?? []).forEach((x) => colorSet.add(x));
+        commanderCards.push(buildCard(c, 'Commander'));
         if (!scryfallUri) scryfallUri = c.scryfall_uri ?? null;
       } else {
         console.error(`Scryfall miss for "${name}": ${res.status}`);
@@ -167,9 +240,23 @@ for (const d of source) {
     const names = await getDecklist(deckId, snapshot);
     if (names.length) {
       const resolved = await scryfallCollection(names);
-      const { newCards, spiceCards } = analyseCards([...resolved.values()]);
+      const resolvedCards = [...resolved.values()];
+      const { newCards, spiceCards } = analyseCards(resolvedCards);
       deck.newCards = newCards;
       deck.spiceCards = spiceCards;
+
+      // Full interactive decklist: commanders first, then the mainboard in the
+      // snapshot's order, each enriched with type/CMC/colours/image/price.
+      const mainCards = names
+        .map((n) => resolved.get(n.split(' // ')[0]) ?? resolved.get(n))
+        .filter(Boolean)
+        .map((c) => buildCard(c));
+      deck.cards = [...commanderCards, ...mainCards];
+      deck.stats = deckStats(deck.cards);
+
+      console.log(
+        `    ${deck.cards.length} cards, ${deck.stats.lands} lands, avg CMC ${deck.stats.avgCmc}, ~$${deck.stats.price}`,
+      );
       console.log(
         `    new: ${newCards.map((c) => c.name).join(', ') || '—'}`,
       );

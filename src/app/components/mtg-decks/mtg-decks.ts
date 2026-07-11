@@ -1,7 +1,7 @@
 import { Component, computed, effect, inject, input, signal } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { CardChip, MtgDeck, MtgDecks } from '../../models/mtg-deck';
+import { CardChip, DeckCard, MtgDeck, MtgDecks } from '../../models/mtg-deck';
 import { TopdeckEvent, TopdeckStats } from '../../models/topdeck';
 import { PlaygroupGame, PlaygroupStats } from '../../models/playgroup';
 
@@ -11,11 +11,25 @@ const COLOR_NAMES: Record<string, string> = {
   B: 'Black',
   R: 'Red',
   G: 'Green',
+  C: 'Colorless',
 };
+
+const TYPE_ORDER = [
+  'Commander',
+  'Creature',
+  'Planeswalker',
+  'Instant',
+  'Sorcery',
+  'Artifact',
+  'Enchantment',
+  'Battle',
+  'Land',
+  'Other',
+];
 
 @Component({
   selector: 'app-mtg-decks',
-  imports: [DatePipe],
+  imports: [DatePipe, DecimalPipe],
   templateUrl: './mtg-decks.html',
   styleUrl: './mtg-decks.scss',
 })
@@ -28,6 +42,13 @@ export class MtgDecksComponent {
   protected readonly loaded = signal(false);
   protected readonly topdeck = signal<TopdeckStats | null>(null);
   protected readonly playgroup = signal<PlaygroupStats | null>(null);
+
+  /** Selected deck name for the interactive decklist, or null for the grid. */
+  protected readonly selectedDeck = signal<string | null>(null);
+  /** Card-name filter within the open deck. */
+  protected readonly deckSearch = signal('');
+  /** Card currently hovered in the decklist (drives the image preview). */
+  protected readonly hoveredCard = signal<DeckCard | null>(null);
 
   /** Which event row is expanded (event id), if any. */
   protected readonly expandedId = signal<string | null>(null);
@@ -69,6 +90,36 @@ export class MtgDecksComponent {
         });
     });
   }
+
+  /** The deck whose decklist is open. */
+  protected readonly activeDeck = computed<MtgDeck | null>(() => {
+    const name = this.selectedDeck();
+    if (!name) return null;
+    return this.data()?.decks.find((d) => d.name === name) ?? null;
+  });
+
+  /** Open deck's cards grouped by type (search-filtered, curve-sorted). */
+  protected readonly groupedCards = computed<{ type: string; cards: DeckCard[] }[]>(
+    () => {
+      const deck = this.activeDeck();
+      if (!deck?.cards) return [];
+      const q = this.deckSearch().trim().toLowerCase();
+      const cards = q
+        ? deck.cards.filter((c) => c.name.toLowerCase().includes(q))
+        : deck.cards;
+      return TYPE_ORDER.map((type) => ({
+        type,
+        cards: cards
+          .filter((c) => c.type === type)
+          .sort((a, b) => a.cmc - b.cmc || a.name.localeCompare(b.name)),
+      })).filter((g) => g.cards.length);
+    },
+  );
+
+  /** Card shown in the preview pane (hovered, else the first commander). */
+  protected readonly previewCard = computed<DeckCard | null>(
+    () => this.hoveredCard() ?? this.activeDeck()?.cards?.[0] ?? null,
+  );
 
   /** Distinct event years, newest first (for the filter chips). */
   protected readonly years = computed<string[]>(() => {
@@ -122,6 +173,64 @@ export class MtgDecksComponent {
   /** Best outbound link for a deck: Moxfield if set, else Scryfall. */
   protected link(deck: MtgDeck): string | null {
     return deck.moxfield || deck.scryfallUri || null;
+  }
+
+  // --- Interactive decklist -------------------------------------------------
+
+  protected openDeck(deck: MtgDeck): void {
+    if (!deck.cards?.length) {
+      const url = this.link(deck);
+      if (url) window.open(url, '_blank', 'noopener');
+      return;
+    }
+    this.selectedDeck.set(deck.name);
+    this.deckSearch.set('');
+    this.hoveredCard.set(null);
+  }
+
+  protected closeDeck(): void {
+    this.selectedDeck.set(null);
+    this.hoveredCard.set(null);
+  }
+
+  protected onDeckSearch(v: string): void {
+    this.deckSearch.set(v);
+  }
+
+  protected setHover(c: DeckCard | null): void {
+    this.hoveredCard.set(c);
+  }
+
+  /** Tallest mana-curve bucket, for scaling the bars. */
+  protected curveMax(deck: MtgDeck): number {
+    return Math.max(1, ...(deck.stats?.curve ?? [1]));
+  }
+
+  /** Colour breakdown entries with a non-zero count, WUBRGC order. */
+  protected colorList(deck: MtgDeck): { c: string; n: number }[] {
+    const cc = deck.stats?.colorCounts ?? {};
+    return ['W', 'U', 'B', 'R', 'G', 'C']
+      .map((c) => ({ c, n: cc[c] ?? 0 }))
+      .filter((e) => e.n > 0);
+  }
+
+  /** Largest colour count, for scaling the colour bars. */
+  protected colorMax(deck: MtgDeck): number {
+    return Math.max(1, ...this.colorList(deck).map((e) => e.n));
+  }
+
+  /** Type breakdown entries (excluding commanders), in list order. */
+  protected typeList(deck: MtgDeck): { type: string; n: number }[] {
+    const tc = deck.stats?.typeCounts ?? {};
+    return TYPE_ORDER.filter((t) => t !== 'Commander' && tc[t]).map((type) => ({
+      type,
+      n: tc[type],
+    }));
+  }
+
+  /** CMC label for the curve axis (7 -> "7+"). */
+  protected curveLabel(i: number): string {
+    return i >= 7 ? '7+' : String(i);
   }
 
   /** Front-face name for double-faced cards. */

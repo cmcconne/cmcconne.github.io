@@ -1,16 +1,134 @@
 <section class="mtg" aria-label="Magic">
   @if (data(); as d) {
-    @if (d.decks.length) {
+    @if (activeDeck(); as deck) {
+      <!-- Interactive decklist -->
+      <div class="deck-detail">
+        <div class="dd-head">
+          <button class="dd-back" (click)="closeDeck()">‹ Decks</button>
+          <div class="dd-title">
+            <h2>{{ deck.name }}</h2>
+            <p class="dd-cmdr">{{ deck.commanders.join(' + ') }} · {{ deck.format }}</p>
+          </div>
+          <span class="pips" aria-hidden="true">
+            @for (c of pips(deck); track c) {
+              <span class="pip" [class]="'pip-' + c" [attr.title]="colorName(c)"></span>
+            }
+          </span>
+          <div class="dd-links">
+            @if (deck.moxfield) {
+              <a [href]="deck.moxfield" target="_blank" rel="noopener">Moxfield ↗</a>
+            }
+            @if (deck.scryfallUri) {
+              <a [href]="deck.scryfallUri" target="_blank" rel="noopener">Scryfall ↗</a>
+            }
+          </div>
+        </div>
+
+        @if (deck.stats; as s) {
+          <div class="dd-summary">
+            <div class="dd-tile"><span class="v">{{ s.count }}</span><span class="l">Cards</span></div>
+            <div class="dd-tile"><span class="v">{{ s.lands }}</span><span class="l">Lands</span></div>
+            <div class="dd-tile"><span class="v">{{ s.avgCmc }}</span><span class="l">Avg MV</span></div>
+            <div class="dd-tile"><span class="v">${{ s.price | number }}</span><span class="l">Est. value</span></div>
+          </div>
+        }
+
+        <div class="dd-body">
+          <div class="dd-list">
+            <input
+              class="dd-search"
+              type="search"
+              placeholder="Search cards…"
+              [value]="deckSearch()"
+              (input)="onDeckSearch($any($event.target).value)"
+            />
+            @for (g of groupedCards(); track g.type) {
+              <div class="dd-group">
+                <h3 class="dd-group-head">{{ g.type }} <span>{{ g.cards.length }}</span></h3>
+                <ul>
+                  @for (c of g.cards; track c.name) {
+                    <li
+                      class="dd-card"
+                      (mouseenter)="setHover(c)"
+                      (focusin)="setHover(c)"
+                    >
+                      <span class="dd-cmc">{{ c.cmc }}</span>
+                      <a class="dd-name" [href]="c.uri" target="_blank" rel="noopener">{{ frontName(c.name) }}</a>
+                      <span class="dd-pips" aria-hidden="true">
+                        @for (col of c.colors; track col) {
+                          <span class="pip small" [class]="'pip-' + col"></span>
+                        }
+                      </span>
+                      @if (c.price) {
+                        <span class="dd-price">${{ c.price | number: '1.0-0' }}</span>
+                      }
+                    </li>
+                  }
+                </ul>
+              </div>
+            } @empty {
+              <p class="mtg-pending">No cards match “{{ deckSearch() }}”.</p>
+            }
+          </div>
+
+          <div class="dd-side">
+            <div class="dd-preview">
+              @if (previewCard()?.image; as img) {
+                <img [src]="img" [alt]="previewCard()!.name" />
+              } @else {
+                <div class="dd-preview-empty">Hover a card</div>
+              }
+            </div>
+
+            @if (deck.stats; as s) {
+              <div class="dd-chart">
+                <h4>Mana curve</h4>
+                <div class="curve">
+                  @for (n of s.curve; track $index) {
+                    <div class="curve-col" [attr.title]="n + ' at ' + curveLabel($index) + ' MV'">
+                      <span class="curve-n">{{ n }}</span>
+                      <div class="curve-track">
+                        <div class="curve-bar" [style.height.%]="(n / curveMax(deck)) * 100"></div>
+                      </div>
+                      <span class="curve-x">{{ curveLabel($index) }}</span>
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <div class="dd-chart">
+                <h4>Colours</h4>
+                <div class="color-bars">
+                  @for (e of colorList(deck); track e.c) {
+                    <div class="color-bar">
+                      <span class="pip" [class]="'pip-' + e.c" [attr.title]="colorName(e.c)"></span>
+                      <div class="cb-track">
+                        <span class="cb-fill" [class]="'pip-' + e.c" [style.width.%]="(e.n / colorMax(deck)) * 100"></span>
+                      </div>
+                      <span class="cb-n">{{ e.n }}</span>
+                    </div>
+                  }
+                </div>
+              </div>
+
+              <div class="dd-chart">
+                <h4>Types</h4>
+                <ul class="type-list">
+                  @for (t of typeList(deck); track t.type) {
+                    <li><span>{{ t.type }}</span><span class="tl-n">{{ t.n }}</span></li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    } @else if (d.decks.length) {
       <h2 class="mtg-heading">Decks</h2>
       <div class="deck-grid">
         @for (deck of d.decks; track deck.name) {
           <div class="deck-card">
-            <a
-              class="deck-top"
-              [href]="link(deck)"
-              target="_blank"
-              rel="noopener"
-            >
+            <button class="deck-top" (click)="openDeck(deck)">
               <div class="deck-art" [class.split]="(deck.arts?.length ?? 0) > 1">
                 @if (deck.arts?.length) {
                   @for (art of deck.arts; track $index) {
@@ -37,8 +155,12 @@
                 @if (deck.description) {
                   <p class="deck-desc">{{ deck.description }}</p>
                 }
+                @if (deck.stats; as s) {
+                  <p class="deck-quickstats">{{ s.count }} cards · {{ s.lands }} lands · avg MV {{ s.avgCmc }} · ~${{ s.price | number }}</p>
+                }
+                <span class="deck-open">View decklist →</span>
               </div>
-            </a>
+            </button>
 
             @if (deck.newCards?.length || deck.spiceCards?.length) {
               <div class="deck-notables">
@@ -47,16 +169,8 @@
                     <span class="notable-label" title="Cards that debuted in a set from the last year">🆕 New</span>
                     <span class="notable-chips">
                       @for (c of deck.newCards; track c.name) {
-                        <a
-                          class="card-chip"
-                          [href]="c.uri"
-                          target="_blank"
-                          rel="noopener"
-                          [attr.title]="newTitle(c)"
-                        >
-                          @if (c.art) {
-                            <img [src]="c.art" [alt]="c.name" loading="lazy" />
-                          }
+                        <a class="card-chip" [href]="c.uri" target="_blank" rel="noopener" [attr.title]="newTitle(c)">
+                          @if (c.art) { <img [src]="c.art" [alt]="c.name" loading="lazy" /> }
                           {{ frontName(c.name) }}
                         </a>
                       }
@@ -68,16 +182,8 @@
                     <span class="notable-label" title="The deck's rarest picks — cards few other decks play">🌶️ Spice</span>
                     <span class="notable-chips">
                       @for (c of deck.spiceCards; track c.name) {
-                        <a
-                          class="card-chip"
-                          [href]="c.uri"
-                          target="_blank"
-                          rel="noopener"
-                          [attr.title]="spiceTitle(c)"
-                        >
-                          @if (c.art) {
-                            <img [src]="c.art" [alt]="c.name" loading="lazy" />
-                          }
+                        <a class="card-chip" [href]="c.uri" target="_blank" rel="noopener" [attr.title]="spiceTitle(c)">
+                          @if (c.art) { <img [src]="c.art" [alt]="c.name" loading="lazy" /> }
                           {{ frontName(c.name) }}
                         </a>
                       }

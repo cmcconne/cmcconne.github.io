@@ -10,6 +10,31 @@ export interface CardChip {
   uri: string | null;
 }
 
+/** One card in a deck's full list. */
+export interface DeckCard {
+  name: string;
+  /** Category: Commander/Creature/Instant/Sorcery/Artifact/Enchantment/Land/… */
+  type: string;
+  cmc: number;
+  colors: string[];
+  image: string | null;
+  rank: number | null;
+  uri: string | null;
+  price: number | null;
+}
+
+/** Aggregate stats over a deck's cards. */
+export interface DeckStats {
+  count: number;
+  lands: number;
+  avgCmc: number;
+  price: number;
+  /** Mana curve buckets: 0,1,2,3,4,5,6,7+. */
+  curve: number[];
+  typeCounts: Record<string, number>;
+  colorCounts: Record<string, number>;
+}
+
 /** A curated Magic deck, enriched with Scryfall art/colour data. */
 export interface MtgDeck {
   name: string;
@@ -28,6 +53,9 @@ export interface MtgDeck {
   newCards?: CardChip[];
   /** Rarely-played picks (worst EDHREC ranks in the deck). */
   spiceCards?: CardChip[];
+  /** Full decklist (commanders first, then mainboard). */
+  cards?: DeckCard[];
+  stats?: DeckStats;
 }
 
 export interface MtgDecks {
