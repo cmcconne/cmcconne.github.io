@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T23:44:14.244Z",
+  "updatedAt": "2026-07-11T23:57:45.207Z",
   "decks": [
     {
       "name": "Tymna ❤️ Dargo",
@@ -1044,7 +1044,7 @@
           "image": "https://cards.scryfall.io/normal/front/5/0/50c33f18-0a5c-4e46-ab0d-6e450915594f.jpg?1782720795",
           "rank": 554,
           "uri": "https://scryfall.com/card/exo/55/culling-the-weak?utm_source=api",
-          "price": 7.76
+          "price": 7.56
         },
         {
           "name": "Final Fortune",
@@ -1309,7 +1309,7 @@
         "count": 100,
         "lands": 25,
         "avgCmc": 1.97,
-        "price": 2101,
+        "price": 2100,
         "curve": [
           5,
           26,
@@ -4044,5 +4044,6 @@
         "alters": 0
       }
     }
-  ]
+  ],
+  "alters": []
 }

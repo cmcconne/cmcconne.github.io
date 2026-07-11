@@ -1,7 +1,21 @@
-import { Component, computed, effect, inject, input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  HostListener,
+  inject,
+  input,
+  signal,
+} from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { CardChip, DeckCard, MtgDeck, MtgDecks } from '../../models/mtg-deck';
+import {
+  CardChip,
+  DeckCard,
+  MtgAlter,
+  MtgDeck,
+  MtgDecks,
+} from '../../models/mtg-deck';
 import { TopdeckEvent, TopdeckStats } from '../../models/topdeck';
 import { PlaygroupGame, PlaygroupStats } from '../../models/playgroup';
 
@@ -51,6 +65,13 @@ export class MtgDecksComponent {
   protected readonly hoveredCard = signal<DeckCard | null>(null);
   /** A drawn sample opening hand (7 cards from the library). */
   protected readonly hand = signal<DeckCard[]>([]);
+
+  // --- Collection gallery (alters / proofs / signed) ---
+  protected readonly alterKind = signal<'all' | 'alter' | 'proof' | 'signed'>('all');
+  protected readonly alterSearch = signal('');
+  /** Index into the filtered gallery for the open lightbox, or -1. */
+  protected readonly lightboxIndex = signal(-1);
+  protected readonly lightboxOfficial = signal(false);
 
   /** Which event row is expanded (event id), if any. */
   protected readonly expandedId = signal<string | null>(null);
@@ -146,6 +167,56 @@ export class MtgDecksComponent {
         .sort((a, b) => (b.price ?? 0) - (a.price ?? 0))
         .slice(0, 5),
   );
+
+  /** The full alter/proof/signed collection. */
+  protected readonly allAlters = computed<MtgAlter[]>(
+    () => this.data()?.alters ?? [],
+  );
+
+  /** Kind filter chips with counts (only kinds that exist). */
+  protected readonly alterKinds = computed<{ key: string; label: string; n: number }[]>(
+    () => {
+      const all = this.allAlters();
+      const counts: Record<string, number> = {};
+      for (const a of all) counts[a.kind] = (counts[a.kind] ?? 0) + 1;
+      const plural: Record<string, string> = {
+        alter: 'Alters',
+        proof: 'Proofs',
+        signed: 'Signed',
+      };
+      const chips = [{ key: 'all', label: 'All', n: all.length }];
+      for (const k of ['alter', 'proof', 'signed']) {
+        if (counts[k]) chips.push({ key: k, label: plural[k] ?? k, n: counts[k] });
+      }
+      return chips;
+    },
+  );
+
+  /** Gallery after kind + search filters. */
+  protected readonly alterGallery = computed<MtgAlter[]>(() => {
+    const kind = this.alterKind();
+    const q = this.alterSearch().trim().toLowerCase();
+    return this.allAlters().filter(
+      (a) =>
+        (kind === 'all' || a.kind === kind) &&
+        (!q ||
+          a.card.toLowerCase().includes(q) ||
+          (a.artist ?? '').toLowerCase().includes(q)),
+    );
+  });
+
+  /** The alter shown in the lightbox, or null. */
+  protected readonly activeAlter = computed<MtgAlter | null>(() => {
+    const i = this.lightboxIndex();
+    return i >= 0 ? (this.alterGallery()[i] ?? null) : null;
+  });
+
+  /** Lightbox image — the alter photo, or the official printing when toggled. */
+  protected readonly lightboxImage = computed<string | null>(() => {
+    const a = this.activeAlter();
+    if (!a) return null;
+    return this.lightboxOfficial() ? a.official : a.image;
+  });
 
   /** Distinct event years, newest first (for the filter chips). */
   protected readonly years = computed<string[]>(() => {
@@ -275,6 +346,44 @@ export class MtgDecksComponent {
       : kind === 'signed'
         ? 'Signed'
         : 'Alter';
+  }
+
+  // --- Collection gallery ---------------------------------------------------
+
+  protected setAlterKind(k: 'all' | 'alter' | 'proof' | 'signed'): void {
+    this.alterKind.set(k);
+  }
+
+  protected onAlterSearch(v: string): void {
+    this.alterSearch.set(v);
+  }
+
+  protected openAlter(i: number): void {
+    this.lightboxOfficial.set(false);
+    this.lightboxIndex.set(i);
+  }
+
+  protected closeAlter(): void {
+    this.lightboxIndex.set(-1);
+  }
+
+  protected stepAlter(delta: number): void {
+    const len = this.alterGallery().length;
+    if (!len) return;
+    this.lightboxOfficial.set(false);
+    this.lightboxIndex.set((this.lightboxIndex() + delta + len) % len);
+  }
+
+  protected toggleLightboxOfficial(): void {
+    this.lightboxOfficial.set(!this.lightboxOfficial());
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  protected onKeydown(e: KeyboardEvent): void {
+    if (this.lightboxIndex() < 0) return;
+    if (e.key === 'Escape') this.closeAlter();
+    else if (e.key === 'ArrowRight') this.stepAlter(1);
+    else if (e.key === 'ArrowLeft') this.stepAlter(-1);
   }
 
   /** Tallest mana-curve bucket, for scaling the bars. */

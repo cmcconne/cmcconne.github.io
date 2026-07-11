@@ -288,6 +288,75 @@
     <div class="mtg-pending">Loading decks…</div>
   }
 
+  <!-- Collection gallery: alters / artist proofs / signed (may span non-deck cards) -->
+  @if (!activeDeck() && allAlters().length) {
+    <div class="mtg-collection">
+      <h2 class="mtg-heading">Collection · Alters &amp; Proofs</h2>
+      <div class="col-filter">
+        @for (k of alterKinds(); track k.key) {
+          <button class="chip" [class.active]="alterKind() === k.key" (click)="setAlterKind($any(k.key))">
+            {{ k.label }} <span class="chip-n">{{ k.n }}</span>
+          </button>
+        }
+        <input
+          class="col-search"
+          type="search"
+          placeholder="Search card / artist…"
+          [value]="alterSearch()"
+          (input)="onAlterSearch($any($event.target).value)"
+        />
+      </div>
+      <div class="col-grid">
+        @for (a of alterGallery(); track a.image) {
+          <button class="col-card" (click)="openAlter($index)" [attr.title]="a.card + ' — ' + alterLabel(a.kind)">
+            <img [src]="a.image" [alt]="a.card + ' ' + a.kind" loading="lazy" />
+            <span class="col-kind" [class]="'k-' + a.kind">{{ alterLabel(a.kind) }}</span>
+            <span class="col-name">{{ frontName(a.card) }}</span>
+          </button>
+        } @empty {
+          <p class="mtg-pending">No cards match.</p>
+        }
+      </div>
+    </div>
+  }
+
+  @if (activeAlter(); as a) {
+    <div class="lightbox" (click)="closeAlter()">
+      <button class="lb-close" (click)="closeAlter()" aria-label="Close">✕</button>
+      @if (alterGallery().length > 1) {
+        <button class="lb-nav prev" (click)="stepAlter(-1); $event.stopPropagation()" aria-label="Previous">‹</button>
+        <button class="lb-nav next" (click)="stepAlter(1); $event.stopPropagation()" aria-label="Next">›</button>
+      }
+      <div class="lb-inner" (click)="$event.stopPropagation()">
+        <div class="lb-img">
+          @if (lightboxImage(); as img) {
+            <img [src]="img" [alt]="a.card" />
+          }
+        </div>
+        <div class="lb-meta">
+          <span class="lb-kind" [class]="'k-' + a.kind">{{ alterLabel(a.kind) }}</span>
+          <h3>{{ a.card }}</h3>
+          @if (a.artist) { <p class="lb-artist">Altered by {{ a.artist }}</p> }
+          @if (a.typeLine || a.set) {
+            <p class="lb-sub">{{ a.typeLine }}@if (a.set) { · {{ a.set }} }</p>
+          }
+          @if (a.note) { <p class="lb-note">{{ a.note }}</p> }
+          @if (a.deck) { <p class="lb-deck">Runs in <strong>{{ a.deck }}</strong></p> }
+          <div class="lb-actions">
+            @if (a.official) {
+              <button class="dd-draw ghost" (click)="toggleLightboxOfficial()">
+                {{ lightboxOfficial() ? 'Show alter' : 'Compare official' }}
+              </button>
+            }
+            @if (a.uri) {
+              <a class="dd-draw ghost" [href]="a.uri" target="_blank" rel="noopener">Scryfall ↗</a>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
   <!-- Bottom tabs: competitive (TopDeck) vs casual (playgroup.gg) -->
   @if (topdeck()?.events?.length && hasPlaygroup()) {
     <div class="mtg-tabs" role="tablist" aria-label="Magic stats">

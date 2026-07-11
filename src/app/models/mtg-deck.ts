@@ -72,7 +72,28 @@ export interface MtgDeck {
   stats?: DeckStats;
 }
 
+/** A card in the alters/proofs/signed collection gallery. */
+export interface MtgAlter {
+  card: string;
+  /** alter | proof | signed */
+  kind: string;
+  artist: string | null;
+  note: string | null;
+  /** Deck this copy belongs to, if any. */
+  deck: string | null;
+  /** Owner's photo of the physical card. */
+  image: string;
+  /** Official Scryfall printing, for the compare toggle. */
+  official: string | null;
+  colors: string[];
+  typeLine: string | null;
+  set: string | null;
+  uri: string | null;
+}
+
 export interface MtgDecks {
   updatedAt?: string;
   decks: MtgDeck[];
+  /** Alters / artist proofs / signed cards collection (may span non-deck cards). */
+  alters?: MtgAlter[];
 }

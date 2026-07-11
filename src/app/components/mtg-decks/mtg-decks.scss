@@ -482,6 +482,182 @@
 .pg-subheading { @include mtg-title; font-size: 1rem; margin: 1.3rem 0 0.6rem; }
 .mtg-tab.active { border-color: var(--accent); color: var(--accent-bright); }
 
+// --- Collection gallery -----------------------------------------------------
+.mtg-collection {
+  margin-top: 2rem;
+}
+
+.col-filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+
+  .chip-n {
+    font-size: 0.78rem;
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .col-search {
+    margin-left: auto;
+    min-width: 160px;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--card);
+    color: inherit;
+    font: inherit;
+    &:focus { outline: 1px solid var(--accent); }
+  }
+}
+
+.col-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.9rem;
+}
+
+.col-card {
+  position: relative;
+  display: block;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  text-align: left;
+
+  img {
+    width: 100%;
+    aspect-ratio: 488 / 680;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid var(--accent);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  &:hover img {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
+  }
+
+  .col-name {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.col-kind,
+.lb-kind {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #16110b;
+  border-radius: 3px;
+  padding: 0.05rem 0.35rem;
+
+  &.k-alter { background: var(--accent-bright); }
+  &.k-proof { background: #8fd0ff; }
+  &.k-signed { background: #d7a8ff; }
+}
+
+.col-kind {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+}
+
+// --- Lightbox ---------------------------------------------------------------
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(3px);
+}
+
+.lb-inner {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 760px;
+  max-height: 90vh;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.lb-img {
+  img {
+    max-height: 80vh;
+    max-width: 340px;
+    border-radius: 14px;
+    border: 2px solid var(--accent);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.lb-meta {
+  max-width: 300px;
+  color: var(--parch);
+
+  h3 { @include mtg-title; font-size: 1.4rem; margin: 0.4rem 0 0; }
+  .lb-artist { margin: 0.3rem 0 0; color: var(--accent-bright); font-weight: 600; }
+  .lb-sub { margin: 0.4rem 0 0; font-size: 0.85rem; color: var(--muted); }
+  .lb-note { margin: 0.6rem 0 0; font-size: 0.9rem; line-height: 1.5; font-style: italic; }
+  .lb-deck { margin: 0.6rem 0 0; font-size: 0.9rem; strong { color: var(--accent); } }
+  .lb-actions { display: flex; gap: 0.6rem; margin-top: 0.9rem; flex-wrap: wrap; a { text-decoration: none; } }
+}
+
+.lb-close {
+  position: fixed;
+  top: 1rem;
+  right: 1.2rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--parch);
+  font-size: 1.1rem;
+  cursor: pointer;
+  &:hover { border-color: var(--accent); color: var(--accent-bright); }
+}
+
+.lb-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--parch);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  &:hover { border-color: var(--accent); color: var(--accent-bright); }
+  &.prev { left: 1rem; }
+  &.next { right: 1rem; }
+}
+
+@media (max-width: 560px) {
+  .lb-inner { flex-direction: column; gap: 0.8rem; }
+  .lb-img img { max-height: 55vh; }
+}
+
 // --- Sample opening hand (goldfish) -----------------------------------------
 .dd-goldfish {
   display: flex;

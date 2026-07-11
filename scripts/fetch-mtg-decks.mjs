@@ -190,11 +190,11 @@ const snapshot = JSON.parse(readFileSync(SNAPSHOT, 'utf8'));
 
 // Alters & artist proofs, keyed by card name (each may be deck-scoped).
 const alterMap = {};
+let alterList = [];
 try {
   const raw = JSON.parse(readFileSync(ALTERS, 'utf8'));
-  for (const a of raw.alters ?? []) {
-    if (a.card && a.image) (alterMap[a.card] ??= []).push(a);
-  }
+  alterList = (raw.alters ?? []).filter((a) => a.card && a.image);
+  for (const a of alterList) (alterMap[a.card] ??= []).push(a);
 } catch {
   /* no alters manifest yet */
 }
@@ -309,6 +309,33 @@ for (const d of source) {
   console.log(`  ${d.name}: [${deck.colors.join('')}]`);
 }
 
-const out = { updatedAt: new Date().toISOString(), decks };
+// Alter / proof / signed collection gallery — every manifest entry, including
+// cards that aren't in any deck. Each is resolved via Scryfall for the official
+// image, colours, type, and set to display alongside the owner's photo.
+let alters = [];
+if (alterList.length) {
+  const names = [...new Set(alterList.map((a) => a.card))];
+  const resolved = await scryfallCollection(names);
+  alters = alterList.map((a) => {
+    const c = resolved.get(a.card.split(' // ')[0]) ?? resolved.get(a.card);
+    const imgs = c ? (c.image_uris ?? c.card_faces?.[0]?.image_uris ?? {}) : {};
+    return {
+      card: a.card,
+      kind: a.kind ?? 'alter',
+      artist: a.artist || null,
+      note: a.note || null,
+      deck: a.deck || null,
+      image: `/images/mtg-alters/${a.image}`,
+      official: imgs.normal ?? imgs.large ?? null,
+      colors: c?.colors ?? c?.card_faces?.[0]?.colors ?? [],
+      typeLine: c?.type_line ?? null,
+      set: c?.set_name ?? null,
+      uri: c?.scryfall_uri ?? null,
+    };
+  });
+  console.log(`Alter gallery: ${alters.length} cards.`);
+}
+
+const out = { updatedAt: new Date().toISOString(), decks, alters };
 writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
-console.log(`Wrote ${OUT} — ${decks.length} decks.`);
+console.log(`Wrote ${OUT} — ${decks.length} decks, ${alters.length} alters.`);
