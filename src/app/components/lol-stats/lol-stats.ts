@@ -338,4 +338,30 @@ export class LolStatsComponent {
     const s = stats.summary;
     return s?.games ? Math.round((s.wins / s.games) * 100) : 0;
   }
+
+  // --- Live game + objectives ----------------------------------------------
+
+  protected liveQueue(lg: NonNullable<LolStats['liveGame']>): string {
+    return lg.queueId != null ? (QUEUE_IDS[lg.queueId] ?? 'game') : 'game';
+  }
+
+  /** Objective rows for the match detail (team vs enemy). */
+  protected objectiveRows(
+    m: Match,
+  ): { label: string; team: number; enemy: number }[] {
+    const o = m.objectives;
+    if (!o) return [];
+    const rows = [
+      { label: 'Dragons', team: o.team.dragons, enemy: o.enemy.dragons },
+      { label: 'Barons', team: o.team.barons, enemy: o.enemy.barons },
+      { label: 'Towers', team: o.team.towers, enemy: o.enemy.towers },
+      { label: 'Heralds', team: o.team.heralds, enemy: o.enemy.heralds },
+      { label: 'Grubs', team: o.team.grubs, enemy: o.enemy.grubs },
+    ];
+    // Heralds/grubs only shown when either side actually got some.
+    return rows.filter(
+      (r) =>
+        (r.label !== 'Heralds' && r.label !== 'Grubs') || r.team || r.enemy,
+    );
+  }
 }

@@ -231,6 +231,56 @@ try {
     console.error(`  champion mastery skipped: ${err.message}`);
   }
 
+  // Total mastery score across all champions.
+  let masteryScore = null;
+  try {
+    masteryScore = await riot(
+      `https://${PLATFORM}.api.riotgames.com/lol/champion-mastery/v4/scores/by-puuid/${puuid}`,
+    );
+  } catch (err) {
+    console.error(`  mastery score skipped: ${err.message}`);
+  }
+
+  // Community Dragon icon maps — rune keystones, rune trees, summoner spells.
+  // URL rule: base + iconPath (minus the /lol-game-data/assets/ prefix), lowercased.
+  const CD =
+    'https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default';
+  const cdUrl = (p) => `${CD}/${p.replace('/lol-game-data/assets/', '').toLowerCase()}`;
+  const runeIcon = {};
+  const styleIcon = {};
+  const spellIcon = {};
+  try {
+    const [perks, styles, spells] = await Promise.all([
+      fetch(`${CD}/v1/perks.json`).then((r) => r.json()),
+      fetch(`${CD}/v1/perkstyles.json`).then((r) => r.json()),
+      fetch(`${CD}/v1/summoner-spells.json`).then((r) => r.json()),
+    ]);
+    for (const p of perks ?? []) runeIcon[p.id] = cdUrl(p.iconPath);
+    for (const s of styles.styles ?? []) styleIcon[s.id] = cdUrl(s.iconPath);
+    for (const s of spells ?? []) spellIcon[s.id] = cdUrl(s.iconPath);
+  } catch (err) {
+    console.error(`  icon maps skipped: ${err.message}`);
+  }
+
+  // Live game (spectator-v5) — 404 when not in a game, which is the norm.
+  let liveGame = null;
+  try {
+    const g = await riot(
+      `https://${PLATFORM}.api.riotgames.com/lol/spectator/v5/active-games/by-summoner/${puuid}`,
+    );
+    const me = g.participants?.find((x) => x.puuid === puuid);
+    liveGame = {
+      queueId: g.gameQueueConfigId ?? null,
+      championId: me?.championId ?? null,
+      champion: me ? (champById[me.championId]?.name ?? null) : null,
+      gameLength: g.gameLength ?? 0,
+      startTime: g.gameStartTime ?? null,
+    };
+    console.log(`  live game: ${liveGame.champion ?? 'in game'}`);
+  } catch {
+    /* not in a game */
+  }
+
   // Recent matches (match-v5 uses regional routing, same as account-v1).
   const matchIds = await riot(
     `https://${REGION}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids` +
@@ -251,6 +301,24 @@ try {
       const cs = (p.totalMinionsKilled ?? 0) + (p.neutralMinionsKilled ?? 0);
       const remake =
         m.info.gameDuration < 300 || p.gameEndedInEarlySurrender === true;
+
+      // Per-team objectives (player's team vs enemy).
+      const team = m.info.teams?.find((t) => t.teamId === p.teamId);
+      const enemy = m.info.teams?.find((t) => t.teamId !== p.teamId);
+      const obj = (t, k) => t?.objectives?.[k]?.kills ?? 0;
+      const objCounts = (t) => ({
+        dragons: obj(t, 'dragon'),
+        barons: obj(t, 'baron'),
+        towers: obj(t, 'tower'),
+        heralds: obj(t, 'riftHerald'),
+        grubs: obj(t, 'horde'),
+        inhibs: obj(t, 'inhibitor'),
+      });
+
+      // Rune keystone + secondary tree, and summoner spells (icon URLs).
+      const perkStyles = p.perks?.styles ?? [];
+      const keystoneId = perkStyles[0]?.selections?.[0]?.perk ?? null;
+      const secondaryStyleId = perkStyles[1]?.style ?? null;
 
       const match = {
         matchId: id,
@@ -292,6 +360,12 @@ try {
             : null,
         items: [p.item0, p.item1, p.item2, p.item3, p.item4, p.item5, p.item6]
           .filter((x) => x > 0),
+        objectives: { team: objCounts(team), enemy: objCounts(enemy) },
+        runes: {
+          keystone: keystoneId ? runeIcon[keystoneId] ?? null : null,
+          secondary: secondaryStyleId ? styleIcon[secondaryStyleId] ?? null : null,
+        },
+        spells: [p.summoner1Id, p.summoner2Id].map((id) => spellIcon[id] ?? null),
         remake,
       };
       match.insights = buildInsights(match, durMin);
@@ -311,13 +385,17 @@ try {
     ddragonVersion,
     ranked,
     championMastery,
+    masteryScore,
+    liveGame,
     matches,
     summary,
   };
 
   writeFileSync(OUT, JSON.stringify(data, null, 2) + '\n');
   console.log(
-    `Wrote ${OUT} — ${ranked.length} ranked queue(s), ${championMastery.length} mastery, ${matches.length} match(es).`,
+    `Wrote ${OUT} — ${ranked.length} ranked queue(s), ${championMastery.length} mastery` +
+      `${masteryScore != null ? ` (score ${masteryScore})` : ''}, ${matches.length} match(es)` +
+      `${liveGame ? ', LIVE' : ''}.`,
   );
 } catch (err) {
   console.error('Failed to fetch LoL stats:', err.message);

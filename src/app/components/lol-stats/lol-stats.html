@@ -6,6 +6,18 @@
         the Riot API key is connected. Meanwhile, use the profile links above.
       </div>
     } @else {
+      @if (st.liveGame; as lg) {
+        <div class="live-banner">
+          <span class="live-dot" aria-hidden="true"></span>
+          @if (lg.championId) {
+            <img class="live-champ" [src]="champSquare(lg.championId)" [alt]="lg.champion || ''" />
+          }
+          <span class="live-text">
+            Live now — in a {{ liveQueue(lg) }} game{{ lg.champion ? ' as ' + lg.champion : '' }}
+          </span>
+        </div>
+      }
+
       <!-- Hero header -->
       <div class="lol-hero">
         @if (overall()?.favChampion; as fav) {
@@ -101,7 +113,9 @@
         <div class="panel">
           <div class="panel-head">
             <h2>Champion mastery</h2>
-            <span class="panel-sub">top {{ st.championMastery!.length }}</span>
+            <span class="panel-sub">
+              @if (st.masteryScore) { {{ st.masteryScore | number }} score · }top {{ st.championMastery!.length }}
+            </span>
           </div>
           <div class="mastery-grid">
             @for (cm of st.championMastery; track cm.championId) {
@@ -254,6 +268,23 @@
 
               @if (expandedId() === m.matchId && hasDetail(m)) {
                 <div class="match-detail">
+                  @if (m.spells?.length || m.runes?.keystone || m.runes?.secondary) {
+                    <div class="loadout">
+                      @if (m.runes?.keystone) {
+                        <img class="rune-key" [src]="m.runes!.keystone!" alt="Keystone rune" loading="lazy" />
+                      }
+                      @if (m.runes?.secondary) {
+                        <img class="rune-sec" [src]="m.runes!.secondary!" alt="Secondary tree" loading="lazy" />
+                      }
+                      @if (m.spells?.length) {
+                        <span class="ld-div"></span>
+                        @for (s of m.spells; track $index) {
+                          @if (s) { <img class="ld-spell" [src]="s" alt="Summoner spell" loading="lazy" /> }
+                        }
+                      }
+                    </div>
+                  }
+
                   <div class="detail-grid">
                     <div class="dstat"><span class="dv">{{ m.cs }} <em>({{ m.csPerMin }}/m)</em></span><span class="dl">CS</span></div>
                     <div class="dstat"><span class="dv">{{ m.goldPerMin }}</span><span class="dl">Gold / min</span></div>
@@ -269,6 +300,20 @@
                       <div class="dstat"><span class="dv">{{ m.soloKills }}</span><span class="dl">Solo kills</span></div>
                     }
                   </div>
+
+                  @if (objectiveRows(m).length) {
+                    <div class="objectives">
+                      <span class="obj-head">Team vs enemy</span>
+                      @for (o of objectiveRows(m); track o.label) {
+                        <span class="obj">
+                          <span class="obj-l">{{ o.label }}</span>
+                          <span class="obj-v">
+                            <em [class.lead]="o.team >= o.enemy">{{ o.team }}</em>–<i [class.lead]="o.enemy > o.team">{{ o.enemy }}</i>
+                          </span>
+                        </span>
+                      }
+                    </div>
+                  }
 
                   @if (m.items?.length && st.ddragonVersion) {
                     <div class="detail-items">

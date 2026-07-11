@@ -22,6 +22,22 @@ export interface MatchInsights {
   bad: Insight[];
 }
 
+/** Objective counts for one team in a match. */
+export interface ObjectiveCounts {
+  dragons: number;
+  barons: number;
+  towers: number;
+  heralds: number;
+  grubs: number;
+  inhibs: number;
+}
+
+/** Keystone + secondary-tree rune icon URLs for a match. */
+export interface MatchRunes {
+  keystone: string | null;
+  secondary: string | null;
+}
+
 /** A single recent match from Riot's match-v5 API. */
 export interface Match {
   matchId: string;
@@ -59,8 +75,23 @@ export interface Match {
   csLead?: number | null;
   /** Item ids (final build + trinket). */
   items?: number[];
+  /** Player's team vs enemy objective counts. */
+  objectives?: { team: ObjectiveCounts; enemy: ObjectiveCounts };
+  /** Keystone + secondary-tree rune icon URLs. */
+  runes?: MatchRunes;
+  /** Summoner-spell icon URLs (2). */
+  spells?: (string | null)[];
   remake?: boolean;
   insights?: MatchInsights;
+}
+
+/** Current game info from spectator-v5 (present only while in a game). */
+export interface LiveGame {
+  queueId: number | null;
+  championId: number | null;
+  champion: string | null;
+  gameLength: number;
+  startTime: number | null;
 }
 
 /** One champion-mastery entry from Riot's champion-mastery-v4 API. */
@@ -104,6 +135,10 @@ export interface LolStats {
   ddragonVersion?: string | null;
   ranked?: RankedEntry[];
   championMastery?: ChampionMastery[];
+  /** Total mastery score across all champions. */
+  masteryScore?: number | null;
+  /** Present only while in a game. */
+  liveGame?: LiveGame | null;
   matches?: Match[];
   summary?: LolSummary | null;
 }
