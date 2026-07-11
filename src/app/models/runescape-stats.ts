@@ -7,6 +7,12 @@ export interface OsrsSkill {
   rank: number;
 }
 
+/** A recently obtained collection-log item (from RuneProfile). */
+export interface RsRecentItem {
+  itemId: number;
+  name?: string;
+}
+
 /**
  * A recent activity (from RuneProfile — WikiSync has no activity feed).
  * `kind` selects which fields apply:
@@ -40,6 +46,8 @@ export interface RunescapeStats {
   overall?: { level: number; xp: number; rank: number };
   combatLevel?: number;
   skills?: OsrsSkill[];
+  /** Recently obtained collection-log items (from RuneProfile). */
+  recentItems?: RsRecentItem[];
   /** Recent activities (from RuneProfile). */
   recentActivities?: RsActivity[];
   /** Whether a self-hosted 3D player/pet model is available to render. */

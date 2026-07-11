@@ -1,5 +1,6 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { RsRecentItem } from '../../models/runescape-stats';
 
 export interface ClogItem {
   id: number;
@@ -43,6 +44,9 @@ interface PageRef {
 })
 export class OsrsClogComponent {
   private readonly http = inject(HttpClient);
+
+  /** Recently obtained items (shown as a strip under the header). */
+  readonly recent = input<RsRecentItem[]>([]);
 
   protected readonly data = signal<ClogData | null>(null);
   protected readonly activeTabIdx = signal(0);

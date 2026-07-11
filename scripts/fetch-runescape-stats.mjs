@@ -79,6 +79,10 @@ try {
   const questNames = Object.fromEntries((rp.quests ?? []).map((q) => [q.id, q.name]));
   const iso = (d) => d.replace(' ', 'T').slice(0, 23) + 'Z';
 
+  out.recentItems = (rp.recentItems ?? []).map((r) => ({
+    itemId: r.data.itemId,
+    name: itemNames[r.data.itemId],
+  }));
   out.recentActivities = (rp.recentActivities ?? [])
     .map((a) => {
       const date = iso(a.createdAt);
@@ -94,7 +98,9 @@ try {
       return null;
     })
     .filter(Boolean);
-  console.log(`RuneProfile: ${out.recentActivities.length} activities.`);
+  console.log(
+    `RuneProfile: ${out.recentItems.length} recent items, ${out.recentActivities.length} activities.`,
+  );
 } catch (err) {
   console.error(`Activities fetch skipped: ${err.message}`);
 }

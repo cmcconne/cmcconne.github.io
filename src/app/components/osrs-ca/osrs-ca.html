@@ -20,10 +20,6 @@
         <img class="ca-count-icon" src="/images/osrs/combat.png" alt="" aria-hidden="true" />
         <span class="ca-count-num" [class.done]="d.done >= d.total">{{ d.done }} / {{ d.total }}</span>
       </span>
-      <button class="ca-viewclog" (click)="viewClog()" title="Jump to the collection log">
-        View Clog
-        <span class="ca-clog-icon" aria-hidden="true">📖</span>
-      </button>
     </div>
 
     @if (activeMonster(); as m) {

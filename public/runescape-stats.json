@@ -1,10 +1,10 @@
 {
   "username": "Stupid Hands",
-  "updatedAt": "2026-07-11T06:07:11.999Z",
+  "updatedAt": "2026-07-11T06:39:59.725Z",
   "overall": {
     "level": 2376,
     "xp": 514651082,
-    "rank": 29313
+    "rank": 29314
   },
   "combatLevel": 126,
   "skills": [
@@ -12,13 +12,13 @@
       "name": "Attack",
       "level": 99,
       "xp": 16380860,
-      "rank": 197003
+      "rank": 197007
     },
     {
       "name": "Defence",
       "level": 99,
       "xp": 20800281,
-      "rank": 67445
+      "rank": 67448
     },
     {
       "name": "Strength",
@@ -30,43 +30,43 @@
       "name": "Hitpoints",
       "level": 99,
       "xp": 67652849,
-      "rank": 52088
+      "rank": 52091
     },
     {
       "name": "Ranged",
       "level": 99,
       "xp": 59716812,
-      "rank": 66497
+      "rank": 66498
     },
     {
       "name": "Prayer",
       "level": 99,
       "xp": 13162344,
-      "rank": 98566
+      "rank": 98567
     },
     {
       "name": "Magic",
       "level": 99,
       "xp": 31632169,
-      "rank": 66936
+      "rank": 66937
     },
     {
       "name": "Cooking",
       "level": 99,
       "xp": 13184205,
-      "rank": 254947
+      "rank": 254950
     },
     {
       "name": "Woodcutting",
       "level": 99,
       "xp": 15558498,
-      "rank": 62948
+      "rank": 62949
     },
     {
       "name": "Fletching",
       "level": 99,
       "xp": 13476063,
-      "rank": 89309
+      "rank": 89312
     },
     {
       "name": "Fishing",
@@ -78,7 +78,7 @@
       "name": "Firemaking",
       "level": 99,
       "xp": 13424089,
-      "rank": 137950
+      "rank": 137952
     },
     {
       "name": "Crafting",
@@ -102,43 +102,43 @@
       "name": "Herblore",
       "level": 99,
       "xp": 13307949,
-      "rank": 74704
+      "rank": 74705
     },
     {
       "name": "Agility",
       "level": 99,
       "xp": 13058781,
-      "rank": 104731
+      "rank": 104733
     },
     {
       "name": "Thieving",
       "level": 99,
       "xp": 13283480,
-      "rank": 139608
+      "rank": 139609
     },
     {
       "name": "Slayer",
       "level": 99,
       "xp": 15534037,
-      "rank": 131091
+      "rank": 131093
     },
     {
       "name": "Farming",
       "level": 99,
       "xp": 13258337,
-      "rank": 300209
+      "rank": 300210
     },
     {
       "name": "Runecraft",
       "level": 99,
       "xp": 13035460,
-      "rank": 116884
+      "rank": 116886
     },
     {
       "name": "Hunter",
       "level": 99,
       "xp": 13034586,
-      "rank": 150049
+      "rank": 150050
     },
     {
       "name": "Construction",
@@ -150,7 +150,57 @@
       "name": "Sailing",
       "level": 99,
       "xp": 13289933,
-      "rank": 25772
+      "rank": 25774
+    }
+  ],
+  "recentItems": [
+    {
+      "itemId": 33663,
+      "name": "Venator tooth"
+    },
+    {
+      "itemId": 30070,
+      "name": "Dragon hunter wand"
+    },
+    {
+      "itemId": 33423,
+      "name": "Bosun's workbench schematic"
+    },
+    {
+      "itemId": 21439,
+      "name": "Champion's cape"
+    },
+    {
+      "itemId": 6806,
+      "name": "Skeleton champion scroll"
+    },
+    {
+      "itemId": 6807,
+      "name": "Zombie champion scroll"
+    },
+    {
+      "itemId": 28813,
+      "name": "Broken zombie axe"
+    },
+    {
+      "itemId": 6798,
+      "name": "Earth warrior champion scroll"
+    },
+    {
+      "itemId": 6800,
+      "name": "Giant champion scroll"
+    },
+    {
+      "itemId": 6805,
+      "name": "Lesser demon champion scroll"
+    },
+    {
+      "itemId": 6802,
+      "name": "Hobgoblin champion scroll"
+    },
+    {
+      "itemId": 6799,
+      "name": "Ghoul champion scroll"
     }
   ],
   "recentActivities": [

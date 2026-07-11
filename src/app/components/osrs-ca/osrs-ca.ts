@@ -153,13 +153,6 @@ export class OsrsCaComponent {
     this.hideDone.set(!this.hideDone());
   }
 
-  /** Scroll up to the collection log (the "View Clog" button). */
-  protected viewClog(): void {
-    document
-      .querySelector('app-osrs-clog')
-      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
   protected monsterClass(m: CaMonster): string {
     return m.done >= m.total ? 'done' : m.done > 0 ? 'partial' : 'none';
   }

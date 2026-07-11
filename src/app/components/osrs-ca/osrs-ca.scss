@@ -110,30 +110,6 @@ $red: #c24a3a;
   }
 }
 
-.ca-viewclog {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 0.3rem 0.55rem;
-  border: 1px solid transparent;
-  border-radius: 3px;
-  background: none;
-  color: $orange;
-  font: inherit;
-  font-size: 1rem;
-  font-weight: bold;
-  text-shadow: 1px 1px black;
-  white-space: nowrap;
-  cursor: pointer;
-
-  &:hover {
-    border-color: $edge-light;
-    background: #2f2f2f;
-  }
-
-  .ca-clog-icon { font-size: 0.95rem; }
-}
-
 // --- Boss grid --------------------------------------------------------------
 .ca-grid {
   display: grid;
