@@ -5,6 +5,7 @@ import { OsrsSkill, RunescapeStats } from '../../models/runescape-stats';
 import { OsrsCharacterComponent } from '../osrs-character/osrs-character';
 import { OsrsClogComponent } from '../osrs-clog/osrs-clog';
 import { OsrsCaComponent } from '../osrs-ca/osrs-ca';
+import { OsrsProgressComponent } from '../osrs-progress/osrs-progress';
 
 // OSRS in-game stats-panel order (fills the 3-column grid row by row).
 const SKILL_ORDER = [
@@ -26,6 +27,7 @@ const SKILL_ORDER = [
     OsrsCharacterComponent,
     OsrsClogComponent,
     OsrsCaComponent,
+    OsrsProgressComponent,
   ],
   templateUrl: './runescape-stats.html',
   styleUrl: './runescape-stats.scss',
@@ -83,6 +85,26 @@ export class RunescapeStatsComponent {
   /** Self-hosted OSRS skill icon. */
   protected skillIcon(skill: OsrsSkill): string {
     return `/images/osrs-skills/${skill.name.toLowerCase()}.png`;
+  }
+
+  /** Self-hosted skill icon by name (for activities). */
+  protected skillIconByName(name: string): string {
+    return `/images/osrs-skills/${name.toLowerCase()}.png`;
+  }
+
+  /** RuneLite item icon by id (for activity drops). */
+  protected itemIcon(itemId: number): string {
+    return `https://static.runelite.net/cache/item/icon/${itemId}.png`;
+  }
+
+  /** Compact relative time, e.g. "3d ago". */
+  protected timeAgo(dateStr: string): string {
+    const diff = Date.now() - new Date(dateStr).getTime();
+    const days = Math.floor(diff / 86400000);
+    if (days >= 1) return `${days}d ago`;
+    const hours = Math.floor(diff / 3600000);
+    if (hours >= 1) return `${hours}h ago`;
+    return 'recently';
   }
 
   /** Tooltip with rank and XP for a skill. */

@@ -65,6 +65,40 @@ try {
   console.error(`WikiSync fetch skipped: ${err.message}`);
 }
 
+// Latest activities come from RuneProfile — WikiSync has no activity feed, and
+// RuneProfile is already used for the character render, so this adds no new
+// dependency. Best-effort: a failure just omits the panel.
+try {
+  const rpRes = await fetch(
+    `https://api.runeprofile.com/profiles/${encodeURIComponent(PLAYER)}`,
+    { headers: { 'User-Agent': 'charlies-showcase (personal site)' } },
+  );
+  if (!rpRes.ok) throw new Error(`${rpRes.status} ${rpRes.statusText}`);
+  const rp = await rpRes.json();
+  const itemNames = Object.fromEntries((rp.items ?? []).map((i) => [i.id, i.name]));
+  const questNames = Object.fromEntries((rp.quests ?? []).map((q) => [q.id, q.name]));
+  const iso = (d) => d.replace(' ', 'T').slice(0, 23) + 'Z';
+
+  out.recentActivities = (rp.recentActivities ?? [])
+    .map((a) => {
+      const date = iso(a.createdAt);
+      if (a.type === 'quest_completed') {
+        return { kind: 'quest', date, label: questNames[a.data.questId] ?? 'Quest completed' };
+      }
+      if (a.type === 'valuable_drop') {
+        return { kind: 'drop', date, itemId: a.data.itemId, name: itemNames[a.data.itemId], value: a.data.value };
+      }
+      if (a.type === 'xp_milestone') {
+        return { kind: 'xp', date, skill: a.data.name, xp: a.data.xp };
+      }
+      return null;
+    })
+    .filter(Boolean);
+  console.log(`RuneProfile: ${out.recentActivities.length} activities.`);
+} catch (err) {
+  console.error(`Activities fetch skipped: ${err.message}`);
+}
+
 // Fetch the RuneProfile 3D player/pet models (binary PLY) for native rendering.
 // This is the one thing no wiki source provides, so it stays on RuneProfile.
 try {
@@ -214,6 +248,68 @@ try {
   );
 } catch (err) {
   console.error(`Combat tasks feed skipped: ${err.message}`);
+}
+
+// Quests + achievement diaries feed (WikiSync, wiki-official). WikiSync gives
+// quest names + state (0 = not started, 1 = in progress, 2 = complete) and, per
+// diary area, each tier's completion + per-task boolean list.
+try {
+  if (!ws?.quests || !ws?.achievement_diaries) {
+    throw new Error('no WikiSync quests/diaries this run');
+  }
+  const quests = Object.entries(ws.quests)
+    .filter(([name]) => name !== '.')
+    .map(([name, state]) => ({ name, state }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const questsDone = quests.filter((q) => q.state === 2).length;
+  const questsStarted = quests.filter((q) => q.state === 1).length;
+
+  const TIER_ORDER = ['Easy', 'Medium', 'Hard', 'Elite'];
+  const diaries = Object.entries(ws.achievement_diaries)
+    .map(([area, tiers]) => {
+      const list = TIER_ORDER.map((tier) => {
+        const d = tiers[tier] ?? { complete: false, tasks: [] };
+        const tasks = d.tasks ?? [];
+        return {
+          tier,
+          complete: !!d.complete,
+          done: tasks.filter(Boolean).length,
+          total: tasks.length,
+        };
+      });
+      return { area, tiers: list, complete: list.every((t) => t.complete) };
+    })
+    .sort((a, b) => a.area.localeCompare(b.area));
+  const tiersComplete = diaries.reduce(
+    (s, d) => s + d.tiers.filter((t) => t.complete).length,
+    0,
+  );
+  const tiersTotal = diaries.reduce((s, d) => s + d.tiers.length, 0);
+
+  writeFileSync(
+    'public/osrs-quests-diaries.json',
+    JSON.stringify({
+      updatedAt: new Date().toISOString(),
+      quests: {
+        done: questsDone,
+        started: questsStarted,
+        total: quests.length,
+        list: quests,
+      },
+      diaries: {
+        areasComplete: diaries.filter((d) => d.complete).length,
+        areasTotal: diaries.length,
+        tiersComplete,
+        tiersTotal,
+        list: diaries,
+      },
+    }) + '\n',
+  );
+  console.log(
+    `Wrote public/osrs-quests-diaries.json — quests ${questsDone}/${quests.length}, diary tiers ${tiersComplete}/${tiersTotal} across ${diaries.length} areas (WikiSync).`,
+  );
+} catch (err) {
+  console.error(`Quests/diaries feed skipped: ${err.message}`);
 }
 
 writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');

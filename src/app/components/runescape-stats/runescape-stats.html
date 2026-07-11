@@ -59,6 +59,40 @@
 
       <app-osrs-ca />
 
+      <app-osrs-progress />
+
+      @if (st.recentActivities?.length) {
+        <div class="panel">
+          <div class="panel-head">
+            <h2>Latest activities</h2>
+          </div>
+          <ul class="activity-list">
+            @for (a of st.recentActivities; track $index) {
+              <li class="activity">
+                @switch (a.kind) {
+                  @case ('quest') {
+                    <span class="act-icon act-quest" aria-hidden="true">📜</span>
+                    <span class="act-label">{{ a.label }}</span>
+                    <span class="act-value">Quest</span>
+                  }
+                  @case ('drop') {
+                    <img class="act-icon" [src]="itemIcon(a.itemId!)" [alt]="a.name || 'Drop'" loading="lazy" />
+                    <span class="act-label">{{ a.name || 'Valuable drop' }}</span>
+                    <span class="act-value">{{ gp(a.value!) }} gp</span>
+                  }
+                  @case ('xp') {
+                    <img class="act-icon" [src]="skillIconByName(a.skill!)" [alt]="a.skill" loading="lazy" />
+                    <span class="act-label">{{ a.skill }} milestone</span>
+                    <span class="act-value">{{ gp(a.xp!) }} XP</span>
+                  }
+                }
+                <span class="act-time">{{ timeAgo(a.date) }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+
       @if (st.overall?.rank) {
         <p class="overall-rank">
           Overall Hiscores rank <strong>#{{ st.overall?.rank | number }}</strong>
@@ -68,9 +102,9 @@
       <p class="rp-credit">
         Stats via the
         <a href="https://oldschool.runescape.wiki/w/Application_programming_interface" target="_blank" rel="noopener">OSRS Hiscores</a>;
-        collection log &amp; combat achievements via the
+        collection log, combat achievements &amp; quests/diaries via the
         <a href="https://oldschool.runescape.wiki/w/RuneScape:WikiSync" target="_blank" rel="noopener">OSRS Wiki (WikiSync)</a>;
-        character render via
+        character render &amp; latest activities via
         <a [href]="profileUrl()" target="_blank" rel="noopener">RuneProfile</a>.
       </p>
     } @else {

@@ -1,0 +1,273 @@
+$window-bg: #584f3f;
+$side-bg: #3a3228;
+$border: #100c07;
+$bevel: rgba(255, 255, 255, 0.12);
+
+:host {
+  display: block;
+  margin-top: 1.5rem;
+}
+
+.prog {
+  font-family: 'RuneScape', system-ui, sans-serif;
+  --orange: #ff981f;
+  --yellow: #ffff00;
+  --green: #0dc10d;
+  --red: #ff5555;
+  --white: #fff;
+  border: 2px solid $border;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px $bevel;
+  background: $window-bg url('/images/osrs/panel-tile.png') repeat;
+  overflow: hidden;
+  color: var(--white);
+}
+
+// --- Title -----------------------------------------------------------------
+.prog-head {
+  display: flex;
+  justify-content: center;
+  padding: 0.45rem 1rem;
+  background: rgba(0, 0, 0, 0.33);
+  border-bottom: 1px solid $border;
+
+  .prog-title {
+    font-weight: bold;
+    font-size: 1.35rem;
+    color: var(--orange);
+    text-shadow: 1.5px 1.5px black;
+  }
+}
+
+// --- Tabs -------------------------------------------------------------------
+.prog-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid $border;
+}
+
+.prog-tab {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--orange);
+  font: inherit;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px black;
+  cursor: pointer;
+
+  .prog-tab-count {
+    font-size: 0.95rem;
+    color: var(--white);
+    font-variant-numeric: tabular-nums;
+
+    &.done {
+      color: var(--green);
+    }
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &.active {
+    background: rgba(255, 152, 31, 0.22);
+    border-color: var(--orange);
+  }
+}
+
+// --- Body -------------------------------------------------------------------
+.prog-body {
+  margin: 6px;
+  border: 2px solid $border;
+  box-shadow: inset 0 0 0 1px $bevel;
+  background: $side-bg url('/images/osrs/panel-tile-side.png') repeat;
+}
+
+.prog-search {
+  display: block;
+  width: calc(100% - 12px);
+  margin: 6px;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid #241f18;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.28);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 1rem;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &:focus {
+    outline: 1px solid var(--orange);
+  }
+}
+
+// --- Quests -----------------------------------------------------------------
+.quest-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.4rem;
+  max-height: 480px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #241f18 transparent;
+
+  li:nth-child(even) {
+    background: rgba(0, 0, 0, 0.22);
+  }
+}
+
+.quest {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.22rem 0.7rem;
+  text-shadow: 1px 1px black;
+}
+
+.quest-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+
+  &.done { background: var(--green); }
+  &.partial { background: var(--yellow); }
+  &.none { background: var(--red); }
+}
+
+.quest-name {
+  font-size: 1.05rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &.done { color: var(--green); }
+  &.partial { color: var(--yellow); }
+  &.none { color: var(--orange); }
+}
+
+.quest-state {
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+
+  &.done { color: rgba(13, 193, 13, 0.75); }
+  &.partial { color: var(--yellow); }
+  &.none { color: rgba(255, 85, 85, 0.85); }
+}
+
+.prog-nomatch {
+  padding: 0.6rem 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1rem;
+}
+
+// --- Diaries ----------------------------------------------------------------
+.diary-summary {
+  margin: 0;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--orange);
+  text-shadow: 1px 1px black;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+
+  span {
+    color: var(--white);
+    font-variant-numeric: tabular-nums;
+
+    &.done { color: var(--green); }
+  }
+}
+
+.diary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.3rem 0 0.4rem;
+}
+
+.diary {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.7rem;
+
+  &:nth-child(even) {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.diary-area {
+  font-size: 1.05rem;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+
+  &.done { color: var(--green); }
+  &.partial { color: var(--yellow); }
+  &.none { color: var(--orange); }
+}
+
+.diary-tiers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.diary-tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 0.15rem 0.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.24);
+  cursor: default;
+
+  .diary-tier-name {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .diary-tier-count {
+    font-size: 0.95rem;
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &.done {
+    border-color: rgba(13, 193, 13, 0.5);
+    .diary-tier-count { color: var(--green); }
+  }
+  &.partial {
+    .diary-tier-count { color: var(--yellow); }
+  }
+  &.none {
+    .diary-tier-count { color: rgba(255, 85, 85, 0.85); }
+  }
+}
+
+@media (max-width: 560px) {
+  .diary {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .quest-state {
+    display: none;
+  }
+}

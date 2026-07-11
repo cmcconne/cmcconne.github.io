@@ -1,0 +1,81 @@
+@if (data(); as d) {
+  <div class="prog">
+    <div class="prog-head">
+      <span class="prog-title">Quests &amp; Diaries</span>
+    </div>
+
+    <div class="prog-tabs" role="tablist">
+      <button
+        class="prog-tab"
+        role="tab"
+        [class.active]="tab() === 'quests'"
+        (click)="setTab('quests')"
+      >
+        Quests
+        <span class="prog-tab-count" [class.done]="d.quests.done === d.quests.total">
+          {{ d.quests.done }}/{{ d.quests.total }}
+        </span>
+      </button>
+      <button
+        class="prog-tab"
+        role="tab"
+        [class.active]="tab() === 'diaries'"
+        (click)="setTab('diaries')"
+      >
+        Diaries
+        <span class="prog-tab-count" [class.done]="d.diaries.areasComplete === d.diaries.areasTotal">
+          {{ d.diaries.areasComplete }}/{{ d.diaries.areasTotal }}
+        </span>
+      </button>
+    </div>
+
+    <div class="prog-body">
+      @if (tab() === 'quests') {
+        <input
+          class="prog-search"
+          type="search"
+          placeholder="Search quests…"
+          [value]="search()"
+          (input)="onSearch($any($event.target).value)"
+        />
+        <ul class="quest-list">
+          @for (q of questList(); track q.name) {
+            <li class="quest">
+              <span class="quest-dot" [class]="questClass(q.state)" aria-hidden="true"></span>
+              <span class="quest-name" [class]="questClass(q.state)">{{ q.name }}</span>
+              <span class="quest-state" [class]="questClass(q.state)">{{ questLabel(q.state) }}</span>
+            </li>
+          } @empty {
+            <li class="prog-nomatch">No quests match</li>
+          }
+        </ul>
+      } @else {
+        <p class="diary-summary">
+          <span [class.done]="d.diaries.tiersComplete === d.diaries.tiersTotal">
+            {{ d.diaries.tiersComplete }}/{{ d.diaries.tiersTotal }}
+          </span>
+          tiers complete
+        </p>
+        <ul class="diary-list">
+          @for (a of d.diaries.list; track a.area) {
+            <li class="diary">
+              <span class="diary-area" [class]="areaClass(a)">{{ a.area }}</span>
+              <div class="diary-tiers">
+                @for (t of a.tiers; track t.tier) {
+                  <span
+                    class="diary-tier"
+                    [class]="tierClass(t)"
+                    [attr.title]="a.area + ' ' + t.tier + ' — ' + t.done + '/' + t.total"
+                  >
+                    <span class="diary-tier-name">{{ t.tier }}</span>
+                    <span class="diary-tier-count">{{ t.complete ? '✓' : t.done + '/' + t.total }}</span>
+                  </span>
+                }
+              </div>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </div>
+}

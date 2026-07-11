@@ -1,6 +1,6 @@
 {
   "username": "Stupid Hands",
-  "updatedAt": "2026-07-11T04:55:04.851Z",
+  "updatedAt": "2026-07-11T05:01:52.975Z",
   "overall": {
     "level": 2376,
     "xp": 514651082,
@@ -12,7 +12,7 @@
       "name": "Attack",
       "level": 99,
       "xp": 16380860,
-      "rank": 196996
+      "rank": 196997
     },
     {
       "name": "Defence",
@@ -30,7 +30,7 @@
       "name": "Hitpoints",
       "level": 99,
       "xp": 67652849,
-      "rank": 52080
+      "rank": 52081
     },
     {
       "name": "Ranged",
@@ -48,13 +48,13 @@
       "name": "Magic",
       "level": 99,
       "xp": 31632169,
-      "rank": 66930
+      "rank": 66932
     },
     {
       "name": "Cooking",
       "level": 99,
       "xp": 13184205,
-      "rank": 254942
+      "rank": 254944
     },
     {
       "name": "Woodcutting",
@@ -151,6 +151,86 @@
       "level": 99,
       "xp": 13289933,
       "rank": 25768
+    }
+  ],
+  "recentActivities": [
+    {
+      "kind": "quest",
+      "date": "2026-07-09T03:31:03.322Z",
+      "label": "The Blood Moon Rises"
+    },
+    {
+      "kind": "drop",
+      "date": "2026-06-30T00:56:42.869Z",
+      "itemId": 30070,
+      "name": "Dragon hunter wand",
+      "value": 12881561
+    },
+    {
+      "kind": "xp",
+      "date": "2026-06-22T05:51:47.513Z",
+      "skill": "Woodcutting",
+      "xp": 15000000
+    },
+    {
+      "kind": "drop",
+      "date": "2026-06-15T01:00:56.252Z",
+      "itemId": 22983,
+      "name": "Hydra leather",
+      "value": 13360999
+    },
+    {
+      "kind": "quest",
+      "date": "2026-05-20T18:11:05.608Z",
+      "label": "The Red Reef"
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-17T07:17:57.196Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1131750
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-17T02:29:17.975Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1131750
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-17T01:54:19.627Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1131750
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-17T00:07:11.654Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1131750
+    },
+    {
+      "kind": "xp",
+      "date": "2026-05-16T23:25:12.552Z",
+      "skill": "Magic",
+      "xp": 30000000
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-16T21:24:30.361Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1131750
+    },
+    {
+      "kind": "drop",
+      "date": "2026-05-15T05:49:49.015Z",
+      "itemId": 28813,
+      "name": "Broken zombie axe",
+      "value": 1107003
     }
   ],
   "hasModel": true,
