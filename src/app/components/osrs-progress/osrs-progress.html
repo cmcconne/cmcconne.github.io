@@ -80,25 +80,22 @@
         </header>
         <ul class="diary-list">
           @for (a of d.diaries.list; track a.area) {
-            <li class="diary" [class.open]="openArea() === a.area">
-              <button class="diary-row" (click)="toggleArea(a.area)">
-                <span class="diary-caret">{{ openArea() === a.area ? '▾' : '▸' }}</span>
-                <span class="diary-area" [class]="areaClass(a)">{{ a.area }}</span>
-                <span class="diary-status" [class]="areaClass(a)">
-                  {{ a.complete ? 'Complete' : tiersDone(a) + '/4 tiers' }}
-                </span>
-              </button>
-              @if (openArea() === a.area) {
-                <ul class="diary-tiers">
-                  @for (t of a.tiers; track t.tier) {
-                    <li class="diary-tier" [class]="tierClass(t)">
-                      <span class="dt-name">{{ t.tier }}</span>
-                      <span class="dt-count">{{ t.done }}/{{ t.total }}</span>
-                      <span class="dt-mark">{{ t.complete ? '✓' : '' }}</span>
-                    </li>
-                  }
-                </ul>
-              }
+            <li class="diary">
+              <div class="diary-head">
+                <span class="diary-area">{{ a.area }}</span>
+                <span class="diary-status" [class]="areaClass(a)">{{ areaDone(a) }}/{{ areaTotal(a) }}</span>
+              </div>
+              <div class="diary-bars">
+                @for (t of a.tiers; track t.tier) {
+                  <div
+                    class="diary-bar"
+                    [class]="tierClass(t)"
+                    [attr.title]="t.tier + ' — ' + t.done + '/' + t.total"
+                  >
+                    <div class="diary-bar-fill" [style.width.%]="tierPct(t)"></div>
+                  </div>
+                }
+              </div>
             </li>
           }
         </ul>

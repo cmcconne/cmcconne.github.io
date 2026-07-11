@@ -38,9 +38,12 @@ export class OsrsCaComponent {
   private readonly http = inject(HttpClient);
 
   protected readonly data = signal<CaData | null>(null);
-  /** null = boss grid ("Task List"); a name = that boss's task detail. */
+  /** Top-level view: boss grid or the flat combat-achievements task list. */
+  protected readonly view = signal<'bosses' | 'list'>('bosses');
+  /** null = grid/list; a name = that boss's task detail. */
   protected readonly selectedName = signal<string | null>(null);
   protected readonly search = signal('');
+  protected readonly tierFilter = signal(0); // 0 = all tiers
   protected readonly hideDone = signal(false);
 
   constructor() {
@@ -63,11 +66,56 @@ export class OsrsCaComponent {
     );
   });
 
-  /** The boss whose tasks are open, or null in grid view. */
+  /** The boss whose tasks are open, or null in grid/list view. */
   protected readonly activeMonster = computed<CaMonster | null>(() => {
     const sel = this.selectedName();
     if (!sel) return null;
     return this.data()?.monsters.find((m) => m.name === sel) ?? null;
+  });
+
+  /** Per-tier done/total, for the Task List tier chips. */
+  protected readonly tierCounts = computed(() => {
+    const rows = TIER_NAMES.slice(1).map((name, i) => ({
+      tier: i + 1,
+      name,
+      done: 0,
+      total: 0,
+    }));
+    for (const m of this.data()?.monsters ?? []) {
+      for (const t of m.tasks) {
+        const r = rows[t.tier - 1];
+        if (!r) continue;
+        r.total++;
+        if (t.done) r.done++;
+      }
+    }
+    return rows;
+  });
+
+  /** Flat list of every combat achievement (the "RuneScape CA list"). */
+  protected readonly allTasks = computed<(CaTask & { monster: string })[]>(() => {
+    const d = this.data();
+    if (!d) return [];
+    const q = this.search().trim().toLowerCase();
+    const tier = this.tierFilter();
+    const hide = this.hideDone();
+    const out: (CaTask & { monster: string })[] = [];
+    for (const m of d.monsters) {
+      for (const t of m.tasks) {
+        if (tier && t.tier !== tier) continue;
+        if (hide && t.done) continue;
+        if (
+          q &&
+          !t.name.toLowerCase().includes(q) &&
+          !t.description.toLowerCase().includes(q) &&
+          !m.name.toLowerCase().includes(q)
+        )
+          continue;
+        out.push({ ...t, monster: m.name });
+      }
+    }
+    out.sort((a, b) => a.tier - b.tier || a.name.localeCompare(b.name));
+    return out;
   });
 
   /** Tasks of the active monster after the hide-completed filter. */
@@ -86,6 +134,15 @@ export class OsrsCaComponent {
 
   protected back(): void {
     this.selectedName.set(null);
+  }
+
+  protected setView(v: 'bosses' | 'list'): void {
+    this.view.set(v);
+    this.selectedName.set(null);
+  }
+
+  protected setTier(t: number): void {
+    this.tierFilter.set(this.tierFilter() === t ? 0 : t);
   }
 
   protected onSearch(v: string): void {

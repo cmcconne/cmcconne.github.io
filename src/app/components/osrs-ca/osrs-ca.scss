@@ -207,6 +207,59 @@ $red: #c24a3a;
   &.none .boss-bar-fill { background: transparent; }
 }
 
+// --- Task List: tier filter chips -------------------------------------------
+.ca-tierbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  border-bottom: 1px solid $edge-dark;
+  background: #363636;
+}
+
+.ca-tier-chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0.28rem 0.55rem;
+  border: 1px solid $edge-light;
+  border-radius: 3px;
+  background: #2f2f2f;
+  color: $text;
+  font: inherit;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+  cursor: pointer;
+
+  img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    image-rendering: pixelated;
+  }
+
+  .ca-tier-name {
+    font-size: 0.98rem;
+    color: $orange;
+  }
+
+  .ca-tier-count {
+    font-size: 0.9rem;
+    color: $text;
+    font-variant-numeric: tabular-nums;
+
+    &.done { color: $green; }
+  }
+
+  &:hover { background: #3a3a3a; }
+
+  &.active {
+    background: #454545;
+    border-color: $orange;
+  }
+}
+
 // --- Boss task detail -------------------------------------------------------
 .ca-detail {
   padding: 8px 10px 10px;
@@ -276,6 +329,15 @@ $red: #c24a3a;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #5c5c5c #2b2b2b;
+
+  &.list {
+    max-height: 560px;
+    padding: 0 10px 10px;
+  }
+}
+
+.ca-hide-toggle.list {
+  margin-left: auto;
 }
 
 .ca-task {
