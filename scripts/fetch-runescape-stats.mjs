@@ -44,7 +44,6 @@ const out = {
 // Enrich with RuneProfile (collection log, recent items/activities, clan).
 // Best-effort: any failure just leaves the Hiscores data as-is.
 let rpItems = [];
-let caVarps = null;
 try {
   const rpRes = await fetch(
     `https://api.runeprofile.com/profiles/${encodeURIComponent(PLAYER)}`,
@@ -54,7 +53,6 @@ try {
   const rp = await rpRes.json();
 
   rpItems = rp.items ?? [];
-  caVarps = rp.combatAchievementVarps ?? null;
   const itemNames = Object.fromEntries((rp.items ?? []).map((i) => [i.id, i.name]));
   const questNames = Object.fromEntries((rp.quests ?? []).map((q) => [q.id, q.name]));
   const iso = (d) => d.replace(' ', 'T').slice(0, 23) + 'Z';
@@ -186,29 +184,31 @@ try {
 }
 
 // Combat tasks feed: wiki task list (name/desc/tier/type/comp%) grouped by
-// monster, with completion decoded from RuneProfile's varps (matched by name).
+// monster. Completion comes from WikiSync — the OSRS Wiki's own account-keyed
+// service (sync.runescape.wiki, same source as the wiki's "Look up" button).
 try {
-  const CA_VARPS = [
-    3116, 3117, 3118, 3119, 3120, 3121, 3122, 3123, 3124, 3125, 3126, 3127,
-    3128, 3387, 3718, 3773, 3774, 4204, 4496, 4721,
-  ];
+  const TIER_POINTS = { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6 };
   const wikiTasks = JSON.parse(readFileSync('scripts/osrs-ca-tasks.json', 'utf8'));
   const idxNames = JSON.parse(readFileSync('scripts/osrs-ca-index.json', 'utf8'));
   const slug = (s) =>
     s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-  // Decode completed task names from the bit-packed varps.
+  // Completed combat achievements by task index, from WikiSync.
+  const wsRes = await fetch(
+    `https://sync.runescape.wiki/runelite/player/${encodeURIComponent(PLAYER)}/STANDARD`,
+    {
+      headers: {
+        'User-Agent': 'charlies-showcase/1.0 (personal fan site)',
+        Accept: 'application/json',
+      },
+    },
+  );
+  if (!wsRes.ok) throw new Error(`WikiSync ${wsRes.status}`);
+  const ws = await wsRes.json();
   const done = new Set();
-  if (caVarps) {
-    CA_VARPS.forEach((varpId, position) => {
-      const value = caVarps[String(varpId)] ?? 0;
-      for (let bit = 0; bit < 32; bit++) {
-        if ((value >>> bit) & 1) {
-          const name = idxNames[String(position * 32 + bit)];
-          if (name) done.add(name);
-        }
-      }
-    });
+  for (const i of ws.combat_achievements ?? []) {
+    const name = idxNames[String(i)];
+    if (name) done.add(name);
   }
 
   const groups = new Map();
@@ -235,19 +235,23 @@ try {
     .sort((a, b) => b.done - a.done || a.name.localeCompare(b.name));
 
   const totalDone = wikiTasks.filter((t) => done.has(t.name)).length;
+  const points = wikiTasks.reduce(
+    (s, t) => s + (done.has(t.name) ? TIER_POINTS[t.tier] ?? 0 : 0),
+    0,
+  );
   writeFileSync(
     'public/osrs-ca.json',
     JSON.stringify({
       updatedAt: new Date().toISOString(),
-      hasCompletion: !!caVarps,
+      hasCompletion: done.size > 0,
       done: totalDone,
       total: wikiTasks.length,
-      points: out.combatAchievements?.points ?? null,
+      points,
       monsters,
     }) + '\n',
   );
   console.log(
-    `Wrote public/osrs-ca.json — ${totalDone}/${wikiTasks.length} tasks across ${monsters.length} monsters.`,
+    `Wrote public/osrs-ca.json — ${totalDone}/${wikiTasks.length} tasks (${points} pts) across ${monsters.length} monsters (WikiSync).`,
   );
 } catch (err) {
   console.error(`Combat tasks feed skipped: ${err.message}`);

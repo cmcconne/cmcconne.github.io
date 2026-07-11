@@ -1,10 +1,10 @@
 {
   "username": "Stupid Hands",
-  "updatedAt": "2026-07-11T04:10:44.435Z",
+  "updatedAt": "2026-07-11T04:24:50.826Z",
   "overall": {
     "level": 2376,
     "xp": 514651082,
-    "rank": 29309
+    "rank": 29310
   },
   "combatLevel": 126,
   "skills": [
@@ -18,43 +18,43 @@
       "name": "Defence",
       "level": 99,
       "xp": 20800281,
-      "rank": 67439
+      "rank": 67441
     },
     {
       "name": "Strength",
       "level": 99,
       "xp": 74632863,
-      "rank": 32211
+      "rank": 32212
     },
     {
       "name": "Hitpoints",
       "level": 99,
       "xp": 67652849,
-      "rank": 52078
+      "rank": 52079
     },
     {
       "name": "Ranged",
       "level": 99,
       "xp": 59716812,
-      "rank": 66490
+      "rank": 66491
     },
     {
       "name": "Prayer",
       "level": 99,
       "xp": 13162344,
-      "rank": 98561
+      "rank": 98563
     },
     {
       "name": "Magic",
       "level": 99,
       "xp": 31632169,
-      "rank": 66923
+      "rank": 66925
     },
     {
       "name": "Cooking",
       "level": 99,
       "xp": 13184205,
-      "rank": 254937
+      "rank": 254940
     },
     {
       "name": "Woodcutting",
@@ -66,7 +66,7 @@
       "name": "Fletching",
       "level": 99,
       "xp": 13476063,
-      "rank": 89302
+      "rank": 89303
     },
     {
       "name": "Fishing",
@@ -108,7 +108,7 @@
       "name": "Agility",
       "level": 99,
       "xp": 13058781,
-      "rank": 104728
+      "rank": 104729
     },
     {
       "name": "Thieving",
@@ -120,19 +120,19 @@
       "name": "Slayer",
       "level": 99,
       "xp": 15534037,
-      "rank": 131083
+      "rank": 131084
     },
     {
       "name": "Farming",
       "level": 99,
       "xp": 13258337,
-      "rank": 300200
+      "rank": 300201
     },
     {
       "name": "Runecraft",
       "level": 99,
       "xp": 13035460,
-      "rank": 116878
+      "rank": 116879
     },
     {
       "name": "Hunter",
@@ -144,7 +144,7 @@
       "name": "Construction",
       "level": 99,
       "xp": 13239938,
-      "rank": 63019
+      "rank": 63020
     },
     {
       "name": "Sailing",
