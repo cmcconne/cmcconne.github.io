@@ -1,10 +1,23 @@
 // Shared OSRS interface look for the RuneScape-page panels: authentic brown
-// noise texture, beveled external + internal border.
+// noise texture with the collection log's beveled external + internal frame
+// (outer window border, a texture gap, then an inset inner border).
 @mixin rs-panel {
+  position: relative;
   background: #584f3f url('/images/osrs/panel-tile.png') repeat;
   border: 2px solid #100c07;
   border-radius: 4px;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+
+  // Inner frame, matching the collection log's inset content border.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 2px solid #100c07;
+    border-radius: 2px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+  }
 }
 
 .rs-stats {

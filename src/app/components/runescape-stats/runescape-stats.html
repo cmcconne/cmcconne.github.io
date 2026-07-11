@@ -62,30 +62,8 @@
 
       <app-osrs-clog [recent]="st.recentItems ?? []" />
 
-      @if (st.combatAchievements; as ca) {
-        <div class="panel">
-          <div class="panel-head">
-            <h2>Combat achievements</h2>
-            <span class="panel-sub">{{ ca.points | number }} pts · {{ ca.tierReachedName }}</span>
-          </div>
-          <div class="ca-tiers">
-            @for (t of ca.tiers; track t.name) {
-              <div class="ca-tier">
-                <div class="ca-row">
-                  <span class="ca-name">{{ t.name }}</span>
-                  <span class="ca-count">{{ t.completed }} / {{ t.total }}</span>
-                </div>
-                <div class="ca-bar">
-                  <span
-                    [style.width.%]="pct(t.completed, t.total)"
-                    [style.background]="tierColor(t.name)"
-                  ></span>
-                </div>
-              </div>
-            }
-          </div>
-        </div>
-      }
+      <app-osrs-ca />
+
 
       @if (st.recentActivities?.length) {
         <div class="panel">

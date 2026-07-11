@@ -44,6 +44,7 @@ const out = {
 // Enrich with RuneProfile (collection log, recent items/activities, clan).
 // Best-effort: any failure just leaves the Hiscores data as-is.
 let rpItems = [];
+let caVarps = null;
 try {
   const rpRes = await fetch(
     `https://api.runeprofile.com/profiles/${encodeURIComponent(PLAYER)}`,
@@ -53,6 +54,7 @@ try {
   const rp = await rpRes.json();
 
   rpItems = rp.items ?? [];
+  caVarps = rp.combatAchievementVarps ?? null;
   const itemNames = Object.fromEntries((rp.items ?? []).map((i) => [i.id, i.name]));
   const questNames = Object.fromEntries((rp.quests ?? []).map((q) => [q.id, q.name]));
   const iso = (d) => d.replace(' ', 'T').slice(0, 23) + 'Z';
@@ -181,6 +183,74 @@ try {
   );
 } catch (err) {
   console.error(`Collection log feed skipped: ${err.message}`);
+}
+
+// Combat tasks feed: wiki task list (name/desc/tier/type/comp%) grouped by
+// monster, with completion decoded from RuneProfile's varps (matched by name).
+try {
+  const CA_VARPS = [
+    3116, 3117, 3118, 3119, 3120, 3121, 3122, 3123, 3124, 3125, 3126, 3127,
+    3128, 3387, 3718, 3773, 3774, 4204, 4496, 4721,
+  ];
+  const wikiTasks = JSON.parse(readFileSync('scripts/osrs-ca-tasks.json', 'utf8'));
+  const idxNames = JSON.parse(readFileSync('scripts/osrs-ca-index.json', 'utf8'));
+  const slug = (s) =>
+    s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+  // Decode completed task names from the bit-packed varps.
+  const done = new Set();
+  if (caVarps) {
+    CA_VARPS.forEach((varpId, position) => {
+      const value = caVarps[String(varpId)] ?? 0;
+      for (let bit = 0; bit < 32; bit++) {
+        if ((value >>> bit) & 1) {
+          const name = idxNames[String(position * 32 + bit)];
+          if (name) done.add(name);
+        }
+      }
+    });
+  }
+
+  const groups = new Map();
+  for (const t of wikiTasks) {
+    if (!groups.has(t.monster)) groups.set(t.monster, []);
+    groups.get(t.monster).push({
+      name: t.name,
+      tier: t.tier,
+      type: t.type,
+      description: t.description,
+      comp: t.comp,
+      done: done.has(t.name),
+    });
+  }
+
+  const monsters = [...groups.entries()]
+    .map(([monster, list]) => ({
+      name: monster === 'N/A' ? 'General' : monster,
+      icon: slug(monster),
+      tasks: list.sort((a, b) => a.tier - b.tier || a.name.localeCompare(b.name)),
+      done: list.filter((t) => t.done).length,
+      total: list.length,
+    }))
+    .sort((a, b) => b.done - a.done || a.name.localeCompare(b.name));
+
+  const totalDone = wikiTasks.filter((t) => done.has(t.name)).length;
+  writeFileSync(
+    'public/osrs-ca.json',
+    JSON.stringify({
+      updatedAt: new Date().toISOString(),
+      hasCompletion: !!caVarps,
+      done: totalDone,
+      total: wikiTasks.length,
+      points: out.combatAchievements?.points ?? null,
+      monsters,
+    }) + '\n',
+  );
+  console.log(
+    `Wrote public/osrs-ca.json — ${totalDone}/${wikiTasks.length} tasks across ${monsters.length} monsters.`,
+  );
+} catch (err) {
+  console.error(`Combat tasks feed skipped: ${err.message}`);
 }
 
 writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');

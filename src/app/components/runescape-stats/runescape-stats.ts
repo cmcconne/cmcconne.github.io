@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { OsrsSkill, RunescapeStats } from '../../models/runescape-stats';
 import { OsrsCharacterComponent } from '../osrs-character/osrs-character';
 import { OsrsClogComponent } from '../osrs-clog/osrs-clog';
+import { OsrsCaComponent } from '../osrs-ca/osrs-ca';
 
 // OSRS in-game stats-panel order (fills the 3-column grid row by row).
 const SKILL_ORDER = [
@@ -19,7 +20,13 @@ const SKILL_ORDER = [
 
 @Component({
   selector: 'app-runescape-stats',
-  imports: [DatePipe, DecimalPipe, OsrsCharacterComponent, OsrsClogComponent],
+  imports: [
+    DatePipe,
+    DecimalPipe,
+    OsrsCharacterComponent,
+    OsrsClogComponent,
+    OsrsCaComponent,
+  ],
   templateUrl: './runescape-stats.html',
   styleUrl: './runescape-stats.scss',
 })

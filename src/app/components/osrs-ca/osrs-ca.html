@@ -1,0 +1,103 @@
+@if (data(); as d) {
+  <div class="ca">
+    <div class="ca-head">
+      <span class="ca-title">
+        Combat Achievements
+        <span class="ca-total" [class.done]="d.done >= d.total">- {{ d.done }}/{{ d.total }}</span>
+        @if (d.points !== null) {
+          <span class="ca-pts">· {{ d.points | number }} pts</span>
+        }
+      </span>
+    </div>
+
+    <!-- Tier summary bars -->
+    <div class="ca-tiers">
+      @for (r of tierSummary(); track r.tier) {
+        <button
+          class="ca-tier-chip"
+          [class.active]="tierFilter() === r.tier"
+          (click)="setTier(tierFilter() === r.tier ? 0 : r.tier)"
+          [attr.title]="'Filter to ' + r.name"
+        >
+          <img [src]="tierIcon(r.tier)" [alt]="r.name" />
+          <span class="ca-tier-name">{{ r.name }}</span>
+          <span class="ca-tier-count" [class.done]="r.done >= r.total">{{ r.done }}/{{ r.total }}</span>
+        </button>
+      }
+    </div>
+
+    <div class="ca-body">
+      <!-- Boss sidebar -->
+      <div class="ca-side">
+        <input
+          class="ca-search"
+          type="search"
+          placeholder="Search bosses / tasks…"
+          [value]="search()"
+          (input)="onSearch($any($event.target).value)"
+        />
+        <ul class="ca-monsters">
+          @for (m of monsterList(); track m.name) {
+            <li>
+              <button
+                class="ca-monster"
+                [class.selected]="activeMonster()?.name === m.name"
+                (click)="select(m.name)"
+              >
+                <img
+                  class="ca-monster-icon"
+                  [src]="monsterIcon(m)"
+                  [alt]="m.name"
+                  loading="lazy"
+                  (error)="onIconError($event)"
+                />
+                <span class="ca-monster-name" [class]="monsterClass(m)">{{ m.name }}</span>
+                <span class="ca-monster-count" [class.done]="m.done >= m.total">{{ m.done }}/{{ m.total }}</span>
+              </button>
+            </li>
+          } @empty {
+            <li class="ca-nomatch">No bosses match</li>
+          }
+        </ul>
+      </div>
+
+      <!-- Task detail -->
+      <div class="ca-detail">
+        @if (activeMonster(); as m) {
+          <div class="ca-detail-head">
+            <h3 class="ca-monster-title">{{ m.name }}</h3>
+            <button
+              class="ca-hide-toggle"
+              [class.on]="hideDone()"
+              (click)="toggleHideDone()"
+            >{{ hideDone() ? 'Showing incomplete' : 'Hide completed' }}</button>
+          </div>
+          <p class="ca-obt">
+            Completed: <span [class]="monsterClass(m)">{{ m.done }}/{{ m.total }}</span>
+          </p>
+
+          <ul class="ca-tasks">
+            @for (t of activeTasks(); track t.name) {
+              <li class="ca-task" [class.done]="t.done">
+                <span class="ca-check" [class.on]="t.done">{{ t.done ? '✓' : '' }}</span>
+                <img class="ca-task-tier" [src]="tierIcon(t.tier)" [alt]="tierName(t.tier)" [attr.title]="tierName(t.tier) + ' tier'" />
+                <div class="ca-task-main">
+                  <span class="ca-task-name">{{ t.name }}</span>
+                  <span class="ca-task-desc">{{ t.description }}</span>
+                </div>
+                <span class="ca-task-meta">
+                  <span class="ca-task-type">{{ t.type }}</span>
+                  @if (t.comp !== null) {
+                    <span class="ca-task-comp" [attr.title]="t.comp + '% of players have completed this'">{{ t.comp }}%</span>
+                  }
+                </span>
+              </li>
+            } @empty {
+              <li class="ca-nomatch">Nothing here — all done for this filter! 🎉</li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+  </div>
+}
