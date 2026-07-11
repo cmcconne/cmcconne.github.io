@@ -3,7 +3,7 @@
 // A failed fetch exits non-zero; the deploy step is continue-on-error, so the
 // last committed data stays in place.
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 
 const PLAYER = 'Stupid Hands';
 const OUT = 'public/runescape-stats.json';
@@ -43,6 +43,7 @@ const out = {
 
 // Enrich with RuneProfile (collection log, recent items/activities, clan).
 // Best-effort: any failure just leaves the Hiscores data as-is.
+let rpItems = [];
 try {
   const rpRes = await fetch(
     `https://api.runeprofile.com/profiles/${encodeURIComponent(PLAYER)}`,
@@ -51,6 +52,7 @@ try {
   if (!rpRes.ok) throw new Error(`${rpRes.status} ${rpRes.statusText}`);
   const rp = await rpRes.json();
 
+  rpItems = rp.items ?? [];
   const itemNames = Object.fromEntries((rp.items ?? []).map((i) => [i.id, i.name]));
   const questNames = Object.fromEntries((rp.quests ?? []).map((q) => [q.id, q.name]));
   const iso = (d) => d.replace(' ', 'T').slice(0, 23) + 'Z';
@@ -117,6 +119,68 @@ try {
   console.log(`Models: player=${!!m.playerModelBase64} pet=${!!m.petModelBase64}`);
 } catch (err) {
   console.error(`Model fetch skipped: ${err.message}`);
+}
+
+// Build the browsable collection log feed (structure from RuneProfile's
+// open-source repo + item names from RuneLite + obtained/KC data above).
+// Skipped when RuneProfile items were unavailable, keeping the committed feed.
+try {
+  if (!rpItems.length) throw new Error('no RuneProfile items this run');
+  const structure = JSON.parse(
+    readFileSync('scripts/osrs-clog-structure.json', 'utf8'),
+  );
+  const namesRes = await fetch(
+    'https://static.runelite.net/cache/item/names.json',
+  );
+  if (!namesRes.ok) throw new Error(`names.json ${namesRes.status}`);
+  const names = await namesRes.json();
+
+  const owned = new Map(rpItems.map((i) => [i.id, i.quantity ?? 1]));
+  const activityScores = Object.fromEntries(
+    (data.activities ?? []).map((a) => [a.name, a.score]),
+  );
+
+  const tabs = structure.map((t) => ({
+    name: t.name,
+    pages: t.pages.map((p) => {
+      const items = p.items.map((id) => ({
+        id,
+        name: names[String(id)] ?? `Item ${id}`,
+        q: owned.get(id) ?? 0,
+      }));
+      const kc = Object.entries(p.hiscore ?? {}).map(([act, label]) => ({
+        label,
+        count: Math.max(0, activityScores[act] ?? 0),
+      }));
+      return {
+        name: p.name,
+        aliases: p.aliases ?? [],
+        kc,
+        obtained: items.filter((i) => i.q > 0).length,
+        total: items.length,
+        items,
+      };
+    }),
+  }));
+
+  const allIds = new Set(
+    structure.flatMap((t) => t.pages.flatMap((p) => p.items)),
+  );
+  const obtainedCount = [...allIds].filter((id) => owned.has(id)).length;
+  writeFileSync(
+    'public/osrs-clog.json',
+    JSON.stringify({
+      updatedAt: new Date().toISOString(),
+      obtained: obtainedCount,
+      total: allIds.size,
+      tabs,
+    }) + '\n',
+  );
+  console.log(
+    `Wrote public/osrs-clog.json — ${obtainedCount}/${allIds.size} across ${tabs.reduce((s, t) => s + t.pages.length, 0)} pages.`,
+  );
+} catch (err) {
+  console.error(`Collection log feed skipped: ${err.message}`);
 }
 
 writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');

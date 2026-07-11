@@ -1,0 +1,286 @@
+// In-game collection log palette.
+$clog-bg: #3e3529;
+$clog-dark: #2f2822;
+$clog-border: #211c15;
+$clog-inner-border: #4d4335;
+
+:host {
+  display: block;
+  margin-top: 1.5rem;
+}
+
+.clog {
+  font-family: 'RuneScape', system-ui, sans-serif;
+  --osrs-yellow: oklch(0.97 0.18 100);
+  --osrs-orange: oklch(0.77 0.23 55);
+  --osrs-green: oklch(0.73 0.24 145);
+  --osrs-red: oklch(0.62 0.24 30);
+  --osrs-white: #f5f2ea;
+  border: 2px solid $clog-border;
+  border-radius: 8px;
+  background: $clog-bg;
+  overflow: hidden;
+  color: var(--osrs-white);
+}
+
+.clog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 1rem;
+  background: $clog-dark;
+  border-bottom: 1px solid $clog-border;
+
+  .clog-title {
+    font-weight: bold;
+    font-size: 1.35rem;
+    color: var(--osrs-orange);
+    text-shadow: 1.5px 1.5px black;
+  }
+
+  .clog-total {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--osrs-yellow);
+    text-shadow: 1.5px 1.5px black;
+    font-variant-numeric: tabular-nums;
+
+    &.done {
+      color: var(--osrs-green);
+    }
+  }
+}
+
+.clog-recent {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-bottom: 1px solid $clog-border;
+  background: color-mix(in srgb, $clog-dark 55%, $clog-bg);
+
+  .recent-label {
+    font-size: 1rem;
+    color: var(--osrs-orange);
+    text-shadow: 1px 1px black;
+    margin-right: 0.25rem;
+  }
+
+  img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.6));
+  }
+}
+
+.clog-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0.5rem 0.75rem 0;
+}
+
+.clog-tab {
+  flex: 1;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid $clog-border;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  background: $clog-dark;
+  color: var(--osrs-orange);
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: bold;
+  text-shadow: 1px 1px black;
+  cursor: pointer;
+
+  &:hover {
+    background: color-mix(in srgb, $clog-dark 60%, $clog-bg);
+  }
+
+  &.active {
+    background: $clog-bg;
+    color: var(--osrs-white);
+  }
+}
+
+.clog-body {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  border-top: 1px solid $clog-border;
+  min-height: 380px;
+}
+
+.clog-side {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid $clog-inner-border;
+  background: color-mix(in srgb, $clog-dark 40%, $clog-bg);
+}
+
+.clog-search {
+  margin: 0.5rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid $clog-inner-border;
+  border-radius: 6px;
+  background: $clog-dark;
+  color: var(--osrs-white);
+  font-family: inherit;
+  font-size: 1rem;
+
+  &::placeholder {
+    color: color-mix(in srgb, var(--osrs-white) 45%, transparent);
+  }
+
+  &:focus {
+    outline: 1px solid var(--osrs-orange);
+  }
+}
+
+.clog-pages {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.5rem;
+  overflow-y: auto;
+  max-height: 430px;
+  scrollbar-width: thin;
+  scrollbar-color: $clog-inner-border transparent;
+}
+
+.page-btn {
+  display: block;
+  width: 100%;
+  padding: 0.28rem 0.75rem;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: bold;
+  text-align: left;
+  text-shadow: 1px 1px black;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.none {
+    color: var(--osrs-red);
+  }
+
+  &.partial {
+    color: var(--osrs-yellow);
+  }
+
+  &.done {
+    color: var(--osrs-green);
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &.selected {
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.no-match {
+  padding: 0.5rem 0.75rem;
+  color: color-mix(in srgb, var(--osrs-white) 55%, transparent);
+  font-size: 1rem;
+}
+
+.clog-detail {
+  padding: 0.75rem 1rem 1rem;
+}
+
+.page-name {
+  margin: 0 0 0.2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--osrs-orange);
+  text-shadow: 1.5px 1.5px black;
+}
+
+.kc,
+.obt {
+  margin: 0 0 0.15rem;
+  font-size: 1.05rem;
+  color: var(--osrs-white);
+  text-shadow: 1px 1px black;
+
+  span {
+    color: var(--osrs-yellow);
+    font-variant-numeric: tabular-nums;
+
+    &.done {
+      color: var(--osrs-green);
+    }
+
+    &.none {
+      color: var(--osrs-red);
+    }
+  }
+}
+
+.obt {
+  margin-bottom: 0.75rem;
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(46px, 1fr));
+  gap: 6px;
+}
+
+.slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid $clog-inner-border;
+
+  img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    image-rendering: pixelated;
+  }
+
+  &.missing img {
+    opacity: 0.28;
+    filter: grayscale(0.5);
+  }
+
+  .qty {
+    position: absolute;
+    top: 1px;
+    left: 3px;
+    z-index: 1;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: var(--osrs-yellow);
+    text-shadow: 1px 1px black;
+    line-height: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .clog-body {
+    grid-template-columns: 1fr;
+  }
+
+  .clog-side {
+    border-right: none;
+    border-bottom: 1px solid $clog-inner-border;
+  }
+
+  .clog-pages {
+    max-height: 180px;
+  }
+}

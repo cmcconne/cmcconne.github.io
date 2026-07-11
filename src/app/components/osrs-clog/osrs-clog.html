@@ -1,0 +1,81 @@
+@if (data(); as d) {
+  <div class="clog">
+    <div class="clog-head">
+      <span class="clog-title">Collection Log</span>
+      <span class="clog-total" [class.done]="d.obtained >= d.total">{{ d.obtained }}/{{ d.total }}</span>
+    </div>
+
+    @if (recent().length) {
+      <div class="clog-recent">
+        <span class="recent-label">Recent</span>
+        @for (it of recent(); track $index) {
+          <img
+            [src]="itemIcon(it.itemId)"
+            [attr.title]="it.name || 'Item ' + it.itemId"
+            [alt]="it.name || 'Item'"
+            loading="lazy"
+          />
+        }
+      </div>
+    }
+
+    <div class="clog-tabs" role="tablist">
+      @for (t of d.tabs; track t.name; let i = $index) {
+        <button
+          class="clog-tab"
+          role="tab"
+          [class.active]="i === activeTabIdx() && !search()"
+          (click)="setTab(i)"
+        >{{ t.name }}</button>
+      }
+    </div>
+
+    <div class="clog-body">
+      <div class="clog-side">
+        <input
+          class="clog-search"
+          type="search"
+          placeholder="Search…"
+          [value]="search()"
+          (input)="onSearch($any($event.target).value)"
+        />
+        <ul class="clog-pages">
+          @for (e of pageList(); track e.tabIdx + '|' + e.page.name) {
+            <li>
+              <button
+                class="page-btn"
+                [class]="'page-btn ' + pageClass(e.page)"
+                [class.selected]="isSelected(e)"
+                (click)="selectPage(e)"
+              >{{ e.page.name }}</button>
+            </li>
+          } @empty {
+            <li class="no-match">No pages match</li>
+          }
+        </ul>
+      </div>
+
+      <div class="clog-detail">
+        @if (activePage(); as p) {
+          <h3 class="page-name">{{ p.name }}</h3>
+          @for (k of p.kc; track k.label) {
+            <p class="kc">{{ k.label }}: <span>{{ k.count }}</span></p>
+          }
+          <p class="obt">
+            Obtained: <span [class]="pageClass(p)">{{ p.obtained }}/{{ p.total }}</span>
+          </p>
+          <div class="item-grid">
+            @for (it of p.items; track it.id) {
+              <div class="slot" [class.missing]="it.q === 0" [attr.title]="itemTitle(it)">
+                @if (it.q > 1) {
+                  <span class="qty">{{ it.q }}</span>
+                }
+                <img [src]="itemIcon(it.id)" [alt]="it.name" loading="lazy" />
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}

@@ -60,27 +60,7 @@
         }
       </div>
 
-      @if (st.recentItems?.length) {
-        <div class="panel">
-          <div class="panel-head">
-            <h2>Collection log</h2>
-            @if (st.collectionCount) {
-              <span class="panel-sub">{{ st.collectionCount | number }} items</span>
-            }
-          </div>
-          <div class="item-row">
-            @for (it of st.recentItems; track $index) {
-              <img
-                class="clog-item"
-                [src]="itemIcon(it.itemId)"
-                [attr.title]="it.name || 'Item ' + it.itemId"
-                [alt]="it.name || 'Item'"
-                loading="lazy"
-              />
-            }
-          </div>
-        </div>
-      }
+      <app-osrs-clog [recent]="st.recentItems ?? []" />
 
       @if (st.combatAchievements; as ca) {
         <div class="panel">
