@@ -1,56 +1,71 @@
+// Shared OSRS interface look for the RuneScape-page panels: authentic brown
+// noise texture, beveled external + internal border.
+@mixin rs-panel {
+  background: #584f3f url('/images/osrs/panel-tile.png') repeat;
+  border: 2px solid #100c07;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
 .rs-stats {
+  --osrs-orange: #ff981f;
+  --osrs-yellow: #ffff00;
+  --osrs-green: #0dc10d;
+  --osrs-red: #f23030;
+  --osrs-white: #ffffff;
+  --rs-line: rgba(0, 0, 0, 0.4);
+  font-family: 'RuneScape', system-ui, sans-serif;
   margin-bottom: 2rem;
 }
 
 .stats-pending {
+  @include rs-panel;
   padding: 1rem 1.25rem;
-  border: 1px dashed var(--border);
-  border-radius: 12px;
-  color: var(--muted);
-  font-size: 0.95rem;
+  color: var(--osrs-orange);
+  font-size: 1.1rem;
+  text-shadow: 1px 1px black;
 }
 
+// --- Profile / identity bar -------------------------------------------------
 .profile-card {
+  @include rs-panel;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem 1.5rem;
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--accent) 12%, var(--surface)),
-    var(--surface)
-  );
+  gap: 0.6rem 1.5rem;
+  padding: 0.7rem 1.1rem;
   margin-bottom: 1.25rem;
+  color: var(--osrs-white);
+  text-shadow: 1px 1px black;
 
   .profile-info {
     display: flex;
     flex-direction: column;
-    line-height: 1.3;
+    line-height: 1.2;
   }
 
   .username {
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--osrs-white);
   }
 
   .sub {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--muted);
-    font-size: 0.85rem;
+    color: var(--osrs-orange);
+    font-size: 1.05rem;
   }
 
   .clan-badge {
-    padding: 0.1rem 0.5rem;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--accent) 22%, transparent);
-    color: var(--text);
-    font-size: 0.72rem;
-    font-weight: 600;
+    padding: 0.05rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.32);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: var(--osrs-yellow);
+    font-size: 0.9rem;
+    font-weight: bold;
   }
 
   .totals {
@@ -65,31 +80,28 @@
   }
 
   .total-value {
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--accent);
+    font-size: 1.65rem;
+    font-weight: bold;
+    line-height: 1;
+    color: var(--osrs-yellow);
     font-variant-numeric: tabular-nums;
   }
 
   .total-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    color: var(--osrs-orange);
   }
 
   .updated {
     margin-left: auto;
-    font-size: 0.75rem;
-    color: var(--muted);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
   }
 }
 
-// --- Character + skills top row -------------------------------------------
+// --- Character + skills top row --------------------------------------------
 .rs-top {
-  --osrs-yellow: oklch(0.97 0.18 100);
-  --osrs-green: oklch(0.73 0.24 145);
-  --osrs-red: oklch(0.57 0.28 30);
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -97,7 +109,15 @@
   align-items: stretch;
 }
 
-// Character panel: from centered standalone to a flex column in the row.
+.character-panel {
+  @include rs-panel;
+  width: 100%;
+  max-width: 460px;
+  height: 460px;
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+}
+
 .rs-top .character-panel {
   flex: 1 1 260px;
   min-width: 240px;
@@ -107,15 +127,23 @@
   margin: 0;
 }
 
+.character-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--osrs-orange);
+  font-size: 1.1rem;
+  text-shadow: 1px 1px black;
+}
+
 .skills-panel {
+  @include rs-panel;
   flex: 1.1 1 300px;
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--surface);
+  padding: 10px;
 }
 
 .skills-grid {
@@ -171,13 +199,12 @@
   }
 }
 
-// --- Panels (collection log, activities) ----------------------------------
+// --- Panels (combat achievements, latest activities) ------------------------
 .panel {
+  @include rs-panel;
   margin-top: 1.5rem;
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--surface);
+  padding: 0.85rem 1.1rem 1rem;
+  color: var(--osrs-white);
 }
 
 .panel-head {
@@ -189,37 +216,23 @@
 
   h2 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.35rem;
+    color: var(--osrs-orange);
+    text-shadow: 1.5px 1.5px black;
   }
 
   .panel-sub {
-    font-size: 0.8rem;
-    color: var(--muted);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
     font-variant-numeric: tabular-nums;
   }
 }
 
-.item-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-
-  .clog-item {
-    width: 34px;
-    height: 34px;
-    object-fit: contain;
-    padding: 3px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: color-mix(in srgb, var(--muted) 8%, transparent);
-    image-rendering: pixelated;
-  }
-}
-
+// --- Combat achievements ----------------------------------------------------
 .ca-tiers {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 0.75rem 1.25rem;
+  gap: 0.55rem 1.25rem;
 }
 
 .ca-tier {
@@ -227,34 +240,37 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
   }
 
   .ca-name {
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--osrs-white);
+    text-shadow: 1px 1px black;
   }
 
   .ca-count {
-    font-size: 0.8rem;
-    color: var(--muted);
+    font-size: 1rem;
+    color: var(--osrs-orange);
     font-variant-numeric: tabular-nums;
   }
 
   .ca-bar {
-    height: 7px;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--muted) 25%, transparent);
+    height: 9px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.42);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     overflow: hidden;
 
     span {
       display: block;
       height: 100%;
-      border-radius: 999px;
     }
   }
 }
 
+// --- Latest activities ------------------------------------------------------
 .activity-list {
   list-style: none;
   margin: 0;
@@ -268,11 +284,13 @@
   grid-template-columns: 28px 1fr auto auto;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.5rem 0;
-  border-top: 1px solid var(--border);
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--rs-line);
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.05);
 
   &:first-child {
     border-top: none;
+    box-shadow: none;
   }
 
   .act-icon {
@@ -283,10 +301,14 @@
     text-align: center;
     font-size: 1.1rem;
     line-height: 26px;
+    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.5));
   }
 
   .act-label {
-    font-weight: 600;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--osrs-white);
+    text-shadow: 1px 1px black;
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -294,61 +316,43 @@
   }
 
   .act-value {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent);
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: var(--osrs-yellow);
+    text-shadow: 1px 1px black;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
   }
 
   .act-time {
-    font-size: 0.75rem;
-    color: var(--muted);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.55);
     white-space: nowrap;
     min-width: 4.5rem;
     text-align: right;
   }
 }
 
+// --- Footer bits (on the page background, no panel) --------------------------
 .overall-rank {
   margin: 1.25rem 0 0;
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: var(--osrs-orange);
+  font-size: 1.1rem;
+  text-shadow: 1px 1px black;
 
   strong {
-    color: var(--text);
+    color: var(--osrs-white);
     font-variant-numeric: tabular-nums;
   }
 }
 
-.character-panel {
-  width: 100%;
-  max-width: 460px;
-  height: 460px;
-  margin: 0 auto 1.5rem;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  background:
-    radial-gradient(120% 90% at 50% 20%, color-mix(in srgb, var(--accent) 14%, var(--surface)), var(--surface));
-  overflow: hidden;
-}
-
-.character-loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
 .rp-credit {
   margin: 1rem 0 0;
-  font-size: 0.78rem;
-  color: var(--muted);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
 
   a {
-    color: var(--accent);
+    color: var(--osrs-orange);
     text-decoration: none;
 
     &:hover {
