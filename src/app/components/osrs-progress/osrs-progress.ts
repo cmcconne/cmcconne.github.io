@@ -5,6 +5,13 @@ interface QuestEntry {
   name: string;
   /** 0 = not started, 1 = in progress, 2 = complete. */
   state: number;
+  mini?: boolean;
+}
+interface QuestGroup {
+  done: number;
+  started: number;
+  total: number;
+  list: QuestEntry[];
 }
 interface DiaryTier {
   tier: string;
@@ -19,7 +26,7 @@ interface DiaryArea {
 }
 export interface QuestsDiaries {
   updatedAt: string;
-  quests: { done: number; started: number; total: number; list: QuestEntry[] };
+  quests: QuestGroup & { mini: QuestGroup };
   diaries: {
     areasComplete: number;
     areasTotal: number;
@@ -50,17 +57,22 @@ export class OsrsProgressComponent {
   }
 
   /** Quests, incomplete first (not started, then started, then complete). */
-  protected readonly questList = computed<QuestEntry[]>(() => {
-    const d = this.data();
-    if (!d) return [];
+  protected readonly mainQuests = computed<QuestEntry[]>(() =>
+    this.filterSort(this.data()?.quests.list),
+  );
+  /** Miniquests, same ordering. */
+  protected readonly miniQuests = computed<QuestEntry[]>(() =>
+    this.filterSort(this.data()?.quests.mini.list),
+  );
+
+  private filterSort(list: QuestEntry[] | undefined): QuestEntry[] {
+    if (!list) return [];
     const q = this.search().trim().toLowerCase();
-    const list = q
-      ? d.quests.list.filter((x) => x.name.toLowerCase().includes(q))
-      : d.quests.list;
+    const filtered = q ? list.filter((x) => x.name.toLowerCase().includes(q)) : list;
     const rank = (s: number) => (s === 0 ? 0 : s === 1 ? 1 : 2);
     // Stable sort keeps the feed's alphabetical order within each state group.
-    return [...list].sort((a, b) => rank(a.state) - rank(b.state));
-  });
+    return [...filtered].sort((a, b) => rank(a.state) - rank(b.state));
+  }
 
   /** In-game quest-list colours: red = not started, yellow = started, green = complete. */
   protected questClass(state: number): string {

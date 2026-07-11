@@ -257,12 +257,37 @@ try {
   if (!ws?.quests || !ws?.achievement_diaries) {
     throw new Error('no WikiSync quests/diaries this run');
   }
-  const quests = Object.entries(ws.quests)
+
+  // Miniquest names from the OSRS Wiki (Category:Miniquests), so quests can be
+  // split from miniquests. Strip "/Quick guide" subpages and the "(miniquest)"
+  // disambiguation; only names that also appear in WikiSync get flagged, which
+  // filters out the category's non-quest members. Best-effort → empty on failure.
+  const miniSet = new Set();
+  try {
+    const cmRes = await fetch(
+      'https://oldschool.runescape.wiki/api.php?action=query&list=categorymembers&cmtitle=Category:Miniquests&cmlimit=500&cmtype=page&format=json',
+      { headers: { 'User-Agent': 'charlies-showcase/1.0 (personal fan site)', Accept: 'application/json' } },
+    );
+    if (!cmRes.ok) throw new Error(`categorymembers ${cmRes.status}`);
+    const cm = await cmRes.json();
+    for (const m of cm.query?.categorymembers ?? []) {
+      if (m.title.includes('/')) continue;
+      miniSet.add(m.title.replace(/\s*\(miniquest\)$/, ''));
+    }
+  } catch (err) {
+    console.error(`Miniquest list skipped: ${err.message}`);
+  }
+
+  const allQuests = Object.entries(ws.quests)
     .filter(([name]) => name !== '.')
-    .map(([name, state]) => ({ name, state }))
+    .map(([name, state]) => ({ name, state, mini: miniSet.has(name) }))
     .sort((a, b) => a.name.localeCompare(b.name));
+  const quests = allQuests.filter((q) => !q.mini);
+  const miniquests = allQuests.filter((q) => q.mini);
   const questsDone = quests.filter((q) => q.state === 2).length;
   const questsStarted = quests.filter((q) => q.state === 1).length;
+  const miniDone = miniquests.filter((q) => q.state === 2).length;
+  const miniStarted = miniquests.filter((q) => q.state === 1).length;
 
   const TIER_ORDER = ['Easy', 'Medium', 'Hard', 'Elite'];
   const diaries = Object.entries(ws.achievement_diaries)
@@ -295,6 +320,12 @@ try {
         started: questsStarted,
         total: quests.length,
         list: quests,
+        mini: {
+          done: miniDone,
+          started: miniStarted,
+          total: miniquests.length,
+          list: miniquests,
+        },
       },
       diaries: {
         areasComplete: diaries.filter((d) => d.complete).length,
@@ -306,7 +337,7 @@ try {
     }) + '\n',
   );
   console.log(
-    `Wrote public/osrs-quests-diaries.json — quests ${questsDone}/${quests.length}, diary tiers ${tiersComplete}/${tiersTotal} across ${diaries.length} areas (WikiSync).`,
+    `Wrote public/osrs-quests-diaries.json — quests ${questsDone}/${quests.length}, miniquests ${miniDone}/${miniquests.length}, diary tiers ${tiersComplete}/${tiersTotal} across ${diaries.length} areas (WikiSync).`,
   );
 } catch (err) {
   console.error(`Quests/diaries feed skipped: ${err.message}`);

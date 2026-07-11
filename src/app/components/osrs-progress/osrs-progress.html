@@ -5,12 +5,15 @@
     </div>
 
     <div class="prog-cols">
-      <!-- Quests -->
+      <!-- Quests + Miniquests -->
       <section class="prog-col">
         <header class="col-head">
-          <span class="col-title">Quests</span>
-          <span class="col-count" [class.done]="d.quests.done === d.quests.total">
-            {{ d.quests.done }}/{{ d.quests.total }}
+          <span class="col-title">Quest List</span>
+          <span
+            class="col-count"
+            [class.done]="d.quests.done + d.quests.mini.done === d.quests.total + d.quests.mini.total"
+          >
+            {{ d.quests.done + d.quests.mini.done }}/{{ d.quests.total + d.quests.mini.total }}
           </span>
         </header>
         <input
@@ -20,19 +23,51 @@
           [value]="search()"
           (input)="onSearch($any($event.target).value)"
         />
-        <ul class="quest-list">
-          @for (q of questList(); track q.name) {
-            <li
-              class="quest"
-              [class]="questClass(q.state)"
-              [attr.title]="q.name + ' — ' + questLabel(q.state)"
-            >
-              {{ q.name }}
-            </li>
-          } @empty {
-            <li class="prog-nomatch">No quests match</li>
-          }
-        </ul>
+        <div class="quest-scroll">
+          <div class="quest-group">
+            <div class="quest-group-head">
+              <span class="qg-title">Quests</span>
+              <span class="qg-count" [class.done]="d.quests.done === d.quests.total">
+                {{ d.quests.done }}/{{ d.quests.total }}
+              </span>
+            </div>
+            <ul class="quest-list">
+              @for (q of mainQuests(); track q.name) {
+                <li
+                  class="quest"
+                  [class]="questClass(q.state)"
+                  [attr.title]="q.name + ' — ' + questLabel(q.state)"
+                >
+                  {{ q.name }}
+                </li>
+              } @empty {
+                <li class="prog-nomatch">No quests match</li>
+              }
+            </ul>
+          </div>
+
+          <div class="quest-group">
+            <div class="quest-group-head">
+              <span class="qg-title">Miniquests</span>
+              <span class="qg-count" [class.done]="d.quests.mini.done === d.quests.mini.total">
+                {{ d.quests.mini.done }}/{{ d.quests.mini.total }}
+              </span>
+            </div>
+            <ul class="quest-list">
+              @for (q of miniQuests(); track q.name) {
+                <li
+                  class="quest"
+                  [class]="questClass(q.state)"
+                  [attr.title]="q.name + ' — ' + questLabel(q.state)"
+                >
+                  {{ q.name }}
+                </li>
+              } @empty {
+                <li class="prog-nomatch">No miniquests match</li>
+              }
+            </ul>
+          </div>
+        </div>
       </section>
 
       <!-- Achievement Diaries -->
