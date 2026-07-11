@@ -85,14 +85,14 @@
                 <span class="diary-area">{{ a.area }}</span>
                 <span class="diary-status" [class]="areaClass(a)">{{ areaDone(a) }}/{{ areaTotal(a) }}</span>
               </div>
-              <div class="diary-bars">
+              <div class="diary-bar">
                 @for (t of a.tiers; track t.tier) {
                   <div
-                    class="diary-bar"
+                    class="diary-seg"
                     [class]="tierClass(t)"
                     [attr.title]="t.tier + ' — ' + t.done + '/' + t.total"
                   >
-                    <div class="diary-bar-fill" [style.width.%]="tierPct(t)"></div>
+                    <div class="diary-seg-fill" [style.width.%]="tierPct(t)"></div>
                   </div>
                 }
               </div>
