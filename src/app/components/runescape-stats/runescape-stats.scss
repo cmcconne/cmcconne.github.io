@@ -71,16 +71,6 @@
     font-size: 1.05rem;
   }
 
-  .clan-badge {
-    padding: 0.05rem 0.5rem;
-    border-radius: 4px;
-    background: rgba(0, 0, 0, 0.32);
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    color: var(--osrs-yellow);
-    font-size: 0.9rem;
-    font-weight: bold;
-  }
-
   .totals {
     display: flex;
     gap: 1.5rem;
@@ -212,140 +202,6 @@
   }
 }
 
-// --- Panels (combat achievements, latest activities) ------------------------
-.panel {
-  @include rs-panel;
-  margin-top: 1.5rem;
-  padding: 0.85rem 1.1rem 1rem;
-  color: var(--osrs-white);
-}
-
-.panel-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.85rem;
-
-  h2 {
-    margin: 0;
-    font-size: 1.35rem;
-    color: var(--osrs-orange);
-    text-shadow: 1.5px 1.5px black;
-  }
-
-  .panel-sub {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-variant-numeric: tabular-nums;
-  }
-}
-
-// --- Combat achievements ----------------------------------------------------
-.ca-tiers {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 0.55rem 1.25rem;
-}
-
-.ca-tier {
-  .ca-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.25rem;
-  }
-
-  .ca-name {
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: var(--osrs-white);
-    text-shadow: 1px 1px black;
-  }
-
-  .ca-count {
-    font-size: 1rem;
-    color: var(--osrs-orange);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .ca-bar {
-    height: 9px;
-    border-radius: 2px;
-    background: rgba(0, 0, 0, 0.42);
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-
-    span {
-      display: block;
-      height: 100%;
-    }
-  }
-}
-
-// --- Latest activities ------------------------------------------------------
-.activity-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.activity {
-  display: grid;
-  grid-template-columns: 28px 1fr auto auto;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.45rem 0;
-  border-top: 1px solid var(--rs-line);
-  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.05);
-
-  &:first-child {
-    border-top: none;
-    box-shadow: none;
-  }
-
-  .act-icon {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
-    image-rendering: pixelated;
-    text-align: center;
-    font-size: 1.1rem;
-    line-height: 26px;
-    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.5));
-  }
-
-  .act-label {
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: var(--osrs-white);
-    text-shadow: 1px 1px black;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .act-value {
-    font-size: 1.05rem;
-    font-weight: bold;
-    color: var(--osrs-yellow);
-    text-shadow: 1px 1px black;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-  }
-
-  .act-time {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.55);
-    white-space: nowrap;
-    min-width: 4.5rem;
-    text-align: right;
-  }
-}
-
 // --- Footer bits (on the page background, no panel) --------------------------
 .overall-rank {
   margin: 1.25rem 0 0;
@@ -374,12 +230,3 @@
   }
 }
 
-@media (max-width: 480px) {
-  .activity {
-    grid-template-columns: 26px 1fr auto;
-
-    .act-time {
-      display: none;
-    }
-  }
-}

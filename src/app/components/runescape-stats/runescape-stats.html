@@ -40,12 +40,7 @@
       <div class="profile-card">
         <div class="profile-info">
           <span class="username">{{ st.username }}</span>
-          <span class="sub">
-            Old School RuneScape
-            @if (st.clan) {
-              <span class="clan-badge">{{ st.clan.name }} · {{ st.clan.title }}</span>
-            }
-          </span>
+          <span class="sub">Old School RuneScape</span>
         </div>
         <div class="totals">
           @if (st.overall?.xp) {
@@ -60,42 +55,9 @@
         }
       </div>
 
-      <app-osrs-clog [recent]="st.recentItems ?? []" />
+      <app-osrs-clog />
 
       <app-osrs-ca />
-
-
-      @if (st.recentActivities?.length) {
-        <div class="panel">
-          <div class="panel-head">
-            <h2>Latest activities</h2>
-          </div>
-          <ul class="activity-list">
-            @for (a of st.recentActivities; track $index) {
-              <li class="activity">
-                @switch (a.kind) {
-                  @case ('quest') {
-                    <span class="act-icon act-quest" aria-hidden="true">📜</span>
-                    <span class="act-label">{{ a.label }}</span>
-                    <span class="act-value">Quest</span>
-                  }
-                  @case ('drop') {
-                    <img class="act-icon" [src]="itemIcon(a.itemId!)" [alt]="a.name || 'Drop'" loading="lazy" />
-                    <span class="act-label">{{ a.name || 'Valuable drop' }}</span>
-                    <span class="act-value">{{ gp(a.value!) }} gp</span>
-                  }
-                  @case ('xp') {
-                    <img class="act-icon" [src]="skillIconByName(a.skill!)" [alt]="a.skill" loading="lazy" />
-                    <span class="act-label">{{ a.skill }} milestone</span>
-                    <span class="act-value">{{ gp(a.xp!) }} XP</span>
-                  }
-                }
-                <span class="act-time">{{ timeAgo(a.date) }}</span>
-              </li>
-            }
-          </ul>
-        </div>
-      }
 
       @if (st.overall?.rank) {
         <p class="overall-rank">
@@ -104,7 +66,11 @@
       }
 
       <p class="rp-credit">
-        Character render & data via
+        Stats via the
+        <a href="https://oldschool.runescape.wiki/w/Application_programming_interface" target="_blank" rel="noopener">OSRS Hiscores</a>;
+        collection log &amp; combat achievements via the
+        <a href="https://oldschool.runescape.wiki/w/RuneScape:WikiSync" target="_blank" rel="noopener">OSRS Wiki (WikiSync)</a>;
+        character render via
         <a [href]="profileUrl()" target="_blank" rel="noopener">RuneProfile</a>.
       </p>
     } @else {

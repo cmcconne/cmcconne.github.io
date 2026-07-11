@@ -7,20 +7,6 @@
       </span>
     </div>
 
-    @if (recent().length) {
-      <div class="clog-recent">
-        <span class="recent-label">Recent</span>
-        @for (it of recent(); track $index) {
-          <img
-            [src]="itemIcon(it.itemId)"
-            [attr.title]="it.name || 'Item ' + it.itemId"
-            [alt]="it.name || 'Item'"
-            loading="lazy"
-          />
-        }
-      </div>
-    }
-
     <div class="clog-tabs" role="tablist">
       @for (t of d.tabs; track t.name; let i = $index) {
         <button

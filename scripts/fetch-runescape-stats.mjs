@@ -41,65 +41,32 @@ const out = {
   skills,
 };
 
-// Enrich with RuneProfile (collection log, recent items/activities, clan).
-// Best-effort: any failure just leaves the Hiscores data as-is.
-let rpItems = [];
+// Fetch WikiSync — the OSRS Wiki's own account-keyed RuneLite sync service
+// (sync.runescape.wiki, the same source as the wiki's on-page "Look up" button).
+// Provides the obtained collection-log item ids and completed combat-achievement
+// indices. Best-effort: a failure leaves ws null and the committed feeds in place.
+let ws = null;
 try {
-  const rpRes = await fetch(
-    `https://api.runeprofile.com/profiles/${encodeURIComponent(PLAYER)}`,
-    { headers: { 'User-Agent': 'charlies-showcase (personal site)' } },
+  const wsRes = await fetch(
+    `https://sync.runescape.wiki/runelite/player/${encodeURIComponent(PLAYER)}/STANDARD`,
+    {
+      headers: {
+        'User-Agent': 'charlies-showcase/1.0 (personal fan site)',
+        Accept: 'application/json',
+      },
+    },
   );
-  if (!rpRes.ok) throw new Error(`${rpRes.status} ${rpRes.statusText}`);
-  const rp = await rpRes.json();
-
-  rpItems = rp.items ?? [];
-  const itemNames = Object.fromEntries((rp.items ?? []).map((i) => [i.id, i.name]));
-  const questNames = Object.fromEntries((rp.quests ?? []).map((q) => [q.id, q.name]));
-  const iso = (d) => d.replace(' ', 'T').slice(0, 23) + 'Z';
-
-  out.clan = rp.clan ? { name: rp.clan.name, title: rp.clan.title } : undefined;
-  out.collectionCount = (rp.items ?? []).length;
-
-  const caTiers = rp.combatAchievementTiers ?? [];
-  out.combatAchievements = {
-    points: rp.totalCombatAchievementPoints ?? 0,
-    tierReached: rp.combatAchievementTierReached ?? 0,
-    tierReachedName:
-      caTiers.find((t) => t.id === rp.combatAchievementTierReached)?.name ?? null,
-    tiers: caTiers.map((t) => ({
-      name: t.name,
-      completed: t.completedCount,
-      total: t.tasksCount,
-    })),
-  };
-  out.recentItems = (rp.recentItems ?? []).map((r) => ({
-    itemId: r.data.itemId,
-    name: itemNames[r.data.itemId],
-  }));
-  out.recentActivities = (rp.recentActivities ?? [])
-    .map((a) => {
-      const date = iso(a.createdAt);
-      if (a.type === 'quest_completed') {
-        return { kind: 'quest', date, label: questNames[a.data.questId] ?? 'Quest completed' };
-      }
-      if (a.type === 'valuable_drop') {
-        return { kind: 'drop', date, itemId: a.data.itemId, name: itemNames[a.data.itemId], value: a.data.value };
-      }
-      if (a.type === 'xp_milestone') {
-        return { kind: 'xp', date, skill: a.data.name, xp: a.data.xp };
-      }
-      return null;
-    })
-    .filter(Boolean);
-
+  if (!wsRes.ok) throw new Error(`${wsRes.status} ${wsRes.statusText}`);
+  ws = await wsRes.json();
   console.log(
-    `RuneProfile: ${out.collectionCount} clog items, ${out.recentItems.length} recent, ${out.recentActivities.length} activities.`,
+    `WikiSync: ${(ws.collection_log ?? []).length} clog items, ${(ws.combat_achievements ?? []).length} combat achievements.`,
   );
 } catch (err) {
-  console.error(`RuneProfile enrich skipped: ${err.message}`);
+  console.error(`WikiSync fetch skipped: ${err.message}`);
 }
 
 // Fetch the RuneProfile 3D player/pet models (binary PLY) for native rendering.
+// This is the one thing no wiki source provides, so it stays on RuneProfile.
 try {
   mkdirSync('public/models', { recursive: true });
   const mRes = await fetch(
@@ -122,10 +89,12 @@ try {
 }
 
 // Build the browsable collection log feed (structure from RuneProfile's
-// open-source repo + item names from RuneLite + obtained/KC data above).
-// Skipped when RuneProfile items were unavailable, keeping the committed feed.
+// open-source repo + item names from RuneLite + obtained item ids from
+// WikiSync + KC from the Hiscores). Skipped when WikiSync was unavailable,
+// keeping the committed feed. WikiSync gives obtained ids but not quantities,
+// so q is a 0/1 obtained flag.
 try {
-  if (!rpItems.length) throw new Error('no RuneProfile items this run');
+  if (!ws?.collection_log?.length) throw new Error('no WikiSync collection log this run');
   const structure = JSON.parse(
     readFileSync('scripts/osrs-clog-structure.json', 'utf8'),
   );
@@ -135,7 +104,7 @@ try {
   if (!namesRes.ok) throw new Error(`names.json ${namesRes.status}`);
   const names = await namesRes.json();
 
-  const owned = new Map(rpItems.map((i) => [i.id, i.quantity ?? 1]));
+  const owned = new Set(ws.collection_log);
   const activityScores = Object.fromEntries(
     (data.activities ?? []).map((a) => [a.name, a.score]),
   );
@@ -146,7 +115,7 @@ try {
       const items = p.items.map((id) => ({
         id,
         name: names[String(id)] ?? `Item ${id}`,
-        q: owned.get(id) ?? 0,
+        q: owned.has(id) ? 1 : 0,
       }));
       const kc = Object.entries(p.hiscore ?? {}).map(([act, label]) => ({
         label,
@@ -177,7 +146,7 @@ try {
     }) + '\n',
   );
   console.log(
-    `Wrote public/osrs-clog.json — ${obtainedCount}/${allIds.size} across ${tabs.reduce((s, t) => s + t.pages.length, 0)} pages.`,
+    `Wrote public/osrs-clog.json — ${obtainedCount}/${allIds.size} across ${tabs.reduce((s, t) => s + t.pages.length, 0)} pages (WikiSync).`,
   );
 } catch (err) {
   console.error(`Collection log feed skipped: ${err.message}`);
@@ -187,24 +156,14 @@ try {
 // monster. Completion comes from WikiSync — the OSRS Wiki's own account-keyed
 // service (sync.runescape.wiki, same source as the wiki's "Look up" button).
 try {
+  if (!ws?.combat_achievements) throw new Error('no WikiSync combat achievements this run');
   const TIER_POINTS = { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6 };
   const wikiTasks = JSON.parse(readFileSync('scripts/osrs-ca-tasks.json', 'utf8'));
   const idxNames = JSON.parse(readFileSync('scripts/osrs-ca-index.json', 'utf8'));
   const slug = (s) =>
     s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-  // Completed combat achievements by task index, from WikiSync.
-  const wsRes = await fetch(
-    `https://sync.runescape.wiki/runelite/player/${encodeURIComponent(PLAYER)}/STANDARD`,
-    {
-      headers: {
-        'User-Agent': 'charlies-showcase/1.0 (personal fan site)',
-        Accept: 'application/json',
-      },
-    },
-  );
-  if (!wsRes.ok) throw new Error(`WikiSync ${wsRes.status}`);
-  const ws = await wsRes.json();
+  // Completed combat achievements by task index, from WikiSync (fetched above).
   const done = new Set();
   for (const i of ws.combat_achievements ?? []) {
     const name = idxNames[String(i)];

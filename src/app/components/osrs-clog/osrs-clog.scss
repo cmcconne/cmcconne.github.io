@@ -55,31 +55,6 @@ $side-bg-dark: #241f18;
   }
 }
 
-.clog-recent {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  padding: 0.4rem 1rem;
-  border-bottom: 1px solid $window-border;
-  background: rgba(0, 0, 0, 0.18);
-
-  .recent-label {
-    font-size: 1rem;
-    color: var(--osrs-orange);
-    text-shadow: 1px 1px black;
-    margin-right: 0.25rem;
-  }
-
-  img {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    image-rendering: pixelated;
-    filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.6));
-  }
-}
-
 // --- Tabs (joined stone buttons) -------------------------------------------
 .clog-tabs {
   display: flex;
