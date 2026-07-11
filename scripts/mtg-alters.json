@@ -1,0 +1,4 @@
+{
+  "_comment": "Alters & artist proofs. Put image files in public/images/mtg-alters/ and add one entry per card here. `card` = exact card name (front-face for // cards). `image` = filename in that folder. `kind` = alter | proof | signed. Optional: `artist`, `note`, `deck` (deck name to scope to a single deck; omit to apply to every deck the card is in). Images: portrait, MTG card proportions (~488x680 or larger), JPG preferred.",
+  "alters": []
+}

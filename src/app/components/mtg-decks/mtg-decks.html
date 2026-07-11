@@ -33,6 +33,27 @@
           </div>
         }
 
+        @if (alteredCards().length) {
+          <div class="dd-alters">
+            <h3>🎨 Alters &amp; proofs · {{ alteredCards().length }}</h3>
+            <div class="alter-strip">
+              @for (c of alteredCards(); track c.name) {
+                <a
+                  class="alter-thumb"
+                  [href]="c.uri"
+                  target="_blank"
+                  rel="noopener"
+                  (mouseenter)="setHover(c)"
+                  [attr.title]="c.name + ' — ' + alterLabel(c.alter!.kind) + (c.alter!.artist ? ' by ' + c.alter!.artist : '')"
+                >
+                  <img [src]="c.alter!.image" [alt]="c.name + ' alter'" loading="lazy" />
+                  <span class="alter-cap">{{ frontName(c.name) }}</span>
+                </a>
+              }
+            </div>
+          </div>
+        }
+
         <div class="dd-body">
           <div class="dd-list">
             <input
@@ -53,7 +74,12 @@
                       (focusin)="setHover(c)"
                     >
                       <span class="dd-cmc">{{ c.cmc }}</span>
-                      <a class="dd-name" [href]="c.uri" target="_blank" rel="noopener">{{ frontName(c.name) }}</a>
+                      <span class="dd-name-wrap">
+                        <a class="dd-name" [href]="c.uri" target="_blank" rel="noopener">{{ frontName(c.name) }}</a>
+                        @if (c.alter) {
+                          <span class="dd-alter-badge" [attr.title]="alterLabel(c.alter.kind) + (c.alter.artist ? ' by ' + c.alter.artist : '')">🎨</span>
+                        }
+                      </span>
                       <span class="dd-pips" aria-hidden="true">
                         @for (col of c.colors; track col) {
                           <span class="pip small" [class]="'pip-' + col"></span>
@@ -73,8 +99,19 @@
 
           <div class="dd-side">
             <div class="dd-preview">
-              @if (previewCard()?.image; as img) {
+              @if (previewImage(); as img) {
                 <img [src]="img" [alt]="previewCard()!.name" />
+                @if (previewCard()?.alter; as al) {
+                  <button class="dd-preview-toggle" (click)="toggleOfficial()">
+                    {{ previewOfficial() ? 'Show alter' : 'Show official' }}
+                  </button>
+                  @if (!previewOfficial()) {
+                    <span class="dd-preview-cap">
+                      <span class="dd-alter-kind">{{ alterLabel(al.kind) }}</span>
+                      {{ al.artist ? 'by ' + al.artist : previewCard()!.name }}
+                    </span>
+                  }
+                }
               } @else {
                 <div class="dd-preview-empty">Hover a card</div>
               }

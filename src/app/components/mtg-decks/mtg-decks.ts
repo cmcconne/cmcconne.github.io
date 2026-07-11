@@ -121,6 +121,21 @@ export class MtgDecksComponent {
     () => this.hoveredCard() ?? this.activeDeck()?.cards?.[0] ?? null,
   );
 
+  /** Show official art instead of the alter in the preview. */
+  protected readonly previewOfficial = signal(false);
+
+  /** Image URL for the preview (alter by default, official when toggled). */
+  protected readonly previewImage = computed<string | null>(() => {
+    const c = this.previewCard();
+    if (!c) return null;
+    return c.alter && !this.previewOfficial() ? c.alter.image : c.image;
+  });
+
+  /** Cards in the open deck that have an alter/proof (for the gallery). */
+  protected readonly alteredCards = computed<DeckCard[]>(
+    () => this.activeDeck()?.cards?.filter((c) => c.alter) ?? [],
+  );
+
   /** Distinct event years, newest first (for the filter chips). */
   protected readonly years = computed<string[]>(() => {
     const ys = new Set(
@@ -198,7 +213,20 @@ export class MtgDecksComponent {
   }
 
   protected setHover(c: DeckCard | null): void {
+    if (c) this.previewOfficial.set(false);
     this.hoveredCard.set(c);
+  }
+
+  protected toggleOfficial(): void {
+    this.previewOfficial.set(!this.previewOfficial());
+  }
+
+  protected alterLabel(kind: string): string {
+    return kind === 'proof'
+      ? 'Artist proof'
+      : kind === 'signed'
+        ? 'Signed'
+        : 'Alter';
   }
 
   /** Tallest mana-curve bucket, for scaling the bars. */

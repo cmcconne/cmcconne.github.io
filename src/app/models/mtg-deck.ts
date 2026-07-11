@@ -10,6 +10,14 @@ export interface CardChip {
   uri: string | null;
 }
 
+/** An owner-supplied alter / artist proof / signed card image. */
+export interface CardAlter {
+  image: string;
+  kind: string;
+  artist: string | null;
+  note: string | null;
+}
+
 /** One card in a deck's full list. */
 export interface DeckCard {
   name: string;
@@ -21,6 +29,8 @@ export interface DeckCard {
   rank: number | null;
   uri: string | null;
   price: number | null;
+  /** Present when the owner has an alter/proof of this card. */
+  alter?: CardAlter;
 }
 
 /** Aggregate stats over a deck's cards. */
@@ -33,6 +43,8 @@ export interface DeckStats {
   curve: number[];
   typeCounts: Record<string, number>;
   colorCounts: Record<string, number>;
+  /** How many cards in the deck have an owner alter/proof. */
+  alters?: number;
 }
 
 /** A curated Magic deck, enriched with Scryfall art/colour data. */

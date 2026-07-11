@@ -12,6 +12,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 
 const SRC = 'scripts/mtg-decks-source.json';
 const SNAPSHOT = 'scripts/mtg-decklists-snapshot.json';
+const ALTERS = 'scripts/mtg-alters.json';
 const OUT = 'public/mtg-decks.json';
 const WUBRG = ['W', 'U', 'B', 'R', 'G'];
 
@@ -186,6 +187,33 @@ function analyseCards(cards) {
 
 const snapshot = JSON.parse(readFileSync(SNAPSHOT, 'utf8'));
 
+// Alters & artist proofs, keyed by card name (each may be deck-scoped).
+const alterMap = {};
+try {
+  const raw = JSON.parse(readFileSync(ALTERS, 'utf8'));
+  for (const a of raw.alters ?? []) {
+    if (a.card && a.image) (alterMap[a.card] ??= []).push(a);
+  }
+} catch {
+  /* no alters manifest yet */
+}
+
+/** Best alter for a card in a given deck (deck-scoped wins over global). */
+function alterFor(name, deckName, deckId) {
+  const list = alterMap[name];
+  if (!list) return null;
+  const a =
+    list.find((x) => x.deck && (x.deck === deckName || x.deck === deckId)) ??
+    list.find((x) => !x.deck);
+  if (!a) return null;
+  return {
+    image: `/images/mtg-alters/${a.image}`,
+    kind: a.kind ?? 'alter',
+    artist: a.artist || null,
+    note: a.note || null,
+  };
+}
+
 const source = JSON.parse(readFileSync(SRC, 'utf8'));
 const decks = [];
 
@@ -252,7 +280,17 @@ for (const d of source) {
         .filter(Boolean)
         .map((c) => buildCard(c));
       deck.cards = [...commanderCards, ...mainCards];
+      // Attach the owner's alters / artist proofs to matching cards.
+      let alterCount = 0;
+      for (const c of deck.cards) {
+        const al = alterFor(c.name, d.name, deckId);
+        if (al) {
+          c.alter = al;
+          alterCount++;
+        }
+      }
       deck.stats = deckStats(deck.cards);
+      deck.stats.alters = alterCount;
 
       console.log(
         `    ${deck.cards.length} cards, ${deck.stats.lands} lands, avg CMC ${deck.stats.avgCmc}, ~$${deck.stats.price}`,

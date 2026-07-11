@@ -1,10 +1,45 @@
+// Bespoke "spellbook" theme — warm ink panels, parchment text, MTG gold.
+// Redefines the shared surface/accent vars locally so the whole Magic section
+// picks it up regardless of the site's light/dark mode.
 .mtg {
-  --accent: var(--accent);
+  --accent: #c9a227;
+  --accent-bright: #e6c86a;
+  --surface: #201a12;
+  --surface-2: #2a2216;
+  --border: #4a3b26;
+  --muted: #9a8c6f;
+  --card: #16110b;
+  --parch: #ece0c4;
+
+  color: var(--parch);
+  font-family: system-ui, sans-serif;
+}
+
+@mixin mtg-title {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
 }
 
 .mtg-heading {
+  @include mtg-title;
   margin: 0 0 1rem;
   font-size: 1.2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+
+  // little gold diamond flourish
+  &::before {
+    content: '◆';
+    margin-right: 0.5rem;
+    font-size: 0.7em;
+    color: var(--accent);
+    vertical-align: middle;
+  }
 }
 
 .mtg-pending {
@@ -377,6 +412,123 @@
   .dd-side { position: static; flex-direction: column-reverse; }
   .dd-preview { max-width: 240px; margin: 0 auto; }
   .dd-summary { grid-template-columns: repeat(2, 1fr); }
+}
+
+// --- MTG theme flourishes ---------------------------------------------------
+.dd-title h2 { @include mtg-title; font-size: 1.3rem; line-height: 1.2; }
+.dd-cmdr { color: var(--accent); }
+.dd-group-head { color: var(--accent-bright); }
+.dd-preview {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+.deck-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--accent);
+}
+.pg-subheading { @include mtg-title; font-size: 1rem; margin: 1.3rem 0 0.6rem; }
+.mtg-tab.active { border-color: var(--accent); color: var(--accent-bright); }
+
+// --- Alters & artist proofs -------------------------------------------------
+.dd-alters {
+  padding: 0.8rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+
+  h3 { @include mtg-title; font-size: 0.9rem; margin: 0 0 0.6rem; }
+}
+
+.alter-strip {
+  display: flex;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding-bottom: 0.3rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.alter-thumb {
+  flex: 0 0 auto;
+  width: 96px;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--card);
+  cursor: pointer;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+
+  &:hover { transform: translateY(-3px); }
+
+  img {
+    width: 100%;
+    aspect-ratio: 488 / 680;
+    object-fit: cover;
+    display: block;
+  }
+  .alter-cap {
+    display: block;
+    font-size: 0.68rem;
+    padding: 0.2rem 0.25rem;
+    color: var(--parch);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+// badge on an altered card in the list
+.dd-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+
+  .dd-name { min-width: 0; }
+}
+.dd-alter-badge {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  color: var(--accent-bright);
+  cursor: help;
+}
+
+// preview caption for an alter/proof
+.dd-preview-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--parch);
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.85));
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.dd-alter-kind {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #16110b;
+  background: var(--accent-bright);
+  border-radius: 3px;
+  padding: 0 0.3rem;
+}
+.dd-preview { position: relative; }
+.dd-preview-toggle {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  font-size: 0.7rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--accent-bright);
+  padding: 0.15rem 0.4rem;
+  cursor: pointer;
 }
 
 .deck-commander {
