@@ -257,7 +257,7 @@ export class RunescapeStatsComponent {
     return rows
       .filter((r) => RunescapeStatsComponent.RAID_METRICS.has(r.metric) === wantRaid)
       .sort((a, b) => b.value - a.value)
-      .slice(0, 12);
+      .slice(0, 10);
   });
 
   protected setPeriod(p: 'week' | 'month' | 'year'): void {
