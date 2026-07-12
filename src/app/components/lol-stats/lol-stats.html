@@ -6,7 +6,7 @@
         the Riot API key is connected. Meanwhile, use the profile links above.
       </div>
     } @else {
-      @if (st.liveGame; as lg) {
+      @if (currentLive(); as lg) {
         <div class="live-banner">
           <span class="live-dot" aria-hidden="true"></span>
           @if (lg.championId) {

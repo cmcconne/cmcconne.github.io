@@ -27,7 +27,11 @@
     @if (s.statsFeed) {
       @switch (s.statsType) {
         @case ('lol') {
-          <app-lol-stats [feed]="s.statsFeed!" [historyUrl]="s.profiles?.[1]?.url ?? ''" />
+          <app-lol-stats
+            [feed]="s.statsFeed!"
+            [historyUrl]="s.profiles?.[1]?.url ?? ''"
+            [liveApi]="s.liveApi ?? ''"
+          />
         }
         @case ('osrs') {
           <app-runescape-stats [feed]="s.statsFeed!" />

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import {
   ChampionMastery,
   ChampionPoolEntry,
+  LiveGame,
   LolStats,
   Match,
   RankedEntry,
@@ -74,9 +75,29 @@ export class LolStatsComponent {
   /** Optional external match-history link (e.g. u.gg). */
   readonly historyUrl = input<string>();
 
+  /** Optional real-time live-game proxy URL (the Cloudflare Worker). */
+  readonly liveApi = input<string>('');
+
   /** null = not loaded/failed; otherwise the fetched feed. */
   protected readonly stats = signal<LolStats | null>(null);
   protected readonly statsLoaded = signal(false);
+
+  /** Latest real-time live game from the proxy (when liveApi is configured). */
+  protected readonly liveNow = signal<LiveGame | null>(null);
+
+  /**
+   * The live game to display. Prefers the real-time proxy when configured;
+   * otherwise falls back to the static feed, but only while that snapshot is
+   * fresh enough that "Live now" can't be lying about an old game.
+   */
+  protected readonly currentLive = computed<LiveGame | null>(() => {
+    if (this.liveApi()) return this.liveNow();
+    const st = this.stats();
+    if (!st?.liveGame) return null;
+    const updated = st.updatedAt ? Date.parse(st.updatedAt) : NaN;
+    if (!Number.isNaN(updated) && Date.now() - updated > 15 * 60 * 1000) return null;
+    return st.liveGame;
+  });
 
   /** Which match row is expanded (matchId), if any. */
   protected readonly expandedId = signal<string | null>(null);
@@ -208,6 +229,32 @@ export class LolStatsComponent {
           this.statsLoaded.set(true);
         },
         error: () => this.statsLoaded.set(true),
+      });
+    });
+
+    // Real-time live-game poll via the Cloudflare Worker proxy, if configured.
+    // Polls every 30s while the page is open; the Worker shares/caches results
+    // so many visitors cost Riot only a few calls per minute.
+    effect((onCleanup) => {
+      const api = this.liveApi();
+      if (!api) {
+        this.liveNow.set(null);
+        return;
+      }
+      let stopped = false;
+      const poll = () => {
+        this.http.get<{ live: LiveGame | null }>(`${api}?t=${Date.now()}`).subscribe({
+          next: (r) => {
+            if (!stopped) this.liveNow.set(r?.live ?? null);
+          },
+          error: () => {},
+        });
+      };
+      poll();
+      const id = setInterval(poll, 30000);
+      onCleanup(() => {
+        stopped = true;
+        clearInterval(id);
       });
     });
   }

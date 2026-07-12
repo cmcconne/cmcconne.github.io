@@ -38,4 +38,10 @@ export interface Section {
   statsFeed?: string;
   /** Which live-stats component renders the feed. */
   statsType?: 'lol' | 'osrs' | 'mtg';
+  /**
+   * Optional URL of a real-time proxy (the Cloudflare Worker in /worker) that
+   * returns the current League live game. When set, the League page polls it
+   * for genuine real-time status instead of the 6-hourly snapshot.
+   */
+  liveApi?: string;
 }

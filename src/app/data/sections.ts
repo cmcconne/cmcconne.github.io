@@ -31,6 +31,10 @@ export const SECTIONS: Section[] = [
     ],
     statsFeed: '/lol-stats.json',
     statsType: 'lol',
+    // Real-time live-game proxy. Deploy /worker to Cloudflare, then paste its
+    // URL here (e.g. https://lol-live.<subdomain>.workers.dev). Empty = fall
+    // back to the freshness-gated 6-hourly snapshot.
+    liveApi: '',
   },
   {
     slug: 'runescape',

@@ -1,0 +1,15 @@
+name = "lol-live"
+main = "live-game.js"
+compatibility_date = "2024-11-01"
+
+# The Riot API key is a SECRET — never put it here. Set it with:
+#   cd worker
+#   npx wrangler secret put RIOT_API_KEY
+#
+# Optional overrides (sensible defaults are baked into live-game.js):
+# [vars]
+# ALLOW_ORIGIN = "https://cmcconne.github.io"
+# PLATFORM = "na1"
+# REGION = "americas"
+# GAME_NAME = "Naked and Afraid"
+# TAG_LINE = "lost"
