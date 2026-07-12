@@ -533,8 +533,19 @@
 .mtg-tab.active { border-color: var(--accent); color: var(--accent-bright); }
 
 // --- Collection gallery -----------------------------------------------------
+// The collection is presented as a display case: cards mounted on a dark,
+// softly-lit wall with depth and even spacing.
 .mtg-collection {
   margin-top: 2rem;
+  padding: 1.3rem 1.4rem 1.6rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background:
+    radial-gradient(130% 70% at 50% -8%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 62%),
+    #100c08;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.55);
+
+  .mtg-heading { border-bottom-color: color-mix(in srgb, var(--accent) 30%, transparent); }
 }
 
 .col-filter {
@@ -542,7 +553,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 
   .chip-n {
     font-size: 0.78rem;
@@ -556,7 +567,7 @@
     padding: 0.4rem 0.7rem;
     border: 1px solid var(--border);
     border-radius: 8px;
-    background: var(--card);
+    background: rgba(0, 0, 0, 0.35);
     color: inherit;
     font: inherit;
     &:focus { outline: 1px solid var(--accent); }
@@ -565,28 +576,34 @@
 
 .col-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+  gap: 1.5rem 1.15rem;
+  justify-items: center;
 }
 
 .col-card {
   display: block;
+  width: 100%;
   border: none;
   padding: 0;
   background: none;
   cursor: pointer;
   color: inherit;
-  text-align: left;
+  text-align: center;
 
   .col-thumb {
     position: relative;
     display: block;
     aspect-ratio: 488 / 680;
-    border-radius: 10px;
+    border-radius: 9px;
     overflow: hidden;
-    border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.5);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    // Mounted-card look: hairline gold frame + layered drop shadow for depth.
+    border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent);
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      0 10px 22px rgba(0, 0, 0, 0.55),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
 
     // Zoom past the toploader/plastic border so the card fills the tile.
     img {
@@ -598,16 +615,20 @@
     }
   }
   &:hover .col-thumb {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.6);
-    border-color: var(--accent);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.5),
+      0 18px 34px rgba(0, 0, 0, 0.65);
+    border-color: var(--accent-bright);
   }
 
+  // Plaque-style label under each mounted card.
   .col-name {
     display: block;
-    margin-top: 0.4rem;
-    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
     font-weight: 600;
+    color: var(--parch);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -631,8 +652,9 @@
 
 .col-kind {
   position: absolute;
-  top: 0.4rem;
-  left: 0.4rem;
+  top: 0.45rem;
+  left: 0.45rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 // --- Lightbox ---------------------------------------------------------------
