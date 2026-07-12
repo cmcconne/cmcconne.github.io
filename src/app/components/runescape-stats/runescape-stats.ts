@@ -202,11 +202,49 @@ export class RunescapeStatsComponent {
 
   // --- Wise Old Man --------------------------------------------------------
 
-  /** This week's gains block, or null. */
-  protected readonly womWeek = computed(() => this.wom()?.week ?? null);
+  /** Selected gains period + KC highlight tab. */
+  protected readonly womPeriod = signal<'week' | 'month' | 'year'>('week');
+  protected readonly kcTab = signal<'bosses' | 'raids'>('bosses');
 
-  /** Boss kill counts, highest first (capped for the highlight). */
-  protected readonly topBossKcs = computed(() => (this.wom()?.bosses ?? []).slice(0, 12));
+  /** The gains block for the selected period, or null. */
+  protected readonly activePeriod = computed(
+    () => this.wom()?.periods?.[this.womPeriod()] ?? null,
+  );
+
+  /** Which periods actually have data (to show/hide the toggle). */
+  protected readonly hasAnyPeriod = computed(() => {
+    const p = this.wom()?.periods;
+    return !!(p && (p.week || p.month || p.year));
+  });
+
+  // OSRS raid metrics (WOM slugs), so KCs split into Bosses vs Raids.
+  private static readonly RAID_METRICS = new Set([
+    'chambers_of_xeric',
+    'chambers_of_xeric_challenge_mode',
+    'theatre_of_blood',
+    'theatre_of_blood_hard_mode',
+    'tombs_of_amascut',
+    'tombs_of_amascut_expert',
+  ]);
+
+  protected readonly raidKcs = computed(() =>
+    (this.wom()?.bosses ?? []).filter((b) => RunescapeStatsComponent.RAID_METRICS.has(b.metric)),
+  );
+  protected readonly bossKcs = computed(() =>
+    (this.wom()?.bosses ?? []).filter((b) => !RunescapeStatsComponent.RAID_METRICS.has(b.metric)),
+  );
+
+  /** KCs for the active tab, highest first (capped for the highlight). */
+  protected readonly activeKcs = computed(() =>
+    (this.kcTab() === 'raids' ? this.raidKcs() : this.bossKcs()).slice(0, 12),
+  );
+
+  protected setPeriod(p: 'week' | 'month' | 'year'): void {
+    this.womPeriod.set(p);
+  }
+  protected setKcTab(t: 'bosses' | 'raids'): void {
+    this.kcTab.set(t);
+  }
 
   private static readonly WOM_ALIASES: Record<string, string> = {
     chambers_of_xeric: 'Chambers of Xeric',

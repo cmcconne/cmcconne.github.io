@@ -57,11 +57,20 @@
 
       @if (wom(); as w) {
         <div class="panel wom">
-          @if (womWeek(); as wk) {
-            <div class="panel-head">
-              <h2>This week</h2>
-              <span class="wom-sub">via Wise Old Man</span>
+          <div class="panel-head">
+            <h2>Gains</h2>
+            <span class="wom-sub">via Wise Old Man</span>
+          </div>
+
+          @if (hasAnyPeriod()) {
+            <div class="wom-tabs" role="tablist" aria-label="Gain period">
+              <button class="wom-tab" [class.active]="womPeriod() === 'week'" (click)="setPeriod('week')">Week</button>
+              <button class="wom-tab" [class.active]="womPeriod() === 'month'" (click)="setPeriod('month')">Month</button>
+              <button class="wom-tab" [class.active]="womPeriod() === 'year'" (click)="setPeriod('year')">Year</button>
             </div>
+          }
+
+          @if (activePeriod(); as wk) {
             <div class="week-totals">
               <div class="wt">
                 <span class="wt-value">+{{ gp(wk.xpGained) }}</span>
@@ -80,7 +89,7 @@
                 <div class="wom-group">
                   <h3>Skills trained</h3>
                   <ul class="gain-list">
-                    @for (s of wk.skills; track s.metric) {
+                    @for (s of wk.skills.slice(0, 10); track s.metric) {
                       <li class="gain">
                         <img class="gain-icon" [src]="skillIconByName(s.metric)" [alt]="s.metric" loading="lazy" />
                         <span class="gain-name">{{ womName(s.metric) }}</span>
@@ -94,7 +103,7 @@
                 <div class="wom-group">
                   <h3>Bosses killed</h3>
                   <ul class="gain-list">
-                    @for (b of wk.bosses; track b.metric) {
+                    @for (b of wk.bosses.slice(0, 10); track b.metric) {
                       <li class="gain">
                         <img class="gain-icon boss" [src]="bossIcon(b.metric)" [alt]="b.metric" (error)="hideBroken($event)" loading="lazy" />
                         <span class="gain-name">{{ womName(b.metric) }}</span>
@@ -106,22 +115,34 @@
               }
             </div>
             @if (!wk.skills.length && !wk.bosses.length) {
-              <p class="wom-empty">No tracked gains this week.</p>
+              <p class="wom-empty">No tracked gains this period.</p>
             }
+          } @else {
+            <p class="wom-empty">No tracked gains for this period.</p>
           }
 
-          @if (topBossKcs().length) {
+          @if (raidKcs().length || bossKcs().length) {
             <div class="wom-group kc-block">
-              <h3>Boss kill counts</h3>
-              <div class="kc-grid">
-                @for (b of topBossKcs(); track b.metric) {
-                  <div class="kc" [attr.title]="womName(b.metric) + ' — ' + b.kills + ' KC'">
-                    <img class="kc-icon" [src]="bossIcon(b.metric)" [alt]="b.metric" (error)="hideBroken($event)" loading="lazy" />
-                    <span class="kc-name">{{ womName(b.metric) }}</span>
-                    <span class="kc-count">{{ b.kills | number }}</span>
-                  </div>
-                }
+              <div class="kc-head">
+                <h3>Kill counts</h3>
+                <div class="wom-tabs" role="tablist" aria-label="Kill count category">
+                  <button class="wom-tab" [class.active]="kcTab() === 'bosses'" (click)="setKcTab('bosses')">Bosses</button>
+                  <button class="wom-tab" [class.active]="kcTab() === 'raids'" (click)="setKcTab('raids')">Raids</button>
+                </div>
               </div>
+              @if (activeKcs().length) {
+                <div class="kc-grid">
+                  @for (b of activeKcs(); track b.metric) {
+                    <div class="kc" [attr.title]="womName(b.metric) + ' — ' + b.kills + ' KC'">
+                      <img class="kc-icon" [src]="bossIcon(b.metric)" [alt]="b.metric" (error)="hideBroken($event)" loading="lazy" />
+                      <span class="kc-name">{{ womName(b.metric) }}</span>
+                      <span class="kc-count">{{ b.kills | number }}</span>
+                    </div>
+                  }
+                </div>
+              } @else {
+                <p class="wom-empty">No {{ kcTab() }} kills recorded.</p>
+              }
             </div>
           }
         </div>

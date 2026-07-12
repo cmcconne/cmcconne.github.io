@@ -45,18 +45,25 @@ export interface WomBoss {
   rank?: number;
 }
 
-/** Wise Old Man data: this week's gains + boss kill counts. */
+/** Gains over one time period (Wise Old Man). */
+export interface WomPeriod {
+  startsAt: string;
+  endsAt: string;
+  xpGained: number;
+  ehpGained: number;
+  ehbGained: number;
+  skills: WomGain[];
+  bosses: WomGain[];
+}
+
+/** Wise Old Man data: gains over week/month/year + boss kill counts. */
 export interface WomData {
   updatedAt?: string;
-  week?: {
-    startsAt: string;
-    endsAt: string;
-    xpGained: number;
-    ehpGained: number;
-    ehbGained: number;
-    skills: WomGain[];
-    bosses: WomGain[];
-  } | null;
+  periods?: {
+    week: WomPeriod | null;
+    month: WomPeriod | null;
+    year: WomPeriod | null;
+  };
   bosses?: WomBoss[];
 }
 
