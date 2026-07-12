@@ -334,8 +334,10 @@
       <div class="col-grid">
         @for (a of alterGallery(); track a.image) {
           <button class="col-card" (click)="openAlter($index)" [attr.title]="a.card + ' — ' + alterLabel(a.kind)">
-            <img [src]="a.image" [alt]="a.card + ' ' + a.kind" loading="lazy" />
-            <span class="col-kind" [class]="'k-' + a.kind">{{ alterLabel(a.kind) }}</span>
+            <span class="col-thumb">
+              <img [src]="a.image" [alt]="a.card + ' ' + a.kind" loading="lazy" />
+              <span class="col-kind" [class]="'k-' + a.kind">{{ alterLabel(a.kind) }}</span>
+            </span>
             <span class="col-name">{{ frontName(a.card) }}</span>
           </button>
         } @empty {
@@ -362,8 +364,8 @@
           <span class="lb-kind" [class]="'k-' + a.kind">{{ alterLabel(a.kind) }}</span>
           <h3>{{ a.card }}</h3>
           @if (a.artist) { <p class="lb-artist">Altered by {{ a.artist }}</p> }
-          @if (a.typeLine || a.set) {
-            <p class="lb-sub">{{ a.typeLine }}@if (a.set) { · {{ a.set }} }</p>
+          @if (a.typeLine) {
+            <p class="lb-sub">{{ a.typeLine }}</p>
           }
           @if (a.note) { <p class="lb-note">{{ a.note }}</p> }
           @if (a.deck) { <p class="lb-deck">Runs in <strong>{{ a.deck }}</strong></p> }

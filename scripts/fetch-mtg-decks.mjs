@@ -30,37 +30,45 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 /** Moxfield deck id from a URL like https://www.moxfield.com/decks/{id}. */
 const moxfieldId = (url) => url?.match(/\/decks\/([A-Za-z0-9_-]+)/)?.[1] ?? null;
 
-/** Card names for a deck: live Moxfield if reachable, else the snapshot. */
-async function getDecklist(deckId, snapshot) {
+/**
+ * A deck's commanders + mainboard as {name, id} entries, where id is Moxfield's
+ * chosen Scryfall printing id (the exact version). Live Moxfield if reachable
+ * (rare server-side — Cloudflare), else the committed snapshot.
+ */
+async function getDeck(deckId, snapshot) {
   try {
     const res = await fetch(`https://api2.moxfield.com/v3/decks/all/${deckId}`, {
       headers,
     });
     if (res.ok) {
       const d = await res.json();
-      const names = Object.values(d.boards?.mainboard?.cards ?? {})
-        .map((c) => c.card?.name)
-        .filter(Boolean);
-      if (names.length) {
-        console.log(`  decklist (live): ${names.length} cards`);
-        return names;
+      const board = (b) =>
+        Object.values(d.boards?.[b]?.cards ?? {})
+          .map((c) => ({ name: c.card?.name, id: c.card?.scryfall_id }))
+          .filter((c) => c.name && c.id);
+      const mainboard = board('mainboard');
+      if (mainboard.length) {
+        console.log(`  decklist (live): ${mainboard.length} cards`);
+        return { commanders: board('commanders'), mainboard };
       }
     }
   } catch {
     /* Moxfield blocks most server-side callers — fall through */
   }
-  const names = snapshot[deckId]?.mainboard ?? [];
-  if (names.length) console.log(`  decklist (snapshot): ${names.length} cards`);
-  return names;
+  const snap = snapshot[deckId];
+  if (snap?.mainboard?.length) {
+    console.log(`  decklist (snapshot): ${snap.mainboard.length} cards`);
+    return { commanders: snap.commanders ?? [], mainboard: snap.mainboard };
+  }
+  return { commanders: [], mainboard: [] };
 }
 
-/** Batch-resolve card names via Scryfall /cards/collection (75 per request). */
-async function scryfallCollection(names) {
+/** Resolve cards by name via Scryfall /cards/collection (for the alter gallery). */
+async function scryfallByNames(names) {
   const results = new Map();
-  for (let i = 0; i < names.length; i += 75) {
-    const identifiers = names
-      .slice(i, i + 75)
-      .map((n) => ({ name: n.split(' // ')[0] }));
+  const uniq = [...new Set(names)];
+  for (let i = 0; i < uniq.length; i += 75) {
+    const identifiers = uniq.slice(i, i + 75).map((n) => ({ name: n.split(' // ')[0] }));
     const res = await fetch('https://api.scryfall.com/cards/collection', {
       method: 'POST',
       headers: { ...headers, 'Content-Type': 'application/json' },
@@ -69,6 +77,30 @@ async function scryfallCollection(names) {
     if (res.ok) {
       const data = await res.json();
       for (const c of data.data ?? []) results.set(c.name, c);
+    } else {
+      console.error(`  scryfall names miss: ${res.status}`);
+    }
+    await sleep(150);
+  }
+  return results;
+}
+
+/** Resolve exact printings via Scryfall /cards/collection by id (75/request). */
+async function scryfallByIds(ids) {
+  const results = new Map();
+  const uniq = [...new Set(ids.filter(Boolean))];
+  for (let i = 0; i < uniq.length; i += 75) {
+    const identifiers = uniq.slice(i, i + 75).map((id) => ({ id }));
+    const res = await fetch('https://api.scryfall.com/cards/collection', {
+      method: 'POST',
+      headers: { ...headers, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ identifiers }),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      for (const c of data.data ?? []) results.set(c.id, c);
+      for (const nf of data.not_found ?? [])
+        console.error(`  scryfall id not found: ${nf.id}`);
     } else {
       console.error(`  scryfall collection miss: ${res.status}`);
     }
@@ -219,39 +251,41 @@ const source = JSON.parse(readFileSync(SRC, 'utf8'));
 const decks = [];
 
 for (const d of source) {
-  const commanders = d.commanders ?? (d.commander ? [d.commander] : []);
+  const commanderNames = d.commanders ?? (d.commander ? [d.commander] : []);
+  const deckId = moxfieldId(d.moxfield);
+  console.log(`  ${d.name}:`);
+
+  // Commanders + mainboard as {name, id} (Moxfield's chosen printings).
+  const { commanders: cmdEntries, mainboard: mainEntries } = deckId
+    ? await getDeck(deckId, snapshot)
+    : { commanders: [], mainboard: [] };
+
+  // Resolve every printing (by id) in one batched pass.
+  const byId = await scryfallByIds(
+    [...cmdEntries, ...mainEntries].map((e) => e.id),
+  );
+
+  // Commanders — art/colours/uri from the exact printing.
   const arts = [];
   const colorSet = new Set();
   const commanderCards = [];
   let scryfallUri = null;
-
-  for (const name of commanders) {
-    try {
-      const res = await fetch(
-        `https://api.scryfall.com/cards/named?exact=${encodeURIComponent(name)}`,
-        { headers },
-      );
-      if (res.ok) {
-        const c = await res.json();
-        const imgs = c.image_uris ?? c.card_faces?.[0]?.image_uris ?? {};
-        arts.push(imgs.art_crop ?? null);
-        (c.color_identity ?? []).forEach((x) => colorSet.add(x));
-        commanderCards.push(buildCard(c, 'Commander'));
-        if (!scryfallUri) scryfallUri = c.scryfall_uri ?? null;
-      } else {
-        console.error(`Scryfall miss for "${name}": ${res.status}`);
-        arts.push(null);
-      }
-    } catch (err) {
-      console.error(`Scryfall error for "${name}": ${err.message}`);
+  for (const e of cmdEntries) {
+    const c = byId.get(e.id);
+    if (!c) {
       arts.push(null);
+      continue;
     }
-    await sleep(120); // be polite to Scryfall's rate limit
+    const imgs = c.image_uris ?? c.card_faces?.[0]?.image_uris ?? {};
+    arts.push(imgs.art_crop ?? null);
+    (c.color_identity ?? []).forEach((x) => colorSet.add(x));
+    commanderCards.push(buildCard(c, 'Commander'));
+    if (!scryfallUri) scryfallUri = c.scryfall_uri ?? null;
   }
 
   const deck = {
     name: d.name,
-    commanders,
+    commanders: commanderNames,
     format: d.format,
     moxfield: d.moxfield || undefined,
     description: d.description || undefined,
@@ -262,47 +296,35 @@ for (const d of source) {
     spiceCards: [],
   };
 
-  // Card-level analysis (new-set cards + low-play-rate spice).
-  const deckId = moxfieldId(d.moxfield);
-  if (deckId) {
-    console.log(`  ${d.name}:`);
-    const names = await getDecklist(deckId, snapshot);
-    if (names.length) {
-      const resolved = await scryfallCollection(names);
-      const resolvedCards = [...resolved.values()];
-      const { newCards, spiceCards } = analyseCards(resolvedCards);
-      deck.newCards = newCards;
-      deck.spiceCards = spiceCards;
+  if (mainEntries.length) {
+    const mainResolved = mainEntries.map((e) => byId.get(e.id)).filter(Boolean);
+    const { newCards, spiceCards } = analyseCards(mainResolved);
+    deck.newCards = newCards;
+    deck.spiceCards = spiceCards;
 
-      // Full interactive decklist: commanders first, then the mainboard in the
-      // snapshot's order, each enriched with type/CMC/colours/image/price.
-      const mainCards = names
-        .map((n) => resolved.get(n.split(' // ')[0]) ?? resolved.get(n))
-        .filter(Boolean)
-        .map((c) => buildCard(c));
-      deck.cards = [...commanderCards, ...mainCards];
-      // Attach the owner's alters / artist proofs to matching cards.
-      let alterCount = 0;
-      for (const c of deck.cards) {
-        const al = alterFor(c.name, d.name, deckId);
-        if (al) {
-          c.alter = al;
-          alterCount++;
-        }
+    // Full interactive decklist: commanders, then the mainboard in deck order,
+    // each the exact Moxfield printing (type/CMC/colours/image/price).
+    deck.cards = [...commanderCards, ...mainResolved.map((c) => buildCard(c))];
+
+    // Attach the owner's alters / artist proofs to matching cards.
+    let alterCount = 0;
+    for (const c of deck.cards) {
+      const al = alterFor(c.name, d.name, deckId);
+      if (al) {
+        c.alter = al;
+        alterCount++;
       }
-      deck.stats = deckStats(deck.cards);
-      deck.stats.alters = alterCount;
-
-      console.log(
-        `    ${deck.cards.length} cards, ${deck.stats.lands} lands, avg CMC ${deck.stats.avgCmc}, ~$${deck.stats.price}`,
-      );
-      console.log(
-        `    new: ${newCards.map((c) => c.name).join(', ') || '—'}`,
-      );
-      console.log(
-        `    spice: ${spiceCards.map((c) => `${c.name} (#${c.rank})`).join(', ') || '—'}`,
-      );
     }
+    deck.stats = deckStats(deck.cards);
+    deck.stats.alters = alterCount;
+
+    console.log(
+      `    ${deck.cards.length} cards, ${deck.stats.lands} lands, avg CMC ${deck.stats.avgCmc}, ~$${deck.stats.price}`,
+    );
+    console.log(`    new: ${newCards.map((c) => c.name).join(', ') || '—'}`);
+    console.log(
+      `    spice: ${spiceCards.map((c) => `${c.name} (#${c.rank})`).join(', ') || '—'}`,
+    );
   }
 
   decks.push(deck);
@@ -315,7 +337,7 @@ for (const d of source) {
 let alters = [];
 if (alterList.length) {
   const names = [...new Set(alterList.map((a) => a.card))];
-  const resolved = await scryfallCollection(names);
+  const resolved = await scryfallByNames(names);
   alters = alterList.map((a) => {
     const c = resolved.get(a.card.split(' // ')[0]) ?? resolved.get(a.card);
     const imgs = c ? (c.image_uris ?? c.card_faces?.[0]?.image_uris ?? {}) : {};

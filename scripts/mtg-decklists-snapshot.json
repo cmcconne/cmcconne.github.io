@@ -1,310 +1,1225 @@
 {
-  "_comment": "Full mainboard decklists snapshotted from Moxfield page context (2026-07-11). Names only (all singleton, qty 1). Re-extract via the in-app browser when a deck changes.",
+  "_comment": "Full decklists snapshotted from Moxfield page context (2026-07-12). Per card: {name, id} where id = Moxfield's chosen Scryfall printing id (exact version). Re-extract via in-app browser when a deck changes.",
   "oCeOqlA8DkmSz9SDq6Yxlg": {
+    "commanders": [
+      {
+        "name": "Dargo, the Shipwrecker",
+        "id": "a4e9002d-782c-460e-8f0c-4763fffc9e3e"
+      },
+      {
+        "name": "Tymna the Weaver",
+        "id": "bc7cbe9b-324e-42b8-94e2-36e91cb32163"
+      }
+    ],
     "mainboard": [
-      "Underworld Breach",
-      "Dark Ritual",
-      "Goblin Bombardment",
-      "Lotus Petal",
-      "Peer into the Abyss",
-      "Exotic Orchard",
-      "Cabal Ritual",
-      "Bloodstained Mire",
-      "Diabolic Intent",
-      "Luxury Suite",
-      "Imperial Seal",
-      "Gamble",
-      "Blood Crypt",
-      "Sevinne's Reclamation",
-      "Arid Mesa",
-      "Marsh Flats",
-      "Mana Confluence",
-      "Windswept Heath",
-      "Silence",
-      "Rite of Flame",
-      "Mayhem Devil",
-      "Ranger-Captain of Eos",
-      "Altar of Dementia",
-      "Praetor's Grasp",
-      "Ad Nauseam",
-      "Magda, Brazen Outlaw",
-      "Portable Hole",
-      "Ragavan, Nimble Pilferer",
-      "Gemstone Caverns",
-      "Simian Spirit Guide",
-      "Tainted Pact",
-      "Ruthless Technomancer",
-      "Professional Face-Breaker",
-      "Relic of Legends",
-      "Orcish Bowmasters",
-      "Lotho, Corrupt Shirriff",
-      "Altar of the Wretched // Wretched Bonemass",
-      "Elegant Parlor",
-      "Molten Duplication",
-      "Voice of Victory",
-      "Arcane Signet",
-      "Command Tower",
-      "Wishclaw Talisman",
-      "Animate Dead",
-      "Demonic Tutor",
-      "Sol Ring",
-      "Mana Vault",
-      "Red Elemental Blast",
-      "Burnt Offering",
-      "Entomb",
-      "Flooded Strand",
-      "Godless Shrine",
-      "Sacred Foundry",
-      "Chrome Mox",
-      "Enlightened Tutor",
-      "Vampiric Tutor",
-      "Ancient Tomb",
-      "Badlands",
-      "Plateau",
-      "Scrubland",
-      "Sacrifice",
-      "Wheel of Fortune",
-      "City of Brass",
-      "Hope of Ghirapur",
-      "Scalding Tarn",
-      "Verdant Catacombs",
-      "Polluted Delta",
-      "Wooded Foothills",
-      "Mox Diamond",
-      "Mox Opal",
-      "Bolas's Citadel",
-      "Goblin Engineer",
-      "Deflecting Swat",
-      "Grand Abolisher",
-      "Lion's Eye Diamond",
-      "Pyroblast",
-      "City of Traitors",
-      "Culling the Weak",
-      "Final Fortune",
-      "Impulsive Pilferer",
-      "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
-      "Cursed Mirror",
-      "Dragon's Rage Channeler",
-      "Esper Sentinel",
-      "Stitcher's Supplier",
-      "Imperial Recruiter",
-      "Shambling Ghast",
-      "Prized Statue",
-      "Beseech the Mirror",
-      "Greedy Freebooter",
-      "Raucous Theater",
-      "Phelia, Exuberant Shepherd",
-      "Static Prison",
-      "The Jolly Balloon Man",
-      "Mardu Devotee",
-      "Deadpool, Trading Card",
-      "Knuckles the Echidna",
-      "Hexing Squelcher"
+      {
+        "name": "Underworld Breach",
+        "id": "2f2374a2-21d6-4643-8602-684342d0dbfc"
+      },
+      {
+        "name": "Arcane Signet",
+        "id": "4e92354d-c203-41e1-822d-8263fadd9eb3"
+      },
+      {
+        "name": "Command Tower",
+        "id": "55c9f778-6c0b-4cbe-a4c8-d7943aaa2895"
+      },
+      {
+        "name": "Wishclaw Talisman",
+        "id": "9da15685-69c4-4517-b5a7-cf929e2788ba"
+      },
+      {
+        "name": "Animate Dead",
+        "id": "cc0c2bab-4392-4e7b-9d14-2901f4ffbae8"
+      },
+      {
+        "name": "Dark Ritual",
+        "id": "a6aacc3e-fe37-4a08-83e6-7ee8c0c0af74"
+      },
+      {
+        "name": "Demonic Tutor",
+        "id": "9ee20fb3-fc63-42aa-8b52-2adf7c8b2463"
+      },
+      {
+        "name": "Goblin Bombardment",
+        "id": "b90d6f2f-3c54-4e00-97b8-d7c7f6c13363"
+      },
+      {
+        "name": "Lotus Petal",
+        "id": "57c4bd1f-757c-4b62-a87d-73da94f904f3"
+      },
+      {
+        "name": "Sol Ring",
+        "id": "772edef7-2f17-4244-b1bb-4e7a53c253e1"
+      },
+      {
+        "name": "Peer into the Abyss",
+        "id": "a46820e5-67a4-4b28-bd0c-7ed9443d7dfb"
+      },
+      {
+        "name": "Mana Vault",
+        "id": "5cbc686e-a8ef-40de-b79a-803ef42f8384"
+      },
+      {
+        "name": "Red Elemental Blast",
+        "id": "67459742-30ec-49e7-a351-2c9c5bb4b852"
+      },
+      {
+        "name": "Exotic Orchard",
+        "id": "6aae6480-4e71-4d94-a648-f80d3849d792"
+      },
+      {
+        "name": "Goblin Welder",
+        "id": "e30ec0f5-5ce6-4498-abcb-8a116064ff3e"
+      },
+      {
+        "name": "Burnt Offering",
+        "id": "1dae52a2-3af7-4b97-9d2e-2448b7c413fb"
+      },
+      {
+        "name": "Cabal Ritual",
+        "id": "5403b49d-03a7-4cc3-af3c-df098c1c9c2e"
+      },
+      {
+        "name": "Bloodstained Mire",
+        "id": "115400ae-a43b-4b3d-9ea0-be1e7224dea5"
+      },
+      {
+        "name": "Entomb",
+        "id": "06c0c35d-a26e-473a-9206-8fbda7191700"
+      },
+      {
+        "name": "Flooded Strand",
+        "id": "8f85e12c-196b-4459-b81f-0c9c854e9f57"
+      },
+      {
+        "name": "Godless Shrine",
+        "id": "9e739c7e-cc16-4557-836f-fdec53a7ed8c"
+      },
+      {
+        "name": "Sacred Foundry",
+        "id": "a9eb59ea-bddd-4d5f-96e8-0c1f0ce84c11"
+      },
+      {
+        "name": "Diabolic Intent",
+        "id": "76d1b5c5-cc47-465f-8549-4fd1ca4280df"
+      },
+      {
+        "name": "Luxury Suite",
+        "id": "00e40c64-58fa-421e-9d01-93b0642f7d8b"
+      },
+      {
+        "name": "Imperial Seal",
+        "id": "0163dd21-9f9f-4656-b0b2-7774be0b6ada"
+      },
+      {
+        "name": "Chrome Mox",
+        "id": "e0d88029-2569-461b-a57d-1af10673f4cf"
+      },
+      {
+        "name": "Enlightened Tutor",
+        "id": "cbac1d27-15e2-4e2f-82ab-625a16e096cb"
+      },
+      {
+        "name": "Gamble",
+        "id": "fa613b38-988c-48b5-99a0-5a11acfc76e4"
+      },
+      {
+        "name": "Vampiric Tutor",
+        "id": "0a07cba3-2e8d-48ec-a6f8-4d2edfcd833d"
+      },
+      {
+        "name": "Ancient Tomb",
+        "id": "30e401e3-282b-4524-87e1-c6cd50cd6d00"
+      },
+      {
+        "name": "Blood Crypt",
+        "id": "0a4abd89-28d2-4458-81d7-4f3b43fd0184"
+      },
+      {
+        "name": "Hope of Ghirapur",
+        "id": "6f4bcadd-7eff-4294-94d5-52482a734d5b"
+      },
+      {
+        "name": "Badlands",
+        "id": "56058359-3c0b-49db-a0ce-9ded4c3f4372"
+      },
+      {
+        "name": "Plateau",
+        "id": "f747a422-2706-4b0c-b45c-bf599e2f8eed"
+      },
+      {
+        "name": "Scrubland",
+        "id": "472034a2-0ba9-4876-ab7a-aa7013d603bb"
+      },
+      {
+        "name": "Sacrifice",
+        "id": "43334dee-ec2c-44fe-b526-8a38b9f62cc4"
+      },
+      {
+        "name": "Wheel of Fortune",
+        "id": "c14c07d4-6971-483a-add1-f3cdf18feae9"
+      },
+      {
+        "name": "Sevinne's Reclamation",
+        "id": "0f055754-58cf-474a-a3a9-59490dbf9dce"
+      },
+      {
+        "name": "City of Brass",
+        "id": "10eb8117-c009-4d50-b3fb-4879081f38be"
+      },
+      {
+        "name": "Arid Mesa",
+        "id": "716c415e-5eb8-4644-ac64-5ba7c3f0ea65"
+      },
+      {
+        "name": "Marsh Flats",
+        "id": "9e1e76a2-ec37-4fd8-8185-f98f675ff0cb"
+      },
+      {
+        "name": "Scalding Tarn",
+        "id": "71e491c5-8c07-449b-b2f1-ffa052e6d311"
+      },
+      {
+        "name": "Verdant Catacombs",
+        "id": "94c229ea-90da-4aa0-bfda-b162fb3b5b8b"
+      },
+      {
+        "name": "Mana Confluence",
+        "id": "4eafa4f8-3b9b-4e20-97bf-8f547e970752"
+      },
+      {
+        "name": "Polluted Delta",
+        "id": "98c221d8-fbe4-4901-9f7b-1d04e08b261e"
+      },
+      {
+        "name": "Windswept Heath",
+        "id": "2227b1ba-78be-47ab-8dad-13233f4d4dfc"
+      },
+      {
+        "name": "Wooded Foothills",
+        "id": "492fa77b-d103-446f-95d0-e4b11dfac05f"
+      },
+      {
+        "name": "Mox Diamond",
+        "id": "28028830-83ed-45e2-b495-3b9ad9d3e988"
+      },
+      {
+        "name": "Mox Opal",
+        "id": "56001a36-126b-4c08-af98-a6cc4d84210e"
+      },
+      {
+        "name": "Silence",
+        "id": "1c2b13b1-31f0-4676-88a7-53f3a190e9a2"
+      },
+      {
+        "name": "Rite of Flame",
+        "id": "c062caf7-f0eb-44db-9f74-e6711a13fada"
+      },
+      {
+        "name": "Bolas's Citadel",
+        "id": "5a16665a-2600-460a-a5ad-417930fda62c"
+      },
+      {
+        "name": "Mayhem Devil",
+        "id": "92e5c8cb-ef19-499e-b428-00dfb5e75b4f"
+      },
+      {
+        "name": "Goblin Engineer",
+        "id": "a55c4d47-5252-40af-961d-c08bc688028a"
+      },
+      {
+        "name": "Ranger-Captain of Eos",
+        "id": "ab9eef1c-8e8e-45e6-aaef-98ff569a1845"
+      },
+      {
+        "name": "Deflecting Swat",
+        "id": "84f035e1-6c89-457b-b05f-85680a50ed91"
+      },
+      {
+        "name": "Grand Abolisher",
+        "id": "b3d28118-eddb-4ee3-a425-eadb1a1649a8"
+      },
+      {
+        "name": "Lion's Eye Diamond",
+        "id": "63bacc32-d6ba-420c-9b49-299c08e5fb39"
+      },
+      {
+        "name": "Pyroblast",
+        "id": "c342cac5-08ae-4428-9c2c-f6c5904e54d2"
+      },
+      {
+        "name": "City of Traitors",
+        "id": "a7a8b6b8-b95f-4014-b17a-a6d44d965995"
+      },
+      {
+        "name": "Culling the Weak",
+        "id": "50c33f18-0a5c-4e46-ab0d-6e450915594f"
+      },
+      {
+        "name": "Praetor's Grasp",
+        "id": "9588be49-d9b5-4491-a5a0-10bcadc9f8b3"
+      },
+      {
+        "name": "Ad Nauseam",
+        "id": "0a4ce4a1-65e3-4b40-be35-8fc55a968ec8"
+      },
+      {
+        "name": "Impulsive Pilferer",
+        "id": "aea2e32d-d711-40ae-87d5-c16893bfc8ca"
+      },
+      {
+        "name": "Magda, Brazen Outlaw",
+        "id": "35f229b2-5246-4399-8468-eb030842a17b"
+      },
+      {
+        "name": "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
+        "id": "54dccbc0-528c-4e99-a6db-f2373978fe5f"
+      },
+      {
+        "name": "Cursed Mirror",
+        "id": "6768daa5-41b0-49e1-b71a-63f733b4dc3d"
+      },
+      {
+        "name": "Portable Hole",
+        "id": "8898d1fe-f4fe-4978-bcbc-f514ac2e73b9"
+      },
+      {
+        "name": "Dragon's Rage Channeler",
+        "id": "8afabd77-d7b3-4544-b3ea-4423a6706b2e"
+      },
+      {
+        "name": "Ragavan, Nimble Pilferer",
+        "id": "b3e685f9-cc0f-4dc6-98dc-4727944de445"
+      },
+      {
+        "name": "Esper Sentinel",
+        "id": "f3537373-ef54-4578-9d05-6216420ee349"
+      },
+      {
+        "name": "Imperial Recruiter",
+        "id": "05bd329b-5707-42fc-af1c-084cc604e805"
+      },
+      {
+        "name": "Gemstone Caverns",
+        "id": "ad361175-1127-40e5-8990-24e651fc2a4d"
+      },
+      {
+        "name": "Simian Spirit Guide",
+        "id": "5d7f701c-dcdc-4067-8d00-b4b7aadee9ba"
+      },
+      {
+        "name": "Stitcher's Supplier",
+        "id": "5f5efbc8-5d76-4391-99cf-c990536ccc71"
+      },
+      {
+        "name": "Tainted Pact",
+        "id": "9b8f466f-83ec-4d72-90de-0e30069f7ecd"
+      },
+      {
+        "name": "Altar of Dementia",
+        "id": "908c9cc7-608c-43de-a6ea-06bc69a43f2f"
+      },
+      {
+        "name": "Final Fortune",
+        "id": "fb80afc3-4887-42a0-afb2-7fa997981fb2"
+      },
+      {
+        "name": "Shambling Ghast",
+        "id": "918c77ce-cf06-4790-b493-bfa6a52ac7c9"
+      },
+      {
+        "name": "Ruthless Technomancer",
+        "id": "dddeb5cc-b535-4484-8a0e-ce32c4c09000"
+      },
+      {
+        "name": "Professional Face-Breaker",
+        "id": "7e7c8626-3c82-43f1-98a7-db165b30cf3b"
+      },
+      {
+        "name": "Prized Statue",
+        "id": "58a49829-c354-4823-8cc1-a159fc46c0d7"
+      },
+      {
+        "name": "Relic of Legends",
+        "id": "64a2809e-c441-416c-90ff-6fb1e246dff3"
+      },
+      {
+        "name": "Orcish Bowmasters",
+        "id": "de2de055-5246-408b-80fe-cd01688c145e"
+      },
+      {
+        "name": "Lotho, Corrupt Shirriff",
+        "id": "69d97af0-8af0-4124-b56f-2633d34e5574"
+      },
+      {
+        "name": "Beseech the Mirror",
+        "id": "18c59776-e1f1-4197-a128-db1d603f56b7"
+      },
+      {
+        "name": "Altar of the Wretched // Wretched Bonemass",
+        "id": "5842332a-b27b-49ac-948d-f88a21deb1de"
+      },
+      {
+        "name": "Greedy Freebooter",
+        "id": "692fe4e8-13b4-4bec-938e-a8073a7fbd71"
+      },
+      {
+        "name": "Elegant Parlor",
+        "id": "2eaf4ab9-730e-4bbc-849b-a4bd4ea026ac"
+      },
+      {
+        "name": "Raucous Theater",
+        "id": "b598c93e-dae1-4d71-a9e4-917abf76d2d0"
+      },
+      {
+        "name": "Molten Duplication",
+        "id": "fdbe1ac1-461f-4746-a8d8-6c8dea2c97c6"
+      },
+      {
+        "name": "Phelia, Exuberant Shepherd",
+        "id": "95505d46-fc4f-4e2d-8e08-380d392b74a4"
+      },
+      {
+        "name": "Static Prison",
+        "id": "dd16222e-349c-4a2b-a7c8-8eb35a8ab332"
+      },
+      {
+        "name": "The Jolly Balloon Man",
+        "id": "594df270-02d0-438b-a758-c32d71e8d4ff"
+      },
+      {
+        "name": "Voice of Victory",
+        "id": "73f24785-c7b3-46ab-833e-666af3d86c63"
+      },
+      {
+        "name": "Mardu Devotee",
+        "id": "da45e9b0-a4f6-413b-9e62-666c511eb5b0"
+      },
+      {
+        "name": "Deadpool, Trading Card",
+        "id": "3a14d6c5-cfd1-4860-834a-5a0dc9df0320"
+      },
+      {
+        "name": "Knuckles the Echidna",
+        "id": "54b65cca-7844-4d3e-9d7f-ed1f49f94425"
+      },
+      {
+        "name": "Hexing Squelcher",
+        "id": "674960ce-ff33-4d5e-a24a-a4582b2e9809"
+      }
     ]
   },
   "TetRqZpKZ0aWEVCZdb4zUw": {
+    "commanders": [
+      {
+        "name": "Ral, Monsoon Mage // Ral, Leyline Prodigy",
+        "id": "f5befad9-00b4-4589-a11c-951d2f5cb9cd"
+      }
+    ],
     "mainboard": [
-      "City of Traitors",
-      "Bonus Round",
-      "Runaway Steam-Kin",
-      "Pyretic Ritual",
-      "Rite of Flame",
-      "Brain Freeze",
-      "Ancient Tomb",
-      "Lotus Petal",
-      "Snap",
-      "Red Elemental Blast",
-      "Helm of Awakening",
-      "Fiery Islet",
-      "Deflecting Swat",
-      "Gitaxian Probe",
-      "Gut Shot",
-      "Mental Misstep",
-      "Rhystic Study",
-      "Windfall",
-      "Lion's Eye Diamond",
-      "Mystical Tutor",
-      "Mana Vault",
-      "Volcanic Island",
-      "Wheel of Fortune",
-      "Timetwister",
-      "Mox Diamond",
-      "Chain of Vapor",
-      "Polluted Delta",
-      "Reiterate",
-      "Springleaf Drum",
-      "Wooded Foothills",
-      "Great Furnace",
-      "Mox Amber",
-      "Hidden Strings",
-      "Chrome Mox",
-      "Seething Song",
-      "Lava Dart",
-      "Quiet Speculation",
-      "Valakut Awakening // Valakut Stoneforge",
-      "Sea Gate Restoration // Sea Gate, Reborn",
-      "Shatterskull Smashing // Shatterskull, the Hammer Pass",
-      "Jeska's Will",
-      "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
-      "Pact of Negation",
-      "Scalding Tarn",
-      "Tavern Scoundrel",
-      "Reckless Impulse",
-      "March of Reckless Joy",
-      "Rob the Archives",
-      "Twinferno",
-      "Wrenn's Resolve",
-      "Mountain",
-      "Storm-Kiln Artist",
-      "Training Center",
-      "Witch's Mark",
-      "Zoyowa's Justice",
-      "Thundering Falls",
-      "Command Tower",
-      "Flooded Strand",
-      "Highway Robbery",
-      "Flare of Duplication",
-      "Ragavan, Nimble Pilferer",
-      "Sink into Stupor // Soporific Springs",
-      "Sundering Eruption // Volcanic Fissure",
-      "Vexing Bauble",
-      "Pyroblast",
-      "Echo of Eons",
-      "Simian Spirit Guide",
-      "Inspired Tinkering",
-      "Will of the Jeskai",
-      "Opera Love Song",
-      "Storm of Memories",
-      "Intuition",
-      "Overmaster",
-      "Daze",
-      "Frantic Search",
-      "Mox Opal",
-      "Treasonous Ogre",
-      "Grapeshot",
-      "Recoup",
-      "Sol Ring",
-      "Past in Flames",
-      "Arid Mesa",
-      "Mystic Remora",
-      "Steam Vents",
-      "________ Goblin",
-      "Gamble",
-      "Gemstone Caverns",
-      "Wheel of Misfortune",
-      "Underworld Breach",
-      "Demand Answers",
-      "Bloodstained Mire",
-      "Flusterstorm",
-      "Ruby Medallion",
-      "Strike It Rich",
-      "Fierce Guardianship",
-      "Solve the Equation",
-      "An Offer You Can't Refuse",
-      "Desperate Ritual",
-      "Tibalt's Trickery"
+      {
+        "name": "City of Traitors",
+        "id": "a7a8b6b8-b95f-4014-b17a-a6d44d965995"
+      },
+      {
+        "name": "Bonus Round",
+        "id": "e21aa266-4264-4e02-9403-02930e641573"
+      },
+      {
+        "name": "Runaway Steam-Kin",
+        "id": "d8c9c111-fbc7-44e1-94bd-1ca164370623"
+      },
+      {
+        "name": "Pyretic Ritual",
+        "id": "1e577638-a7ed-4bcc-90fb-0cffe87d5a28"
+      },
+      {
+        "name": "Rite of Flame",
+        "id": "c062caf7-f0eb-44db-9f74-e6711a13fada"
+      },
+      {
+        "name": "Brain Freeze",
+        "id": "59a43ef5-08f0-44fc-802d-b6cfd56b7d1f"
+      },
+      {
+        "name": "Ancient Tomb",
+        "id": "30e401e3-282b-4524-87e1-c6cd50cd6d00"
+      },
+      {
+        "name": "Lotus Petal",
+        "id": "6c877da3-68fa-41d0-8a24-8c79fcd8ecc1"
+      },
+      {
+        "name": "Snap",
+        "id": "f7e0549e-2d23-4ea8-b8d1-ae21af2c9091"
+      },
+      {
+        "name": "Red Elemental Blast",
+        "id": "a54246c9-5e5c-484e-a546-ae1f9fd020f3"
+      },
+      {
+        "name": "Helm of Awakening",
+        "id": "41bba882-39b8-42db-9a01-54c6712b8019"
+      },
+      {
+        "name": "Fiery Islet",
+        "id": "a3aab13c-9d9d-4507-ae5d-da979990ae1b"
+      },
+      {
+        "name": "Deflecting Swat",
+        "id": "84f035e1-6c89-457b-b05f-85680a50ed91"
+      },
+      {
+        "name": "Gitaxian Probe",
+        "id": "995486ce-58bb-4753-a812-0ca73ef1a235"
+      },
+      {
+        "name": "Gut Shot",
+        "id": "a54a2a30-b96a-49c7-9151-1f4b0d4a4413"
+      },
+      {
+        "name": "Mental Misstep",
+        "id": "61e9c6df-1c84-4eab-9076-a4feb6347c10"
+      },
+      {
+        "name": "Rhystic Study",
+        "id": "3394cefd-a3c6-4917-8f46-234e441ecfb6"
+      },
+      {
+        "name": "Windfall",
+        "id": "2aef4608-5ba8-4636-b5e7-cac57c5c0608"
+      },
+      {
+        "name": "Lion's Eye Diamond",
+        "id": "63bacc32-d6ba-420c-9b49-299c08e5fb39"
+      },
+      {
+        "name": "Mystical Tutor",
+        "id": "5d98101f-e32a-4a4a-a649-faa920d111ee"
+      },
+      {
+        "name": "Mana Vault",
+        "id": "5cbc686e-a8ef-40de-b79a-803ef42f8384"
+      },
+      {
+        "name": "Volcanic Island",
+        "id": "b12e5430-0e80-47dd-80ac-85728b656a24"
+      },
+      {
+        "name": "Wheel of Fortune",
+        "id": "c14c07d4-6971-483a-add1-f3cdf18feae9"
+      },
+      {
+        "name": "Timetwister",
+        "id": "01bda3d7-122a-48a0-bab3-676c4a557b74"
+      },
+      {
+        "name": "Mox Diamond",
+        "id": "28028830-83ed-45e2-b495-3b9ad9d3e988"
+      },
+      {
+        "name": "Chain of Vapor",
+        "id": "30f6b4a2-5780-46e9-b239-459d2cf37743"
+      },
+      {
+        "name": "Polluted Delta",
+        "id": "0f7585c8-9e21-4eef-afc1-2852de23db2f"
+      },
+      {
+        "name": "Reiterate",
+        "id": "4bc2151b-acec-4237-8f6f-ed97055f3bb9"
+      },
+      {
+        "name": "Springleaf Drum",
+        "id": "5bc9d645-0220-4a65-bbc7-abc64ded548e"
+      },
+      {
+        "name": "Wooded Foothills",
+        "id": "a8503cca-7e7d-44c4-8587-81376b396398"
+      },
+      {
+        "name": "Great Furnace",
+        "id": "ce29187f-6c0b-4a38-a3f3-b152c1fa6613"
+      },
+      {
+        "name": "Mox Amber",
+        "id": "66024e69-ad60-4c9a-a0ca-da138d33ad80"
+      },
+      {
+        "name": "Hidden Strings",
+        "id": "216e8047-6f54-49ce-bf86-27dc8fc8c8f7"
+      },
+      {
+        "name": "Chrome Mox",
+        "id": "6a058e68-70af-4a64-859c-c881e5578368"
+      },
+      {
+        "name": "Seething Song",
+        "id": "9213d580-7953-455f-abbe-99d3db2705cf"
+      },
+      {
+        "name": "Lava Dart",
+        "id": "865bb1d3-5b7d-40e9-87cc-96be9524a105"
+      },
+      {
+        "name": "Quiet Speculation",
+        "id": "71a314fa-293b-486f-95d8-267d340e4d8e"
+      },
+      {
+        "name": "Valakut Awakening // Valakut Stoneforge",
+        "id": "228e551e-023a-4c9a-8f32-58dae6ffdf7f"
+      },
+      {
+        "name": "Sea Gate Restoration // Sea Gate, Reborn",
+        "id": "193071fe-180b-4d35-ba78-9c16675c29fc"
+      },
+      {
+        "name": "Shatterskull Smashing // Shatterskull, the Hammer Pass",
+        "id": "bc7239ea-f8aa-4a6f-87bd-c35359635673"
+      },
+      {
+        "name": "Jeska's Will",
+        "id": "e6b4d78f-af3e-4210-8886-231a40a6bd98"
+      },
+      {
+        "name": "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
+        "id": "54dccbc0-528c-4e99-a6db-f2373978fe5f"
+      },
+      {
+        "name": "Pact of Negation",
+        "id": "1ed4c0bb-b710-44a1-b8bc-6bd11c27b8b8"
+      },
+      {
+        "name": "Scalding Tarn",
+        "id": "71e491c5-8c07-449b-b2f1-ffa052e6d311"
+      },
+      {
+        "name": "Tavern Scoundrel",
+        "id": "55082c8a-d792-4cd8-94b1-d80c65804463"
+      },
+      {
+        "name": "Reckless Impulse",
+        "id": "6943c07f-ab0d-4f5a-bbe9-c0a83dc98546"
+      },
+      {
+        "name": "March of Reckless Joy",
+        "id": "780e1bf1-e392-40f2-9e84-764dedc5fcd4"
+      },
+      {
+        "name": "Rob the Archives",
+        "id": "a3ec95f6-88c8-4daf-882f-8b4bc73452c3"
+      },
+      {
+        "name": "Twinferno",
+        "id": "bc531409-26cb-4c58-ba69-f39dd8aee3d1"
+      },
+      {
+        "name": "Wrenn's Resolve",
+        "id": "9a47999c-12d5-4e1a-a9c1-40a1757007f1"
+      },
+      {
+        "name": "Mountain",
+        "id": "e3731001-4e6a-4a91-9e7d-fc2ea039a60b"
+      },
+      {
+        "name": "Storm-Kiln Artist",
+        "id": "52c896fe-c208-41ec-aad8-fe56c7858942"
+      },
+      {
+        "name": "Training Center",
+        "id": "12e601d1-cf31-4077-b3ad-e13dfce4dac3"
+      },
+      {
+        "name": "Witch's Mark",
+        "id": "0685afcb-06f6-4d18-b8c2-510764558dc1"
+      },
+      {
+        "name": "Zoyowa's Justice",
+        "id": "04839717-d2f9-481d-9d13-e4038dbcbb0e"
+      },
+      {
+        "name": "Thundering Falls",
+        "id": "17260fff-b239-4af4-9306-3236ae3fa5a5"
+      },
+      {
+        "name": "Command Tower",
+        "id": "96c3244e-930f-498c-959e-0f000151597d"
+      },
+      {
+        "name": "Flooded Strand",
+        "id": "8f85e12c-196b-4459-b81f-0c9c854e9f57"
+      },
+      {
+        "name": "Highway Robbery",
+        "id": "31a88429-9204-4a23-a7a8-babbd6bab79f"
+      },
+      {
+        "name": "Flare of Duplication",
+        "id": "348dd804-315c-479a-9605-3ab9ae60aac2"
+      },
+      {
+        "name": "Ragavan, Nimble Pilferer",
+        "id": "8d27e717-8bda-44dc-90b9-a6f7029c7b93"
+      },
+      {
+        "name": "Sink into Stupor // Soporific Springs",
+        "id": "5358b87a-1a29-426d-b165-40c97da2c14d"
+      },
+      {
+        "name": "Sundering Eruption // Volcanic Fissure",
+        "id": "50686ac7-346c-43d1-bdaa-28d46a12ad93"
+      },
+      {
+        "name": "Vexing Bauble",
+        "id": "29f11089-658f-42e6-aeb0-09b512ad2479"
+      },
+      {
+        "name": "Pyroblast",
+        "id": "2dea1e46-9786-429f-ad57-d608c006f508"
+      },
+      {
+        "name": "Echo of Eons",
+        "id": "eabe1af2-d26e-4086-a71d-f818fb41fa25"
+      },
+      {
+        "name": "Simian Spirit Guide",
+        "id": "9d367aa4-e85f-402e-b781-527808edcc0a"
+      },
+      {
+        "name": "Inspired Tinkering",
+        "id": "8e4cfc1f-5075-481e-9314-8a99fe6f0f07"
+      },
+      {
+        "name": "Will of the Jeskai",
+        "id": "3ef5e587-8b80-4ea9-9788-367541101ecc"
+      },
+      {
+        "name": "Opera Love Song",
+        "id": "0343916d-1b65-4e95-aef1-e72dbcebf0c4"
+      },
+      {
+        "name": "Storm of Memories",
+        "id": "253266de-0eeb-46c7-9912-145586661fc4"
+      },
+      {
+        "name": "Intuition",
+        "id": "3292ac2c-11cf-4fa1-aec5-5ce9a7ba2afb"
+      },
+      {
+        "name": "Overmaster",
+        "id": "afd2e0f0-8a8e-4021-bd24-aff1a3212345"
+      },
+      {
+        "name": "Daze",
+        "id": "d03bff25-0d5e-4dcf-8d75-6df846afea3b"
+      },
+      {
+        "name": "Frantic Search",
+        "id": "1904db14-6df7-424f-afa5-e3dfab31300a"
+      },
+      {
+        "name": "Mox Opal",
+        "id": "3722deaf-de7b-4e49-b93b-b790fb598337"
+      },
+      {
+        "name": "Treasonous Ogre",
+        "id": "823f356c-0ca9-4880-9f84-b22e2891948b"
+      },
+      {
+        "name": "Grapeshot",
+        "id": "4ee33cb6-768e-44a0-b6f4-b8638aa84330"
+      },
+      {
+        "name": "Recoup",
+        "id": "431145f8-64e9-4e7d-998a-21fe55f49e01"
+      },
+      {
+        "name": "Sol Ring",
+        "id": "e5ba8c01-b6f5-486d-b300-cbae2c2b5edf"
+      },
+      {
+        "name": "Past in Flames",
+        "id": "e655061a-8071-4b7b-b993-27f9ea360f7c"
+      },
+      {
+        "name": "Arid Mesa",
+        "id": "716c415e-5eb8-4644-ac64-5ba7c3f0ea65"
+      },
+      {
+        "name": "Mystic Remora",
+        "id": "bf76c6a4-d6e8-4d50-b65f-020252f7b659"
+      },
+      {
+        "name": "Steam Vents",
+        "id": "be874189-b715-4e7c-85d7-e887328b9d3f"
+      },
+      {
+        "name": "________ Goblin",
+        "id": "40f80bd8-7ce2-449d-b06c-d3e353b54daa"
+      },
+      {
+        "name": "Gamble",
+        "id": "4fa5f934-5407-4844-9cd5-9ba5fa7c4748"
+      },
+      {
+        "name": "Gemstone Caverns",
+        "id": "ad361175-1127-40e5-8990-24e651fc2a4d"
+      },
+      {
+        "name": "Wheel of Misfortune",
+        "id": "ff9d0f64-2bc2-42da-a2f3-f56235c2bf54"
+      },
+      {
+        "name": "Underworld Breach",
+        "id": "2f2374a2-21d6-4643-8602-684342d0dbfc"
+      },
+      {
+        "name": "Demand Answers",
+        "id": "2a35d1cb-5a61-49b7-a124-e8713655e4c3"
+      },
+      {
+        "name": "Bloodstained Mire",
+        "id": "579743fe-f71e-4cb2-8629-d6b02ed1591d"
+      },
+      {
+        "name": "Flusterstorm",
+        "id": "75a98ff2-6e78-4133-ad4e-c62c396ba1e0"
+      },
+      {
+        "name": "Ruby Medallion",
+        "id": "3935034b-611f-4ce7-9bba-14c3b31eb597"
+      },
+      {
+        "name": "Strike It Rich",
+        "id": "2099f819-d504-447a-a390-75267d8a7e55"
+      },
+      {
+        "name": "Fierce Guardianship",
+        "id": "180679fa-b820-4793-8f2e-a2d8791192d5"
+      },
+      {
+        "name": "Solve the Equation",
+        "id": "4c547c39-9ef8-4e8c-a6fd-6d9b6a8345a5"
+      },
+      {
+        "name": "An Offer You Can't Refuse",
+        "id": "6f6aaee9-8c44-4e23-8167-ead64e599711"
+      },
+      {
+        "name": "Desperate Ritual",
+        "id": "e7a32387-5faf-4f93-8cb2-d54bd7f1001b"
+      },
+      {
+        "name": "Tibalt's Trickery",
+        "id": "1cf99b8b-e1c3-48a7-ab52-38180afbb6fa"
+      }
     ]
   },
   "GHCGjcFpnEe8smALLiG2XA": {
+    "commanders": [
+      {
+        "name": "Rograkh, Son of Rohgahh",
+        "id": "bb16341a-f793-4b0e-b4ef-3fc56aae3807"
+      },
+      {
+        "name": "Thrasios, Triton Hero",
+        "id": "78b14ae1-fc8b-43df-b6a2-e9f8edc0b8dd"
+      }
+    ],
     "mainboard": [
-      "Eureka",
-      "Eternal Witness",
-      "Kiki-Jiki, Mirror Breaker",
-      "Minamo, School at Water's Edge",
-      "Spellseeker",
-      "Mind's Desire",
-      "Cloud of Faeries",
-      "Crop Rotation",
-      "Palinchron",
-      "Snap",
-      "Emergence Zone",
-      "Candelabra of Tawnos",
-      "Green Sun's Zenith",
-      "Oboro Breezecaller",
-      "Gaea's Cradle",
-      "Great Whale",
-      "Peregrine Drake",
-      "Worldly Tutor",
-      "Tinder Wall",
-      "Mana Vault",
-      "Tropical Island",
-      "Taiga",
-      "Volcanic Island",
-      "Nyxbloom Ancient",
-      "Kinnan, Bonder Prodigy",
-      "Mox Diamond",
-      "Flooded Strand",
-      "Windswept Heath",
-      "Wooded Foothills",
-      "Woodland Bellower",
-      "Genesis Storm",
-      "Expedition Map",
-      "Bloom Tender",
-      "Sylvan Scrying",
-      "Llanowar Elves",
-      "Zealous Conscripts",
-      "Creative Technique",
-      "Misty Rainforest",
-      "Scalding Tarn",
-      "Verdant Catacombs",
-      "Ancient Tomb",
-      "Boseiju, Who Endures",
-      "Otawara, Soaring City",
-      "Chrome Mox",
-      "Birds of Paradise",
-      "Sneak Attack",
-      "Phyrexian Metamorph",
-      "Mox Amber",
-      "Springleaf Drum",
-      "Eldritch Evolution",
-      "Etali, Primal Conqueror // Etali, Primal Sickness",
-      "Delighted Halfling",
-      "Last March of the Ents",
-      "Deserted Temple",
-      "Forest",
-      "Island",
-      "Tooth and Nail",
-      "Call Forth the Tempest",
-      "Flesh Duplicate",
-      "Exotic Orchard",
-      "Tishana, Voice of Thunder",
-      "Ghalta, Stampede Tyrant",
-      "Trumpeting Carnosaur",
-      "Stunt Double",
-      "Jeska's Will",
-      "Polluted Delta",
-      "Disciple of Freyalise // Garden of Freyalise",
-      "Apex Devastator",
-      "Sowing Mycospawn",
-      "Yavimaya, Cradle of Growth",
-      "Talon Gates of Madara",
-      "Arbor Elf",
-      "Command Tower",
-      "Kiora, Behemoth Beckoner",
-      "Show and Tell",
-      "Phantasmal Image",
-      "Enduring Vitality",
-      "Ashaya, Soul of the Wild",
-      "Tezzeret, Cruel Captain",
-      "Formidable Speaker",
-      "Hullbreaker Horror",
-      "Badgermole Cub",
-      "Vibrance",
-      "Rhythm of the Wild",
-      "Imperial Recruiter",
-      "Natural Order",
-      "Mystical Tutor",
-      "Breeding Pool",
-      "Fyndhorn Elves",
-      "City of Brass",
-      "Elvish Mystic",
-      "Maelstrom Wanderer",
-      "Deadeye Navigator",
-      "Starfield Vocalist",
-      "Gemstone Caverns",
-      "Mana Confluence",
-      "Steam Vents",
-      "Sol Ring"
+      {
+        "name": "Eureka",
+        "id": "520db5fb-d961-45a3-af74-6f054b8be3ab"
+      },
+      {
+        "name": "Eternal Witness",
+        "id": "c7e10ca7-1e5d-4224-82cf-798a4d436d72"
+      },
+      {
+        "name": "Kiki-Jiki, Mirror Breaker",
+        "id": "162018eb-5483-4fa2-9c5a-abb639eecf91"
+      },
+      {
+        "name": "Minamo, School at Water's Edge",
+        "id": "7536292c-da25-41c8-ba28-1e35758a7f3d"
+      },
+      {
+        "name": "Spellseeker",
+        "id": "74b4c336-5d4c-4bc5-b82a-35084a6ad808"
+      },
+      {
+        "name": "Mind's Desire",
+        "id": "3c7474e1-cfae-4867-a11a-d5cf9ff7ea5f"
+      },
+      {
+        "name": "Cloud of Faeries",
+        "id": "4e76d04a-0038-4b5b-a026-3056ee940da9"
+      },
+      {
+        "name": "Crop Rotation",
+        "id": "6563f790-862c-465a-b963-7a61f2385516"
+      },
+      {
+        "name": "Palinchron",
+        "id": "5621db3f-a9e7-4350-9c6a-0ba04a628947"
+      },
+      {
+        "name": "Snap",
+        "id": "f7e0549e-2d23-4ea8-b8d1-ae21af2c9091"
+      },
+      {
+        "name": "Emergence Zone",
+        "id": "ab95f6e7-b806-47fe-a071-6c38b3176d94"
+      },
+      {
+        "name": "Candelabra of Tawnos",
+        "id": "5e8416b8-aae1-4599-9e22-650dd86aefcb"
+      },
+      {
+        "name": "Green Sun's Zenith",
+        "id": "02335747-54e3-4827-ae19-4e362863da9b"
+      },
+      {
+        "name": "Oboro Breezecaller",
+        "id": "a382a9b8-0b19-46c2-a547-a22d6e23d0ac"
+      },
+      {
+        "name": "Gaea's Cradle",
+        "id": "25b0b816-0583-44aa-9dc5-f3ff48993a51"
+      },
+      {
+        "name": "Great Whale",
+        "id": "58a2acf1-dad8-4f93-a34e-891e5178a48f"
+      },
+      {
+        "name": "Peregrine Drake",
+        "id": "4951863f-1c16-4d09-ba9a-f57dc3d81a20"
+      },
+      {
+        "name": "Worldly Tutor",
+        "id": "f00115bc-b551-4bf5-a121-bebb37201575"
+      },
+      {
+        "name": "Tinder Wall",
+        "id": "2a7c6489-21e9-4b86-a54a-b1e2f1fce318"
+      },
+      {
+        "name": "Mana Vault",
+        "id": "5cbc686e-a8ef-40de-b79a-803ef42f8384"
+      },
+      {
+        "name": "Tropical Island",
+        "id": "a0f5c6bc-65dc-42a1-a62d-a0b101310a1f"
+      },
+      {
+        "name": "Taiga",
+        "id": "54c5c65a-a444-4e0f-ae44-a3722cdd32a1"
+      },
+      {
+        "name": "Volcanic Island",
+        "id": "b12e5430-0e80-47dd-80ac-85728b656a24"
+      },
+      {
+        "name": "Nyxbloom Ancient",
+        "id": "c8a8e37b-0b97-4355-8e00-169a82c38ea0"
+      },
+      {
+        "name": "Kinnan, Bonder Prodigy",
+        "id": "63cda4a0-0dff-4edb-ae67-a2b7e2971350"
+      },
+      {
+        "name": "Mox Diamond",
+        "id": "28028830-83ed-45e2-b495-3b9ad9d3e988"
+      },
+      {
+        "name": "Flooded Strand",
+        "id": "b4e3d844-d3b4-41d8-921d-c1cb3af343f8"
+      },
+      {
+        "name": "Windswept Heath",
+        "id": "7a7c5941-9c8a-4a40-9efb-a84f05c58e53"
+      },
+      {
+        "name": "Wooded Foothills",
+        "id": "cdad38f7-9dfa-4f1b-9fac-41ab2b253f53"
+      },
+      {
+        "name": "Woodland Bellower",
+        "id": "a706d4bb-0b44-4e43-b340-7de799c086b8"
+      },
+      {
+        "name": "Genesis Storm",
+        "id": "066578ed-ffaf-473d-87b8-e614035748b6"
+      },
+      {
+        "name": "Expedition Map",
+        "id": "c55bee97-593f-441f-b96c-a998d5212a55"
+      },
+      {
+        "name": "Bloom Tender",
+        "id": "d7cc2828-dfe7-410b-9735-10bb7211f0f5"
+      },
+      {
+        "name": "Sylvan Scrying",
+        "id": "b4ff07b6-be9f-498f-9f36-cbd64f1b10cc"
+      },
+      {
+        "name": "Llanowar Elves",
+        "id": "ed8a8cfd-baef-4198-b1f3-4926139588b2"
+      },
+      {
+        "name": "Zealous Conscripts",
+        "id": "2576152c-d8c1-4412-89db-6e21295c9b18"
+      },
+      {
+        "name": "Creative Technique",
+        "id": "441e8877-fa7e-45f3-bbb1-9581885e51fd"
+      },
+      {
+        "name": "Misty Rainforest",
+        "id": "c6cad746-a1dc-4739-9707-9c12c42e141a"
+      },
+      {
+        "name": "Scalding Tarn",
+        "id": "17c6ba55-2470-4dde-a7fa-137a60716c96"
+      },
+      {
+        "name": "Verdant Catacombs",
+        "id": "981b3a2e-de94-428d-8e5d-5a7ba6afe4a2"
+      },
+      {
+        "name": "Ancient Tomb",
+        "id": "2189b1cb-94c4-4477-a5ef-17a1ae2c6708"
+      },
+      {
+        "name": "Boseiju, Who Endures",
+        "id": "2488a80b-6882-4b59-8232-f02f800204a9"
+      },
+      {
+        "name": "Otawara, Soaring City",
+        "id": "486d7edc-d983-41f0-8b78-c99aecd72996"
+      },
+      {
+        "name": "Chrome Mox",
+        "id": "e0d88029-2569-461b-a57d-1af10673f4cf"
+      },
+      {
+        "name": "Birds of Paradise",
+        "id": "82ef6d6c-db50-4d24-8ebd-311613ddef06"
+      },
+      {
+        "name": "Sneak Attack",
+        "id": "b2418b3d-574a-40e7-9b6b-1bc4a8199105"
+      },
+      {
+        "name": "Phyrexian Metamorph",
+        "id": "e7501a66-76f8-4f1d-8b4c-2a82b5f930c4"
+      },
+      {
+        "name": "Mox Amber",
+        "id": "6ea9852b-78fa-4732-8801-4ce632270558"
+      },
+      {
+        "name": "Springleaf Drum",
+        "id": "b52af7e0-cd75-4e8e-82ed-65f8a3d0380a"
+      },
+      {
+        "name": "Eldritch Evolution",
+        "id": "f743b688-25e8-421e-97b5-d294dda34817"
+      },
+      {
+        "name": "Etali, Primal Conqueror // Etali, Primal Sickness",
+        "id": "95c14c4d-6c16-4826-8d93-d89ad04aee09"
+      },
+      {
+        "name": "Delighted Halfling",
+        "id": "80a04912-633d-4f67-b200-d55735438f76"
+      },
+      {
+        "name": "Last March of the Ents",
+        "id": "7f1b99e0-ffb7-4f98-8ee5-4357bb79dd2e"
+      },
+      {
+        "name": "Deserted Temple",
+        "id": "3b53d6c2-b078-4204-aae8-0891284ee877"
+      },
+      {
+        "name": "Forest",
+        "id": "3e574ee5-d33d-4054-9884-fdb5fe9d73bd"
+      },
+      {
+        "name": "Island",
+        "id": "75edde64-3589-424d-bfe1-714c4eaba019"
+      },
+      {
+        "name": "Tooth and Nail",
+        "id": "df359b98-9f8f-4f32-82c6-f10ca0f81032"
+      },
+      {
+        "name": "Call Forth the Tempest",
+        "id": "81d6b979-251a-4736-86f0-35a6c8b492c9"
+      },
+      {
+        "name": "Flesh Duplicate",
+        "id": "512e9bd2-77b9-4c1c-8d30-e6249dbd930e"
+      },
+      {
+        "name": "Exotic Orchard",
+        "id": "a54b6832-9990-4144-99ef-990a9ad4c081"
+      },
+      {
+        "name": "Tishana, Voice of Thunder",
+        "id": "e522b695-859e-4fba-bf8c-c415fbce13e3"
+      },
+      {
+        "name": "Ghalta, Stampede Tyrant",
+        "id": "b50fd7cb-b21c-46ee-bf2a-2c187088baf2"
+      },
+      {
+        "name": "Trumpeting Carnosaur",
+        "id": "a19d36df-0f57-430b-8321-a4eb0bdcf0fa"
+      },
+      {
+        "name": "Stunt Double",
+        "id": "7afaaea9-300a-46c8-b9ec-a2579f8a4b7f"
+      },
+      {
+        "name": "Jeska's Will",
+        "id": "99e0c371-1024-4432-9fd9-3bc29c8d38e4"
+      },
+      {
+        "name": "Polluted Delta",
+        "id": "e66d79c3-93fa-4232-959f-2bbc62954dfd"
+      },
+      {
+        "name": "Disciple of Freyalise // Garden of Freyalise",
+        "id": "a8e9ea5a-5e10-4b77-baef-0352ff035483"
+      },
+      {
+        "name": "Apex Devastator",
+        "id": "ca9783bc-0e1b-42da-b0f3-89dd0db83743"
+      },
+      {
+        "name": "Sowing Mycospawn",
+        "id": "cdfadb17-76ad-4d4d-9fa7-33c4b88b4c0a"
+      },
+      {
+        "name": "Yavimaya, Cradle of Growth",
+        "id": "8a12b4f7-8f6b-4a3c-9114-825e1b2099a0"
+      },
+      {
+        "name": "Talon Gates of Madara",
+        "id": "de92facf-762b-4a23-8d5e-bb673b0500c0"
+      },
+      {
+        "name": "Arbor Elf",
+        "id": "d81bce60-78f6-4f42-9fcd-383f66f85de5"
+      },
+      {
+        "name": "Command Tower",
+        "id": "ec750874-33fb-44d6-915e-ba0ece9bef74"
+      },
+      {
+        "name": "Kiora, Behemoth Beckoner",
+        "id": "0ffe59ce-b4f3-44ff-9972-44c0549cb9eb"
+      },
+      {
+        "name": "Show and Tell",
+        "id": "9858463e-0b80-44a2-80d5-e4250809e1f5"
+      },
+      {
+        "name": "Phantasmal Image",
+        "id": "9d4d925d-06b5-43b1-8d31-694a684b1db4"
+      },
+      {
+        "name": "Enduring Vitality",
+        "id": "9d76a30c-0431-4334-892a-9822dda9671a"
+      },
+      {
+        "name": "Ashaya, Soul of the Wild",
+        "id": "813057d4-ec5b-4ec4-a6ad-8f53cc49b827"
+      },
+      {
+        "name": "Tezzeret, Cruel Captain",
+        "id": "5cf53baa-b0c3-4190-a5c6-c141d54cff32"
+      },
+      {
+        "name": "Formidable Speaker",
+        "id": "265522eb-4f6a-40e7-b374-3833fa63c80b"
+      },
+      {
+        "name": "Hullbreaker Horror",
+        "id": "08fd6904-c497-40de-b3cf-a427e5bed264"
+      },
+      {
+        "name": "Badgermole Cub",
+        "id": "be16c053-99e1-4921-8530-5135c989149d"
+      },
+      {
+        "name": "Vibrance",
+        "id": "b9f71c3b-0840-475f-9c17-fdacbc7f3213"
+      },
+      {
+        "name": "Rhythm of the Wild",
+        "id": "e7843a8a-a8d8-4236-a05d-287fad0a74b1"
+      },
+      {
+        "name": "Imperial Recruiter",
+        "id": "cd9f5e37-693a-4cba-9758-b003777d5583"
+      },
+      {
+        "name": "Natural Order",
+        "id": "8ac43bf2-08e1-4b63-ac4f-ccc565ca2cee"
+      },
+      {
+        "name": "Mystical Tutor",
+        "id": "f0095386-6e4d-432f-a5ac-7407ffaf7938"
+      },
+      {
+        "name": "Breeding Pool",
+        "id": "830eb270-f7aa-4694-8fe1-7c19e148a39f"
+      },
+      {
+        "name": "Fyndhorn Elves",
+        "id": "ef7a1bd1-abcd-4e06-9b38-f9e79bad71fa"
+      },
+      {
+        "name": "City of Brass",
+        "id": "537af4fa-001c-4943-be6f-780d15b0584f"
+      },
+      {
+        "name": "Elvish Mystic",
+        "id": "acbe8763-1373-49f8-b4a6-dd5984b1d25f"
+      },
+      {
+        "name": "Maelstrom Wanderer",
+        "id": "e76c835f-2a60-46bb-9046-106ce8fba676"
+      },
+      {
+        "name": "Deadeye Navigator",
+        "id": "21ebcdf1-20a3-4e6b-aa16-672333e4f969"
+      },
+      {
+        "name": "Starfield Vocalist",
+        "id": "eb6f8c8c-1905-4c3c-aa03-d56bce983559"
+      },
+      {
+        "name": "Gemstone Caverns",
+        "id": "946f355a-f621-4571-8082-cebba73ebd1c"
+      },
+      {
+        "name": "Mana Confluence",
+        "id": "263aac65-b18b-45ed-80c1-12428dfc5a4c"
+      },
+      {
+        "name": "Steam Vents",
+        "id": "eb96c335-9ed3-4f7d-b07a-185ff4044976"
+      },
+      {
+        "name": "Sol Ring",
+        "id": "27ea0aa3-30c0-4eb4-b262-ce70781277ce"
+      }
     ]
   }
 }

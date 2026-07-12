@@ -570,7 +570,6 @@
 }
 
 .col-card {
-  position: relative;
   display: block;
   border: none;
   padding: 0;
@@ -579,18 +578,29 @@
   color: inherit;
   text-align: left;
 
-  img {
-    width: 100%;
+  .col-thumb {
+    position: relative;
+    display: block;
     aspect-ratio: 488 / 680;
-    object-fit: cover;
     border-radius: 10px;
-    border: 2px solid var(--accent);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.5);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    // Zoom past the toploader/plastic border so the card fills the tile.
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.1);
+      display: block;
+    }
   }
-  &:hover img {
+  &:hover .col-thumb {
     transform: translateY(-4px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.6);
+    border-color: var(--accent);
   }
 
   .col-name {
@@ -807,7 +817,7 @@
 .alter-thumb {
   flex: 0 0 auto;
   width: 96px;
-  border: 2px solid var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
   border-radius: 8px;
   overflow: hidden;
   background: var(--card);
@@ -823,6 +833,7 @@
     width: 100%;
     aspect-ratio: 488 / 680;
     object-fit: cover;
+    transform: scale(1.1);
     display: block;
   }
   .alter-cap {
