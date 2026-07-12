@@ -1,92 +1,260 @@
-.showcase {
+.portals {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1.5rem;
-  padding: 3rem 1rem 4rem;
+  padding: 2.5rem 0 4rem;
 }
 
-.showcase-item {
-  --accent: var(--accent);
+// --- Section portals --------------------------------------------------------
+// Each section is a full-width immersive banner: an atmospheric backdrop lit in
+// the game's accent colour, the wordmark as hero, and a signature flourish
+// drawn from that game's real data (rank emblem, skill roster, commander art).
+.portal {
+  --accent: #888;
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
-  width: 100%;
-  max-width: 520px;
-  padding: 2.25rem 1.5rem;
+  gap: 1.6rem;
+  min-height: 224px;
+  padding: 1.6rem 2rem;
   border-radius: 20px;
-  text-decoration: none;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  isolation: isolate;
+  background: #0d0d12;
   color: inherit;
-  // Subtle accent-tinted backdrop so every logo (incl. the metallic MTG one) reads.
-  background: radial-gradient(
-    120% 100% at 50% 30%,
-    color-mix(in srgb, var(--accent) 20%, transparent),
-    transparent 72%
-  );
-  transition: transform 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    background: radial-gradient(
-      120% 100% at 50% 30%,
-      color-mix(in srgb, var(--accent) 34%, transparent),
-      transparent 74%
-    );
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent) 70%, var(--border));
+    box-shadow:
+      0 24px 50px rgba(0, 0, 0, 0.55),
+      0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent),
+      0 0 60px -12px color-mix(in srgb, var(--accent) 55%, transparent);
 
-    .showcase-logo,
-    .showcase-emoji {
-      filter: drop-shadow(0 8px 24px color-mix(in srgb, var(--accent) 60%, transparent));
-    }
+    .p-bg { transform: translate(2%, 2%) scale(1.1); }
+    .p-logo img { transform: scale(1.04); }
+    .p-enter { gap: 0.55rem; color: color-mix(in srgb, var(--accent) 55%, var(--text)); }
+  }
+
+  &:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent) 80%, white);
+    outline-offset: 3px;
+  }
+
+  // Top-down vignette so text and flourishes stay legible over the glow.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(13, 13, 18, 0.12), rgba(13, 13, 18, 0.55));
   }
 }
 
-.showcase-logo {
-  width: clamp(220px, 60vw, 360px);
-  height: auto;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
-  transition: filter 0.2s ease;
+// Atmospheric accent backdrop — two soft radial glows over a near-black base.
+.p-bg {
+  position: absolute;
+  inset: -30%;
+  z-index: -2;
+  background:
+    radial-gradient(38% 55% at 22% 30%, color-mix(in srgb, var(--accent) 58%, transparent), transparent 70%),
+    radial-gradient(46% 62% at 82% 76%, color-mix(in srgb, var(--accent) 36%, transparent), transparent 72%),
+    #0d0d12;
+  transition: transform 0.5s ease;
+  animation: portal-drift 24s ease-in-out infinite alternate;
 }
 
-.showcase-emoji {
-  font-size: 3.5rem;
-  line-height: 1;
-  transition: filter 0.2s ease;
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes portal-drift {
+    from { transform: translate(-2%, -1%) scale(1.03); }
+    to { transform: translate(2%, 2%) scale(1.09); }
+  }
 }
 
-.showcase-name {
-  font-size: 1.6rem;
-  font-weight: 700;
+// MTG: real commander-art crops, blurred, sitting behind the accent wash.
+.p-art {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  display: flex;
+
+  > div {
+    flex: 1;
+    background-size: cover;
+    background-position: center 25%;
+    filter: blur(4px) brightness(0.5) saturate(1.1);
+  }
+
+  + .p-bg { opacity: 0.55; }
 }
 
-.showcase-tagline {
-  color: var(--muted);
-  font-size: 0.95rem;
+.p-logo {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: clamp(150px, 22vw, 240px);
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 118px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.55));
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+
+  .p-emoji { font-size: 3.2rem; line-height: 1; }
+  .p-name { font-size: 1.5rem; font-weight: 700; text-align: center; }
 }
 
-.showcase-stat {
-  margin-top: 0.15rem;
-  padding: 0.2rem 0.7rem;
+.p-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.p-tagline {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.p-stat {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.8rem;
   border-radius: 999px;
-  font-size: 0.85rem;
   font-weight: 700;
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 15%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--accent) 28%, var(--text));
+  background: color-mix(in srgb, var(--accent) 16%, rgba(0, 0, 0, 0.35));
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: 0 0 22px -8px color-mix(in srgb, var(--accent) 70%, transparent);
   font-variant-numeric: tabular-nums;
+}
+
+// OSRS — the skill roster, evoking the in-game skills panel.
+.p-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.28rem;
+  margin-top: 0.25rem;
+  max-width: 440px;
+
+  img {
+    width: 22px;
+    height: 22px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+  }
+}
+
+// MTG — one chip per deck: commander art + colour identity.
+.p-decks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+
+  .d {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.22rem 0.6rem 0.22rem 0.26rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.42);
+    border: 1px solid var(--border);
+  }
+
+  .thumb {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+  }
+
+  .pips { display: inline-flex; gap: 0.18rem; }
+}
+
+.pip {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4) inset;
+}
+.pip-W { background: #f8f4e3; }
+.pip-U { background: #3b82c4; }
+.pip-B { background: #5b5766; }
+.pip-R { background: #d9482f; }
+.pip-G { background: #3fa257; }
+.pip-C { background: #b8b8c0; }
+
+// LoL — the current rank emblem.
+.p-rank {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+
+  img {
+    width: 46px;
+    height: 46px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  }
+  .p-sub { color: var(--muted); font-size: 0.9rem; }
+}
+
+.p-enter {
+  position: absolute;
+  right: 1.6rem;
+  bottom: 1.3rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--accent) 35%, var(--text));
+  transition: gap 0.2s ease, color 0.2s ease;
 }
 
 // Tasteful staggered entrance.
 @media (prefers-reduced-motion: no-preference) {
-  .showcase-item {
+  .portal {
     animation: home-rise 0.6s ease both;
   }
-  .showcase-item:nth-child(1) { animation-delay: 0.06s; }
-  .showcase-item:nth-child(2) { animation-delay: 0.16s; }
-  .showcase-item:nth-child(3) { animation-delay: 0.26s; }
+  .portal:nth-child(1) { animation-delay: 0.06s; }
+  .portal:nth-child(2) { animation-delay: 0.16s; }
+  .portal:nth-child(3) { animation-delay: 0.26s; }
 }
 
+// Opacity-only so the filled animation never clobbers the :hover transform.
 @keyframes home-rise {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: none; }
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .portal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.4rem 1.4rem 3rem;
+  }
+  .p-logo { width: auto; max-width: 200px; align-items: flex-start; }
+  .p-skills { max-width: none; }
 }

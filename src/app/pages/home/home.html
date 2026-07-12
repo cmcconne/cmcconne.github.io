@@ -1,20 +1,73 @@
-<nav class="showcase" aria-label="Sections">
+<nav class="portals" aria-label="Sections">
   @for (section of sections(); track section.slug) {
     <a
-      class="showcase-item"
+      class="portal"
       [routerLink]="['/', section.slug]"
       [style.--accent]="section.accent"
+      [attr.aria-label]="'Open ' + section.name"
     >
-      @if (section.logoImage) {
-        <img class="showcase-logo" [src]="section.logoImage" [alt]="section.name" />
-      } @else {
-        <span class="showcase-emoji" aria-hidden="true">{{ section.icon }}</span>
-        <span class="showcase-name">{{ section.name }}</span>
+      @if (section.slug === 'magic-the-gathering' && mtgArts().length) {
+        <div class="p-art" aria-hidden="true">
+          @for (art of mtgArts(); track $index) {
+            <div [style.background-image]="'url(' + art + ')'"></div>
+          }
+        </div>
       }
-      <span class="showcase-tagline">{{ section.tagline }}</span>
-      @if (stat(section.slug); as s) {
-        <span class="showcase-stat">{{ s }}</span>
-      }
+      <div class="p-bg" aria-hidden="true"></div>
+
+      <div class="p-logo">
+        @if (section.logoImage) {
+          <img [src]="section.logoImage" [alt]="section.name" />
+        } @else {
+          <span class="p-emoji" aria-hidden="true">{{ section.icon }}</span>
+          <span class="p-name">{{ section.name }}</span>
+        }
+      </div>
+
+      <div class="p-body">
+        <span class="p-tagline">{{ section.tagline }}</span>
+        @if (stat(section.slug); as s) {
+          <span class="p-stat">{{ s }}</span>
+        }
+
+        @if (section.slug === 'league-of-legends' && lolRank(); as r) {
+          <div class="p-rank">
+            @if (r.emblem) {
+              <img [src]="r.emblem" [alt]="r.label" />
+            }
+            @if (r.sub) {
+              <span class="p-sub">{{ r.sub }}</span>
+            }
+          </div>
+        }
+
+        @if (section.slug === 'runescape' && osrsSkills().length) {
+          <div class="p-skills" aria-hidden="true">
+            @for (sk of osrsSkills(); track sk) {
+              <img [src]="skillIcon(sk)" [alt]="sk" loading="lazy" />
+            }
+          </div>
+        }
+
+        @if (section.slug === 'magic-the-gathering' && mtgDecks().length) {
+          <div class="p-decks">
+            @for (deck of mtgDecks(); track deck.name) {
+              <span class="d">
+                @if (deck.art) {
+                  <img class="thumb" [src]="deck.art" [alt]="deck.name" loading="lazy" />
+                }
+                <span class="pips">
+                  @for (c of deck.colors; track c) {
+                    <span class="pip" [class]="'pip-' + c"></span>
+                  }
+                </span>
+              </span>
+            }
+          </div>
+        }
+      </div>
+
+      <span class="p-enter" aria-hidden="true">Enter →</span>
     </a>
   }
 </nav>
