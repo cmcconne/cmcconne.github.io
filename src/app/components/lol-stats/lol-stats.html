@@ -15,6 +15,9 @@
           <span class="live-text">
             Live now — in a {{ liveQueue(lg) }} game{{ lg.champion ? ' as ' + lg.champion : '' }}
           </span>
+          @if (spectateUrl(); as url) {
+            <a class="live-spectate" [href]="url" target="_blank" rel="noopener">Spectate ↗</a>
+          }
         </div>
       }
 

@@ -284,10 +284,11 @@ try {
     /* not in a game */
   }
 
-  // Recent matches (match-v5 uses regional routing, same as account-v1).
+  // Recent matches — Ranked Solo/Duo only (queue 420). match-v5 uses regional
+  // routing, same as account-v1.
   const matchIds = await riot(
     `https://${REGION}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids` +
-      `?start=0&count=${MATCH_COUNT}`,
+      `?queue=420&start=0&count=${MATCH_COUNT}`,
   );
 
   const matches = [];

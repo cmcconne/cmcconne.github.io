@@ -1,10 +1,19 @@
 # League live-game proxy (Cloudflare Worker)
 
-Real-time "Live now" tracker for the League section. The browser polls this
-Worker every 30 s; the Worker holds the Riot key and calls Riot's spectator API.
+Real-time data for the League section. The browser polls this Worker; it holds
+the Riot key and calls Riot's APIs. Two endpoints:
+
+- `GET /` — current live game (polled every 30 s). `{ live, checkedAt }`
+- `GET /matches` — recent **Ranked Solo/Duo** games + summary (polled every
+  2 min, Worker-cached 3 min). Same shape as `lol-stats.json`, so the page
+  overlays it on the 6-hourly snapshot to keep recent games fresh.
 
 Browsers can't call Riot directly — Riot sends no CORS headers and the key must
 stay secret — so this small proxy is required for genuine real-time data.
+
+> After editing `live-game.js`, redeploy with `npx wrangler deploy` (from a
+> shell that has Node on PATH). The site tolerates the old Worker until then —
+> `/matches` just returns no data and it falls back to the snapshot.
 
 ## One-time deploy
 

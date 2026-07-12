@@ -227,6 +227,7 @@ export class LolStatsComponent {
         next: (data) => {
           this.stats.set(data);
           this.statsLoaded.set(true);
+          this.mergeLiveMatches(); // re-apply proxy matches if they arrived first
         },
         error: () => this.statsLoaded.set(true),
       });
@@ -257,6 +258,59 @@ export class LolStatsComponent {
         clearInterval(id);
       });
     });
+
+    // Fresh Ranked Solo/Duo matches from the proxy's /matches endpoint, so the
+    // recent-games list isn't limited to the 6-hourly snapshot. Refreshes every
+    // 2 min; the Worker caches for 3 min so it's cheap. Falls back silently to
+    // the static feed on any error.
+    effect((onCleanup) => {
+      const api = this.liveApi();
+      if (!api) return;
+      const base = api.replace(/\/+$/, '');
+      let stopped = false;
+      const poll = () => {
+        this.http
+          .get<{ matches?: Match[]; summary?: LolStats['summary']; updatedAt?: string }>(
+            `${base}/matches?t=${Date.now()}`,
+          )
+          .subscribe({
+            next: (r) => {
+              if (stopped || !r?.matches?.length) return;
+              this.liveMatchData = { matches: r.matches, summary: r.summary ?? null, updatedAt: r.updatedAt };
+              this.mergeLiveMatches();
+            },
+            error: () => {},
+          });
+      };
+      poll();
+      const id = setInterval(poll, 120000);
+      onCleanup(() => {
+        stopped = true;
+        clearInterval(id);
+      });
+    });
+  }
+
+  /** Latest proxy-fetched matches, applied on top of the static feed. */
+  private liveMatchData: { matches: Match[]; summary: LolStats['summary']; updatedAt?: string } | null =
+    null;
+
+  /** Overlay the proxy's fresher matches onto the loaded feed, if both exist. */
+  private mergeLiveMatches(): void {
+    const d = this.liveMatchData;
+    if (!d) return;
+    this.stats.update((s) =>
+      s ? { ...s, matches: d.matches, summary: d.summary, updatedAt: d.updatedAt ?? s.updatedAt } : s,
+    );
+  }
+
+  /** op.gg live-game page for the spectate button (region NA). */
+  protected spectateUrl(): string | null {
+    const rid = this.stats()?.riotId;
+    if (!rid) return null;
+    const [name, tag] = rid.split('#');
+    if (!name || !tag) return null;
+    return `https://www.op.gg/summoners/na/${encodeURIComponent(name)}-${encodeURIComponent(tag)}/ingame`;
   }
 
   protected queueName(entry: RankedEntry): string {
