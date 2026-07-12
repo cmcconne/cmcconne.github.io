@@ -2,25 +2,6 @@
   <article class="detail" [style.--accent]="s.accent">
     <a class="back" routerLink="/">← Back to home</a>
 
-    <header class="head" [class.head-logo]="s.logoImage">
-      @if (s.logoImage) {
-        <h1 class="wordmark">
-          <img [src]="s.logoImage" [alt]="s.name" />
-        </h1>
-        <p class="tagline">{{ s.tagline }}</p>
-      } @else {
-        <span class="icon" aria-hidden="true">{{ s.icon }}</span>
-        <div>
-          <h1>{{ s.name }}</h1>
-          <p class="tagline">{{ s.tagline }}</p>
-        </div>
-      }
-    </header>
-
-    @if (s.intro) {
-      <p class="intro">{{ s.intro }}</p>
-    }
-
     @if (s.profiles?.length) {
       <div class="profiles">
         @for (profile of s.profiles; track profile.url) {
