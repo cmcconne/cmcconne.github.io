@@ -121,8 +121,11 @@ export class MtgDecksComponent {
     return this.data()?.decks.find((d) => d.name === name) ?? null;
   });
 
-  /** Open deck's cards grouped by type (search-filtered, curve-sorted). */
-  protected readonly groupedCards = computed<{ type: string; cards: DeckCard[] }[]>(
+  /** Decklist grouping mode. */
+  protected readonly sortMode = signal<'type' | 'cmc'>('type');
+
+  /** Open deck's cards grouped for display (by type, or by mana value). */
+  protected readonly deckView = computed<{ label: string; cards: DeckCard[] }[]>(
     () => {
       const deck = this.activeDeck();
       if (!deck?.cards) return [];
@@ -130,12 +133,36 @@ export class MtgDecksComponent {
       const cards = q
         ? deck.cards.filter((c) => c.name.toLowerCase().includes(q))
         : deck.cards;
-      return TYPE_ORDER.map((type) => ({
-        type,
-        cards: cards
-          .filter((c) => c.type === type)
-          .sort((a, b) => a.cmc - b.cmc || a.name.localeCompare(b.name)),
-      })).filter((g) => g.cards.length);
+      const byName = (a: DeckCard, b: DeckCard) => a.name.localeCompare(b.name);
+
+      if (this.sortMode() === 'type') {
+        return TYPE_ORDER.map((type) => ({
+          label: type,
+          cards: cards
+            .filter((c) => c.type === type)
+            .sort((a, b) => a.cmc - b.cmc || byName(a, b)),
+        })).filter((g) => g.cards.length);
+      }
+
+      // Mana-value mode: commanders, then spells bucketed by MV, then lands.
+      const groups: { label: string; cards: DeckCard[] }[] = [];
+      const commanders = cards.filter((c) => c.type === 'Commander');
+      if (commanders.length) groups.push({ label: 'Commander', cards: commanders });
+      const buckets = new Map<number, DeckCard[]>();
+      for (const c of cards) {
+        if (c.type === 'Commander' || c.type === 'Land') continue;
+        const b = Math.min(7, Math.floor(c.cmc));
+        (buckets.get(b) ?? buckets.set(b, []).get(b)!).push(c);
+      }
+      for (const b of [...buckets.keys()].sort((a, z) => a - z)) {
+        groups.push({
+          label: (b >= 7 ? '7+' : b) + ' MV',
+          cards: buckets.get(b)!.sort(byName),
+        });
+      }
+      const lands = cards.filter((c) => c.type === 'Land');
+      if (lands.length) groups.push({ label: 'Lands', cards: lands.sort(byName) });
+      return groups;
     },
   );
 
@@ -316,6 +343,10 @@ export class MtgDecksComponent {
 
   protected onDeckSearch(v: string): void {
     this.deckSearch.set(v);
+  }
+
+  protected setSortMode(m: 'type' | 'cmc'): void {
+    this.sortMode.set(m);
   }
 
   protected setHover(c: DeckCard | null): void {

@@ -238,10 +238,24 @@
 }
 
 // Decklist column
-.dd-search {
-  width: 100%;
-  padding: 0.45rem 0.7rem;
+.dd-list-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
   margin-bottom: 0.8rem;
+}
+
+.dd-sort {
+  display: flex;
+  gap: 0.3rem;
+  margin-left: auto;
+}
+
+.dd-search {
+  flex: 1;
+  min-width: 140px;
+  padding: 0.45rem 0.7rem;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--card, transparent);

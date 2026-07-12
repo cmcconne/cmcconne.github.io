@@ -84,16 +84,22 @@
 
         <div class="dd-body">
           <div class="dd-list">
-            <input
-              class="dd-search"
-              type="search"
-              placeholder="Search cards…"
-              [value]="deckSearch()"
-              (input)="onDeckSearch($any($event.target).value)"
-            />
-            @for (g of groupedCards(); track g.type) {
+            <div class="dd-list-controls">
+              <input
+                class="dd-search"
+                type="search"
+                placeholder="Search cards…"
+                [value]="deckSearch()"
+                (input)="onDeckSearch($any($event.target).value)"
+              />
+              <div class="dd-sort" role="group" aria-label="Sort decklist">
+                <button class="chip" [class.active]="sortMode() === 'type'" (click)="setSortMode('type')">Type</button>
+                <button class="chip" [class.active]="sortMode() === 'cmc'" (click)="setSortMode('cmc')">Mana value</button>
+              </div>
+            </div>
+            @for (g of deckView(); track g.label) {
               <div class="dd-group">
-                <h3 class="dd-group-head">{{ g.type }} <span>{{ g.cards.length }}</span></h3>
+                <h3 class="dd-group-head">{{ g.label }} <span>{{ g.cards.length }}</span></h3>
                 <ul>
                   @for (c of g.cards; track c.name) {
                     <li
