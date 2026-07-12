@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T02:24:01.684Z",
+  "updatedAt": "2026-07-12T03:05:11.357Z",
   "decks": [
     {
       "name": "Tymna ❤️ Dargo",
@@ -25,7 +25,7 @@
           "name": "Hexing Squelcher",
           "set": "Lorwyn Eclipsed",
           "date": "2026-01-23",
-          "rank": 810,
+          "rank": 805,
           "art": "https://cards.scryfall.io/art_crop/front/6/7/674960ce-ff33-4d5e-a24a-a4582b2e9809.jpg?1782684015",
           "uri": "https://scryfall.com/card/ecl/145/hexing-squelcher?utm_source=api"
         },
@@ -33,7 +33,7 @@
           "name": "Knuckles the Echidna",
           "set": "Secret Lair Drop",
           "date": "2025-07-14",
-          "rank": 2146,
+          "rank": 2144,
           "art": "https://cards.scryfall.io/art_crop/front/5/4/54b65cca-7844-4d3e-9d7f-ed1f49f94425.jpg?1782725309",
           "uri": "https://scryfall.com/card/sld/2082/knuckles-the-echidna?utm_source=api"
         }
@@ -51,7 +51,7 @@
           "name": "Portable Hole",
           "set": "Adventures in the Forgotten Realms",
           "date": "2021-07-23",
-          "rank": 9970,
+          "rank": 9971,
           "art": "https://cards.scryfall.io/art_crop/front/8/0/80fca8c0-ae3e-439e-b202-228b9f360e9a.jpg?1782704423",
           "uri": "https://scryfall.com/card/afr/33/portable-hole?utm_source=api"
         },
@@ -59,7 +59,7 @@
           "name": "Altar of the Wretched // Wretched Bonemass",
           "set": "The Lost Caverns of Ixalan Commander",
           "date": "2023-11-17",
-          "rank": 7458,
+          "rank": 7463,
           "art": "https://cards.scryfall.io/art_crop/front/e/2/e2c812bb-19f8-4a22-bda9-f2a6233cf700.jpg?1782694872",
           "uri": "https://scryfall.com/card/lcc/10/altar-of-the-wretched-wretched-bonemass?utm_source=api"
         },
@@ -67,7 +67,7 @@
           "name": "Static Prison",
           "set": "Modern Horizons 3",
           "date": "2024-06-14",
-          "rank": 6974,
+          "rank": 6978,
           "art": "https://cards.scryfall.io/art_crop/front/d/d/dd16222e-349c-4a2b-a7c8-8eb35a8ab332.jpg?1782691371",
           "uri": "https://scryfall.com/card/mh3/44/static-prison?utm_source=api"
         }
@@ -85,7 +85,13 @@
           "image": "https://cards.scryfall.io/normal/front/b/c/bc7cbe9b-324e-42b8-94e2-36e91cb32163.jpg?1782711440",
           "rank": 4148,
           "uri": "https://scryfall.com/card/c16/48/tymna-the-weaver?utm_source=api",
-          "price": null
+          "price": null,
+          "alter": {
+            "image": "/images/mtg-alters/2333.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Dargo, the Shipwrecker",
@@ -98,7 +104,13 @@
           "image": "https://cards.scryfall.io/normal/front/5/c/5cd87cf8-4d5d-4aba-8dfa-800b1fb3799b.jpg?1782705988",
           "rank": 7979,
           "uri": "https://scryfall.com/card/cmr/172/dargo-the-shipwrecker?utm_source=api",
-          "price": 0.2
+          "price": 0.2,
+          "alter": {
+            "image": "/images/mtg-alters/2332.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Underworld Breach",
@@ -111,7 +123,7 @@
           "image": "https://cards.scryfall.io/normal/front/0/e/0e51d796-7279-4c06-87f0-37adbdaa41df.jpg?1782707556",
           "rank": 387,
           "uri": "https://scryfall.com/card/thb/161/underworld-breach?utm_source=api",
-          "price": 11.1
+          "price": 10.48
         },
         {
           "name": "Dark Ritual",
@@ -124,7 +136,7 @@
           "image": "https://cards.scryfall.io/normal/front/1/1/11e12a84-e7be-4afc-a230-c2e644743fa8.jpg?1782681991",
           "rank": 34,
           "uri": "https://scryfall.com/card/msc/793/dark-ritual?utm_source=api",
-          "price": 11.92
+          "price": 12.35
         },
         {
           "name": "Goblin Bombardment",
@@ -137,7 +149,7 @@
           "image": "https://cards.scryfall.io/normal/front/e/2/e262f55e-9239-4a97-a19e-9b08fb34502e.jpg?1782704570",
           "rank": 459,
           "uri": "https://scryfall.com/card/mh2/279/goblin-bombardment?utm_source=api",
-          "price": 2.38
+          "price": 2.31
         },
         {
           "name": "Lotus Petal",
@@ -161,7 +173,13 @@
           "image": "https://cards.scryfall.io/normal/front/a/a/aac00055-640e-4749-8d23-d242e6d0b23a.jpg?1782706942",
           "rank": 1258,
           "uri": "https://scryfall.com/card/m21/117/peer-into-the-abyss?utm_source=api",
-          "price": 2.73
+          "price": 2.58,
+          "alter": {
+            "image": "/images/mtg-alters/2367.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Exotic Orchard",
@@ -172,7 +190,13 @@
           "image": "https://cards.scryfall.io/normal/front/8/8/8853ff94-bf44-4cfd-9d3a-0743c361fb0d.jpg?1782682474",
           "rank": 9,
           "uri": "https://scryfall.com/card/msc/241/exotic-orchard?utm_source=api",
-          "price": 0.24
+          "price": 0.25,
+          "alter": {
+            "image": "/images/mtg-alters/2348.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Cabal Ritual",
@@ -196,7 +220,13 @@
           "image": "https://cards.scryfall.io/normal/front/5/7/579743fe-f71e-4cb2-8629-d6b02ed1591d.jpg?1782691202",
           "rank": 43,
           "uri": "https://scryfall.com/card/mh3/216/bloodstained-mire?utm_source=api",
-          "price": 17.35
+          "price": 16.96,
+          "alter": {
+            "image": "/images/mtg-alters/2336.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Diabolic Intent",
@@ -209,7 +239,7 @@
           "image": "https://cards.scryfall.io/normal/front/d/7/d72ab698-de67-4ca8-8e42-b05346bf52fa.jpg?1782699799",
           "rank": 267,
           "uri": "https://scryfall.com/card/bro/89/diabolic-intent?utm_source=api",
-          "price": 17.87
+          "price": 17.75
         },
         {
           "name": "Luxury Suite",
@@ -220,7 +250,7 @@
           "image": "https://cards.scryfall.io/normal/front/3/c/3c409d1e-f634-44a2-8fcf-dcdcb0babc3f.jpg?1782682467",
           "rank": 162,
           "uri": "https://scryfall.com/card/msc/252/luxury-suite?utm_source=api",
-          "price": 11.27
+          "price": 11.66
         },
         {
           "name": "Imperial Seal",
@@ -233,7 +263,13 @@
           "image": "https://cards.scryfall.io/normal/front/e/7/e71a6bd3-7478-4c3a-8ae0-98352ce28492.jpg?1782737914",
           "rank": 511,
           "uri": "https://scryfall.com/card/2x2/79/imperial-seal?utm_source=api",
-          "price": 163.77
+          "price": 163.94,
+          "alter": {
+            "image": "/images/mtg-alters/2347.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Gamble",
@@ -246,7 +282,13 @@
           "image": "https://cards.scryfall.io/normal/front/8/e/8e37fae5-ddd0-4e16-8581-71579f89d9c5.jpg?1782735238",
           "rank": 236,
           "uri": "https://scryfall.com/card/dmr/121/gamble?utm_source=api",
-          "price": 17.1
+          "price": 17.03,
+          "alter": {
+            "image": "/images/mtg-alters/2366.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Blood Crypt",
@@ -257,7 +299,13 @@
           "image": "https://cards.scryfall.io/normal/front/6/d/6da63cc5-4624-4491-abd9-9b600c3fefe2.jpg?1782683915",
           "rank": 69,
           "uri": "https://scryfall.com/card/ecl/262/blood-crypt?utm_source=api",
-          "price": 8.83
+          "price": 8.95,
+          "alter": {
+            "image": "/images/mtg-alters/2341.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Sevinne's Reclamation",
@@ -268,9 +316,9 @@
             "W"
           ],
           "image": "https://cards.scryfall.io/normal/front/8/d/8deab1ef-4219-4767-a3c4-b61250d0ebe0.jpg?1782683256",
-          "rank": 338,
+          "rank": 339,
           "uri": "https://scryfall.com/card/soc/170/sevinnes-reclamation?utm_source=api",
-          "price": 0.32
+          "price": 0.37
         },
         {
           "name": "Arid Mesa",
@@ -281,7 +329,7 @@
           "image": "https://cards.scryfall.io/normal/front/2/5/25ac5405-df7b-4097-914a-022cb18e20d4.jpg?1782704587",
           "rank": 56,
           "uri": "https://scryfall.com/card/mh2/244/arid-mesa?utm_source=api",
-          "price": 29.61
+          "price": 30.11
         },
         {
           "name": "Marsh Flats",
@@ -292,7 +340,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/d/9db3ba6d-eb7f-4f5b-9a3b-c6239c3baa42.jpg?1782704585",
           "rank": 51,
           "uri": "https://scryfall.com/card/mh2/248/marsh-flats?utm_source=api",
-          "price": 31.12
+          "price": 31.98
         },
         {
           "name": "Mana Confluence",
@@ -303,7 +351,13 @@
           "image": "https://cards.scryfall.io/normal/front/5/0/504a69eb-3c2d-4bb1-b117-252b15acf0c2.jpg?1782713352",
           "rank": 119,
           "uri": "https://scryfall.com/card/jou/163/mana-confluence?utm_source=api",
-          "price": 34.12
+          "price": 32.96,
+          "alter": {
+            "image": "/images/mtg-alters/2342.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Windswept Heath",
@@ -314,7 +368,7 @@
           "image": "https://cards.scryfall.io/normal/front/b/d/bd1d13f7-fd38-4f0b-a8e0-1eac78668117.jpg?1782691186",
           "rank": 45,
           "uri": "https://scryfall.com/card/mh3/235/windswept-heath?utm_source=api",
-          "price": 10.13
+          "price": 10.63
         },
         {
           "name": "Silence",
@@ -327,7 +381,7 @@
           "image": "https://cards.scryfall.io/normal/front/1/c/1c2b13b1-31f0-4676-88a7-53f3a190e9a2.jpg?1782713971",
           "rank": 410,
           "uri": "https://scryfall.com/card/m14/35/silence?utm_source=api",
-          "price": 10.59
+          "price": 10.5
         },
         {
           "name": "Rite of Flame",
@@ -338,9 +392,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/c/0/c062caf7-f0eb-44db-9f74-e6711a13fada.jpg?1782717036",
-          "rank": 664,
+          "rank": 663,
           "uri": "https://scryfall.com/card/csp/96/rite-of-flame?utm_source=api",
-          "price": 5.98
+          "price": 6.03
         },
         {
           "name": "Mayhem Devil",
@@ -354,7 +408,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/7/674f3a8a-4552-4289-b92a-06ce158f115c.jpg?1782685634",
           "rank": 584,
           "uri": "https://scryfall.com/card/eoc/121/mayhem-devil?utm_source=api",
-          "price": 0.29
+          "price": 0.3
         },
         {
           "name": "Ranger-Captain of Eos",
@@ -378,7 +432,7 @@
           "image": "https://cards.scryfall.io/normal/front/1/6/169356e0-46dc-4096-8e66-36726454f104.jpg?1782708418",
           "rank": 624,
           "uri": "https://scryfall.com/card/mh1/218/altar-of-dementia?utm_source=api",
-          "price": 16.89
+          "price": 16.85
         },
         {
           "name": "Praetor's Grasp",
@@ -402,9 +456,9 @@
             "B"
           ],
           "image": "https://cards.scryfall.io/normal/front/a/9/a9f2c53e-ff58-4aa8-89a6-4f45628cc571.jpg?1782744002",
-          "rank": 1303,
+          "rank": 1304,
           "uri": "https://scryfall.com/card/2xm/76/ad-nauseam?utm_source=api",
-          "price": 13.22
+          "price": 13.24
         },
         {
           "name": "Magda, Brazen Outlaw",
@@ -417,7 +471,7 @@
           "image": "https://cards.scryfall.io/normal/front/0/7/079e6263-e54c-4899-a336-5315909b9322.jpg?1782705465",
           "rank": 1350,
           "uri": "https://scryfall.com/card/khm/142/magda-brazen-outlaw?utm_source=api",
-          "price": 2.4
+          "price": 2.02
         },
         {
           "name": "Portable Hole",
@@ -428,9 +482,9 @@
             "W"
           ],
           "image": "https://cards.scryfall.io/normal/front/8/0/80fca8c0-ae3e-439e-b202-228b9f360e9a.jpg?1782704423",
-          "rank": 9970,
+          "rank": 9971,
           "uri": "https://scryfall.com/card/afr/33/portable-hole?utm_source=api",
-          "price": 0.33
+          "price": 0.34
         },
         {
           "name": "Ragavan, Nimble Pilferer",
@@ -443,7 +497,7 @@
           "image": "https://cards.scryfall.io/normal/front/a/9/a9738cda-adb1-47fb-9f4c-ecd930228c4d.jpg?1782704654",
           "rank": 270,
           "uri": "https://scryfall.com/card/mh2/138/ragavan-nimble-pilferer?utm_source=api",
-          "price": 43.84
+          "price": 43.61
         },
         {
           "name": "Gemstone Caverns",
@@ -454,7 +508,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/f/7f273641-c5f3-48bc-b89e-3cff52d26a0b.jpg?1782741752",
           "rank": 178,
           "uri": "https://scryfall.com/card/tsr/280/gemstone-caverns?utm_source=api",
-          "price": 53.37
+          "price": 53.63
         },
         {
           "name": "Simian Spirit Guide",
@@ -467,7 +521,7 @@
           "image": "https://cards.scryfall.io/normal/front/0/e/0e57335d-4066-4d73-83cd-67a215e01a4e.jpg?1782741815",
           "rank": 435,
           "uri": "https://scryfall.com/card/tsr/190/simian-spirit-guide?utm_source=api",
-          "price": 3.26
+          "price": 2.75
         },
         {
           "name": "Tainted Pact",
@@ -480,7 +534,7 @@
           "image": "https://cards.scryfall.io/normal/front/c/5/c513f51b-a0db-4c08-8acc-1e91060b93b7.jpg?1782719393",
           "rank": 812,
           "uri": "https://scryfall.com/card/ody/164/tainted-pact?utm_source=api",
-          "price": 38.9
+          "price": 38.81
         },
         {
           "name": "Ruthless Technomancer",
@@ -493,7 +547,13 @@
           "image": "https://cards.scryfall.io/normal/front/d/d/dddeb5cc-b535-4484-8a0e-ce32c4c09000.jpg?1782702421",
           "rank": 2058,
           "uri": "https://scryfall.com/card/nec/35/ruthless-technomancer?utm_source=api",
-          "price": 3.87
+          "price": 3.87,
+          "alter": {
+            "image": "/images/mtg-alters/2337.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Professional Face-Breaker",
@@ -506,7 +566,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1782701593",
           "rank": 214,
           "uri": "https://scryfall.com/card/snc/116/professional-face-breaker?utm_source=api",
-          "price": 6.86
+          "price": 6.43
         },
         {
           "name": "Relic of Legends",
@@ -515,9 +575,15 @@
           "mana": "{3}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/8/9/89691cda-e38b-4f53-bee6-4c234186e6ad.jpg?1782682494",
-          "rank": 558,
+          "rank": 557,
           "uri": "https://scryfall.com/card/msc/209/relic-of-legends?utm_source=api",
-          "price": 1.24
+          "price": 1.16,
+          "alter": {
+            "image": "/images/mtg-alters/2351.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Orcish Bowmasters",
@@ -530,7 +596,13 @@
           "image": "https://cards.scryfall.io/normal/front/7/c/7c024bae-5631-4e20-ac69-df392ac9e109.jpg?1782697185",
           "rank": 255,
           "uri": "https://scryfall.com/card/ltr/103/orcish-bowmasters?utm_source=api",
-          "price": 44.92
+          "price": 44.78,
+          "alter": {
+            "image": "/images/mtg-alters/2354.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Lotho, Corrupt Shirriff",
@@ -544,7 +616,13 @@
           "image": "https://cards.scryfall.io/normal/front/c/e/ce01ff8f-a037-484f-9148-c847ffaabc5a.jpg?1782697113",
           "rank": 409,
           "uri": "https://scryfall.com/card/ltr/213/lotho-corrupt-shirriff?utm_source=api",
-          "price": 12.2
+          "price": 11.91,
+          "alter": {
+            "image": "/images/mtg-alters/2361.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Altar of the Wretched // Wretched Bonemass",
@@ -555,7 +633,7 @@
             "B"
           ],
           "image": "https://cards.scryfall.io/normal/front/e/2/e2c812bb-19f8-4a22-bda9-f2a6233cf700.jpg?1782694872",
-          "rank": 7458,
+          "rank": 7463,
           "uri": "https://scryfall.com/card/lcc/10/altar-of-the-wretched-wretched-bonemass?utm_source=api",
           "price": 1.22
         },
@@ -566,9 +644,9 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/2/72c6d541-e2cb-4d6e-acac-90a8f53b7006.jpg?1782693779",
-          "rank": 778,
+          "rank": 777,
           "uri": "https://scryfall.com/card/mkm/260/elegant-parlor?utm_source=api",
-          "price": 7.92
+          "price": 8.14
         },
         {
           "name": "Molten Duplication",
@@ -581,7 +659,7 @@
           "image": "https://cards.scryfall.io/normal/front/f/d/fdbe1ac1-461f-4746-a8d8-6c8dea2c97c6.jpg?1782692528",
           "rank": 1691,
           "uri": "https://scryfall.com/card/big/14/molten-duplication?utm_source=api",
-          "price": 15.51
+          "price": 15.37
         },
         {
           "name": "Voice of Victory",
@@ -594,7 +672,7 @@
           "image": "https://cards.scryfall.io/normal/front/e/c/ec3de5f4-bb55-4ab9-995f-f3e0dc22c1bb.jpg?1782687291",
           "rank": 574,
           "uri": "https://scryfall.com/card/tdm/33/voice-of-victory?utm_source=api",
-          "price": 19.1
+          "price": 19.21
         },
         {
           "name": "Arcane Signet",
@@ -605,7 +683,13 @@
           "image": "https://cards.scryfall.io/normal/front/1/c/1cad1bd2-7c56-4ce0-99a6-b2a49c1288dd.jpg?1782682506",
           "rank": 3,
           "uri": "https://scryfall.com/card/msc/191/arcane-signet?utm_source=api",
-          "price": 0.69
+          "price": 0.64,
+          "alter": {
+            "image": "/images/mtg-alters/2340.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Command Tower",
@@ -616,7 +700,13 @@
           "image": "https://cards.scryfall.io/normal/front/0/5/0548fb60-c843-4f8f-a029-6f10efc63a41.jpg?1782682479",
           "rank": 2,
           "uri": "https://scryfall.com/card/msc/233/command-tower?utm_source=api",
-          "price": 0.34
+          "price": 0.32,
+          "alter": {
+            "image": "/images/mtg-alters/2369.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Wishclaw Talisman",
@@ -629,7 +719,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/9/69d0f5bd-ccea-49b2-bd79-ad5e4d850cf5.jpg?1782688729",
           "rank": 512,
           "uri": "https://scryfall.com/card/fdn/617/wishclaw-talisman?utm_source=api",
-          "price": 1.84
+          "price": 1.74
         },
         {
           "name": "Animate Dead",
@@ -642,7 +732,13 @@
           "image": "https://cards.scryfall.io/normal/front/c/c/cc0c2bab-4392-4e7b-9d14-2901f4ffbae8.jpg?1782683229",
           "rank": 224,
           "uri": "https://scryfall.com/card/soc/207/animate-dead?utm_source=api",
-          "price": 5.15
+          "price": 5.35,
+          "alter": {
+            "image": "/images/mtg-alters/2363.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Demonic Tutor",
@@ -655,7 +751,13 @@
           "image": "https://cards.scryfall.io/normal/front/a/2/a24b4cb6-cebb-428b-8654-74347a6a8d63.jpg?1782733205",
           "rank": 60,
           "uri": "https://scryfall.com/card/cmm/150/demonic-tutor?utm_source=api",
-          "price": 76.77
+          "price": 76.77,
+          "alter": {
+            "image": "/images/mtg-alters/2355.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Sol Ring",
@@ -666,7 +768,13 @@
           "image": "https://cards.scryfall.io/normal/front/9/1/91fdb56b-54d5-4272-8319-505ff987fe9b.jpg?1782682494",
           "rank": 1,
           "uri": "https://scryfall.com/card/msc/211/sol-ring?utm_source=api",
-          "price": 1.84
+          "price": 1.74,
+          "alter": {
+            "image": "/images/mtg-alters/2364.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Mana Vault",
@@ -675,9 +783,15 @@
           "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/c/1/c1a31d52-a407-4ded-bfca-cc812f11afa0.jpg?1782737761",
-          "rank": 146,
+          "rank": 145,
           "uri": "https://scryfall.com/card/2x2/308/mana-vault?utm_source=api",
-          "price": 112.13
+          "price": 112.85,
+          "alter": {
+            "image": "/images/mtg-alters/2359.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Red Elemental Blast",
@@ -690,7 +804,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/0/70a45e9b-699e-425a-9f3d-267274830d3e.jpg?1782747923",
           "rank": 431,
           "uri": "https://scryfall.com/card/a25/147/red-elemental-blast?utm_source=api",
-          "price": 11.4
+          "price": 11.36
         },
         {
           "name": "Burnt Offering",
@@ -701,9 +815,9 @@
             "B"
           ],
           "image": "https://cards.scryfall.io/normal/front/1/d/1dae52a2-3af7-4b97-9d2e-2448b7c413fb.jpg?1782721713",
-          "rank": 3133,
+          "rank": 3140,
           "uri": "https://scryfall.com/card/ice/116/burnt-offering?utm_source=api",
-          "price": 1.6
+          "price": 1.53
         },
         {
           "name": "Entomb",
@@ -716,7 +830,7 @@
           "image": "https://cards.scryfall.io/normal/front/3/c/3caa9c55-5e3b-436b-84a9-b7ccebf63799.jpg?1782735264",
           "rank": 327,
           "uri": "https://scryfall.com/card/dmr/82/entomb?utm_source=api",
-          "price": 18.02
+          "price": 18.55
         },
         {
           "name": "Flooded Strand",
@@ -727,7 +841,13 @@
           "image": "https://cards.scryfall.io/normal/front/8/f/8f85e12c-196b-4459-b81f-0c9c854e9f57.jpg?1782691197",
           "rank": 39,
           "uri": "https://scryfall.com/card/mh3/220/flooded-strand?utm_source=api",
-          "price": 15.03
+          "price": 14.68,
+          "alter": {
+            "image": "/images/mtg-alters/2349.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Godless Shrine",
@@ -738,7 +858,7 @@
           "image": "https://cards.scryfall.io/normal/front/8/c/8c542ea4-98c3-4c2d-9066-205ab7aa697a.jpg?1782685408",
           "rank": 61,
           "uri": "https://scryfall.com/card/eoe/254/godless-shrine?utm_source=api",
-          "price": 8.86
+          "price": 9.4
         },
         {
           "name": "Sacred Foundry",
@@ -749,7 +869,13 @@
           "image": "https://cards.scryfall.io/normal/front/8/b/8b4e2642-3c87-4708-b9b4-2e7f7359ac7d.jpg?1782685406",
           "rank": 75,
           "uri": "https://scryfall.com/card/eoe/256/sacred-foundry?utm_source=api",
-          "price": 9.91
+          "price": 9.73,
+          "alter": {
+            "image": "/images/mtg-alters/2338.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Chrome Mox",
@@ -760,7 +886,13 @@
           "image": "https://cards.scryfall.io/normal/front/f/3/f340cbf7-5bbe-45b9-a4bf-d1caa500ff93.jpg?1782743879",
           "rank": 144,
           "uri": "https://scryfall.com/card/2xm/240/chrome-mox?utm_source=api",
-          "price": 171.12
+          "price": 171.72,
+          "alter": {
+            "image": "/images/mtg-alters/2345.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Enlightened Tutor",
@@ -773,7 +905,13 @@
           "image": "https://cards.scryfall.io/normal/front/1/c/1c9675fb-1a89-420f-aea8-50e0642f549c.jpg?1782735319",
           "rank": 123,
           "uri": "https://scryfall.com/card/dmr/6/enlightened-tutor?utm_source=api",
-          "price": 39.75
+          "price": 39.42,
+          "alter": {
+            "image": "/images/mtg-alters/2343.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Vampiric Tutor",
@@ -786,7 +924,7 @@
           "image": "https://cards.scryfall.io/normal/front/3/4/34a0203f-9cce-43a4-9cb7-8ce6647895cd.jpg?1782735247",
           "rank": 110,
           "uri": "https://scryfall.com/card/dmr/108/vampiric-tutor?utm_source=api",
-          "price": 60.01
+          "price": 60.17
         },
         {
           "name": "Ancient Tomb",
@@ -795,9 +933,15 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/d/bd3d4b4b-cf31-4f89-8140-9650edb03c7b.jpg?1782746952",
-          "rank": 65,
+          "rank": 66,
           "uri": "https://scryfall.com/card/uma/236/ancient-tomb?utm_source=api",
-          "price": 135.31
+          "price": 134.43,
+          "alter": {
+            "image": "/images/mtg-alters/2365.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Badlands",
@@ -808,7 +952,13 @@
           "image": "https://cards.scryfall.io/normal/front/7/3/73403d04-fe97-4830-8b80-16dd1a1a6cc1.jpg?1782751353",
           "rank": 386,
           "uri": "https://scryfall.com/card/vma/291/badlands?utm_source=api",
-          "price": null
+          "price": null,
+          "alter": {
+            "image": "/images/mtg-alters/2353.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Plateau",
@@ -819,7 +969,13 @@
           "image": "https://cards.scryfall.io/normal/front/b/b/bb979a96-a57d-4fb5-8ebe-0bd398272abe.jpg?1782751346",
           "rank": 449,
           "uri": "https://scryfall.com/card/vma/308/plateau?utm_source=api",
-          "price": null
+          "price": null,
+          "alter": {
+            "image": "/images/mtg-alters/2373.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Scrubland",
@@ -830,7 +986,13 @@
           "image": "https://cards.scryfall.io/normal/front/9/d/9d471e36-a3ab-4a96-ba4b-8eca921ea37a.jpg?1782751345",
           "rank": 388,
           "uri": "https://scryfall.com/card/vma/313/scrubland?utm_source=api",
-          "price": null
+          "price": null,
+          "alter": {
+            "image": "/images/mtg-alters/2368.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Sacrifice",
@@ -841,9 +1003,15 @@
             "B"
           ],
           "image": "https://cards.scryfall.io/normal/front/6/5/652bd781-1a48-42c1-9aff-f9050a9285d6.jpg?1782722183",
-          "rank": 2885,
+          "rank": 2883,
           "uri": "https://scryfall.com/card/sum/126/sacrifice?utm_source=api",
-          "price": null
+          "price": null,
+          "alter": {
+            "image": "/images/mtg-alters/2339.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Wheel of Fortune",
@@ -856,7 +1024,13 @@
           "image": "https://cards.scryfall.io/normal/front/2/5/2597050f-6b1b-474e-aa16-33fd154628ca.jpg?1782751395",
           "rank": 562,
           "uri": "https://scryfall.com/card/vma/192/wheel-of-fortune?utm_source=api",
-          "price": null
+          "price": null,
+          "alter": {
+            "image": "/images/mtg-alters/2357.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "City of Brass",
@@ -867,7 +1041,7 @@
           "image": "https://cards.scryfall.io/normal/front/c/2/c21565d0-fc40-4d89-9b27-87c03385e0af.jpg?1782723682",
           "rank": 98,
           "uri": "https://scryfall.com/card/tmc/62/city-of-brass?utm_source=api",
-          "price": 11.03
+          "price": 11.48
         },
         {
           "name": "Hope of Ghirapur",
@@ -878,7 +1052,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/f/6f4bcadd-7eff-4294-94d5-52482a734d5b.jpg?1782711236",
           "rank": 3217,
           "uri": "https://scryfall.com/card/aer/154/hope-of-ghirapur?utm_source=api",
-          "price": 2.66
+          "price": 3.24
         },
         {
           "name": "Scalding Tarn",
@@ -889,7 +1063,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/1/71e491c5-8c07-449b-b2f1-ffa052e6d311.jpg?1782704583",
           "rank": 49,
           "uri": "https://scryfall.com/card/mh2/254/scalding-tarn?utm_source=api",
-          "price": 38.56
+          "price": 38.83
         },
         {
           "name": "Verdant Catacombs",
@@ -900,7 +1074,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/4/94c229ea-90da-4aa0-bfda-b162fb3b5b8b.jpg?1782704579",
           "rank": 48,
           "uri": "https://scryfall.com/card/mh2/260/verdant-catacombs?utm_source=api",
-          "price": 28.51
+          "price": 28.43
         },
         {
           "name": "Polluted Delta",
@@ -911,7 +1085,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/e/6e288374-2b71-4ace-b1d2-a19fee6cb4af.jpg?1782691195",
           "rank": 36,
           "uri": "https://scryfall.com/card/mh3/224/polluted-delta?utm_source=api",
-          "price": 19.37
+          "price": 18.78
         },
         {
           "name": "Wooded Foothills",
@@ -922,7 +1096,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/e/4e11ea8a-f895-438d-a3b7-f070238e4161.jpg?1782691183",
           "rank": 47,
           "uri": "https://scryfall.com/card/mh3/236/wooded-foothills?utm_source=api",
-          "price": 17.02
+          "price": 17.79
         },
         {
           "name": "Mox Diamond",
@@ -931,9 +1105,15 @@
           "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/f/bf9fecfd-d122-422f-bd0a-5bf69b434dfe.jpg?1782750660",
-          "rank": 246,
+          "rank": 247,
           "uri": "https://scryfall.com/card/tpr/228/mox-diamond?utm_source=api",
-          "price": null
+          "price": null,
+          "alter": {
+            "image": "/images/mtg-alters/2352.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Mox Opal",
@@ -944,7 +1124,7 @@
           "image": "https://cards.scryfall.io/normal/front/5/6/56001a36-126b-4c08-af98-a6cc4d84210e.jpg?1782743853",
           "rank": 239,
           "uri": "https://scryfall.com/card/2xm/275/mox-opal?utm_source=api",
-          "price": 244.71
+          "price": 243.65
         },
         {
           "name": "Bolas's Citadel",
@@ -957,7 +1137,7 @@
           "image": "https://cards.scryfall.io/normal/front/d/2/d2124603-d20e-40eb-97f0-a66323397ac2.jpg?1782708710",
           "rank": 262,
           "uri": "https://scryfall.com/card/war/79/bolass-citadel?utm_source=api",
-          "price": 17.54
+          "price": 16.99
         },
         {
           "name": "Goblin Engineer",
@@ -968,9 +1148,15 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/a/5/a55c4d47-5252-40af-961d-c08bc688028a.jpg?1782708479",
-          "rank": 1170,
+          "rank": 1171,
           "uri": "https://scryfall.com/card/mh1/128/goblin-engineer?utm_source=api",
-          "price": 10.32
+          "price": 10.22,
+          "alter": {
+            "image": "/images/mtg-alters/2356.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Deflecting Swat",
@@ -983,7 +1169,7 @@
           "image": "https://cards.scryfall.io/normal/front/b/4/b4b36435-55b3-4615-8812-af41d4fc64d9.jpg?1782733160",
           "rank": 78,
           "uri": "https://scryfall.com/card/cmm/214/deflecting-swat?utm_source=api",
-          "price": 65.21
+          "price": 65.59
         },
         {
           "name": "Grand Abolisher",
@@ -996,7 +1182,7 @@
           "image": "https://cards.scryfall.io/normal/front/e/e/ee793ed2-7d59-4640-8868-ad486600df2c.jpg?1782692535",
           "rank": 250,
           "uri": "https://scryfall.com/card/big/2/grand-abolisher?utm_source=api",
-          "price": 17.29
+          "price": 17.3
         },
         {
           "name": "Lion's Eye Diamond",
@@ -1007,7 +1193,13 @@
           "image": "https://cards.scryfall.io/normal/front/7/5/758f95f8-bcb0-43ae-b474-56ebd855951e.jpg?1782751362",
           "rank": 724,
           "uri": "https://scryfall.com/card/vma/271/lions-eye-diamond?utm_source=api",
-          "price": null
+          "price": null,
+          "alter": {
+            "image": "/images/mtg-alters/2371.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Pyroblast",
@@ -1020,7 +1212,13 @@
           "image": "https://cards.scryfall.io/normal/front/b/0/b029eb9a-dd7a-40c2-96c4-0063d9cc002c.jpg?1782749863",
           "rank": 460,
           "uri": "https://scryfall.com/card/ema/142/pyroblast?utm_source=api",
-          "price": 12.56
+          "price": 12.94,
+          "alter": {
+            "image": "/images/mtg-alters/2344.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "City of Traitors",
@@ -1029,9 +1227,15 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/1/71624139-a255-48be-93ca-594a4beba487.jpg?1782750656",
-          "rank": 1219,
+          "rank": 1218,
           "uri": "https://scryfall.com/card/tpr/237/city-of-traitors?utm_source=api",
-          "price": null
+          "price": null,
+          "alter": {
+            "image": "/images/mtg-alters/2330.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Culling the Weak",
@@ -1044,7 +1248,7 @@
           "image": "https://cards.scryfall.io/normal/front/5/0/50c33f18-0a5c-4e46-ab0d-6e450915594f.jpg?1782720795",
           "rank": 554,
           "uri": "https://scryfall.com/card/exo/55/culling-the-weak?utm_source=api",
-          "price": 7.56
+          "price": 7.55
         },
         {
           "name": "Final Fortune",
@@ -1070,7 +1274,13 @@
           "image": "https://cards.scryfall.io/normal/front/0/f/0f020359-5ad1-43c4-8588-172be635cccc.jpg?1782692308",
           "rank": 1729,
           "uri": "https://scryfall.com/card/otc/171/impulsive-pilferer?utm_source=api",
-          "price": 0.4
+          "price": 0.4,
+          "alter": {
+            "image": "/images/mtg-alters/2358.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
@@ -1083,7 +1293,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/4/44657ab1-0a6a-4a5f-9688-86f239083821.jpg?1782705476",
           "rank": 488,
           "uri": "https://scryfall.com/card/khm/123/birgi-god-of-storytelling-harnfel-horn-of-bounty?utm_source=api",
-          "price": 33.75
+          "price": 33.57
         },
         {
           "name": "Cursed Mirror",
@@ -1096,7 +1306,13 @@
           "image": "https://cards.scryfall.io/normal/front/0/7/077392b3-6b06-46c8-8737-51e85f690448.jpg?1782683203",
           "rank": 445,
           "uri": "https://scryfall.com/card/soc/242/cursed-mirror?utm_source=api",
-          "price": 0.44
+          "price": 0.44,
+          "alter": {
+            "image": "/images/mtg-alters/2362.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Dragon's Rage Channeler",
@@ -1109,7 +1325,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/c/4ced112a-e775-4f97-97b3-74877e9dce12.jpg?1782704665",
           "rank": 1787,
           "uri": "https://scryfall.com/card/mh2/121/dragons-rage-channeler?utm_source=api",
-          "price": 1.87
+          "price": 1.8
         },
         {
           "name": "Esper Sentinel",
@@ -1122,7 +1338,13 @@
           "image": "https://cards.scryfall.io/normal/front/f/3/f3537373-ef54-4578-9d05-6216420ee349.jpg?1782704736",
           "rank": 76,
           "uri": "https://scryfall.com/card/mh2/12/esper-sentinel?utm_source=api",
-          "price": 58.07
+          "price": 58.15,
+          "alter": {
+            "image": "/images/mtg-alters/2334.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Stitcher's Supplier",
@@ -1133,9 +1355,9 @@
             "B"
           ],
           "image": "https://cards.scryfall.io/normal/front/2/e/2edcde06-b326-476e-884d-770187c785fe.jpg?1782686785",
-          "rank": 631,
+          "rank": 630,
           "uri": "https://scryfall.com/card/tdc/196/stitchers-supplier?utm_source=api",
-          "price": 0.26
+          "price": 0.24
         },
         {
           "name": "Imperial Recruiter",
@@ -1146,9 +1368,15 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/0/5/05bd329b-5707-42fc-af1c-084cc604e805.jpg?1782704570",
-          "rank": 637,
+          "rank": 638,
           "uri": "https://scryfall.com/card/mh2/281/imperial-recruiter?utm_source=api",
-          "price": 13.6
+          "price": 13.83,
+          "alter": {
+            "image": "/images/mtg-alters/2370.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Shambling Ghast",
@@ -1159,9 +1387,9 @@
             "B"
           ],
           "image": "https://cards.scryfall.io/normal/front/d/9/d96198a7-dd19-4940-bf8f-23135011fc84.jpg?1782704370",
-          "rank": 3258,
+          "rank": 3259,
           "uri": "https://scryfall.com/card/afr/119/shambling-ghast?utm_source=api",
-          "price": 0.35
+          "price": 0.37
         },
         {
           "name": "Prized Statue",
@@ -1170,9 +1398,15 @@
           "mana": "{2}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/8/58a49829-c354-4823-8cc1-a159fc46c0d7.jpg?1782701141",
-          "rank": 2333,
+          "rank": 2330,
           "uri": "https://scryfall.com/card/clb/334/prized-statue?utm_source=api",
-          "price": 0.38
+          "price": 0.35,
+          "alter": {
+            "image": "/images/mtg-alters/2360.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Beseech the Mirror",
@@ -1185,7 +1419,7 @@
           "image": "https://cards.scryfall.io/normal/front/1/8/18c59776-e1f1-4197-a128-db1d603f56b7.jpg?1782696597",
           "rank": 895,
           "uri": "https://scryfall.com/card/woe/82/beseech-the-mirror?utm_source=api",
-          "price": 17.52
+          "price": 17.97
         },
         {
           "name": "Greedy Freebooter",
@@ -1198,7 +1432,13 @@
           "image": "https://cards.scryfall.io/normal/front/6/9/692fe4e8-13b4-4bec-938e-a8073a7fbd71.jpg?1782694524",
           "rank": 2348,
           "uri": "https://scryfall.com/card/lci/109/greedy-freebooter?utm_source=api",
-          "price": 0.32
+          "price": 0.32,
+          "alter": {
+            "image": "/images/mtg-alters/2372.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Raucous Theater",
@@ -1207,9 +1447,9 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/5/b598c93e-dae1-4d71-a9e4-917abf76d2d0.jpg?1782693775",
-          "rank": 566,
+          "rank": 567,
           "uri": "https://scryfall.com/card/mkm/266/raucous-theater?utm_source=api",
-          "price": 10.05
+          "price": 10.13
         },
         {
           "name": "Phelia, Exuberant Shepherd",
@@ -1220,9 +1460,9 @@
             "W"
           ],
           "image": "https://cards.scryfall.io/normal/front/5/5/55707746-da6e-46e5-a5ca-7ac843fdc38e.jpg?1782691373",
-          "rank": 1579,
+          "rank": 1580,
           "uri": "https://scryfall.com/card/mh3/40/phelia-exuberant-shepherd?utm_source=api",
-          "price": 4.61
+          "price": 4.78
         },
         {
           "name": "Static Prison",
@@ -1233,9 +1473,15 @@
             "W"
           ],
           "image": "https://cards.scryfall.io/normal/front/d/d/dd16222e-349c-4a2b-a7c8-8eb35a8ab332.jpg?1782691371",
-          "rank": 6974,
+          "rank": 6978,
           "uri": "https://scryfall.com/card/mh3/44/static-prison?utm_source=api",
-          "price": 0.27
+          "price": 0.25,
+          "alter": {
+            "image": "/images/mtg-alters/2350.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "The Jolly Balloon Man",
@@ -1247,9 +1493,9 @@
             "W"
           ],
           "image": "https://cards.scryfall.io/normal/front/a/3/a3c4e2e0-1c0e-475d-a0f4-1be4216c2bad.jpg?1782689449",
-          "rank": 2447,
+          "rank": 2444,
           "uri": "https://scryfall.com/card/dsk/219/the-jolly-balloon-man?utm_source=api",
-          "price": 0.81
+          "price": 0.78
         },
         {
           "name": "Mardu Devotee",
@@ -1276,7 +1522,7 @@
           "image": "https://cards.scryfall.io/normal/front/3/a/3a14d6c5-cfd1-4860-834a-5a0dc9df0320.jpg?1782725974",
           "rank": 2844,
           "uri": "https://scryfall.com/card/sld/1753/deadpool-trading-card?utm_source=api",
-          "price": 18.67
+          "price": 18.63
         },
         {
           "name": "Knuckles the Echidna",
@@ -1287,9 +1533,15 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/5/4/54b65cca-7844-4d3e-9d7f-ed1f49f94425.jpg?1782725309",
-          "rank": 2146,
+          "rank": 2144,
           "uri": "https://scryfall.com/card/sld/2082/knuckles-the-echidna?utm_source=api",
-          "price": 18.14
+          "price": 16.48,
+          "alter": {
+            "image": "/images/mtg-alters/2346.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Hexing Squelcher",
@@ -1300,16 +1552,16 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/6/7/674960ce-ff33-4d5e-a24a-a4582b2e9809.jpg?1782684015",
-          "rank": 810,
+          "rank": 805,
           "uri": "https://scryfall.com/card/ecl/145/hexing-squelcher?utm_source=api",
-          "price": 19.49
+          "price": 19.09
         }
       ],
       "stats": {
         "count": 100,
         "lands": 25,
         "avgCmc": 1.97,
-        "price": 2100,
+        "price": 2099,
         "curve": [
           5,
           26,
@@ -1337,7 +1589,7 @@
           "G": 0,
           "C": 12
         },
-        "alters": 0
+        "alters": 42
       }
     },
     {
@@ -1361,7 +1613,7 @@
           "name": "Storm of Memories",
           "set": "Avatar: The Last Airbender Eternal",
           "date": "2025-11-21",
-          "rank": 14540,
+          "rank": 14526,
           "art": "https://cards.scryfall.io/art_crop/front/2/5/253266de-0eeb-46c7-9912-145586661fc4.jpg?1782724364",
           "uri": "https://scryfall.com/card/tle/126/storm-of-memories?utm_source=api"
         }
@@ -1371,7 +1623,7 @@
           "name": "Recoup",
           "set": "Duel Decks: Sorin vs. Tibalt",
           "date": "2013-03-15",
-          "rank": 13025,
+          "rank": 13035,
           "art": "https://cards.scryfall.io/art_crop/front/7/7/77ac0e4e-71ae-4a4b-aa73-64079bd50308.jpg?1782751854",
           "uri": "https://scryfall.com/card/ddk/63/recoup?utm_source=api"
         },
@@ -1379,7 +1631,7 @@
           "name": "Quiet Speculation",
           "set": "Eternal Masters",
           "date": "2016-06-10",
-          "rank": 11890,
+          "rank": 11883,
           "art": "https://cards.scryfall.io/art_crop/front/c/d/cd12fd06-26c5-42d8-936c-fe10b778a561.jpg?1782749911",
           "uri": "https://scryfall.com/card/ema/68/quiet-speculation?utm_source=api"
         },
@@ -1387,7 +1639,7 @@
           "name": "Rob the Archives",
           "set": "Streets of New Capenna",
           "date": "2022-04-29",
-          "rank": 8832,
+          "rank": 8830,
           "art": "https://cards.scryfall.io/art_crop/front/a/3/a3ec95f6-88c8-4daf-882f-8b4bc73452c3.jpg?1782701590",
           "uri": "https://scryfall.com/card/snc/122/rob-the-archives?utm_source=api"
         },
@@ -1421,7 +1673,7 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/7/1/71624139-a255-48be-93ca-594a4beba487.jpg?1782750656",
-          "rank": 1219,
+          "rank": 1218,
           "uri": "https://scryfall.com/card/tpr/237/city-of-traitors?utm_source=api",
           "price": null
         },
@@ -1434,7 +1686,7 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/e/2/e21aa266-4264-4e02-9403-02930e641573.jpg?1782709997",
-          "rank": 4819,
+          "rank": 4818,
           "uri": "https://scryfall.com/card/bbd/56/bonus-round?utm_source=api",
           "price": 9.74
         },
@@ -1449,7 +1701,7 @@
           "image": "https://cards.scryfall.io/normal/front/d/8/d8c9c111-fbc7-44e1-94bd-1ca164370623.jpg?1782709105",
           "rank": 1662,
           "uri": "https://scryfall.com/card/grn/115/runaway-steam-kin?utm_source=api",
-          "price": 1.37,
+          "price": 1.45,
           "alter": {
             "image": "/images/mtg-alters/2326.jpg",
             "kind": "alter",
@@ -1466,7 +1718,7 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/1/e/1e577638-a7ed-4bcc-90fb-0cffe87d5a28.jpg?1782715387",
-          "rank": 799,
+          "rank": 798,
           "uri": "https://scryfall.com/card/m11/153/pyretic-ritual?utm_source=api",
           "price": 4.7,
           "alter": {
@@ -1485,9 +1737,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/c/0/c062caf7-f0eb-44db-9f74-e6711a13fada.jpg?1782717036",
-          "rank": 664,
+          "rank": 663,
           "uri": "https://scryfall.com/card/csp/96/rite-of-flame?utm_source=api",
-          "price": 5.98,
+          "price": 6.03,
           "alter": {
             "image": "/images/mtg-alters/2323.jpg",
             "kind": "alter",
@@ -1515,9 +1767,9 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/d/bd3d4b4b-cf31-4f89-8140-9650edb03c7b.jpg?1782746952",
-          "rank": 65,
+          "rank": 66,
           "uri": "https://scryfall.com/card/uma/236/ancient-tomb?utm_source=api",
-          "price": 135.31
+          "price": 134.43
         },
         {
           "name": "Lotus Petal",
@@ -1560,7 +1812,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/0/70a45e9b-699e-425a-9f3d-267274830d3e.jpg?1782747923",
           "rank": 431,
           "uri": "https://scryfall.com/card/a25/147/red-elemental-blast?utm_source=api",
-          "price": 11.4
+          "price": 11.36
         },
         {
           "name": "Helm of Awakening",
@@ -1571,7 +1823,7 @@
           "image": "https://cards.scryfall.io/normal/front/e/9/e9e4ff9c-6244-43e1-b569-32a270c4e014.jpg?1782735175",
           "rank": 1887,
           "uri": "https://scryfall.com/card/dmr/224/helm-of-awakening?utm_source=api",
-          "price": 3.93
+          "price": 3.83
         },
         {
           "name": "Fiery Islet",
@@ -1580,9 +1832,9 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/a/3/a3aab13c-9d9d-4507-ae5d-da979990ae1b.jpg?1782708405",
-          "rank": 821,
+          "rank": 822,
           "uri": "https://scryfall.com/card/mh1/238/fiery-islet?utm_source=api",
-          "price": 5.74
+          "price": 5.75
         },
         {
           "name": "Deflecting Swat",
@@ -1595,7 +1847,7 @@
           "image": "https://cards.scryfall.io/normal/front/b/4/b4b36435-55b3-4615-8812-af41d4fc64d9.jpg?1782733160",
           "rank": 78,
           "uri": "https://scryfall.com/card/cmm/214/deflecting-swat?utm_source=api",
-          "price": 65.21
+          "price": 65.59
         },
         {
           "name": "Gitaxian Probe",
@@ -1608,7 +1860,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/9/995486ce-58bb-4753-a812-0ca73ef1a235.jpg?1782715178",
           "rank": 523,
           "uri": "https://scryfall.com/card/nph/35/gitaxian-probe?utm_source=api",
-          "price": 3.93
+          "price": 3.57
         },
         {
           "name": "Gut Shot",
@@ -1619,9 +1871,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/4/6/461987da-8860-4a04-8f93-d182523ca311.jpg?1782750577",
-          "rank": 2299,
+          "rank": 2296,
           "uri": "https://scryfall.com/card/mm2/117/gut-shot?utm_source=api",
-          "price": 4.7
+          "price": 4.86
         },
         {
           "name": "Mental Misstep",
@@ -1634,7 +1886,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/1/61e9c6df-1c84-4eab-9076-a4feb6347c10.jpg?1782715176",
           "rank": 454,
           "uri": "https://scryfall.com/card/nph/38/mental-misstep?utm_source=api",
-          "price": 8.45
+          "price": 8.1
         },
         {
           "name": "Rhystic Study",
@@ -1647,7 +1899,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/f/9f37c5b6-a59c-45cd-9a99-e9357fe9ea1b.jpg?1782699292",
           "rank": 44,
           "uri": "https://scryfall.com/card/j22/114/rhystic-study?utm_source=api",
-          "price": 72.26
+          "price": 72.22
         },
         {
           "name": "Windfall",
@@ -1660,7 +1912,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/c/9ce7113b-08f7-4584-b65f-a7b5caa90c2f.jpg?1782692347",
           "rank": 152,
           "uri": "https://scryfall.com/card/otc/123/windfall?utm_source=api",
-          "price": 5.08,
+          "price": 5.01,
           "alter": {
             "image": "/images/mtg-alters/2329.jpg",
             "kind": "alter",
@@ -1690,7 +1942,7 @@
           "image": "https://cards.scryfall.io/normal/front/3/6/36fa9a0b-b0c9-43ea-ba11-99d7982f974e.jpg?1782735278",
           "rank": 150,
           "uri": "https://scryfall.com/card/dmr/60/mystical-tutor?utm_source=api",
-          "price": 16.95
+          "price": 17.09
         },
         {
           "name": "Mana Vault",
@@ -1699,9 +1951,9 @@
           "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/c/1/c1a31d52-a407-4ded-bfca-cc812f11afa0.jpg?1782737761",
-          "rank": 146,
+          "rank": 145,
           "uri": "https://scryfall.com/card/2x2/308/mana-vault?utm_source=api",
-          "price": 112.13,
+          "price": 112.85,
           "alter": {
             "image": "/images/mtg-alters/2318.jpg",
             "kind": "signed",
@@ -1716,7 +1968,7 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/f/2f607e7e-30c0-45e9-8f61-bf6e9fe63f2b.jpg?1782751340",
-          "rank": 339,
+          "rank": 338,
           "uri": "https://scryfall.com/card/vma/324/volcanic-island?utm_source=api",
           "price": null
         },
@@ -1742,7 +1994,7 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/f/b/fbee1e10-0b8c-44ea-b0e5-44cdd0bfcd76.jpg?1782751474",
-          "rank": 3358,
+          "rank": 3364,
           "uri": "https://scryfall.com/card/vma/3/timetwister?utm_source=api",
           "price": null
         },
@@ -1753,7 +2005,7 @@
           "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/f/bf9fecfd-d122-422f-bd0a-5bf69b434dfe.jpg?1782750660",
-          "rank": 246,
+          "rank": 247,
           "uri": "https://scryfall.com/card/tpr/228/mox-diamond?utm_source=api",
           "price": null
         },
@@ -1768,7 +2020,7 @@
           "image": "https://cards.scryfall.io/normal/front/3/8/38f741bf-13ee-4384-98ab-27833ebb9f6d.jpg?1782711427",
           "rank": 929,
           "uri": "https://scryfall.com/card/c16/84/chain-of-vapor?utm_source=api",
-          "price": 16.03
+          "price": 16.04
         },
         {
           "name": "Polluted Delta",
@@ -1779,7 +2031,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/e/6e288374-2b71-4ace-b1d2-a19fee6cb4af.jpg?1782691195",
           "rank": 36,
           "uri": "https://scryfall.com/card/mh3/224/polluted-delta?utm_source=api",
-          "price": 19.37
+          "price": 18.78
         },
         {
           "name": "Reiterate",
@@ -1790,9 +2042,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/9/9/99302c41-434f-41ff-a61a-2c3681a0c135.jpg?1782741820",
-          "rank": 2615,
+          "rank": 2614,
           "uri": "https://scryfall.com/card/tsr/182/reiterate?utm_source=api",
-          "price": 20.08
+          "price": 19.7
         },
         {
           "name": "Springleaf Drum",
@@ -1803,7 +2055,7 @@
           "image": "https://cards.scryfall.io/normal/front/e/1/e15ab0aa-4059-4923-9816-6f7a9e5b5a18.jpg?1782683915",
           "rank": 585,
           "uri": "https://scryfall.com/card/ecl/260/springleaf-drum?utm_source=api",
-          "price": 0.36
+          "price": 0.38
         },
         {
           "name": "Wooded Foothills",
@@ -1814,7 +2066,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/e/4e11ea8a-f895-438d-a3b7-f070238e4161.jpg?1782691183",
           "rank": 47,
           "uri": "https://scryfall.com/card/mh3/236/wooded-foothills?utm_source=api",
-          "price": 17.02,
+          "price": 17.79,
           "alter": {
             "image": "/images/mtg-alters/2317.jpg",
             "kind": "signed",
@@ -1831,7 +2083,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/4/74c5bb44-d72c-4c1a-a38f-86b4a8f49ae1.jpg?1782685606",
           "rank": 400,
           "uri": "https://scryfall.com/card/eoc/161/great-furnace?utm_source=api",
-          "price": 2.18
+          "price": 2.16
         },
         {
           "name": "Mox Amber",
@@ -1842,7 +2094,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/6/66024e69-ad60-4c9a-a0ca-da138d33ad80.jpg?1782710061",
           "rank": 206,
           "uri": "https://scryfall.com/card/dom/224/mox-amber?utm_source=api",
-          "price": 76.28
+          "price": 75.13
         },
         {
           "name": "Hidden Strings",
@@ -1853,7 +2105,7 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/2/1/216e8047-6f54-49ce-bf86-27dc8fc8c8f7.jpg?1782714026",
-          "rank": 4316,
+          "rank": 4315,
           "uri": "https://scryfall.com/card/dgm/12/hidden-strings?utm_source=api",
           "price": 0.26
         },
@@ -1866,7 +2118,7 @@
           "image": "https://cards.scryfall.io/normal/front/f/3/f340cbf7-5bbe-45b9-a4bf-d1caa500ff93.jpg?1782743879",
           "rank": 144,
           "uri": "https://scryfall.com/card/2xm/240/chrome-mox?utm_source=api",
-          "price": 171.12
+          "price": 171.72
         },
         {
           "name": "Seething Song",
@@ -1879,7 +2131,7 @@
           "image": "https://cards.scryfall.io/normal/front/f/4/f493ce26-005c-4ddc-80f0-47bea4fd013a.jpg?1782705200",
           "rank": 326,
           "uri": "https://scryfall.com/card/c21/179/seething-song?utm_source=api",
-          "price": 12.79
+          "price": 12.91
         },
         {
           "name": "Lava Dart",
@@ -1890,9 +2142,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/b/1/b16dd041-451d-4914-8c46-aa315a90d802.jpg?1782708476",
-          "rank": 6205,
+          "rank": 6201,
           "uri": "https://scryfall.com/card/mh1/134/lava-dart?utm_source=api",
-          "price": 0.98
+          "price": 0.96
         },
         {
           "name": "Quiet Speculation",
@@ -1903,9 +2155,9 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/c/d/cd12fd06-26c5-42d8-936c-fe10b778a561.jpg?1782749911",
-          "rank": 11890,
+          "rank": 11883,
           "uri": "https://scryfall.com/card/ema/68/quiet-speculation?utm_source=api",
-          "price": 0.61
+          "price": 0.6
         },
         {
           "name": "Valakut Awakening // Valakut Stoneforge",
@@ -1918,7 +2170,7 @@
           "image": "https://cards.scryfall.io/normal/front/2/2/228e551e-023a-4c9a-8f32-58dae6ffdf7f.jpg?1782706251",
           "rank": 518,
           "uri": "https://scryfall.com/card/znr/174/valakut-awakening-valakut-stoneforge?utm_source=api",
-          "price": 17.51
+          "price": 17.37
         },
         {
           "name": "Sea Gate Restoration // Sea Gate, Reborn",
@@ -1929,9 +2181,9 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/1/9/193071fe-180b-4d35-ba78-9c16675c29fc.jpg?1782706328",
-          "rank": 670,
+          "rank": 671,
           "uri": "https://scryfall.com/card/znr/76/sea-gate-restoration-sea-gate-reborn?utm_source=api",
-          "price": 38.15
+          "price": 37.68
         },
         {
           "name": "Shatterskull Smashing // Shatterskull, the Hammer Pass",
@@ -1944,7 +2196,7 @@
           "image": "https://cards.scryfall.io/normal/front/b/c/bc7239ea-f8aa-4a6f-87bd-c35359635673.jpg?1782706263",
           "rank": 1359,
           "uri": "https://scryfall.com/card/znr/161/shatterskull-smashing-shatterskull-the-hammer-pass?utm_source=api",
-          "price": 9.43
+          "price": 9.25
         },
         {
           "name": "Jeska's Will",
@@ -1957,7 +2209,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/9/99e0c371-1024-4432-9fd9-3bc29c8d38e4.jpg?1782694108",
           "rank": 102,
           "uri": "https://scryfall.com/card/mkc/156/jeskas-will?utm_source=api",
-          "price": 41.29
+          "price": 41.03
         },
         {
           "name": "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
@@ -1970,7 +2222,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/4/44657ab1-0a6a-4a5f-9688-86f239083821.jpg?1782705476",
           "rank": 488,
           "uri": "https://scryfall.com/card/khm/123/birgi-god-of-storytelling-harnfel-horn-of-bounty?utm_source=api",
-          "price": 33.75
+          "price": 33.57
         },
         {
           "name": "Pact of Negation",
@@ -1983,7 +2235,7 @@
           "image": "https://cards.scryfall.io/normal/front/1/e/1ed4c0bb-b710-44a1-b8bc-6bd11c27b8b8.jpg?1782741890",
           "rank": 359,
           "uri": "https://scryfall.com/card/tsr/77/pact-of-negation?utm_source=api",
-          "price": 18.16
+          "price": 17.98
         },
         {
           "name": "Scalding Tarn",
@@ -1994,7 +2246,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/1/71e491c5-8c07-449b-b2f1-ffa052e6d311.jpg?1782704583",
           "rank": 49,
           "uri": "https://scryfall.com/card/mh2/254/scalding-tarn?utm_source=api",
-          "price": 38.56
+          "price": 38.83
         },
         {
           "name": "Tavern Scoundrel",
@@ -2005,9 +2257,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/5/5/55082c8a-d792-4cd8-94b1-d80c65804463.jpg?1782704650",
-          "rank": 4163,
+          "rank": 4159,
           "uri": "https://scryfall.com/card/mh2/144/tavern-scoundrel?utm_source=api",
-          "price": 0.3
+          "price": 0.29
         },
         {
           "name": "Reckless Impulse",
@@ -2018,9 +2270,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/6/9/6943c07f-ab0d-4f5a-bbe9-c0a83dc98546.jpg?1782703066",
-          "rank": 2119,
+          "rank": 2117,
           "uri": "https://scryfall.com/card/vow/174/reckless-impulse?utm_source=api",
-          "price": 1.41
+          "price": 1.53
         },
         {
           "name": "March of Reckless Joy",
@@ -2044,9 +2296,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/a/3/a3ec95f6-88c8-4daf-882f-8b4bc73452c3.jpg?1782701590",
-          "rank": 8832,
+          "rank": 8830,
           "uri": "https://scryfall.com/card/snc/122/rob-the-archives?utm_source=api",
-          "price": 0.32
+          "price": 0.31
         },
         {
           "name": "Twinferno",
@@ -2059,7 +2311,7 @@
           "image": "https://cards.scryfall.io/normal/front/b/c/bc531409-26cb-4c58-ba69-f39dd8aee3d1.jpg?1782700465",
           "rank": 2560,
           "uri": "https://scryfall.com/card/dmu/149/twinferno?utm_source=api",
-          "price": 0.24
+          "price": 0.23
         },
         {
           "name": "Wrenn's Resolve",
@@ -2072,7 +2324,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/a/9a47999c-12d5-4e1a-a9c1-40a1757007f1.jpg?1782697714",
           "rank": 2115,
           "uri": "https://scryfall.com/card/mom/173/wrenns-resolve?utm_source=api",
-          "price": 2.39
+          "price": 2.35
         },
         {
           "name": "Mountain",
@@ -2083,7 +2335,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/2/426b0211-3d5d-4e53-bcf6-21823c655ffd.jpg?1782681935",
           "rank": null,
           "uri": "https://scryfall.com/card/msc/858/mountain?utm_source=api",
-          "price": 0.16,
+          "price": 0.18,
           "alter": {
             "image": "/images/mtg-alters/2321.jpg",
             "kind": "alter",
@@ -2102,7 +2354,7 @@
           "image": "https://cards.scryfall.io/normal/front/d/a/da7ae8e0-cb6b-4386-8a30-9527d1af9be5.jpg?1782683192",
           "rank": 208,
           "uri": "https://scryfall.com/card/soc/255/storm-kiln-artist?utm_source=api",
-          "price": 1.33
+          "price": 1.35
         },
         {
           "name": "Training Center",
@@ -2113,7 +2365,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/8/78a39d22-5e3b-4ba0-b728-dbf16b61fc8f.jpg?1782733008",
           "rank": 148,
           "uri": "https://scryfall.com/card/cmm/434/training-center?utm_source=api",
-          "price": 17.45
+          "price": 17
         },
         {
           "name": "Witch's Mark",
@@ -2124,9 +2376,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/0/6/0685afcb-06f6-4d18-b8c2-510764558dc1.jpg?1782696544",
-          "rank": 4103,
+          "rank": 4102,
           "uri": "https://scryfall.com/card/woe/158/witchs-mark?utm_source=api",
-          "price": 0.34
+          "price": 0.33
         },
         {
           "name": "Zoyowa's Justice",
@@ -2137,9 +2389,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/0/4/04839717-d2f9-481d-9d13-e4038dbcbb0e.jpg?1782694472",
-          "rank": 5272,
+          "rank": 5277,
           "uri": "https://scryfall.com/card/lci/173/zoyowas-justice?utm_source=api",
-          "price": 0.32
+          "price": 0.31
         },
         {
           "name": "Thundering Falls",
@@ -2150,7 +2402,7 @@
           "image": "https://cards.scryfall.io/normal/front/1/7/17260fff-b239-4af4-9306-3236ae3fa5a5.jpg?1782693773",
           "rank": 622,
           "uri": "https://scryfall.com/card/mkm/269/thundering-falls?utm_source=api",
-          "price": 14.72
+          "price": 14.71
         },
         {
           "name": "Command Tower",
@@ -2161,7 +2413,7 @@
           "image": "https://cards.scryfall.io/normal/front/0/5/0548fb60-c843-4f8f-a029-6f10efc63a41.jpg?1782682479",
           "rank": 2,
           "uri": "https://scryfall.com/card/msc/233/command-tower?utm_source=api",
-          "price": 0.34
+          "price": 0.32
         },
         {
           "name": "Flooded Strand",
@@ -2172,7 +2424,7 @@
           "image": "https://cards.scryfall.io/normal/front/8/f/8f85e12c-196b-4459-b81f-0c9c854e9f57.jpg?1782691197",
           "rank": 39,
           "uri": "https://scryfall.com/card/mh3/220/flooded-strand?utm_source=api",
-          "price": 15.03
+          "price": 14.68
         },
         {
           "name": "Highway Robbery",
@@ -2183,9 +2435,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/3/1/31a88429-9204-4a23-a7a8-babbd6bab79f.jpg?1782692045",
-          "rank": 4179,
+          "rank": 4181,
           "uri": "https://scryfall.com/card/otj/129/highway-robbery?utm_source=api",
-          "price": 0.36
+          "price": 0.35
         },
         {
           "name": "Flare of Duplication",
@@ -2198,7 +2450,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/9/497a10c6-131b-464e-95e4-e47708a24d48.jpg?1782691299",
           "rank": 1121,
           "uri": "https://scryfall.com/card/mh3/119/flare-of-duplication?utm_source=api",
-          "price": 1.44
+          "price": 1.46
         },
         {
           "name": "Ragavan, Nimble Pilferer",
@@ -2211,7 +2463,7 @@
           "image": "https://cards.scryfall.io/normal/front/a/9/a9738cda-adb1-47fb-9f4c-ecd930228c4d.jpg?1782704654",
           "rank": 270,
           "uri": "https://scryfall.com/card/mh2/138/ragavan-nimble-pilferer?utm_source=api",
-          "price": 43.84
+          "price": 43.61
         },
         {
           "name": "Sink into Stupor // Soporific Springs",
@@ -2224,7 +2476,7 @@
           "image": "https://cards.scryfall.io/normal/front/5/3/5358b87a-1a29-426d-b165-40c97da2c14d.jpg?1782691170",
           "rank": 173,
           "uri": "https://scryfall.com/card/mh3/241/sink-into-stupor-soporific-springs?utm_source=api",
-          "price": 5.19
+          "price": 5.72
         },
         {
           "name": "Sundering Eruption // Volcanic Fissure",
@@ -2246,9 +2498,9 @@
           "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/9/29f11089-658f-42e6-aeb0-09b512ad2479.jpg?1782691205",
-          "rank": 1317,
+          "rank": 1318,
           "uri": "https://scryfall.com/card/mh3/212/vexing-bauble?utm_source=api",
-          "price": 2.11
+          "price": 2.16
         },
         {
           "name": "Pyroblast",
@@ -2261,7 +2513,7 @@
           "image": "https://cards.scryfall.io/normal/front/b/0/b029eb9a-dd7a-40c2-96c4-0063d9cc002c.jpg?1782749863",
           "rank": 460,
           "uri": "https://scryfall.com/card/ema/142/pyroblast?utm_source=api",
-          "price": 12.56
+          "price": 12.94
         },
         {
           "name": "Echo of Eons",
@@ -2274,7 +2526,7 @@
           "image": "https://cards.scryfall.io/normal/front/f/f/ff590af2-2d6c-4f16-a9b8-1a6dab6e9ad5.jpg?1782708536",
           "rank": 2655,
           "uri": "https://scryfall.com/card/mh1/46/echo-of-eons?utm_source=api",
-          "price": 12.88,
+          "price": 12.92,
           "alter": {
             "image": "/images/mtg-alters/2320.jpg",
             "kind": "signed",
@@ -2293,7 +2545,7 @@
           "image": "https://cards.scryfall.io/normal/front/0/e/0e57335d-4066-4d73-83cd-67a215e01a4e.jpg?1782741815",
           "rank": 435,
           "uri": "https://scryfall.com/card/tsr/190/simian-spirit-guide?utm_source=api",
-          "price": 3.26
+          "price": 2.75
         },
         {
           "name": "Inspired Tinkering",
@@ -2304,9 +2556,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/c/1/c1e6b1d3-1ac2-4f20-997e-25c93f1f7897.jpg?1782701235",
-          "rank": 2798,
+          "rank": 2796,
           "uri": "https://scryfall.com/card/clb/183/inspired-tinkering?utm_source=api",
-          "price": 1.24
+          "price": 1.33
         },
         {
           "name": "Will of the Jeskai",
@@ -2317,9 +2569,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/d/0/d05bac1f-d455-4528-93b2-a94c29b5dc2c.jpg?1782686915",
-          "rank": 2353,
+          "rank": 2349,
           "uri": "https://scryfall.com/card/tdc/40/will-of-the-jeskai?utm_source=api",
-          "price": 3.18,
+          "price": 3.6,
           "alter": {
             "image": "/images/mtg-alters/2327.jpg",
             "kind": "alter",
@@ -2336,9 +2588,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/0/3/0343916d-1b65-4e95-aef1-e72dbcebf0c4.jpg?1782686491",
-          "rank": 5795,
+          "rank": 5789,
           "uri": "https://scryfall.com/card/fin/147/opera-love-song?utm_source=api",
-          "price": 0.28
+          "price": 0.3
         },
         {
           "name": "Storm of Memories",
@@ -2349,9 +2601,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/2/5/253266de-0eeb-46c7-9912-145586661fc4.jpg?1782724364",
-          "rank": 14540,
+          "rank": 14526,
           "uri": "https://scryfall.com/card/tle/126/storm-of-memories?utm_source=api",
-          "price": 0.36
+          "price": 0.37
         },
         {
           "name": "Intuition",
@@ -2362,7 +2614,7 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/b/1/b13e73a5-067d-4dbd-9c98-34a0db6140de.jpg?1782750739",
-          "rank": 1961,
+          "rank": 1959,
           "uri": "https://scryfall.com/card/tpr/54/intuition?utm_source=api",
           "price": null
         },
@@ -2375,9 +2627,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/2/8/28e812a8-66cf-4005-a647-780d49aa74a4.jpg?1782735232",
-          "rank": 3088,
+          "rank": 3090,
           "uri": "https://scryfall.com/card/dmr/132/overmaster?utm_source=api",
-          "price": 2.9
+          "price": 2.89
         },
         {
           "name": "Daze",
@@ -2388,7 +2640,7 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/f/0/f05e9a3e-8a35-4687-85cb-e31b3927a5e2.jpg?1782749928",
-          "rank": 3206,
+          "rank": 3204,
           "uri": "https://scryfall.com/card/ema/44/daze?utm_source=api",
           "price": 2.7
         },
@@ -2403,7 +2655,7 @@
           "image": "https://cards.scryfall.io/normal/front/d/8/d8c5e52d-57ae-464b-8860-7dd39ebfef64.jpg?1782724340",
           "rank": 103,
           "uri": "https://scryfall.com/card/tle/159/frantic-search?utm_source=api",
-          "price": 1.8,
+          "price": 1.71,
           "alter": {
             "image": "/images/mtg-alters/2316.jpg",
             "kind": "signed",
@@ -2420,7 +2672,7 @@
           "image": "https://cards.scryfall.io/normal/front/5/6/56001a36-126b-4c08-af98-a6cc4d84210e.jpg?1782743853",
           "rank": 239,
           "uri": "https://scryfall.com/card/2xm/275/mox-opal?utm_source=api",
-          "price": 244.71
+          "price": 243.65
         },
         {
           "name": "Treasonous Ogre",
@@ -2431,9 +2683,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/a/e/ae48c31d-6fd9-457f-adb8-37f367724ba1.jpg?1782713339",
-          "rank": 2305,
+          "rank": 2304,
           "uri": "https://scryfall.com/card/cns/36/treasonous-ogre?utm_source=api",
-          "price": 21.36,
+          "price": 21.17,
           "alter": {
             "image": "/images/mtg-alters/2319.jpg",
             "kind": "signed",
@@ -2452,7 +2704,7 @@
           "image": "https://cards.scryfall.io/normal/front/e/3/e3e2d90a-3557-49d5-9986-cb50fd31f396.jpg?1782681982",
           "rank": 713,
           "uri": "https://scryfall.com/card/msc/803/grapeshot?utm_source=api",
-          "price": 1.03
+          "price": 1.11
         },
         {
           "name": "Recoup",
@@ -2463,7 +2715,7 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/7/7/77ac0e4e-71ae-4a4b-aa73-64079bd50308.jpg?1782751854",
-          "rank": 13025,
+          "rank": 13035,
           "uri": "https://scryfall.com/card/ddk/63/recoup?utm_source=api",
           "price": 0.26
         },
@@ -2476,7 +2728,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/1/91fdb56b-54d5-4272-8319-505ff987fe9b.jpg?1782682494",
           "rank": 1,
           "uri": "https://scryfall.com/card/msc/211/sol-ring?utm_source=api",
-          "price": 1.84,
+          "price": 1.74,
           "alter": {
             "image": "/images/mtg-alters/2328.jpg",
             "kind": "alter",
@@ -2506,7 +2758,7 @@
           "image": "https://cards.scryfall.io/normal/front/2/5/25ac5405-df7b-4097-914a-022cb18e20d4.jpg?1782704587",
           "rank": 56,
           "uri": "https://scryfall.com/card/mh2/244/arid-mesa?utm_source=api",
-          "price": 29.61
+          "price": 30.11
         },
         {
           "name": "Mystic Remora",
@@ -2519,7 +2771,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/0/40140991-cffa-4b52-9a25-37e9a8aa9ddd.jpg?1782735279",
           "rank": 96,
           "uri": "https://scryfall.com/card/dmr/59/mystic-remora?utm_source=api",
-          "price": 12.67
+          "price": 12.74
         },
         {
           "name": "Steam Vents",
@@ -2528,9 +2780,9 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/6/b66daa94-d367-4812-9f18-f35378c1febb.jpg?1782683912",
-          "rank": 66,
+          "rank": 65,
           "uri": "https://scryfall.com/card/ecl/267/steam-vents?utm_source=api",
-          "price": 12.51
+          "price": 13.86
         },
         {
           "name": "________ Goblin",
@@ -2541,9 +2793,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/5/8/5819e3f3-da49-4003-88ce-f3b7bb495787.jpg?1782736969",
-          "rank": 6888,
+          "rank": 6882,
           "uri": "https://scryfall.com/card/unf/107/________-goblin?utm_source=api",
-          "price": 0.36
+          "price": 0.37
         },
         {
           "name": "Gamble",
@@ -2556,7 +2808,7 @@
           "image": "https://cards.scryfall.io/normal/front/8/e/8e37fae5-ddd0-4e16-8581-71579f89d9c5.jpg?1782735238",
           "rank": 236,
           "uri": "https://scryfall.com/card/dmr/121/gamble?utm_source=api",
-          "price": 17.1
+          "price": 17.03
         },
         {
           "name": "Gemstone Caverns",
@@ -2567,7 +2819,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/f/7f273641-c5f3-48bc-b89e-3cff52d26a0b.jpg?1782741752",
           "rank": 178,
           "uri": "https://scryfall.com/card/tsr/280/gemstone-caverns?utm_source=api",
-          "price": 53.37
+          "price": 53.63
         },
         {
           "name": "Wheel of Misfortune",
@@ -2580,7 +2832,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/4/74177b51-a300-49d9-8ea7-557b19cf80c7.jpg?1782705965",
           "rank": 1165,
           "uri": "https://scryfall.com/card/cmr/211/wheel-of-misfortune?utm_source=api",
-          "price": 8.37,
+          "price": 8.21,
           "alter": {
             "image": "/images/mtg-alters/2322.jpg",
             "kind": "alter",
@@ -2599,7 +2851,7 @@
           "image": "https://cards.scryfall.io/normal/front/0/e/0e51d796-7279-4c06-87f0-37adbdaa41df.jpg?1782707556",
           "rank": 387,
           "uri": "https://scryfall.com/card/thb/161/underworld-breach?utm_source=api",
-          "price": 11.1
+          "price": 10.48
         },
         {
           "name": "Demand Answers",
@@ -2610,9 +2862,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/e/c/eca092fc-7c67-4a73-989e-5297bbaaea76.jpg?1782693875",
-          "rank": 412,
+          "rank": 413,
           "uri": "https://scryfall.com/card/mkm/122/demand-answers?utm_source=api",
-          "price": 0.36
+          "price": 0.37
         },
         {
           "name": "Bloodstained Mire",
@@ -2623,7 +2875,7 @@
           "image": "https://cards.scryfall.io/normal/front/5/7/579743fe-f71e-4cb2-8629-d6b02ed1591d.jpg?1782691202",
           "rank": 43,
           "uri": "https://scryfall.com/card/mh3/216/bloodstained-mire?utm_source=api",
-          "price": 17.35
+          "price": 16.96
         },
         {
           "name": "Flusterstorm",
@@ -2647,7 +2899,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/3/630febf5-58ff-4dab-a5a8-575ebc5435a6.jpg?1782691115",
           "rank": 301,
           "uri": "https://scryfall.com/card/mh3/295/ruby-medallion?utm_source=api",
-          "price": 11.83
+          "price": 11.71
         },
         {
           "name": "Strike It Rich",
@@ -2658,7 +2910,7 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/1/c/1c7c2814-a617-4123-acdf-1b01b2768210.jpg?1782704651",
-          "rank": 1081,
+          "rank": 1077,
           "uri": "https://scryfall.com/card/mh2/143/strike-it-rich?utm_source=api",
           "price": 3.42
         },
@@ -2673,7 +2925,7 @@
           "image": "https://cards.scryfall.io/normal/front/f/7/f7f3dd95-bd14-4e0f-a388-444f9cf1b0dc.jpg?1782733245",
           "rank": 80,
           "uri": "https://scryfall.com/card/cmm/94/fierce-guardianship?utm_source=api",
-          "price": 54.33
+          "price": 53.78
         },
         {
           "name": "Solve the Equation",
@@ -2686,7 +2938,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/6/66c04ee2-c1e0-45fb-aaf5-1b4459df80fc.jpg?1782704981",
           "rank": 926,
           "uri": "https://scryfall.com/card/stx/54/solve-the-equation?utm_source=api",
-          "price": 3.97
+          "price": 3.95
         },
         {
           "name": "An Offer You Can't Refuse",
@@ -2699,7 +2951,7 @@
           "image": "https://cards.scryfall.io/normal/front/a/8/a829747f-cf9b-4d81-ba66-9f0630ed4565.jpg?1782689128",
           "rank": 35,
           "uri": "https://scryfall.com/card/fdn/160/an-offer-you-cant-refuse?utm_source=api",
-          "price": 2.39
+          "price": 2.66
         },
         {
           "name": "Desperate Ritual",
@@ -2710,9 +2962,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/3/8/3825b85d-07df-43b9-a8d8-930863262d83.jpg?1782747029",
-          "rank": 994,
+          "rank": 993,
           "uri": "https://scryfall.com/card/uma/127/desperate-ritual?utm_source=api",
-          "price": 8.25
+          "price": 8.12
         },
         {
           "name": "Tibalt's Trickery",
@@ -2725,14 +2977,14 @@
           "image": "https://cards.scryfall.io/normal/front/d/d/dd921e27-3e08-438c-bec2-723226d35175.jpg?1782705458",
           "rank": 588,
           "uri": "https://scryfall.com/card/khm/153/tibalts-trickery?utm_source=api",
-          "price": 9.96
+          "price": 9.72
         }
       ],
       "stats": {
         "count": 100,
         "lands": 17,
         "avgCmc": 2.11,
-        "price": 1699,
+        "price": 1696,
         "curve": [
           7,
           21,
@@ -2787,7 +3039,7 @@
           "name": "Formidable Speaker",
           "set": "Lorwyn Eclipsed",
           "date": "2026-01-23",
-          "rank": 1780,
+          "rank": 1777,
           "art": "https://cards.scryfall.io/art_crop/front/2/6/265522eb-4f6a-40e7-b374-3833fa63c80b.jpg?1782683987",
           "uri": "https://scryfall.com/card/ecl/176/formidable-speaker?utm_source=api"
         },
@@ -2795,7 +3047,7 @@
           "name": "Vibrance",
           "set": "Lorwyn Eclipsed",
           "date": "2026-01-23",
-          "rank": 9130,
+          "rank": 9120,
           "art": "https://cards.scryfall.io/art_crop/front/b/9/b9f71c3b-0840-475f-9c17-fdacbc7f3213.jpg?1782683925",
           "uri": "https://scryfall.com/card/ecl/249/vibrance?utm_source=api"
         },
@@ -2803,7 +3055,7 @@
           "name": "Badgermole Cub",
           "set": "Avatar: The Last Airbender",
           "date": "2025-11-21",
-          "rank": 1452,
+          "rank": 1449,
           "art": "https://cards.scryfall.io/art_crop/front/3/4/340c5799-4964-44dd-8c48-8f3f3aba5211.jpg?1782684544",
           "uri": "https://scryfall.com/card/tla/167/badgermole-cub?utm_source=api"
         },
@@ -2811,7 +3063,7 @@
           "name": "Tezzeret, Cruel Captain",
           "set": "Edge of Eternities",
           "date": "2025-08-01",
-          "rank": 1392,
+          "rank": 1389,
           "art": "https://cards.scryfall.io/art_crop/front/0/2/02e8e540-8aa3-4e6a-9a11-c3949cab5f0f.jpg?1782685585",
           "uri": "https://scryfall.com/card/eoe/2/tezzeret-cruel-captain?utm_source=api"
         },
@@ -2819,7 +3071,7 @@
           "name": "Starfield Vocalist",
           "set": "Edge of Eternities",
           "date": "2025-08-01",
-          "rank": 2109,
+          "rank": 2106,
           "art": "https://cards.scryfall.io/art_crop/front/d/e/deca0b2a-e7f3-444a-883d-7c41dd62c9cc.jpg?1782685533",
           "uri": "https://scryfall.com/card/eoe/78/starfield-vocalist?utm_source=api"
         }
@@ -2829,7 +3081,7 @@
           "name": "Eureka",
           "set": "Vintage Masters",
           "date": "2014-06-16",
-          "rank": 17868,
+          "rank": 17861,
           "art": "https://cards.scryfall.io/art_crop/front/7/1/71725234-14fa-4a29-9efc-6dd2366d9798.jpg?1782751389",
           "uri": "https://scryfall.com/card/vma/208/eureka?utm_source=api"
         },
@@ -2837,7 +3089,7 @@
           "name": "Genesis Storm",
           "set": "Commander 2018",
           "date": "2018-08-10",
-          "rank": 13186,
+          "rank": 13199,
           "art": "https://cards.scryfall.io/art_crop/front/0/6/066578ed-ffaf-473d-87b8-e614035748b6.jpg?1782709399",
           "uri": "https://scryfall.com/card/c18/30/genesis-storm?utm_source=api"
         },
@@ -2845,7 +3097,7 @@
           "name": "Great Whale",
           "set": "Urza's Saga",
           "date": "1998-10-12",
-          "rank": 11456,
+          "rank": 11448,
           "art": "https://cards.scryfall.io/art_crop/front/5/8/58a2acf1-dad8-4f93-a34e-891e5178a48f.jpg?1782720729",
           "uri": "https://scryfall.com/card/usg/77/great-whale?utm_source=api"
         },
@@ -2853,7 +3105,7 @@
           "name": "Palinchron",
           "set": "Vintage Masters",
           "date": "2014-06-16",
-          "rank": 7565,
+          "rank": 7567,
           "art": "https://cards.scryfall.io/art_crop/front/e/f/ef772879-44aa-428d-8c12-50d38f8bac80.jpg?1782751440",
           "uri": "https://scryfall.com/card/vma/86/palinchron?utm_source=api"
         }
@@ -2895,7 +3147,7 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/7/1/71725234-14fa-4a29-9efc-6dd2366d9798.jpg?1782751389",
-          "rank": 17868,
+          "rank": 17861,
           "uri": "https://scryfall.com/card/vma/208/eureka?utm_source=api",
           "price": null
         },
@@ -2947,7 +3199,7 @@
           "image": "https://cards.scryfall.io/normal/front/a/7/a749c591-2fbe-41d8-ac5b-56ebce82d33e.jpg?1782733225",
           "rank": 1023,
           "uri": "https://scryfall.com/card/cmm/120/spellseeker?utm_source=api",
-          "price": 17.58
+          "price": 17.6
         },
         {
           "name": "Mind's Desire",
@@ -2958,7 +3210,7 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/1/7/17ef3058-46b8-4ec4-950f-c721919c4ac1.jpg?1782705234",
-          "rank": 3538,
+          "rank": 3539,
           "uri": "https://scryfall.com/card/c21/123/minds-desire?utm_source=api",
           "price": 1.35
         },
@@ -2973,7 +3225,7 @@
           "image": "https://cards.scryfall.io/normal/front/0/3/03aff125-8962-4a0a-a2b4-e5d693b75400.jpg?1782697981",
           "rank": 1375,
           "uri": "https://scryfall.com/card/moc/219/cloud-of-faeries?utm_source=api",
-          "price": 0.37
+          "price": 0.38
         },
         {
           "name": "Crop Rotation",
@@ -2986,7 +3238,7 @@
           "image": "https://cards.scryfall.io/normal/front/5/2/523414cb-f8db-407a-808a-01454e03d8b9.jpg?1782735217",
           "rank": 217,
           "uri": "https://scryfall.com/card/dmr/154/crop-rotation?utm_source=api",
-          "price": 3.71
+          "price": 3.73
         },
         {
           "name": "Palinchron",
@@ -2997,7 +3249,7 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/e/f/ef772879-44aa-428d-8c12-50d38f8bac80.jpg?1782751440",
-          "rank": 7565,
+          "rank": 7567,
           "uri": "https://scryfall.com/card/vma/86/palinchron?utm_source=api",
           "price": null
         },
@@ -3023,7 +3275,7 @@
           "image": "https://cards.scryfall.io/normal/front/a/b/ab95f6e7-b806-47fe-a071-6c38b3176d94.jpg?1782708583",
           "rank": 537,
           "uri": "https://scryfall.com/card/war/245/emergence-zone?utm_source=api",
-          "price": 4.19
+          "price": 4.11
         },
         {
           "name": "Candelabra of Tawnos",
@@ -3032,7 +3284,7 @@
           "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/5/e/5e8416b8-aae1-4599-9e22-650dd86aefcb.jpg?1782752695",
-          "rank": 6893,
+          "rank": 6886,
           "uri": "https://scryfall.com/card/me4/187/candelabra-of-tawnos?utm_source=api",
           "price": null
         },
@@ -3047,7 +3299,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/0/70291c7b-a86f-4466-8502-c28765a89b2a.jpg?1782737868",
           "rank": 548,
           "uri": "https://scryfall.com/card/2x2/150/green-suns-zenith?utm_source=api",
-          "price": 29.85
+          "price": 28.98
         },
         {
           "name": "Oboro Breezecaller",
@@ -3058,7 +3310,7 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/a/3/a382a9b8-0b19-46c2-a547-a22d6e23d0ac.jpg?1782718040",
-          "rank": 6610,
+          "rank": 6607,
           "uri": "https://scryfall.com/card/sok/48/oboro-breezecaller?utm_source=api",
           "price": 2.34
         },
@@ -3082,9 +3334,9 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/5/8/58a2acf1-dad8-4f93-a34e-891e5178a48f.jpg?1782720729",
-          "rank": 11456,
+          "rank": 11448,
           "uri": "https://scryfall.com/card/usg/77/great-whale?utm_source=api",
-          "price": 25.52
+          "price": 25.5
         },
         {
           "name": "Peregrine Drake",
@@ -3097,7 +3349,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/1/611c8fa2-b53f-483b-9efa-759ac59dc30f.jpg?1782735274",
           "rank": 908,
           "uri": "https://scryfall.com/card/dmr/65/peregrine-drake?utm_source=api",
-          "price": 0.25
+          "price": 0.31
         },
         {
           "name": "Worldly Tutor",
@@ -3110,7 +3362,7 @@
           "image": "https://cards.scryfall.io/normal/front/f/3/f39aa2e9-e294-4ce6-bf5e-e1f579101a7a.jpg?1782735199",
           "rank": 166,
           "uri": "https://scryfall.com/card/dmr/185/worldly-tutor?utm_source=api",
-          "price": 26.56
+          "price": 27
         },
         {
           "name": "Tinder Wall",
@@ -3132,9 +3384,9 @@
           "mana": "{1}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/c/1/c1a31d52-a407-4ded-bfca-cc812f11afa0.jpg?1782737761",
-          "rank": 146,
+          "rank": 145,
           "uri": "https://scryfall.com/card/2x2/308/mana-vault?utm_source=api",
-          "price": 112.13
+          "price": 112.85
         },
         {
           "name": "Tropical Island",
@@ -3165,7 +3417,7 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/2/f/2f607e7e-30c0-45e9-8f61-bf6e9fe63f2b.jpg?1782751340",
-          "rank": 339,
+          "rank": 338,
           "uri": "https://scryfall.com/card/vma/324/volcanic-island?utm_source=api",
           "price": null
         },
@@ -3180,7 +3432,7 @@
           "image": "https://cards.scryfall.io/normal/front/a/3/a391da36-0b40-46ea-b771-50d2b920207e.jpg?1782707537",
           "rank": 1010,
           "uri": "https://scryfall.com/card/thb/190/nyxbloom-ancient?utm_source=api",
-          "price": 29.9
+          "price": 29.39
         },
         {
           "name": "Kinnan, Bonder Prodigy",
@@ -3192,9 +3444,9 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/6/3/63cda4a0-0dff-4edb-ae67-a2b7e2971350.jpg?1782707123",
-          "rank": 1349,
+          "rank": 1348,
           "uri": "https://scryfall.com/card/iko/192/kinnan-bonder-prodigy?utm_source=api",
-          "price": 15.02
+          "price": 14.47
         },
         {
           "name": "Mox Diamond",
@@ -3203,7 +3455,7 @@
           "mana": "{0}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/f/bf9fecfd-d122-422f-bd0a-5bf69b434dfe.jpg?1782750660",
-          "rank": 246,
+          "rank": 247,
           "uri": "https://scryfall.com/card/tpr/228/mox-diamond?utm_source=api",
           "price": null
         },
@@ -3216,7 +3468,7 @@
           "image": "https://cards.scryfall.io/normal/front/8/f/8f85e12c-196b-4459-b81f-0c9c854e9f57.jpg?1782691197",
           "rank": 39,
           "uri": "https://scryfall.com/card/mh3/220/flooded-strand?utm_source=api",
-          "price": 15.03
+          "price": 14.68
         },
         {
           "name": "Windswept Heath",
@@ -3227,7 +3479,7 @@
           "image": "https://cards.scryfall.io/normal/front/b/d/bd1d13f7-fd38-4f0b-a8e0-1eac78668117.jpg?1782691186",
           "rank": 45,
           "uri": "https://scryfall.com/card/mh3/235/windswept-heath?utm_source=api",
-          "price": 10.13
+          "price": 10.63
         },
         {
           "name": "Wooded Foothills",
@@ -3238,7 +3490,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/e/4e11ea8a-f895-438d-a3b7-f070238e4161.jpg?1782691183",
           "rank": 47,
           "uri": "https://scryfall.com/card/mh3/236/wooded-foothills?utm_source=api",
-          "price": 17.02
+          "price": 17.79
         },
         {
           "name": "Woodland Bellower",
@@ -3249,9 +3501,9 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/a/7/a706d4bb-0b44-4e43-b340-7de799c086b8.jpg?1782712584",
-          "rank": 6374,
+          "rank": 6376,
           "uri": "https://scryfall.com/card/ori/207/woodland-bellower?utm_source=api",
-          "price": 4.84
+          "price": 4.95
         },
         {
           "name": "Genesis Storm",
@@ -3262,9 +3514,9 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/0/6/066578ed-ffaf-473d-87b8-e614035748b6.jpg?1782709399",
-          "rank": 13186,
+          "rank": 13199,
           "uri": "https://scryfall.com/card/c18/30/genesis-storm?utm_source=api",
-          "price": 0.67
+          "price": 0.68
         },
         {
           "name": "Expedition Map",
@@ -3286,9 +3538,9 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/b/a/ba86688d-18f0-4b5c-a797-42bf125a6c9f.jpg?1782683995",
-          "rank": 266,
+          "rank": 265,
           "uri": "https://scryfall.com/card/ecl/166/bloom-tender?utm_source=api",
-          "price": 13.22
+          "price": 12.59
         },
         {
           "name": "Sylvan Scrying",
@@ -3301,7 +3553,7 @@
           "image": "https://cards.scryfall.io/normal/front/d/1/d1b93087-e6a0-4ba9-83ba-a0ed2e396dc7.jpg?1782712465",
           "rank": 1244,
           "uri": "https://scryfall.com/card/bfz/192/sylvan-scrying?utm_source=api",
-          "price": 0.28
+          "price": 0.29
         },
         {
           "name": "Llanowar Elves",
@@ -3314,7 +3566,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/a/6a0b230b-d391-4998-a3f7-7b158a0ec2cd.jpg?1782689070",
           "rank": 59,
           "uri": "https://scryfall.com/card/fdn/227/llanowar-elves?utm_source=api",
-          "price": 0.38
+          "price": 0.36
         },
         {
           "name": "Zealous Conscripts",
@@ -3325,7 +3577,7 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/b/5/b5ca6c08-bfe0-4021-b6ad-e235c8905661.jpg?1782726742",
-          "rank": 2322,
+          "rank": 2323,
           "uri": "https://scryfall.com/card/inr/183/zealous-conscripts?utm_source=api",
           "price": 0.32
         },
@@ -3338,9 +3590,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/c/0/c0b5ba5f-ac25-4134-91c1-9677ba86576c.jpg?1782683203",
-          "rank": 4980,
+          "rank": 4979,
           "uri": "https://scryfall.com/card/soc/241/creative-technique?utm_source=api",
-          "price": 0.3
+          "price": 0.31
         },
         {
           "name": "Misty Rainforest",
@@ -3351,7 +3603,7 @@
           "image": "https://cards.scryfall.io/normal/front/8/8/88231c0d-0cc8-44ec-bf95-81d1710ac141.jpg?1782704585",
           "rank": 41,
           "uri": "https://scryfall.com/card/mh2/250/misty-rainforest?utm_source=api",
-          "price": 35.7
+          "price": 35.19
         },
         {
           "name": "Scalding Tarn",
@@ -3362,7 +3614,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/1/71e491c5-8c07-449b-b2f1-ffa052e6d311.jpg?1782704583",
           "rank": 49,
           "uri": "https://scryfall.com/card/mh2/254/scalding-tarn?utm_source=api",
-          "price": 38.56
+          "price": 38.83
         },
         {
           "name": "Verdant Catacombs",
@@ -3373,7 +3625,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/4/94c229ea-90da-4aa0-bfda-b162fb3b5b8b.jpg?1782704579",
           "rank": 48,
           "uri": "https://scryfall.com/card/mh2/260/verdant-catacombs?utm_source=api",
-          "price": 28.51
+          "price": 28.43
         },
         {
           "name": "Ancient Tomb",
@@ -3382,9 +3634,9 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/d/bd3d4b4b-cf31-4f89-8140-9650edb03c7b.jpg?1782746952",
-          "rank": 65,
+          "rank": 66,
           "uri": "https://scryfall.com/card/uma/236/ancient-tomb?utm_source=api",
-          "price": 135.31
+          "price": 134.43
         },
         {
           "name": "Boseiju, Who Endures",
@@ -3395,7 +3647,7 @@
           "image": "https://cards.scryfall.io/normal/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.jpg?1782702161",
           "rank": 79,
           "uri": "https://scryfall.com/card/neo/266/boseiju-who-endures?utm_source=api",
-          "price": 49.11
+          "price": 47.86
         },
         {
           "name": "Otawara, Soaring City",
@@ -3406,7 +3658,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/8/486d7edc-d983-41f0-8b78-c99aecd72996.jpg?1782702159",
           "rank": 88,
           "uri": "https://scryfall.com/card/neo/271/otawara-soaring-city?utm_source=api",
-          "price": 27.39
+          "price": 27.66
         },
         {
           "name": "Chrome Mox",
@@ -3417,7 +3669,7 @@
           "image": "https://cards.scryfall.io/normal/front/f/3/f340cbf7-5bbe-45b9-a4bf-d1caa500ff93.jpg?1782743879",
           "rank": 144,
           "uri": "https://scryfall.com/card/2xm/240/chrome-mox?utm_source=api",
-          "price": 171.12
+          "price": 171.72
         },
         {
           "name": "Birds of Paradise",
@@ -3430,7 +3682,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/9/492c2f9a-51e7-4e0f-9899-23bf43ea988b.jpg?1782682523",
           "rank": 33,
           "uri": "https://scryfall.com/card/msc/170/birds-of-paradise?utm_source=api",
-          "price": 7.76
+          "price": 8.38
         },
         {
           "name": "Sneak Attack",
@@ -3441,9 +3693,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/a/4/a45b4ca9-4355-4690-84c3-a7d44c367dbf.jpg?1782735227",
-          "rank": 1465,
+          "rank": 1464,
           "uri": "https://scryfall.com/card/dmr/139/sneak-attack?utm_source=api",
-          "price": 10.71
+          "price": 10.85
         },
         {
           "name": "Phyrexian Metamorph",
@@ -3456,7 +3708,7 @@
           "image": "https://cards.scryfall.io/normal/front/a/5/a564c2e8-f49f-4ed7-850f-7c8bc92e4926.jpg?1782685666",
           "rank": 306,
           "uri": "https://scryfall.com/card/eoc/75/phyrexian-metamorph?utm_source=api",
-          "price": 2.11
+          "price": 2.24
         },
         {
           "name": "Mox Amber",
@@ -3467,7 +3719,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/6/66024e69-ad60-4c9a-a0ca-da138d33ad80.jpg?1782710061",
           "rank": 206,
           "uri": "https://scryfall.com/card/dom/224/mox-amber?utm_source=api",
-          "price": 76.28
+          "price": 75.13
         },
         {
           "name": "Springleaf Drum",
@@ -3478,7 +3730,7 @@
           "image": "https://cards.scryfall.io/normal/front/e/1/e15ab0aa-4059-4923-9816-6f7a9e5b5a18.jpg?1782683915",
           "rank": 585,
           "uri": "https://scryfall.com/card/ecl/260/springleaf-drum?utm_source=api",
-          "price": 0.36
+          "price": 0.38
         },
         {
           "name": "Eldritch Evolution",
@@ -3489,9 +3741,9 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/6/0/606caf13-c0d3-4a61-9a1a-32f13b6448ab.jpg?1782726730",
-          "rank": 725,
+          "rank": 726,
           "uri": "https://scryfall.com/card/inr/195/eldritch-evolution?utm_source=api",
-          "price": 3.84
+          "price": 3.86
         },
         {
           "name": "Etali, Primal Conqueror // Etali, Primal Sickness",
@@ -3504,7 +3756,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/5/95c14c4d-6c16-4826-8d93-d89ad04aee09.jpg?1782697738",
           "rank": 772,
           "uri": "https://scryfall.com/card/mom/137/etali-primal-conqueror-etali-primal-sickness?utm_source=api",
-          "price": 33.7
+          "price": 33.38
         },
         {
           "name": "Delighted Halfling",
@@ -3517,7 +3769,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/1/71384418-173a-4f77-adab-56e52fa23692.jpg?1782697148",
           "rank": 158,
           "uri": "https://scryfall.com/card/ltr/158/delighted-halfling?utm_source=api",
-          "price": 27.18
+          "price": 26.76
         },
         {
           "name": "Last March of the Ents",
@@ -3530,7 +3782,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/f/7f1b99e0-ffb7-4f98-8ee5-4357bb79dd2e.jpg?1782697139",
           "rank": 987,
           "uri": "https://scryfall.com/card/ltr/172/last-march-of-the-ents?utm_source=api",
-          "price": 27.74
+          "price": 28.28
         },
         {
           "name": "Deserted Temple",
@@ -3539,9 +3791,9 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/f/d/fd51f8f0-779b-40bb-b65c-5907f816676e.jpg?1782691110",
-          "rank": 1663,
+          "rank": 1658,
           "uri": "https://scryfall.com/card/mh3/301/deserted-temple?utm_source=api",
-          "price": 0.46
+          "price": 0.45
         },
         {
           "name": "Forest",
@@ -3563,7 +3815,7 @@
           "image": "https://cards.scryfall.io/normal/front/5/a/5a74175b-2418-4226-8435-1490532e644f.jpg?1782681662",
           "rank": null,
           "uri": "https://scryfall.com/card/msh/289/island?utm_source=api",
-          "price": 0.21
+          "price": 0.18
         },
         {
           "name": "Tooth and Nail",
@@ -3574,9 +3826,9 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/d/f/df359b98-9f8f-4f32-82c6-f10ca0f81032.jpg?1782733080",
-          "rank": 2809,
+          "rank": 2811,
           "uri": "https://scryfall.com/card/cmm/327/tooth-and-nail?utm_source=api",
-          "price": 3.48
+          "price": 3.34
         },
         {
           "name": "Call Forth the Tempest",
@@ -3587,9 +3839,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/8/1/81d6b979-251a-4736-86f0-35a6c8b492c9.jpg?1782695227",
-          "rank": 1878,
+          "rank": 1879,
           "uri": "https://scryfall.com/card/ltc/509/call-forth-the-tempest?utm_source=api",
-          "price": 38.04
+          "price": 38.02
         },
         {
           "name": "Flesh Duplicate",
@@ -3600,9 +3852,9 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/5/1/512e9bd2-77b9-4c1c-8d30-e6249dbd930e.jpg?1782696159",
-          "rank": 2688,
+          "rank": 2690,
           "uri": "https://scryfall.com/card/who/44/flesh-duplicate?utm_source=api",
-          "price": 8.3
+          "price": 8.18
         },
         {
           "name": "Exotic Orchard",
@@ -3613,7 +3865,7 @@
           "image": "https://cards.scryfall.io/normal/front/8/8/8853ff94-bf44-4cfd-9d3a-0743c361fb0d.jpg?1782682474",
           "rank": 9,
           "uri": "https://scryfall.com/card/msc/241/exotic-orchard?utm_source=api",
-          "price": 0.24
+          "price": 0.25
         },
         {
           "name": "Tishana, Voice of Thunder",
@@ -3627,7 +3879,7 @@
           "image": "https://cards.scryfall.io/normal/front/e/5/e522b695-859e-4fba-bf8c-c415fbce13e3.jpg?1782694668",
           "rank": 5359,
           "uri": "https://scryfall.com/card/lcc/291/tishana-voice-of-thunder?utm_source=api",
-          "price": 0.5
+          "price": 0.4
         },
         {
           "name": "Ghalta, Stampede Tyrant",
@@ -3640,7 +3892,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/2/72e805e9-69be-45c1-aa04-f460641a0c1e.jpg?1782694461",
           "rank": 1071,
           "uri": "https://scryfall.com/card/lci/185/ghalta-stampede-tyrant?utm_source=api",
-          "price": 27.14
+          "price": 26.65
         },
         {
           "name": "Trumpeting Carnosaur",
@@ -3653,7 +3905,7 @@
           "image": "https://cards.scryfall.io/normal/front/e/d/edc035ca-f0a3-4814-9405-d6dc6f048315.jpg?1782694473",
           "rank": 1617,
           "uri": "https://scryfall.com/card/lci/171/trumpeting-carnosaur?utm_source=api",
-          "price": 2.26
+          "price": 2.19
         },
         {
           "name": "Stunt Double",
@@ -3664,9 +3916,9 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/7/a/7afaaea9-300a-46c8-b9ec-a2579f8a4b7f.jpg?1782693542",
-          "rank": 3872,
+          "rank": 3870,
           "uri": "https://scryfall.com/card/clu/101/stunt-double?utm_source=api",
-          "price": 4.5
+          "price": 4.49
         },
         {
           "name": "Jeska's Will",
@@ -3679,7 +3931,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/9/99e0c371-1024-4432-9fd9-3bc29c8d38e4.jpg?1782694108",
           "rank": 102,
           "uri": "https://scryfall.com/card/mkc/156/jeskas-will?utm_source=api",
-          "price": 41.29
+          "price": 41.03
         },
         {
           "name": "Polluted Delta",
@@ -3690,7 +3942,7 @@
           "image": "https://cards.scryfall.io/normal/front/6/e/6e288374-2b71-4ace-b1d2-a19fee6cb4af.jpg?1782691195",
           "rank": 36,
           "uri": "https://scryfall.com/card/mh3/224/polluted-delta?utm_source=api",
-          "price": 19.37
+          "price": 18.78
         },
         {
           "name": "Disciple of Freyalise // Garden of Freyalise",
@@ -3703,7 +3955,7 @@
           "image": "https://cards.scryfall.io/normal/front/a/8/a8e9ea5a-5e10-4b77-baef-0352ff035483.jpg?1782691154",
           "rank": 483,
           "uri": "https://scryfall.com/card/mh3/250/disciple-of-freyalise-garden-of-freyalise?utm_source=api",
-          "price": 1.22
+          "price": 1.33
         },
         {
           "name": "Apex Devastator",
@@ -3714,9 +3966,9 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/8/f/8fa281e1-5c48-4bba-b8e9-88c6f5f53abb.jpg?1782705960",
-          "rank": 1055,
+          "rank": 1056,
           "uri": "https://scryfall.com/card/cmr/217/apex-devastator?utm_source=api",
-          "price": 5.85
+          "price": 5.8
         },
         {
           "name": "Sowing Mycospawn",
@@ -3725,9 +3977,9 @@
           "mana": "{3}{G}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/c/d/cdfadb17-76ad-4d4d-9fa7-33c4b88b4c0a.jpg?1782691245",
-          "rank": 2096,
+          "rank": 2097,
           "uri": "https://scryfall.com/card/mh3/170/sowing-mycospawn?utm_source=api",
-          "price": 1.42
+          "price": 1.88
         },
         {
           "name": "Yavimaya, Cradle of Growth",
@@ -3738,7 +3990,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/e/4e4b6e22-93b2-4896-bba5-0ceaa5d8ea3c.jpg?1782704579",
           "rank": 77,
           "uri": "https://scryfall.com/card/mh2/261/yavimaya-cradle-of-growth?utm_source=api",
-          "price": 14.92
+          "price": 14.95
         },
         {
           "name": "Talon Gates of Madara",
@@ -3747,9 +3999,9 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/d/e/de92facf-762b-4a23-8d5e-bb673b0500c0.jpg?1782691678",
-          "rank": 582,
+          "rank": 581,
           "uri": "https://scryfall.com/card/m3c/82/talon-gates-of-madara?utm_source=api",
-          "price": 37.94
+          "price": 38.21
         },
         {
           "name": "Arbor Elf",
@@ -3762,7 +4014,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/b/4b81165e-f091-4211-8b47-5ea6868b0d4c.jpg?1782747915",
           "rank": 598,
           "uri": "https://scryfall.com/card/a25/160/arbor-elf?utm_source=api",
-          "price": 0.91
+          "price": 0.97
         },
         {
           "name": "Command Tower",
@@ -3773,7 +4025,7 @@
           "image": "https://cards.scryfall.io/normal/front/0/5/0548fb60-c843-4f8f-a029-6f10efc63a41.jpg?1782682479",
           "rank": 2,
           "uri": "https://scryfall.com/card/msc/233/command-tower?utm_source=api",
-          "price": 0.34
+          "price": 0.32
         },
         {
           "name": "Kiora, Behemoth Beckoner",
@@ -3785,9 +4037,9 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/7/a/7a61b1a6-a75f-47b0-b215-de9708b6d773.jpg?1782708593",
-          "rank": 2275,
+          "rank": 2277,
           "uri": "https://scryfall.com/card/war/232/kiora-behemoth-beckoner?utm_source=api",
-          "price": 1.01
+          "price": 1
         },
         {
           "name": "Show and Tell",
@@ -3798,7 +4050,7 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/f/a/fa7b7897-36e0-415a-8bb7-602886164852.jpg?1782711728",
-          "rank": 6751,
+          "rank": 6748,
           "uri": "https://scryfall.com/card/cn2/121/show-and-tell?utm_source=api",
           "price": 18.88
         },
@@ -3813,7 +4065,7 @@
           "image": "https://cards.scryfall.io/normal/front/c/1/c1c080cf-a5e8-4d9d-af49-f78588971e87.jpg?1782704152",
           "rank": 1419,
           "uri": "https://scryfall.com/card/afc/89/phantasmal-image?utm_source=api",
-          "price": 4.8
+          "price": 4.88
         },
         {
           "name": "Enduring Vitality",
@@ -3826,7 +4078,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/d/9d76a30c-0431-4334-892a-9822dda9671a.jpg?1782689493",
           "rank": 472,
           "uri": "https://scryfall.com/card/dsk/176/enduring-vitality?utm_source=api",
-          "price": 12.33
+          "price": 13.4
         },
         {
           "name": "Ashaya, Soul of the Wild",
@@ -3837,9 +4089,9 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/0/a/0a74b4e6-f6c9-4fef-a83c-a285a541e720.jpg?1782689835",
-          "rank": 816,
+          "rank": 817,
           "uri": "https://scryfall.com/card/dsc/170/ashaya-soul-of-the-wild?utm_source=api",
-          "price": 15.8
+          "price": 15.88
         },
         {
           "name": "Tezzeret, Cruel Captain",
@@ -3848,9 +4100,9 @@
           "mana": "{3}",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/0/2/02e8e540-8aa3-4e6a-9a11-c3949cab5f0f.jpg?1782685585",
-          "rank": 1392,
+          "rank": 1389,
           "uri": "https://scryfall.com/card/eoe/2/tezzeret-cruel-captain?utm_source=api",
-          "price": 18.53
+          "price": 18.94
         },
         {
           "name": "Formidable Speaker",
@@ -3861,9 +4113,9 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/2/6/265522eb-4f6a-40e7-b374-3833fa63c80b.jpg?1782683987",
-          "rank": 1780,
+          "rank": 1777,
           "uri": "https://scryfall.com/card/ecl/176/formidable-speaker?utm_source=api",
-          "price": 7.49
+          "price": 7.56
         },
         {
           "name": "Hullbreaker Horror",
@@ -3876,7 +4128,7 @@
           "image": "https://cards.scryfall.io/normal/front/1/3/137acb70-a1fd-4ea9-a5d9-f4b438eb5e82.jpg?1782726835",
           "rank": 269,
           "uri": "https://scryfall.com/card/inr/68/hullbreaker-horror?utm_source=api",
-          "price": 6.1
+          "price": 5.98
         },
         {
           "name": "Badgermole Cub",
@@ -3887,9 +4139,9 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/3/4/340c5799-4964-44dd-8c48-8f3f3aba5211.jpg?1782684544",
-          "rank": 1452,
+          "rank": 1449,
           "uri": "https://scryfall.com/card/tla/167/badgermole-cub?utm_source=api",
-          "price": 51.51
+          "price": 51.73
         },
         {
           "name": "Vibrance",
@@ -3901,9 +4153,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/b/9/b9f71c3b-0840-475f-9c17-fdacbc7f3213.jpg?1782683925",
-          "rank": 9130,
+          "rank": 9120,
           "uri": "https://scryfall.com/card/ecl/249/vibrance?utm_source=api",
-          "price": 4.05
+          "price": 3.96
         },
         {
           "name": "Rhythm of the Wild",
@@ -3917,7 +4169,7 @@
           "image": "https://cards.scryfall.io/normal/front/c/2/c2a6453e-a373-44ec-807a-15c0c8b1af57.jpg?1782731056",
           "rank": 210,
           "uri": "https://scryfall.com/card/rvr/217/rhythm-of-the-wild?utm_source=api",
-          "price": 5.17
+          "price": 5.24
         },
         {
           "name": "Imperial Recruiter",
@@ -3928,9 +4180,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/0/5/05bd329b-5707-42fc-af1c-084cc604e805.jpg?1782704570",
-          "rank": 637,
+          "rank": 638,
           "uri": "https://scryfall.com/card/mh2/281/imperial-recruiter?utm_source=api",
-          "price": 13.6
+          "price": 13.83
         },
         {
           "name": "Natural Order",
@@ -3941,7 +4193,7 @@
             "G"
           ],
           "image": "https://cards.scryfall.io/normal/front/b/f/bfe3329c-7faa-4925-b9d2-075a1ab27e80.jpg?1782749842",
-          "rank": 1595,
+          "rank": 1594,
           "uri": "https://scryfall.com/card/ema/177/natural-order?utm_source=api",
           "price": 36.6
         },
@@ -3956,7 +4208,7 @@
           "image": "https://cards.scryfall.io/normal/front/3/6/36fa9a0b-b0c9-43ea-ba11-99d7982f974e.jpg?1782735278",
           "rank": 150,
           "uri": "https://scryfall.com/card/dmr/60/mystical-tutor?utm_source=api",
-          "price": 16.95
+          "price": 17.09
         },
         {
           "name": "Breeding Pool",
@@ -3967,7 +4219,7 @@
           "image": "https://cards.scryfall.io/normal/front/3/c/3c750d5a-f743-41ff-b5ba-02025ca0bec2.jpg?1782685411",
           "rank": 62,
           "uri": "https://scryfall.com/card/eoe/251/breeding-pool?utm_source=api",
-          "price": 9.06
+          "price": 9.2
         },
         {
           "name": "Fyndhorn Elves",
@@ -3980,7 +4232,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/5/450744cf-7eba-491b-97b0-ca80c6368bbb.jpg?1782705953",
           "rank": 220,
           "uri": "https://scryfall.com/card/cmr/228/fyndhorn-elves?utm_source=api",
-          "price": 1.94
+          "price": 2.11
         },
         {
           "name": "City of Brass",
@@ -3991,7 +4243,7 @@
           "image": "https://cards.scryfall.io/normal/front/c/2/c21565d0-fc40-4d89-9b27-87c03385e0af.jpg?1782723682",
           "rank": 98,
           "uri": "https://scryfall.com/card/tmc/62/city-of-brass?utm_source=api",
-          "price": 11.03
+          "price": 11.48
         },
         {
           "name": "Elvish Mystic",
@@ -4004,7 +4256,7 @@
           "image": "https://cards.scryfall.io/normal/front/e/b/eb654a76-62ee-4fd8-83d4-cb912211a9a0.jpg?1782683183",
           "rank": 106,
           "uri": "https://scryfall.com/card/soc/266/elvish-mystic?utm_source=api",
-          "price": 0.43
+          "price": 0.46
         },
         {
           "name": "Maelstrom Wanderer",
@@ -4017,9 +4269,9 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/5/6/5685b28a-b943-4143-b9ed-4796c1ffbf9c.jpg?1782684205",
-          "rank": 1620,
+          "rank": 1621,
           "uri": "https://scryfall.com/card/ecc/127/maelstrom-wanderer?utm_source=api",
-          "price": 0.77
+          "price": 0.48
         },
         {
           "name": "Deadeye Navigator",
@@ -4032,7 +4284,7 @@
           "image": "https://cards.scryfall.io/normal/front/4/f/4f0791b5-fdb4-4378-8fd3-7e7367ffc05c.jpg?1782726843",
           "rank": 1466,
           "uri": "https://scryfall.com/card/inr/59/deadeye-navigator?utm_source=api",
-          "price": 3.98
+          "price": 3.82
         },
         {
           "name": "Starfield Vocalist",
@@ -4043,9 +4295,9 @@
             "U"
           ],
           "image": "https://cards.scryfall.io/normal/front/d/e/deca0b2a-e7f3-444a-883d-7c41dd62c9cc.jpg?1782685533",
-          "rank": 2109,
+          "rank": 2106,
           "uri": "https://scryfall.com/card/eoe/78/starfield-vocalist?utm_source=api",
-          "price": 1.62
+          "price": 2.05
         },
         {
           "name": "Gemstone Caverns",
@@ -4056,7 +4308,7 @@
           "image": "https://cards.scryfall.io/normal/front/7/f/7f273641-c5f3-48bc-b89e-3cff52d26a0b.jpg?1782741752",
           "rank": 178,
           "uri": "https://scryfall.com/card/tsr/280/gemstone-caverns?utm_source=api",
-          "price": 53.37
+          "price": 53.63
         },
         {
           "name": "Mana Confluence",
@@ -4067,7 +4319,7 @@
           "image": "https://cards.scryfall.io/normal/front/5/0/504a69eb-3c2d-4bb1-b117-252b15acf0c2.jpg?1782713352",
           "rank": 119,
           "uri": "https://scryfall.com/card/jou/163/mana-confluence?utm_source=api",
-          "price": 34.12
+          "price": 32.96
         },
         {
           "name": "Steam Vents",
@@ -4076,9 +4328,9 @@
           "mana": "",
           "colors": [],
           "image": "https://cards.scryfall.io/normal/front/b/6/b66daa94-d367-4812-9f18-f35378c1febb.jpg?1782683912",
-          "rank": 66,
+          "rank": 65,
           "uri": "https://scryfall.com/card/ecl/267/steam-vents?utm_source=api",
-          "price": 12.51
+          "price": 13.86
         },
         {
           "name": "Sol Ring",
@@ -4089,7 +4341,7 @@
           "image": "https://cards.scryfall.io/normal/front/9/1/91fdb56b-54d5-4272-8319-505ff987fe9b.jpg?1782682494",
           "rank": 1,
           "uri": "https://scryfall.com/card/msc/211/sol-ring?utm_source=api",
-          "price": 1.84
+          "price": 1.74
         }
       ],
       "stats": {
@@ -4329,6 +4581,613 @@
       "typeLine": "Sorcery",
       "set": "Outlaws of Thunder Junction Commander",
       "uri": "https://scryfall.com/card/otc/123/windfall?utm_source=api"
+    },
+    {
+      "card": "City of Traitors",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2330.jpg",
+      "official": "https://cards.scryfall.io/normal/front/7/1/71624139-a255-48be-93ca-594a4beba487.jpg?1782750656",
+      "colors": [],
+      "typeLine": "Land",
+      "set": "Tempest Remastered",
+      "uri": "https://scryfall.com/card/tpr/237/city-of-traitors?utm_source=api"
+    },
+    {
+      "card": "Goblin Welder",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2331.jpg",
+      "official": "https://cards.scryfall.io/normal/front/1/7/17cd920a-de09-454a-a9da-c84512e3aff1.jpg?1782709792",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Creature — Goblin Artificer",
+      "set": "Commander Anthology Volume II",
+      "uri": "https://scryfall.com/card/cm2/101/goblin-welder?utm_source=api"
+    },
+    {
+      "card": "Dargo, the Shipwrecker",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2332.jpg",
+      "official": "https://cards.scryfall.io/normal/front/5/c/5cd87cf8-4d5d-4aba-8dfa-800b1fb3799b.jpg?1782705988",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Legendary Creature — Giant Pirate",
+      "set": "Commander Legends",
+      "uri": "https://scryfall.com/card/cmr/172/dargo-the-shipwrecker?utm_source=api"
+    },
+    {
+      "card": "Tymna the Weaver",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2333.jpg",
+      "official": "https://cards.scryfall.io/normal/front/b/c/bc7cbe9b-324e-42b8-94e2-36e91cb32163.jpg?1782711440",
+      "colors": [
+        "B",
+        "W"
+      ],
+      "typeLine": "Legendary Creature — Human Cleric",
+      "set": "Commander 2016",
+      "uri": "https://scryfall.com/card/c16/48/tymna-the-weaver?utm_source=api"
+    },
+    {
+      "card": "Esper Sentinel",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2334.jpg",
+      "official": "https://cards.scryfall.io/normal/front/f/3/f3537373-ef54-4578-9d05-6216420ee349.jpg?1782704736",
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Artifact Creature — Human Soldier",
+      "set": "Modern Horizons 2",
+      "uri": "https://scryfall.com/card/mh2/12/esper-sentinel?utm_source=api"
+    },
+    {
+      "card": "Bloodstained Mire",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2336.jpg",
+      "official": "https://cards.scryfall.io/normal/front/5/7/579743fe-f71e-4cb2-8629-d6b02ed1591d.jpg?1782691202",
+      "colors": [],
+      "typeLine": "Land",
+      "set": "Modern Horizons 3",
+      "uri": "https://scryfall.com/card/mh3/216/bloodstained-mire?utm_source=api"
+    },
+    {
+      "card": "Ruthless Technomancer",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2337.jpg",
+      "official": "https://cards.scryfall.io/normal/front/d/d/dddeb5cc-b535-4484-8a0e-ce32c4c09000.jpg?1782702421",
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Creature — Human Wizard",
+      "set": "Neon Dynasty Commander",
+      "uri": "https://scryfall.com/card/nec/35/ruthless-technomancer?utm_source=api"
+    },
+    {
+      "card": "Sacred Foundry",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2338.jpg",
+      "official": "https://cards.scryfall.io/normal/front/8/b/8b4e2642-3c87-4708-b9b4-2e7f7359ac7d.jpg?1782685406",
+      "colors": [],
+      "typeLine": "Land — Mountain Plains",
+      "set": "Edge of Eternities",
+      "uri": "https://scryfall.com/card/eoe/256/sacred-foundry?utm_source=api"
+    },
+    {
+      "card": "Sacrifice",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2339.jpg",
+      "official": "https://cards.scryfall.io/normal/front/6/5/652bd781-1a48-42c1-9aff-f9050a9285d6.jpg?1782722183",
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Instant",
+      "set": "Summer Magic / Edgar",
+      "uri": "https://scryfall.com/card/sum/126/sacrifice?utm_source=api"
+    },
+    {
+      "card": "Arcane Signet",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2340.jpg",
+      "official": "https://cards.scryfall.io/normal/front/1/c/1cad1bd2-7c56-4ce0-99a6-b2a49c1288dd.jpg?1782682506",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Marvel Super Heroes Commander",
+      "uri": "https://scryfall.com/card/msc/191/arcane-signet?utm_source=api"
+    },
+    {
+      "card": "Blood Crypt",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2341.jpg",
+      "official": "https://cards.scryfall.io/normal/front/6/d/6da63cc5-4624-4491-abd9-9b600c3fefe2.jpg?1782683915",
+      "colors": [],
+      "typeLine": "Land — Swamp Mountain",
+      "set": "Lorwyn Eclipsed",
+      "uri": "https://scryfall.com/card/ecl/262/blood-crypt?utm_source=api"
+    },
+    {
+      "card": "Mana Confluence",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2342.jpg",
+      "official": "https://cards.scryfall.io/normal/front/5/0/504a69eb-3c2d-4bb1-b117-252b15acf0c2.jpg?1782713352",
+      "colors": [],
+      "typeLine": "Land",
+      "set": "Journey into Nyx",
+      "uri": "https://scryfall.com/card/jou/163/mana-confluence?utm_source=api"
+    },
+    {
+      "card": "Enlightened Tutor",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2343.jpg",
+      "official": "https://cards.scryfall.io/normal/front/1/c/1c9675fb-1a89-420f-aea8-50e0642f549c.jpg?1782735319",
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Instant",
+      "set": "Dominaria Remastered",
+      "uri": "https://scryfall.com/card/dmr/6/enlightened-tutor?utm_source=api"
+    },
+    {
+      "card": "Pyroblast",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2344.jpg",
+      "official": "https://cards.scryfall.io/normal/front/b/0/b029eb9a-dd7a-40c2-96c4-0063d9cc002c.jpg?1782749863",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Instant",
+      "set": "Eternal Masters",
+      "uri": "https://scryfall.com/card/ema/142/pyroblast?utm_source=api"
+    },
+    {
+      "card": "Chrome Mox",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2345.jpg",
+      "official": "https://cards.scryfall.io/normal/front/f/3/f340cbf7-5bbe-45b9-a4bf-d1caa500ff93.jpg?1782743879",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Double Masters",
+      "uri": "https://scryfall.com/card/2xm/240/chrome-mox?utm_source=api"
+    },
+    {
+      "card": "Knuckles the Echidna",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2346.jpg",
+      "official": "https://cards.scryfall.io/normal/front/5/4/54b65cca-7844-4d3e-9d7f-ed1f49f94425.jpg?1782725309",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Legendary Creature — Echidna Warrior",
+      "set": "Secret Lair Drop",
+      "uri": "https://scryfall.com/card/sld/2082/knuckles-the-echidna?utm_source=api"
+    },
+    {
+      "card": "Imperial Seal",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2347.jpg",
+      "official": "https://cards.scryfall.io/normal/front/e/7/e71a6bd3-7478-4c3a-8ae0-98352ce28492.jpg?1782737914",
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Sorcery",
+      "set": "Double Masters 2022",
+      "uri": "https://scryfall.com/card/2x2/79/imperial-seal?utm_source=api"
+    },
+    {
+      "card": "Exotic Orchard",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2348.jpg",
+      "official": "https://cards.scryfall.io/normal/front/8/8/8853ff94-bf44-4cfd-9d3a-0743c361fb0d.jpg?1782682474",
+      "colors": [],
+      "typeLine": "Land",
+      "set": "Marvel Super Heroes Commander",
+      "uri": "https://scryfall.com/card/msc/241/exotic-orchard?utm_source=api"
+    },
+    {
+      "card": "Flooded Strand",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2349.jpg",
+      "official": "https://cards.scryfall.io/normal/front/8/f/8f85e12c-196b-4459-b81f-0c9c854e9f57.jpg?1782691197",
+      "colors": [],
+      "typeLine": "Land",
+      "set": "Modern Horizons 3",
+      "uri": "https://scryfall.com/card/mh3/220/flooded-strand?utm_source=api"
+    },
+    {
+      "card": "Static Prison",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2350.jpg",
+      "official": "https://cards.scryfall.io/normal/front/d/d/dd16222e-349c-4a2b-a7c8-8eb35a8ab332.jpg?1782691371",
+      "colors": [
+        "W"
+      ],
+      "typeLine": "Enchantment",
+      "set": "Modern Horizons 3",
+      "uri": "https://scryfall.com/card/mh3/44/static-prison?utm_source=api"
+    },
+    {
+      "card": "Relic of Legends",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2351.jpg",
+      "official": "https://cards.scryfall.io/normal/front/8/9/89691cda-e38b-4f53-bee6-4c234186e6ad.jpg?1782682494",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Marvel Super Heroes Commander",
+      "uri": "https://scryfall.com/card/msc/209/relic-of-legends?utm_source=api"
+    },
+    {
+      "card": "Mox Diamond",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2352.jpg",
+      "official": "https://cards.scryfall.io/normal/front/b/f/bf9fecfd-d122-422f-bd0a-5bf69b434dfe.jpg?1782750660",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Tempest Remastered",
+      "uri": "https://scryfall.com/card/tpr/228/mox-diamond?utm_source=api"
+    },
+    {
+      "card": "Badlands",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2353.jpg",
+      "official": "https://cards.scryfall.io/normal/front/7/3/73403d04-fe97-4830-8b80-16dd1a1a6cc1.jpg?1782751353",
+      "colors": [],
+      "typeLine": "Land — Swamp Mountain",
+      "set": "Vintage Masters",
+      "uri": "https://scryfall.com/card/vma/291/badlands?utm_source=api"
+    },
+    {
+      "card": "Orcish Bowmasters",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2354.jpg",
+      "official": "https://cards.scryfall.io/normal/front/7/c/7c024bae-5631-4e20-ac69-df392ac9e109.jpg?1782697185",
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Creature — Orc Archer",
+      "set": "The Lord of the Rings: Tales of Middle-earth",
+      "uri": "https://scryfall.com/card/ltr/103/orcish-bowmasters?utm_source=api"
+    },
+    {
+      "card": "Demonic Tutor",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2355.jpg",
+      "official": "https://cards.scryfall.io/normal/front/a/2/a24b4cb6-cebb-428b-8654-74347a6a8d63.jpg?1782733205",
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Sorcery",
+      "set": "Commander Masters",
+      "uri": "https://scryfall.com/card/cmm/150/demonic-tutor?utm_source=api"
+    },
+    {
+      "card": "Goblin Engineer",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2356.jpg",
+      "official": "https://cards.scryfall.io/normal/front/a/5/a55c4d47-5252-40af-961d-c08bc688028a.jpg?1782708479",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Creature — Goblin Artificer",
+      "set": "Modern Horizons",
+      "uri": "https://scryfall.com/card/mh1/128/goblin-engineer?utm_source=api"
+    },
+    {
+      "card": "Wheel of Fortune",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2357.jpg",
+      "official": "https://cards.scryfall.io/normal/front/2/5/2597050f-6b1b-474e-aa16-33fd154628ca.jpg?1782751395",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Sorcery",
+      "set": "Vintage Masters",
+      "uri": "https://scryfall.com/card/vma/192/wheel-of-fortune?utm_source=api"
+    },
+    {
+      "card": "Impulsive Pilferer",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2358.jpg",
+      "official": "https://cards.scryfall.io/normal/front/0/f/0f020359-5ad1-43c4-8588-172be635cccc.jpg?1782692308",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Creature — Goblin Pirate",
+      "set": "Outlaws of Thunder Junction Commander",
+      "uri": "https://scryfall.com/card/otc/171/impulsive-pilferer?utm_source=api"
+    },
+    {
+      "card": "Mana Vault",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2359.jpg",
+      "official": "https://cards.scryfall.io/normal/front/c/1/c1a31d52-a407-4ded-bfca-cc812f11afa0.jpg?1782737761",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Double Masters 2022",
+      "uri": "https://scryfall.com/card/2x2/308/mana-vault?utm_source=api"
+    },
+    {
+      "card": "Prized Statue",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2360.jpg",
+      "official": "https://cards.scryfall.io/normal/front/5/8/58a49829-c354-4823-8cc1-a159fc46c0d7.jpg?1782701141",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Commander Legends: Battle for Baldur's Gate",
+      "uri": "https://scryfall.com/card/clb/334/prized-statue?utm_source=api"
+    },
+    {
+      "card": "Lotho, Corrupt Shirriff",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2361.jpg",
+      "official": "https://cards.scryfall.io/normal/front/c/e/ce01ff8f-a037-484f-9148-c847ffaabc5a.jpg?1782697113",
+      "colors": [
+        "B",
+        "W"
+      ],
+      "typeLine": "Legendary Creature — Halfling Rogue",
+      "set": "The Lord of the Rings: Tales of Middle-earth",
+      "uri": "https://scryfall.com/card/ltr/213/lotho-corrupt-shirriff?utm_source=api"
+    },
+    {
+      "card": "Cursed Mirror",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2362.jpg",
+      "official": "https://cards.scryfall.io/normal/front/0/7/077392b3-6b06-46c8-8737-51e85f690448.jpg?1782683203",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Artifact",
+      "set": "Secrets of Strixhaven Commander",
+      "uri": "https://scryfall.com/card/soc/242/cursed-mirror?utm_source=api"
+    },
+    {
+      "card": "Animate Dead",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2363.jpg",
+      "official": "https://cards.scryfall.io/normal/front/c/c/cc0c2bab-4392-4e7b-9d14-2901f4ffbae8.jpg?1782683229",
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Enchantment — Aura",
+      "set": "Secrets of Strixhaven Commander",
+      "uri": "https://scryfall.com/card/soc/207/animate-dead?utm_source=api"
+    },
+    {
+      "card": "Sol Ring",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2364.jpg",
+      "official": "https://cards.scryfall.io/normal/front/9/1/91fdb56b-54d5-4272-8319-505ff987fe9b.jpg?1782682494",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Marvel Super Heroes Commander",
+      "uri": "https://scryfall.com/card/msc/211/sol-ring?utm_source=api"
+    },
+    {
+      "card": "Ancient Tomb",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2365.jpg",
+      "official": "https://cards.scryfall.io/normal/front/b/d/bd3d4b4b-cf31-4f89-8140-9650edb03c7b.jpg?1782746952",
+      "colors": [],
+      "typeLine": "Land",
+      "set": "Ultimate Masters",
+      "uri": "https://scryfall.com/card/uma/236/ancient-tomb?utm_source=api"
+    },
+    {
+      "card": "Gamble",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2366.jpg",
+      "official": "https://cards.scryfall.io/normal/front/8/e/8e37fae5-ddd0-4e16-8581-71579f89d9c5.jpg?1782735238",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Sorcery",
+      "set": "Dominaria Remastered",
+      "uri": "https://scryfall.com/card/dmr/121/gamble?utm_source=api"
+    },
+    {
+      "card": "Peer into the Abyss",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2367.jpg",
+      "official": "https://cards.scryfall.io/normal/front/a/a/aac00055-640e-4749-8d23-d242e6d0b23a.jpg?1782706942",
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Sorcery",
+      "set": "Core Set 2021",
+      "uri": "https://scryfall.com/card/m21/117/peer-into-the-abyss?utm_source=api"
+    },
+    {
+      "card": "Scrubland",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2368.jpg",
+      "official": "https://cards.scryfall.io/normal/front/9/d/9d471e36-a3ab-4a96-ba4b-8eca921ea37a.jpg?1782751345",
+      "colors": [],
+      "typeLine": "Land — Plains Swamp",
+      "set": "Vintage Masters",
+      "uri": "https://scryfall.com/card/vma/313/scrubland?utm_source=api"
+    },
+    {
+      "card": "Command Tower",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2369.jpg",
+      "official": "https://cards.scryfall.io/normal/front/0/5/0548fb60-c843-4f8f-a029-6f10efc63a41.jpg?1782682479",
+      "colors": [],
+      "typeLine": "Land",
+      "set": "Marvel Super Heroes Commander",
+      "uri": "https://scryfall.com/card/msc/233/command-tower?utm_source=api"
+    },
+    {
+      "card": "Imperial Recruiter",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2370.jpg",
+      "official": "https://cards.scryfall.io/normal/front/0/5/05bd329b-5707-42fc-af1c-084cc604e805.jpg?1782704570",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Creature — Human Advisor",
+      "set": "Modern Horizons 2",
+      "uri": "https://scryfall.com/card/mh2/281/imperial-recruiter?utm_source=api"
+    },
+    {
+      "card": "Lion's Eye Diamond",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2371.jpg",
+      "official": "https://cards.scryfall.io/normal/front/7/5/758f95f8-bcb0-43ae-b474-56ebd855951e.jpg?1782751362",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Vintage Masters",
+      "uri": "https://scryfall.com/card/vma/271/lions-eye-diamond?utm_source=api"
+    },
+    {
+      "card": "Greedy Freebooter",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2372.jpg",
+      "official": "https://cards.scryfall.io/normal/front/6/9/692fe4e8-13b4-4bec-938e-a8073a7fbd71.jpg?1782694524",
+      "colors": [
+        "B"
+      ],
+      "typeLine": "Creature — Human Pirate",
+      "set": "The Lost Caverns of Ixalan",
+      "uri": "https://scryfall.com/card/lci/109/greedy-freebooter?utm_source=api"
+    },
+    {
+      "card": "Plateau",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Tymna ❤️ Dargo",
+      "image": "/images/mtg-alters/2373.jpg",
+      "official": "https://cards.scryfall.io/normal/front/b/b/bb979a96-a57d-4fb5-8ebe-0bd398272abe.jpg?1782751346",
+      "colors": [],
+      "typeLine": "Land — Mountain Plains",
+      "set": "Vintage Masters",
+      "uri": "https://scryfall.com/card/vma/308/plateau?utm_source=api"
     }
   ]
 }
