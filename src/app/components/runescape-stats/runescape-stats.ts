@@ -295,9 +295,17 @@ export class RunescapeStatsComponent {
       .join(' ');
   }
 
+  // WOM slug → Hiscores icon key, where stripping underscores isn't enough
+  // (the Hiscores names a few activities differently, e.g. "Expert Mode").
+  private static readonly BOSS_ICON_ALIASES: Record<string, string> = {
+    tombs_of_amascut_expert: 'tombsofamascutexpertmode',
+  };
+
   /** Self-hosted Hiscores boss icon (WOM slug → icon key). */
   protected bossIcon(metric: string): string {
-    return `/images/osrs-hiscores/${metric.replace(/_/g, '')}.png`;
+    const key =
+      RunescapeStatsComponent.BOSS_ICON_ALIASES[metric] ?? metric.replace(/_/g, '');
+    return `/images/osrs-hiscores/${key}.png`;
   }
 
   /** Hide an icon that has no matching self-hosted image. */
