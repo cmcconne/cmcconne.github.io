@@ -55,6 +55,78 @@
         }
       </div>
 
+      @if (wom(); as w) {
+        <div class="panel wom">
+          @if (womWeek(); as wk) {
+            <div class="panel-head">
+              <h2>This week</h2>
+              <span class="wom-sub">via Wise Old Man</span>
+            </div>
+            <div class="week-totals">
+              <div class="wt">
+                <span class="wt-value">+{{ gp(wk.xpGained) }}</span>
+                <span class="wt-label">XP gained</span>
+              </div>
+              @if (wk.ehpGained) {
+                <div class="wt"><span class="wt-value">+{{ wk.ehpGained }}</span><span class="wt-label">EHP</span></div>
+              }
+              @if (wk.ehbGained) {
+                <div class="wt"><span class="wt-value">+{{ wk.ehbGained }}</span><span class="wt-label">EHB</span></div>
+              }
+            </div>
+
+            <div class="wom-cols">
+              @if (wk.skills.length) {
+                <div class="wom-group">
+                  <h3>Skills trained</h3>
+                  <ul class="gain-list">
+                    @for (s of wk.skills; track s.metric) {
+                      <li class="gain">
+                        <img class="gain-icon" [src]="skillIconByName(s.metric)" [alt]="s.metric" loading="lazy" />
+                        <span class="gain-name">{{ womName(s.metric) }}</span>
+                        <span class="gain-value">+{{ gp(s.gained) }}</span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              }
+              @if (wk.bosses.length) {
+                <div class="wom-group">
+                  <h3>Bosses killed</h3>
+                  <ul class="gain-list">
+                    @for (b of wk.bosses; track b.metric) {
+                      <li class="gain">
+                        <img class="gain-icon boss" [src]="bossIcon(b.metric)" [alt]="b.metric" (error)="hideBroken($event)" loading="lazy" />
+                        <span class="gain-name">{{ womName(b.metric) }}</span>
+                        <span class="gain-value">+{{ b.gained }} KC</span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              }
+            </div>
+            @if (!wk.skills.length && !wk.bosses.length) {
+              <p class="wom-empty">No tracked gains this week.</p>
+            }
+          }
+
+          @if (topBossKcs().length) {
+            <div class="wom-group kc-block">
+              <h3>Boss kill counts</h3>
+              <div class="kc-grid">
+                @for (b of topBossKcs(); track b.metric) {
+                  <div class="kc" [attr.title]="womName(b.metric) + ' — ' + b.kills + ' KC'">
+                    <img class="kc-icon" [src]="bossIcon(b.metric)" [alt]="b.metric" (error)="hideBroken($event)" loading="lazy" />
+                    <span class="kc-name">{{ womName(b.metric) }}</span>
+                    <span class="kc-count">{{ b.kills | number }}</span>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      }
+
       <app-osrs-clog [recent]="st.recentItems ?? []" />
 
       <app-osrs-ca />
@@ -104,6 +176,8 @@
         <a href="https://oldschool.runescape.wiki/w/Application_programming_interface" target="_blank" rel="noopener">OSRS Hiscores</a>;
         collection log, combat achievements &amp; quests/diaries via the
         <a href="https://oldschool.runescape.wiki/w/RuneScape:WikiSync" target="_blank" rel="noopener">OSRS Wiki (WikiSync)</a>;
+        weekly gains &amp; boss KCs via
+        <a href="https://wiseoldman.net/players/Stupid%20Hands" target="_blank" rel="noopener">Wise Old Man</a>;
         character render &amp; latest activities via
         <a [href]="profileUrl()" target="_blank" rel="noopener">RuneProfile</a>.
       </p>

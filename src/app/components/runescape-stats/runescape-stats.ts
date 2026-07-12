@@ -1,7 +1,7 @@
 import { Component, computed, effect, inject, input, signal } from '@angular/core';
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { OsrsSkill, RunescapeStats } from '../../models/runescape-stats';
+import { OsrsSkill, RunescapeStats, WomData } from '../../models/runescape-stats';
 import { OsrsCharacterComponent } from '../osrs-character/osrs-character';
 import { OsrsClogComponent } from '../osrs-clog/osrs-clog';
 import { OsrsCaComponent } from '../osrs-ca/osrs-ca';
@@ -43,6 +43,9 @@ export class RunescapeStatsComponent {
 
   protected readonly stats = signal<RunescapeStats | null>(null);
   protected readonly statsLoaded = signal(false);
+
+  /** Wise Old Man weekly gains + boss KCs (from the proxy's /wom endpoint). */
+  protected readonly wom = signal<WomData | null>(null);
 
   /** Skills reordered to match the OSRS in-game stats panel. */
   protected readonly orderedSkills = computed<OsrsSkill[]>(() => {
@@ -110,6 +113,29 @@ export class RunescapeStatsComponent {
         clearInterval(id);
       });
     });
+
+    // Wise Old Man weekly gains + boss KCs from the proxy's /wom endpoint.
+    // Refreshes every 5 min (the Worker caches 5 min); optional, silent on error.
+    effect((onCleanup) => {
+      const api = this.liveApi();
+      if (!api) return;
+      const base = api.replace(/\/+$/, '');
+      let stopped = false;
+      const poll = () => {
+        this.http.get<WomData>(`${base}/wom?t=${Date.now()}`).subscribe({
+          next: (d) => {
+            if (!stopped && d && !('error' in d)) this.wom.set(d);
+          },
+          error: () => {},
+        });
+      };
+      poll();
+      const id = setInterval(poll, 300000);
+      onCleanup(() => {
+        stopped = true;
+        clearInterval(id);
+      });
+    });
   }
 
   /** Latest proxy-fetched OSRS stats, overlaid on the static feed. */
@@ -172,5 +198,48 @@ export class RunescapeStatsComponent {
     if (value >= 1e6) return (value / 1e6).toFixed(1).replace(/\.0$/, '') + 'M';
     if (value >= 1e3) return (value / 1e3).toFixed(1).replace(/\.0$/, '') + 'K';
     return String(value);
+  }
+
+  // --- Wise Old Man --------------------------------------------------------
+
+  /** This week's gains block, or null. */
+  protected readonly womWeek = computed(() => this.wom()?.week ?? null);
+
+  /** Boss kill counts, highest first (capped for the highlight). */
+  protected readonly topBossKcs = computed(() => (this.wom()?.bosses ?? []).slice(0, 12));
+
+  private static readonly WOM_ALIASES: Record<string, string> = {
+    chambers_of_xeric: 'Chambers of Xeric',
+    chambers_of_xeric_challenge_mode: 'CoX: Challenge Mode',
+    theatre_of_blood: 'Theatre of Blood',
+    theatre_of_blood_hard_mode: 'ToB: Hard Mode',
+    tombs_of_amascut: 'Tombs of Amascut',
+    tombs_of_amascut_expert: 'ToA: Expert',
+    the_corrupted_gauntlet: 'Corrupted Gauntlet',
+    tzkal_zuk: 'TzKal-Zuk',
+    tztok_jad: 'TzTok-Jad',
+    kril_tsutsaroth: "K'ril Tsutsaroth",
+    kreearra: "Kree'arra",
+  };
+
+  /** Pretty display name for a WOM metric slug. */
+  protected womName(metric: string): string {
+    const alias = RunescapeStatsComponent.WOM_ALIASES[metric];
+    if (alias) return alias;
+    const small = new Set(['of', 'the', 'and', 'a', 'to']);
+    return metric
+      .split('_')
+      .map((w, i) => (i > 0 && small.has(w) ? w : w.charAt(0).toUpperCase() + w.slice(1)))
+      .join(' ');
+  }
+
+  /** Self-hosted Hiscores boss icon (WOM slug → icon key). */
+  protected bossIcon(metric: string): string {
+    return `/images/osrs-hiscores/${metric.replace(/_/g, '')}.png`;
+  }
+
+  /** Hide an icon that has no matching self-hosted image. */
+  protected hideBroken(e: Event): void {
+    (e.target as HTMLElement).style.display = 'none';
   }
 }

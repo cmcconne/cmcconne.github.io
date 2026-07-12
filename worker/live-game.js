@@ -35,9 +35,11 @@ let iconMaps = null; // { runeIcon, styleIcon, spellIcon }
 let liveCache = { at: 0, data: null };
 let matchCache = { at: 0, data: null };
 let osrsCache = { at: 0, data: null };
+let womCache = { at: 0, data: null };
 const LIVE_TTL_MS = 20000; // shared live-game snapshot
 const MATCH_TTL_MS = 180000; // shared match list (3 min — matches change slowly)
 const OSRS_TTL_MS = 180000; // shared OSRS stats (3 min — XP changes slowly)
+const WOM_TTL_MS = 300000; // shared Wise Old Man gains (5 min)
 
 export default {
   async fetch(request, env) {
@@ -66,6 +68,16 @@ export default {
         const data = await getOsrs(cfg);
         osrsCache = { at: Date.now(), data };
         return json({ ...data, checkedAt: osrsCache.at }, 200, cors);
+      }
+
+      // Wise Old Man — weekly gains + boss kill counts. No Riot key needed.
+      if (path.endsWith('/wom')) {
+        if (Date.now() - womCache.at < WOM_TTL_MS) {
+          return json({ ...womCache.data, checkedAt: womCache.at, cached: true }, 200, cors);
+        }
+        const data = await getWom(cfg);
+        womCache = { at: Date.now(), data };
+        return json({ ...data, checkedAt: womCache.at }, 200, cors);
       }
 
       // Everything below is League and needs the Riot key.
@@ -441,6 +453,58 @@ async function getOsrs(cfg) {
   }
 
   return out;
+}
+
+// --- Wise Old Man (weekly gains + boss KCs) ---------------------------------
+// wiseoldman.net tracks OSRS progress over time. Returns this week's XP/kill
+// gains and the account's boss kill counts. WOM sends CORS, but proxying here
+// keeps it cached and consistent with the other feeds.
+async function getWom(cfg) {
+  const player = encodeURIComponent(cfg.OSRS_PLAYER);
+  const headers = { 'User-Agent': 'charlies-showcase/1.0 (personal fan site)' };
+  const [detRes, gainRes] = await Promise.all([
+    fetch(`https://api.wiseoldman.net/v2/players/${player}`, { headers }),
+    fetch(`https://api.wiseoldman.net/v2/players/${player}/gained?period=week`, { headers }),
+  ]);
+  if (!detRes.ok) throw new Error(`wom ${detRes.status}`);
+  const det = await detRes.json();
+  const gain = gainRes.ok ? await gainRes.json() : null;
+
+  // Boss kill counts from the latest snapshot (for the KC highlight).
+  const bossSnap = det.latestSnapshot?.data?.bosses || {};
+  const bosses = Object.values(bossSnap)
+    .filter((b) => (b.kills ?? 0) > 0)
+    .map((b) => ({ metric: b.metric, kills: b.kills, rank: b.rank }))
+    .sort((a, b) => b.kills - a.kills);
+
+  // This week's gains.
+  let week = null;
+  const g = gain?.data;
+  if (g) {
+    const skills = Object.values(g.skills || {})
+      .filter((s) => s.metric !== 'overall' && (s.experience?.gained ?? 0) > 0)
+      .map((s) => ({ metric: s.metric, gained: s.experience.gained, level: s.level?.end ?? null }))
+      .sort((a, b) => b.gained - a.gained);
+    const weekBosses = Object.values(g.bosses || {})
+      .filter((b) => (b.kills?.gained ?? 0) > 0)
+      .map((b) => ({ metric: b.metric, gained: b.kills.gained }))
+      .sort((a, b) => b.gained - a.gained);
+    const ehbGained = Object.values(g.bosses || {}).reduce(
+      (s, b) => s + (b.ehb?.gained ?? 0),
+      0,
+    );
+    week = {
+      startsAt: gain.startsAt,
+      endsAt: gain.endsAt,
+      xpGained: g.skills?.overall?.experience?.gained ?? 0,
+      ehpGained: +(g.skills?.overall?.ehp?.gained ?? 0).toFixed(1),
+      ehbGained: +ehbGained.toFixed(1),
+      skills,
+      bosses: weekBosses,
+    };
+  }
+
+  return { updatedAt: det.updatedAt, week, bosses };
 }
 
 function json(obj, status, cors) {

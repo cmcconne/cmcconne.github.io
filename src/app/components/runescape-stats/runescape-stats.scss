@@ -325,3 +325,138 @@
   }
 }
 
+
+// --- Wise Old Man: weekly gains + boss KCs ---------------------------------
+.wom {
+  .wom-sub {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  h3 {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+    color: var(--osrs-orange);
+    text-shadow: 1px 1px 0 #000;
+  }
+}
+
+.week-totals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  padding: 0.4rem 0.2rem 0.9rem;
+
+  .wt {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .wt-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--osrs-yellow);
+    text-shadow: 1px 1px 0 #000;
+    font-variant-numeric: tabular-nums;
+  }
+  .wt-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.55);
+  }
+}
+
+.wom-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.4rem 1.6rem;
+}
+
+.gain-list {
+  list-style: none;
+  margin: 0 0 0.4rem;
+  padding: 0;
+}
+
+.gain {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.28rem 0.15rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+  .gain-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+  }
+  .gain-icon.boss {
+    width: 26px;
+    height: 26px;
+  }
+  .gain-name {
+    color: var(--osrs-white);
+    font-size: 0.9rem;
+  }
+  .gain-value {
+    margin-left: auto;
+    color: var(--osrs-green);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 1px 1px 0 #000;
+  }
+}
+
+.kc-block {
+  margin-top: 0.9rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.35);
+  padding-top: 0.85rem;
+}
+
+.kc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+.kc {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid #100c07;
+  border-radius: 3px;
+
+  .kc-icon {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    flex-shrink: 0;
+  }
+  .kc-name {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.05;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .kc-count {
+    margin-left: auto;
+    font-weight: 700;
+    color: var(--osrs-yellow);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 1px 1px 0 #000;
+  }
+}
+
+.wom-empty {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}

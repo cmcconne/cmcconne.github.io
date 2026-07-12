@@ -31,6 +31,35 @@ export interface RsActivity {
   xp?: number;
 }
 
+/** A metric gain over a period (Wise Old Man). */
+export interface WomGain {
+  metric: string;
+  gained: number;
+  level?: number | null;
+}
+
+/** A boss kill count (Wise Old Man latest snapshot). */
+export interface WomBoss {
+  metric: string;
+  kills: number;
+  rank?: number;
+}
+
+/** Wise Old Man data: this week's gains + boss kill counts. */
+export interface WomData {
+  updatedAt?: string;
+  week?: {
+    startsAt: string;
+    endsAt: string;
+    xpGained: number;
+    ehpGained: number;
+    ehbGained: number;
+    skills: WomGain[];
+    bosses: WomGain[];
+  } | null;
+  bosses?: WomBoss[];
+}
+
 /**
  * Shape of public/runescape-stats.json. Produced by
  * scripts/fetch-runescape-stats.mjs from the OSRS Hiscores API. The collection
