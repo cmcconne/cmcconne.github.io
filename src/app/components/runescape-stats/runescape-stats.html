@@ -120,31 +120,6 @@
           } @else {
             <p class="wom-empty">No tracked gains for this period.</p>
           }
-
-          @if (raidKcs().length || bossKcs().length) {
-            <div class="wom-group kc-block">
-              <div class="kc-head">
-                <h3>Kill counts</h3>
-                <div class="wom-tabs" role="tablist" aria-label="Kill count category">
-                  <button class="wom-tab" [class.active]="kcTab() === 'bosses'" (click)="setKcTab('bosses')">Bosses</button>
-                  <button class="wom-tab" [class.active]="kcTab() === 'raids'" (click)="setKcTab('raids')">Raids</button>
-                </div>
-              </div>
-              @if (activeKcs().length) {
-                <div class="kc-grid">
-                  @for (b of activeKcs(); track b.metric) {
-                    <div class="kc" [attr.title]="womName(b.metric) + ' — ' + b.kills + ' KC'">
-                      <img class="kc-icon" [src]="bossIcon(b.metric)" [alt]="b.metric" (error)="hideBroken($event)" loading="lazy" />
-                      <span class="kc-name">{{ womName(b.metric) }}</span>
-                      <span class="kc-count">{{ b.kills | number }}</span>
-                    </div>
-                  }
-                </div>
-              } @else {
-                <p class="wom-empty">No {{ kcTab() }} kills recorded.</p>
-              }
-            </div>
-          }
         </div>
       }
 
@@ -185,6 +160,45 @@
       <app-osrs-ca />
 
       <app-osrs-progress />
+
+      @if (wom() && hasKcData()) {
+        <div class="panel wom bosses-panel">
+          <div class="panel-head">
+            <h2>Bosses &amp; Raids</h2>
+            <span class="wom-sub">via Wise Old Man</span>
+          </div>
+          <div class="kc-controls">
+            <div class="wom-tabs" role="tablist" aria-label="Category">
+              <button class="wom-tab" [class.active]="kcTab() === 'bosses'" (click)="setKcTab('bosses')">Bosses</button>
+              <button class="wom-tab" [class.active]="kcTab() === 'raids'" (click)="setKcTab('raids')">Raids</button>
+            </div>
+            <div class="wom-tabs" role="tablist" aria-label="Record period">
+              <button class="wom-tab" [class.active]="kcPeriod() === 'total'" (click)="setKcPeriod('total')">Total</button>
+              <button class="wom-tab" [class.active]="kcPeriod() === 'day'" (click)="setKcPeriod('day')">Day</button>
+              <button class="wom-tab" [class.active]="kcPeriod() === 'week'" (click)="setKcPeriod('week')">Week</button>
+              <button class="wom-tab" [class.active]="kcPeriod() === 'month'" (click)="setKcPeriod('month')">Month</button>
+            </div>
+          </div>
+          @if (kcPeriod() !== 'total') {
+            <p class="kc-hint">Personal best kills in a single {{ kcPeriod() }}.</p>
+          }
+          @if (activeKcs().length) {
+            <div class="kc-grid">
+              @for (b of activeKcs(); track b.metric) {
+                <div class="kc" [attr.title]="womName(b.metric) + ' — ' + (b.value | number) + (kcPeriod() === 'total' ? ' KC' : ' best')">
+                  <img class="kc-icon" [src]="bossIcon(b.metric)" [alt]="b.metric" (error)="hideBroken($event)" loading="lazy" />
+                  <span class="kc-name">{{ womName(b.metric) }}</span>
+                  <span class="kc-count">{{ b.value | number }}</span>
+                </div>
+              }
+            </div>
+          } @else {
+            <p class="wom-empty">
+              No {{ kcTab() }} {{ kcPeriod() === 'total' ? 'kills' : kcPeriod() + ' records' }} yet.
+            </p>
+          }
+        </div>
+      }
 
       @if (st.overall?.rank) {
         <p class="overall-rank">

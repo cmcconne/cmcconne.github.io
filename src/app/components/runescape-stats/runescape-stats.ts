@@ -202,9 +202,10 @@ export class RunescapeStatsComponent {
 
   // --- Wise Old Man --------------------------------------------------------
 
-  /** Selected gains period + KC highlight tab. */
+  /** Selected gains period + KC highlight tab + KC record period. */
   protected readonly womPeriod = signal<'week' | 'month' | 'year'>('week');
   protected readonly kcTab = signal<'bosses' | 'raids'>('bosses');
+  protected readonly kcPeriod = signal<'total' | 'day' | 'week' | 'month'>('total');
 
   /** The gains block for the selected period, or null. */
   protected readonly activePeriod = computed(
@@ -227,23 +228,46 @@ export class RunescapeStatsComponent {
     'tombs_of_amascut_expert',
   ]);
 
-  protected readonly raidKcs = computed(() =>
-    (this.wom()?.bosses ?? []).filter((b) => RunescapeStatsComponent.RAID_METRICS.has(b.metric)),
-  );
-  protected readonly bossKcs = computed(() =>
-    (this.wom()?.bosses ?? []).filter((b) => !RunescapeStatsComponent.RAID_METRICS.has(b.metric)),
-  );
+  /** Whether there's any KC data to show the Bosses & Raids panel. */
+  protected readonly hasKcData = computed(() => {
+    const w = this.wom();
+    if (!w) return false;
+    const r = w.records;
+    return (
+      (w.bosses?.length ?? 0) > 0 ||
+      Object.keys(r?.day ?? {}).length > 0 ||
+      Object.keys(r?.week ?? {}).length > 0 ||
+      Object.keys(r?.month ?? {}).length > 0
+    );
+  });
 
-  /** KCs for the active tab, highest first (capped for the highlight). */
-  protected readonly activeKcs = computed(() =>
-    (this.kcTab() === 'raids' ? this.raidKcs() : this.bossKcs()).slice(0, 12),
-  );
+  /**
+   * KC rows for the active category + period, highest first (capped).
+   * period 'total' = lifetime kills; day/week/month = personal-best records.
+   */
+  protected readonly activeKcs = computed<{ metric: string; value: number }[]>(() => {
+    const w = this.wom();
+    if (!w) return [];
+    const period = this.kcPeriod();
+    const wantRaid = this.kcTab() === 'raids';
+    const rows =
+      period === 'total'
+        ? (w.bosses ?? []).map((b) => ({ metric: b.metric, value: b.kills }))
+        : Object.entries(w.records?.[period] ?? {}).map(([metric, value]) => ({ metric, value }));
+    return rows
+      .filter((r) => RunescapeStatsComponent.RAID_METRICS.has(r.metric) === wantRaid)
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 12);
+  });
 
   protected setPeriod(p: 'week' | 'month' | 'year'): void {
     this.womPeriod.set(p);
   }
   protected setKcTab(t: 'bosses' | 'raids'): void {
     this.kcTab.set(t);
+  }
+  protected setKcPeriod(p: 'total' | 'day' | 'week' | 'month'): void {
+    this.kcPeriod.set(p);
   }
 
   private static readonly WOM_ALIASES: Record<string, string> = {

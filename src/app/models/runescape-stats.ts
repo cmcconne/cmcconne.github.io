@@ -56,7 +56,7 @@ export interface WomPeriod {
   bosses: WomGain[];
 }
 
-/** Wise Old Man data: gains over week/month/year + boss kill counts. */
+/** Wise Old Man data: gains over week/month/year + boss KCs + PB records. */
 export interface WomData {
   updatedAt?: string;
   periods?: {
@@ -65,6 +65,12 @@ export interface WomData {
     year: WomPeriod | null;
   };
   bosses?: WomBoss[];
+  /** Personal-best kills per period (day/week/month): { metric: value }. */
+  records?: {
+    day: Record<string, number>;
+    week: Record<string, number>;
+    month: Record<string, number>;
+  };
 }
 
 /**

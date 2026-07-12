@@ -464,21 +464,36 @@ async function getWom(cfg) {
   const headers = { 'User-Agent': 'charlies-showcase/1.0 (personal fan site)' };
   const gainUrl = (p) =>
     `https://api.wiseoldman.net/v2/players/${player}/gained?period=${p}`;
-  const [detRes, wRes, mRes, yRes] = await Promise.all([
+  const [detRes, wRes, mRes, yRes, recRes] = await Promise.all([
     fetch(`https://api.wiseoldman.net/v2/players/${player}`, { headers }),
     fetch(gainUrl('week'), { headers }),
     fetch(gainUrl('month'), { headers }),
     fetch(gainUrl('year'), { headers }),
+    fetch(`https://api.wiseoldman.net/v2/players/${player}/records`, { headers }),
   ]);
   if (!detRes.ok) throw new Error(`wom ${detRes.status}`);
   const det = await detRes.json();
 
   // Boss kill counts from the latest snapshot (for the KC highlight).
   const bossSnap = det.latestSnapshot?.data?.bosses || {};
+  const bossMetrics = new Set(Object.keys(bossSnap));
   const bosses = Object.values(bossSnap)
     .filter((b) => (b.kills ?? 0) > 0)
     .map((b) => ({ metric: b.metric, kills: b.kills, rank: b.rank }))
     .sort((a, b) => b.kills - a.kills);
+
+  // Personal-best kill records per period (day/week/month), boss/raid only.
+  const records = { day: {}, week: {}, month: {} };
+  try {
+    const raw = recRes.ok ? await recRes.json() : [];
+    for (const r of Array.isArray(raw) ? raw : []) {
+      if (records[r.period] && bossMetrics.has(r.metric)) {
+        records[r.period][r.metric] = r.value;
+      }
+    }
+  } catch {
+    /* records optional */
+  }
 
   const buildPeriod = (gain) => {
     const g = gain?.data;
@@ -509,7 +524,7 @@ async function getWom(cfg) {
     year: buildPeriod(yRes.ok ? await yRes.json() : null),
   };
 
-  return { updatedAt: det.updatedAt, periods, bosses };
+  return { updatedAt: det.updatedAt, periods, bosses, records };
 }
 
 function json(obj, status, cors) {
