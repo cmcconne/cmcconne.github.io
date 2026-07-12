@@ -404,6 +404,34 @@ export class MtgDecksComponent {
     return Math.max(1, ...this.colorList(deck).map((e) => e.n));
   }
 
+  private readonly MANA_HEX: Record<string, string> = {
+    W: '#f4e9c1',
+    U: '#2a7fc4',
+    B: '#6b6b6b',
+    R: '#d3202a',
+    G: '#1a9c5b',
+    C: '#b3aca4',
+  };
+
+  protected pieHex(c: string): string {
+    return this.MANA_HEX[c] ?? '#888';
+  }
+
+  /** Donut segments for the colour pie (dash length + offset, pathLength 100). */
+  protected colorPie(
+    deck: MtgDeck,
+  ): { c: string; n: number; dash: number; off: number }[] {
+    const list = this.colorList(deck);
+    const total = list.reduce((s, e) => s + e.n, 0) || 1;
+    let start = 0;
+    return list.map((e) => {
+      const dash = (e.n / total) * 100;
+      const seg = { c: e.c, n: e.n, dash, off: 25 - start };
+      start += dash;
+      return seg;
+    });
+  }
+
   /** Type breakdown entries (excluding commanders), in list order. */
   protected typeList(deck: MtgDeck): { type: string; n: number }[] {
     const tc = deck.stats?.typeCounts ?? {};

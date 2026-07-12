@@ -163,16 +163,30 @@
 
               <div class="dd-chart">
                 <h4>Colours</h4>
-                <div class="color-bars">
-                  @for (e of colorList(deck); track e.c) {
-                    <div class="color-bar">
-                      <span class="pip" [class]="'pip-' + e.c" [attr.title]="colorName(e.c)"></span>
-                      <div class="cb-track">
-                        <span class="cb-fill" [class]="'pip-' + e.c" [style.width.%]="(e.n / colorMax(deck)) * 100"></span>
-                      </div>
-                      <span class="cb-n">{{ e.n }}</span>
-                    </div>
-                  }
+                <div class="pie-wrap">
+                  <svg class="color-pie" viewBox="0 0 36 36" role="img" aria-label="Colour distribution">
+                    <circle class="pie-bg" cx="18" cy="18" r="15.915" />
+                    @for (s of colorPie(deck); track s.c) {
+                      <circle
+                        class="pie-seg"
+                        cx="18"
+                        cy="18"
+                        r="15.915"
+                        [attr.stroke]="pieHex(s.c)"
+                        [attr.stroke-dasharray]="s.dash + ' ' + (100 - s.dash)"
+                        [attr.stroke-dashoffset]="s.off"
+                      />
+                    }
+                  </svg>
+                  <ul class="pie-legend">
+                    @for (s of colorPie(deck); track s.c) {
+                      <li>
+                        <span class="pip small" [class]="'pip-' + s.c"></span>
+                        {{ colorName(s.c) }}
+                        <span class="pl-n">{{ s.n }}</span>
+                      </li>
+                    }
+                  </ul>
                 </div>
               </div>
 

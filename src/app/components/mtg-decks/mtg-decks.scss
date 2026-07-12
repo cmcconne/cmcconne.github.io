@@ -423,6 +423,42 @@
   .curve-x { font-size: 0.72rem; color: var(--muted); }
 }
 
+.pie-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.color-pie {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+
+  .pie-bg {
+    fill: none;
+    stroke: color-mix(in srgb, var(--border) 60%, transparent);
+    stroke-width: 3.6;
+  }
+  .pie-seg {
+    fill: none;
+    stroke-width: 3.6;
+    transition: stroke-dasharray 0.3s ease;
+  }
+}
+
+.pie-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+  font-size: 0.85rem;
+
+  li { display: flex; align-items: center; gap: 0.4rem; }
+  .pl-n { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; }
+}
+
 .color-bars {
   display: flex;
   flex-direction: column;
