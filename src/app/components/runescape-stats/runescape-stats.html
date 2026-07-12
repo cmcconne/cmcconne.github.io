@@ -148,12 +148,6 @@
         </div>
       }
 
-      <app-osrs-clog [recent]="st.recentItems ?? []" />
-
-      <app-osrs-ca />
-
-      <app-osrs-progress />
-
       @if (st.recentActivities?.length) {
         <div class="panel">
           <div class="panel-head">
@@ -185,6 +179,12 @@
           </ul>
         </div>
       }
+
+      <app-osrs-clog [recent]="st.recentItems ?? []" />
+
+      <app-osrs-ca />
+
+      <app-osrs-progress />
 
       @if (st.overall?.rank) {
         <p class="overall-rank">
