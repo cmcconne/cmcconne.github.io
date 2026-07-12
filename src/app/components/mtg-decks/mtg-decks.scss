@@ -63,13 +63,14 @@
   border: 1px solid var(--border);
   border-radius: 14px;
   overflow: hidden;
-  background: var(--surface);
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     border-color: var(--accent);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 0 1px var(--accent);
   }
 }
 
@@ -85,33 +86,26 @@
   cursor: pointer;
   padding: 0;
 
-  &:hover .art-slice {
-    transform: scale(1.07);
-  }
-  &:hover .deck-open {
-    color: var(--accent);
-  }
-}
-
-.deck-quickstats {
-  margin: 0.7rem 0 0;
-  font-size: 0.8rem;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
+  &:hover .art-slice { transform: scale(1.06); }
+  &:hover .deck-open { color: var(--accent-bright); gap: 0.55rem; }
 }
 
 .deck-open {
-  display: inline-block;
-  margin-top: 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.85rem;
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--muted);
-  transition: color 0.15s ease;
+  font-weight: 700;
+  color: var(--accent);
+  transition: color 0.15s ease, gap 0.15s ease;
 }
 
+// --- Commander-art banner ---------------------------------------------------
 .deck-art {
+  position: relative;
   display: flex;
-  height: 130px;
+  height: 172px;
   gap: 2px;
   overflow: hidden;
 
@@ -119,27 +113,88 @@
     flex: 1;
     min-width: 0;
     background-size: cover;
-    background-position: center 22%;
+    background-position: center 20%;
     background-color: color-mix(in srgb, var(--accent) 25%, var(--surface));
-    transition: transform 0.35s ease;
+    transition: transform 0.4s ease;
+  }
+}
+
+.deck-format-badge {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.7rem;
+  z-index: 2;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #16110b;
+  background: var(--accent-bright);
+  border-radius: 4px;
+  padding: 0.12rem 0.45rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.deck-art-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  padding: 0.7rem 0.85rem;
+  background: linear-gradient(
+    to top,
+    rgba(8, 6, 3, 0.95) 6%,
+    rgba(8, 6, 3, 0.45) 40%,
+    transparent 72%
+  );
+
+  .pips { margin: 0; }
+  .deck-name {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+    font-size: 1.22rem;
+    line-height: 1.2;
+    color: var(--parch);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.85);
   }
 }
 
 .deck-body {
-  padding: 1rem 1.1rem 1.2rem;
+  padding: 0.85rem 1.05rem 1.1rem;
 }
 
-.deck-head {
+.deck-stats {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.7rem;
 
-  h3 {
-    margin: 0;
-    font-size: 1.15rem;
-    line-height: 1.25;
+  .ds {
+    font-size: 0.76rem;
+    color: var(--muted);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    padding: 0.12rem 0.55rem;
+
+    b {
+      color: var(--parch);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
   }
+}
+
+.deck-alters {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-bright);
 }
 
 .pips {
@@ -924,23 +979,16 @@
 }
 
 .deck-commander {
-  margin: 0.5rem 0 0;
+  margin: 0;
   font-weight: 600;
-  color: var(--accent);
-}
-
-.deck-format {
-  margin: 0.15rem 0 0;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--muted);
+  color: var(--parch);
 }
 
 .deck-desc {
-  margin: 0.6rem 0 0;
+  margin: 0.45rem 0 0;
   font-size: 0.9rem;
   color: var(--muted);
+  font-style: italic;
   line-height: 1.5;
 }
 

@@ -251,23 +251,31 @@
                 } @else {
                   <div class="art-slice"></div>
                 }
-              </div>
-              <div class="deck-body">
-                <div class="deck-head">
-                  <h3>{{ deck.name }}</h3>
+                <span class="deck-format-badge">{{ deck.format }}</span>
+                <div class="deck-art-scrim">
                   <span class="pips" aria-hidden="true">
                     @for (c of pips(deck); track c) {
                       <span class="pip" [class]="'pip-' + c" [attr.title]="colorName(c)"></span>
                     }
                   </span>
+                  <h3 class="deck-name">{{ deck.name }}</h3>
                 </div>
+              </div>
+              <div class="deck-body">
                 <p class="deck-commander">{{ deck.commanders.join(' + ') }}</p>
-                <p class="deck-format">{{ deck.format }}</p>
                 @if (deck.description) {
                   <p class="deck-desc">{{ deck.description }}</p>
                 }
                 @if (deck.stats; as s) {
-                  <p class="deck-quickstats">{{ s.count }} cards · {{ s.lands }} lands · avg MV {{ s.avgCmc }} · ~${{ s.price | number }}</p>
+                  <div class="deck-stats">
+                    <span class="ds"><b>{{ s.count }}</b> cards</span>
+                    <span class="ds"><b>{{ s.lands }}</b> lands</span>
+                    <span class="ds"><b>{{ s.avgCmc }}</b> avg MV</span>
+                    <span class="ds"><b>${{ s.price | number }}</b></span>
+                  </div>
+                  @if (s.alters) {
+                    <span class="deck-alters">🎨 {{ s.alters }} altered card{{ s.alters === 1 ? '' : 's' }}</span>
+                  }
                 }
                 <span class="deck-open">View decklist →</span>
               </div>
