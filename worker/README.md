@@ -11,9 +11,25 @@ the Riot key and calls Riot's APIs. Two endpoints:
 Browsers can't call Riot directly — Riot sends no CORS headers and the key must
 stay secret — so this small proxy is required for genuine real-time data.
 
-> After editing `live-game.js`, redeploy with `npx wrangler deploy` (from a
-> shell that has Node on PATH). The site tolerates the old Worker until then —
-> `/matches` just returns no data and it falls back to the snapshot.
+> After editing `live-game.js` it redeploys automatically: the GitHub Actions
+> workflow (`.github/workflows/deploy.yml`, job `deploy-worker`) runs
+> `wrangler deploy` whenever `worker/**` changes on a push (or on a manual run).
+> You can still deploy by hand with `npx wrangler deploy`. Either way the site
+> tolerates an old Worker — `/matches` just returns no data and it falls back
+> to the snapshot.
+
+### CI secrets for auto-deploy
+
+Add these repo secrets (Settings → Secrets and variables → Actions):
+
+- `CLOUDFLARE_API_TOKEN` — create at Cloudflare dashboard → My Profile → API
+  Tokens → Create Token → **"Edit Cloudflare Workers"** template.
+- `CLOUDFLARE_ACCOUNT_ID` — your account id (Cloudflare dashboard → Workers &
+  Pages, shown in the right sidebar / the dashboard URL).
+
+`wrangler deploy` does **not** touch the Worker's `RIOT_API_KEY` secret, so the
+key stays only in Cloudflare — it never needs to be a GitHub secret. Without the
+Cloudflare token the `deploy-worker` job simply skips (it won't fail the run).
 
 ## One-time deploy
 

@@ -90,3 +90,34 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # Deploy the Cloudflare Worker (League live-game + /matches proxy) when its
+  # source changes on a push, or on a manual run. Skipped on the 6-hourly
+  # schedule and skipped cleanly if CLOUDFLARE_API_TOKEN isn't configured.
+  # Runs independently of the Pages deploy. Note: `wrangler deploy` preserves
+  # the Worker's RIOT_API_KEY secret, so it isn't needed here.
+  deploy-worker:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    env:
+      CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect worker changes
+        id: changes
+        if: github.event_name == 'push'
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            worker:
+              - 'worker/**'
+
+      - name: Deploy Worker to Cloudflare
+        if: env.CF_TOKEN != '' && (github.event_name == 'workflow_dispatch' || steps.changes.outputs.worker == 'true')
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: worker
