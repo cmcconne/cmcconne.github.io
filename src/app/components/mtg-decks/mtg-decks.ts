@@ -301,6 +301,11 @@ export class MtgDecksComponent {
     return deck.moxfield || deck.scryfallUri || null;
   }
 
+  /** The deck's commander card(s), for the showcase banner. */
+  protected deckCommanders(deck: MtgDeck): DeckCard[] {
+    return deck.cards?.filter((c) => c.type === 'Commander') ?? [];
+  }
+
   // --- Interactive decklist -------------------------------------------------
 
   protected openDeck(deck: MtgDeck): void {
