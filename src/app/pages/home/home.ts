@@ -35,6 +35,8 @@ export class Home {
 
   // --- Signature flourishes, one shape per game ---
   protected readonly lolRank = signal<LolRank | null>(null);
+  /** Top-mastery champion splash art, for the League portal backdrop. */
+  protected readonly lolSplash = signal<string | null>(null);
   protected readonly osrsSkills = signal<string[]>([]);
   protected readonly mtgDecks = signal<DeckThumb[]>([]);
   /** Commander-art crops used as the MTG portal backdrop montage. */
@@ -52,6 +54,14 @@ export class Home {
     this.http.get<any>(`/lol-stats.json?t=${t}`).subscribe({
       next: (d) => {
         if (!d || d.placeholder) return;
+        // Top-mastery champion → splash-art backdrop.
+        const top = (d.championMastery ?? [])[0];
+        const key = top?.key ?? top?.name?.replace(/[^A-Za-z0-9]/g, '');
+        if (key) {
+          this.lolSplash.set(
+            `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${key}_0.jpg`,
+          );
+        }
         const ranked: any[] = d.ranked ?? [];
         const solo =
           ranked.find((r) => r.queue === 'RANKED_SOLO_5x5') ?? ranked[0];

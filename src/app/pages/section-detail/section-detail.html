@@ -1,5 +1,17 @@
 @if (section(); as s) {
   <article class="detail" [style.--accent]="s.accent">
+    @if (bgKind()) {
+      <div class="page-bg" [class.tile]="bgKind() === 'tile'" aria-hidden="true">
+        @if (bgKind() === 'tile') {
+          <div class="pg-slice"></div>
+        } @else {
+          @for (img of bgImages(); track $index) {
+            <div class="pg-slice" [style.background-image]="'url(' + img + ')'"></div>
+          }
+        }
+      </div>
+    }
+
     <a class="back" routerLink="/">← Back to home</a>
 
     @if (s.profiles?.length) {

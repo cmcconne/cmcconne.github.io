@@ -6,6 +6,14 @@
       [style.--accent]="section.accent"
       [attr.aria-label]="'Open ' + section.name"
     >
+      @if (section.slug === 'league-of-legends' && lolSplash(); as splash) {
+        <div class="p-art" aria-hidden="true">
+          <div [style.background-image]="'url(' + splash + ')'"></div>
+        </div>
+      }
+      @if (section.slug === 'runescape') {
+        <div class="p-art tile" aria-hidden="true"><div></div></div>
+      }
       @if (section.slug === 'magic-the-gathering' && mtgArts().length) {
         <div class="p-art" aria-hidden="true">
           @for (art of mtgArts(); track $index) {

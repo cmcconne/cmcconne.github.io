@@ -205,7 +205,9 @@ try {
         )
       ).json();
       for (const c of Object.values(cj.data ?? {})) {
-        champById[c.key] = { name: c.name, title: c.title, tags: c.tags ?? [] };
+        // c.id is the Data Dragon string key used in splash/loading art URLs
+        // (e.g. "MonkeyKing", "Kaisa") — often differs from the display name.
+        champById[c.key] = { name: c.name, title: c.title, tags: c.tags ?? [], id: c.id };
       }
     }
   } catch {
@@ -221,6 +223,7 @@ try {
     championMastery = mast.map((x) => ({
       championId: x.championId,
       name: champById[x.championId]?.name ?? null,
+      key: champById[x.championId]?.id ?? null,
       level: x.championLevel,
       points: x.championPoints,
       chest: !!x.chestGranted,

@@ -1,8 +1,44 @@
 .detail {
   --accent: var(--accent);
+  position: relative;
   max-width: 760px;
   margin: 0 auto;
   padding: 2.5rem 0 3.5rem;
+}
+
+// Themed page backdrop — real section art, heavily dimmed, fading into the
+// page so content stays readable, with an accent glow up top.
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  pointer-events: none;
+
+  .pg-slice {
+    flex: 1;
+    background-size: cover;
+    background-position: center 18%;
+    filter: blur(7px) brightness(0.4) saturate(1.05);
+    opacity: 0.2;
+  }
+
+  &.tile .pg-slice {
+    background: url('/images/osrs/panel-tile.png') repeat;
+    background-size: 96px;
+    filter: brightness(0.5) saturate(0.7) sepia(0.12);
+    opacity: 0.12;
+  }
+
+  // Accent wash on top + fade to the page background toward the bottom.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(75% 55% at 50% 0%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 68%),
+      linear-gradient(180deg, rgba(11, 11, 15, 0.35) 0%, var(--bg) 78%);
+  }
 }
 
 .back {

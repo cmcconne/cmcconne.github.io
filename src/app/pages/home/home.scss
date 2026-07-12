@@ -75,7 +75,8 @@
   }
 }
 
-// MTG: real commander-art crops, blurred, sitting behind the accent wash.
+// Real game art sitting behind the accent wash — commander crops (MTG),
+// champion splash (LoL), or the RuneScape stone texture (OSRS).
 .p-art {
   position: absolute;
   inset: 0;
@@ -85,11 +86,19 @@
   > div {
     flex: 1;
     background-size: cover;
-    background-position: center 25%;
+    background-position: center 22%;
     filter: blur(4px) brightness(0.5) saturate(1.1);
   }
 
-  + .p-bg { opacity: 0.55; }
+  // OSRS: the classic stone interface tile, repeated across the banner.
+  &.tile > div {
+    background: url('/images/osrs/panel-tile.png') repeat;
+    background-size: 72px;
+    filter: brightness(0.62) saturate(0.75) sepia(0.15);
+  }
+
+  + .p-bg { opacity: 0.5; }
+  &.tile + .p-bg { opacity: 0.72; }
 }
 
 .p-logo {
