@@ -38,6 +38,9 @@ export class RunescapeStatsComponent {
   /** Path to the stats JSON feed. */
   readonly feed = input.required<string>();
 
+  /** Optional real-time proxy base (the Cloudflare Worker); polls `${base}/osrs`. */
+  readonly liveApi = input<string>('');
+
   protected readonly stats = signal<RunescapeStats | null>(null);
   protected readonly statsLoaded = signal(false);
 
@@ -76,10 +79,59 @@ export class RunescapeStatsComponent {
         next: (data) => {
           this.stats.set(data);
           this.statsLoaded.set(true);
+          this.mergeLive(); // re-apply proxy stats if they arrived first
         },
         error: () => this.statsLoaded.set(true),
       });
     });
+
+    // Fresh Hiscores + recent activity from the proxy's /osrs endpoint, so the
+    // skills grid and activity feed aren't limited to the 6-hourly snapshot.
+    // Refreshes every 2 min; the Worker caches 3 min. Silent fallback on error.
+    effect((onCleanup) => {
+      const api = this.liveApi();
+      if (!api) return;
+      const base = api.replace(/\/+$/, '');
+      let stopped = false;
+      const poll = () => {
+        this.http.get<Partial<RunescapeStats>>(`${base}/osrs?t=${Date.now()}`).subscribe({
+          next: (d) => {
+            if (stopped || !d?.skills?.length) return;
+            this.liveData = d;
+            this.mergeLive();
+          },
+          error: () => {},
+        });
+      };
+      poll();
+      const id = setInterval(poll, 120000);
+      onCleanup(() => {
+        stopped = true;
+        clearInterval(id);
+      });
+    });
+  }
+
+  /** Latest proxy-fetched OSRS stats, overlaid on the static feed. */
+  private liveData: Partial<RunescapeStats> | null = null;
+
+  /** Overlay the proxy's fresher stats onto the loaded feed, if both exist. */
+  private mergeLive(): void {
+    const d = this.liveData;
+    if (!d) return;
+    this.stats.update((s) =>
+      s
+        ? {
+            ...s,
+            overall: d.overall ?? s.overall,
+            combatLevel: d.combatLevel ?? s.combatLevel,
+            skills: d.skills ?? s.skills,
+            recentItems: d.recentItems ?? s.recentItems,
+            recentActivities: d.recentActivities ?? s.recentActivities,
+            updatedAt: d.updatedAt ?? s.updatedAt,
+          }
+        : s,
+    );
   }
 
   /** Self-hosted OSRS skill icon. */

@@ -7,6 +7,11 @@ the Riot key and calls Riot's APIs. Two endpoints:
 - `GET /matches` — recent **Ranked Solo/Duo** games + summary (polled every
   2 min, Worker-cached 3 min). Same shape as `lol-stats.json`, so the page
   overlays it on the 6-hourly snapshot to keep recent games fresh.
+- `GET /osrs` — Old School RuneScape core stats: Hiscores (skills / overall /
+  combat) + RuneProfile recent activity (polled every 2 min, cached 3 min). No
+  Riot key needed. The RuneScape page overlays it on its 6-hourly snapshot.
+  (The heavy collection-log / combat-achievement / quest-diary / 3D-model feeds
+  change rarely and stay on the cron.)
 
 Browsers can't call Riot directly — Riot sends no CORS headers and the key must
 stay secret — so this small proxy is required for genuine real-time data.

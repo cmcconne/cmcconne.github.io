@@ -54,6 +54,9 @@ export const SECTIONS: Section[] = [
     ],
     statsFeed: '/runescape-stats.json',
     statsType: 'osrs',
+    // Same Cloudflare Worker as League; the OSRS component polls `${liveApi}/osrs`
+    // for fresh Hiscores + recent activity. Empty = 6-hourly snapshot only.
+    liveApi: 'https://lol-live.charlie-b-mcconnell.workers.dev',
   },
   {
     slug: 'magic-the-gathering',

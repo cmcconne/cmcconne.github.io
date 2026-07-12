@@ -22,6 +22,7 @@ const DEFAULTS = {
   TAG_LINE: 'lost',
   PLATFORM: 'na1', // spectator-v5 / summoner routing
   REGION: 'americas', // account-v1 / match-v5 routing
+  OSRS_PLAYER: 'Stupid Hands', // Old School RuneScape display name
 };
 
 const MATCH_COUNT = 20;
@@ -33,13 +34,15 @@ let champNames = null; // { [numericKey]: displayName }
 let iconMaps = null; // { runeIcon, styleIcon, spellIcon }
 let liveCache = { at: 0, data: null };
 let matchCache = { at: 0, data: null };
+let osrsCache = { at: 0, data: null };
 const LIVE_TTL_MS = 20000; // shared live-game snapshot
 const MATCH_TTL_MS = 180000; // shared match list (3 min — matches change slowly)
+const OSRS_TTL_MS = 180000; // shared OSRS stats (3 min — XP changes slowly)
 
 export default {
   async fetch(request, env) {
     const cfg = { ...DEFAULTS };
-    for (const k of ['ALLOW_ORIGIN', 'GAME_NAME', 'TAG_LINE', 'PLATFORM', 'REGION']) {
+    for (const k of ['ALLOW_ORIGIN', 'GAME_NAME', 'TAG_LINE', 'PLATFORM', 'REGION', 'OSRS_PLAYER']) {
       if (env[k]) cfg[k] = env[k];
     }
 
@@ -52,13 +55,24 @@ export default {
     if (request.method === 'OPTIONS') return new Response(null, { headers: cors });
     if (request.method !== 'GET') return json({ error: 'method not allowed' }, 405, cors);
 
-    const key = env.RIOT_API_KEY;
-    if (!key) return json({ error: 'proxy not configured' }, 500, cors);
-
-    const path = new URL(request.url).pathname;
+    const path = new URL(request.url).pathname.replace(/\/+$/, '');
 
     try {
-      if (path.replace(/\/+$/, '').endsWith('/matches')) {
+      // Old School RuneScape stats — no Riot key needed (different game).
+      if (path.endsWith('/osrs')) {
+        if (Date.now() - osrsCache.at < OSRS_TTL_MS) {
+          return json({ ...osrsCache.data, checkedAt: osrsCache.at, cached: true }, 200, cors);
+        }
+        const data = await getOsrs(cfg);
+        osrsCache = { at: Date.now(), data };
+        return json({ ...data, checkedAt: osrsCache.at }, 200, cors);
+      }
+
+      // Everything below is League and needs the Riot key.
+      const key = env.RIOT_API_KEY;
+      if (!key) return json({ error: 'proxy not configured' }, 500, cors);
+
+      if (path.endsWith('/matches')) {
         if (Date.now() - matchCache.at < MATCH_TTL_MS) {
           return json({ ...matchCache.data, checkedAt: matchCache.at, cached: true }, 200, cors);
         }
@@ -357,6 +371,76 @@ function buildSummary(matches) {
     strengths: countTags('good'),
     focusAreas: countTags('bad'),
   };
+}
+
+// --- Old School RuneScape ---------------------------------------------------
+// Live core stats: Hiscores (skills/overall/combat) + RuneProfile recent
+// activity. Mirrors scripts/fetch-runescape-stats.mjs. The heavier feeds
+// (collection log, combat achievements, quests/diaries, 3D models) change
+// rarely and stay on the 6-hourly cron.
+async function getOsrs(cfg) {
+  const player = cfg.OSRS_PLAYER;
+
+  const hsRes = await fetch(
+    `https://secure.runescape.com/m=hiscore_oldschool/index_lite.json?player=${encodeURIComponent(player)}`,
+  );
+  if (!hsRes.ok) throw new Error(`hiscores ${hsRes.status}`);
+  const hs = await hsRes.json();
+
+  const byName = Object.fromEntries((hs.skills || []).map((s) => [s.name, s]));
+  const lvl = (n) => byName[n]?.level ?? 1;
+  const base = 0.25 * (lvl('Defence') + lvl('Hitpoints') + Math.floor(lvl('Prayer') / 2));
+  const melee = 0.325 * (lvl('Attack') + lvl('Strength'));
+  const range = 0.325 * Math.floor(1.5 * lvl('Ranged'));
+  const mage = 0.325 * Math.floor(1.5 * lvl('Magic'));
+  const combatLevel = Math.floor(base + Math.max(melee, range, mage));
+
+  const overall = byName['Overall'];
+  const out = {
+    username: player,
+    overall: { level: overall.level, xp: overall.xp, rank: overall.rank },
+    combatLevel,
+    skills: (hs.skills || [])
+      .filter((s) => s.name !== 'Overall')
+      .map((s) => ({ name: s.name, level: s.level, xp: s.xp, rank: s.rank })),
+    updatedAt: new Date().toISOString(),
+  };
+
+  // Recent items + activities from RuneProfile (best-effort).
+  try {
+    const rp = await (
+      await fetch(`https://api.runeprofile.com/profiles/${encodeURIComponent(player)}`, {
+        headers: { 'User-Agent': 'charlies-showcase (personal site)' },
+      })
+    ).json();
+    const itemNames = Object.fromEntries((rp.items ?? []).map((i) => [i.id, i.name]));
+    const questNames = Object.fromEntries((rp.quests ?? []).map((q) => [q.id, q.name]));
+    const iso = (d) => d.replace(' ', 'T').slice(0, 23) + 'Z';
+
+    out.recentItems = (rp.recentItems ?? []).map((r) => ({
+      itemId: r.data.itemId,
+      name: itemNames[r.data.itemId],
+    }));
+    out.recentActivities = (rp.recentActivities ?? [])
+      .map((a) => {
+        const date = iso(a.createdAt);
+        if (a.type === 'quest_completed') {
+          return { kind: 'quest', date, label: questNames[a.data.questId] ?? 'Quest completed' };
+        }
+        if (a.type === 'valuable_drop') {
+          return { kind: 'drop', date, itemId: a.data.itemId, name: itemNames[a.data.itemId], value: a.data.value };
+        }
+        if (a.type === 'xp_milestone') {
+          return { kind: 'xp', date, skill: a.data.name, xp: a.data.xp };
+        }
+        return null;
+      })
+      .filter(Boolean);
+  } catch {
+    /* activities are optional */
+  }
+
+  return out;
 }
 
 function json(obj, status, cors) {
