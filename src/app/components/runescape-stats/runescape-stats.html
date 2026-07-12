@@ -155,12 +155,6 @@
         </div>
       }
 
-      <app-osrs-clog [recent]="st.recentItems ?? []" />
-
-      <app-osrs-ca />
-
-      <app-osrs-progress />
-
       @if (wom() && hasKcData()) {
         <div class="panel wom bosses-panel">
           <div class="panel-head">
@@ -199,6 +193,12 @@
           }
         </div>
       }
+
+      <app-osrs-clog [recent]="st.recentItems ?? []" />
+
+      <app-osrs-ca />
+
+      <app-osrs-progress />
 
       @if (st.overall?.rank) {
         <p class="overall-rank">
