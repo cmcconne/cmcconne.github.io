@@ -62,8 +62,12 @@
         }
 
         @if (alteredCards().length) {
-          <div class="dd-alters">
-            <h3>🎨 Alters &amp; proofs · {{ alteredCards().length }}</h3>
+          <div class="dd-alters" [class.open]="altersOpen()">
+            <button class="dd-alters-head" (click)="toggleAlters()" [attr.aria-expanded]="altersOpen()">
+              <span class="dd-alters-caret" aria-hidden="true">▸</span>
+              🎨 Alters &amp; proofs · {{ alteredCards().length }}
+            </button>
+            @if (altersOpen()) {
             <div class="alter-strip">
               @for (c of alteredCards(); track c.name) {
                 <a
@@ -79,6 +83,7 @@
                 </a>
               }
             </div>
+            }
           </div>
         }
 

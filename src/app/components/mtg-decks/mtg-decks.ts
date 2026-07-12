@@ -65,6 +65,8 @@ export class MtgDecksComponent {
   protected readonly hoveredCard = signal<DeckCard | null>(null);
   /** A drawn sample opening hand (7 cards from the library). */
   protected readonly hand = signal<DeckCard[]>([]);
+  /** Whether the deck's "Alters & proofs" strip is expanded. */
+  protected readonly altersOpen = signal(true);
 
   // --- Collection gallery (alters / proofs / signed) ---
   protected readonly alterKind = signal<'all' | 'alter' | 'proof' | 'signed'>('all');
@@ -311,6 +313,11 @@ export class MtgDecksComponent {
     this.deckSearch.set('');
     this.hoveredCard.set(null);
     this.hand.set([]);
+    this.altersOpen.set(true);
+  }
+
+  protected toggleAlters(): void {
+    this.altersOpen.set(!this.altersOpen());
   }
 
   protected closeDeck(): void {

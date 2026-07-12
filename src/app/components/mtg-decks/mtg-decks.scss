@@ -171,7 +171,7 @@
 .deck-detail {
   border: 1px solid var(--border);
   border-radius: 14px;
-  overflow: hidden;
+  // NB: no `overflow: hidden` here — it would break the sticky preview.
   background: var(--surface);
 }
 
@@ -771,8 +771,29 @@
   padding: 0.8rem 1.1rem;
   border-bottom: 1px solid var(--border);
 
-  h3 { @include mtg-title; font-size: 0.9rem; margin: 0 0 0.6rem; }
+  &.open .dd-alters-head .dd-alters-caret { transform: rotate(90deg); }
 }
+
+.dd-alters-head {
+  @include mtg-title;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  .dd-alters-caret {
+    font-size: 0.7em;
+    color: var(--accent);
+    transition: transform 0.15s ease;
+  }
+}
+
+.dd-alters.open .dd-alters-head { margin-bottom: 0.6rem; }
 
 .alter-strip {
   display: flex;
