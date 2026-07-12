@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T23:57:45.207Z",
+  "updatedAt": "2026-07-12T02:24:01.684Z",
   "decks": [
     {
       "name": "Tymna ❤️ Dargo",
@@ -1274,9 +1274,9 @@
             "R"
           ],
           "image": "https://cards.scryfall.io/normal/front/3/a/3a14d6c5-cfd1-4860-834a-5a0dc9df0320.jpg?1782725974",
-          "rank": 2847,
+          "rank": 2844,
           "uri": "https://scryfall.com/card/sld/1753/deadpool-trading-card?utm_source=api",
-          "price": 18.84
+          "price": 18.67
         },
         {
           "name": "Knuckles the Echidna",
@@ -1449,7 +1449,13 @@
           "image": "https://cards.scryfall.io/normal/front/d/8/d8c9c111-fbc7-44e1-94bd-1ca164370623.jpg?1782709105",
           "rank": 1662,
           "uri": "https://scryfall.com/card/grn/115/runaway-steam-kin?utm_source=api",
-          "price": 1.37
+          "price": 1.37,
+          "alter": {
+            "image": "/images/mtg-alters/2326.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Pyretic Ritual",
@@ -1462,7 +1468,13 @@
           "image": "https://cards.scryfall.io/normal/front/1/e/1e577638-a7ed-4bcc-90fb-0cffe87d5a28.jpg?1782715387",
           "rank": 799,
           "uri": "https://scryfall.com/card/m11/153/pyretic-ritual?utm_source=api",
-          "price": 4.7
+          "price": 4.7,
+          "alter": {
+            "image": "/images/mtg-alters/2325.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Rite of Flame",
@@ -1475,7 +1487,13 @@
           "image": "https://cards.scryfall.io/normal/front/c/0/c062caf7-f0eb-44db-9f74-e6711a13fada.jpg?1782717036",
           "rank": 664,
           "uri": "https://scryfall.com/card/csp/96/rite-of-flame?utm_source=api",
-          "price": 5.98
+          "price": 5.98,
+          "alter": {
+            "image": "/images/mtg-alters/2323.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Brain Freeze",
@@ -1510,7 +1528,13 @@
           "image": "https://cards.scryfall.io/normal/front/f/8/f85ab5f9-508e-45de-8fa1-ce1f16552ffc.jpg?1782750662",
           "rank": 118,
           "uri": "https://scryfall.com/card/tpr/225/lotus-petal?utm_source=api",
-          "price": null
+          "price": null,
+          "alter": {
+            "image": "/images/mtg-alters/2324.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Snap",
@@ -1636,7 +1660,13 @@
           "image": "https://cards.scryfall.io/normal/front/9/c/9ce7113b-08f7-4584-b65f-a7b5caa90c2f.jpg?1782692347",
           "rank": 152,
           "uri": "https://scryfall.com/card/otc/123/windfall?utm_source=api",
-          "price": 5.08
+          "price": 5.08,
+          "alter": {
+            "image": "/images/mtg-alters/2329.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Lion's Eye Diamond",
@@ -1671,7 +1701,13 @@
           "image": "https://cards.scryfall.io/normal/front/c/1/c1a31d52-a407-4ded-bfca-cc812f11afa0.jpg?1782737761",
           "rank": 146,
           "uri": "https://scryfall.com/card/2x2/308/mana-vault?utm_source=api",
-          "price": 112.13
+          "price": 112.13,
+          "alter": {
+            "image": "/images/mtg-alters/2318.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Volcanic Island",
@@ -1778,7 +1814,13 @@
           "image": "https://cards.scryfall.io/normal/front/4/e/4e11ea8a-f895-438d-a3b7-f070238e4161.jpg?1782691183",
           "rank": 47,
           "uri": "https://scryfall.com/card/mh3/236/wooded-foothills?utm_source=api",
-          "price": 17.02
+          "price": 17.02,
+          "alter": {
+            "image": "/images/mtg-alters/2317.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Great Furnace",
@@ -2041,7 +2083,13 @@
           "image": "https://cards.scryfall.io/normal/front/4/2/426b0211-3d5d-4e53-bcf6-21823c655ffd.jpg?1782681935",
           "rank": null,
           "uri": "https://scryfall.com/card/msc/858/mountain?utm_source=api",
-          "price": 0.16
+          "price": 0.16,
+          "alter": {
+            "image": "/images/mtg-alters/2321.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Storm-Kiln Artist",
@@ -2226,7 +2274,13 @@
           "image": "https://cards.scryfall.io/normal/front/f/f/ff590af2-2d6c-4f16-a9b8-1a6dab6e9ad5.jpg?1782708536",
           "rank": 2655,
           "uri": "https://scryfall.com/card/mh1/46/echo-of-eons?utm_source=api",
-          "price": 12.88
+          "price": 12.88,
+          "alter": {
+            "image": "/images/mtg-alters/2320.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Simian Spirit Guide",
@@ -2265,7 +2319,13 @@
           "image": "https://cards.scryfall.io/normal/front/d/0/d05bac1f-d455-4528-93b2-a94c29b5dc2c.jpg?1782686915",
           "rank": 2353,
           "uri": "https://scryfall.com/card/tdc/40/will-of-the-jeskai?utm_source=api",
-          "price": 3.18
+          "price": 3.18,
+          "alter": {
+            "image": "/images/mtg-alters/2327.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Opera Love Song",
@@ -2343,7 +2403,13 @@
           "image": "https://cards.scryfall.io/normal/front/d/8/d8c5e52d-57ae-464b-8860-7dd39ebfef64.jpg?1782724340",
           "rank": 103,
           "uri": "https://scryfall.com/card/tle/159/frantic-search?utm_source=api",
-          "price": 1.8
+          "price": 1.8,
+          "alter": {
+            "image": "/images/mtg-alters/2316.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Mox Opal",
@@ -2367,7 +2433,13 @@
           "image": "https://cards.scryfall.io/normal/front/a/e/ae48c31d-6fd9-457f-adb8-37f367724ba1.jpg?1782713339",
           "rank": 2305,
           "uri": "https://scryfall.com/card/cns/36/treasonous-ogre?utm_source=api",
-          "price": 21.36
+          "price": 21.36,
+          "alter": {
+            "image": "/images/mtg-alters/2319.jpg",
+            "kind": "signed",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Grapeshot",
@@ -2404,7 +2476,13 @@
           "image": "https://cards.scryfall.io/normal/front/9/1/91fdb56b-54d5-4272-8319-505ff987fe9b.jpg?1782682494",
           "rank": 1,
           "uri": "https://scryfall.com/card/msc/211/sol-ring?utm_source=api",
-          "price": 1.84
+          "price": 1.84,
+          "alter": {
+            "image": "/images/mtg-alters/2328.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Past in Flames",
@@ -2502,7 +2580,13 @@
           "image": "https://cards.scryfall.io/normal/front/7/4/74177b51-a300-49d9-8ea7-557b19cf80c7.jpg?1782705965",
           "rank": 1165,
           "uri": "https://scryfall.com/card/cmr/211/wheel-of-misfortune?utm_source=api",
-          "price": 8.37
+          "price": 8.37,
+          "alter": {
+            "image": "/images/mtg-alters/2322.jpg",
+            "kind": "alter",
+            "artist": null,
+            "note": null
+          }
         },
         {
           "name": "Underworld Breach",
@@ -2676,7 +2760,7 @@
           "G": 0,
           "C": 12
         },
-        "alters": 0
+        "alters": 14
       }
     },
     {
@@ -4045,5 +4129,206 @@
       }
     }
   ],
-  "alters": []
+  "alters": [
+    {
+      "card": "Frantic Search",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2316.jpg",
+      "official": "https://cards.scryfall.io/normal/front/d/8/d8c5e52d-57ae-464b-8860-7dd39ebfef64.jpg?1782724340",
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Instant",
+      "set": "Avatar: The Last Airbender Eternal",
+      "uri": "https://scryfall.com/card/tle/159/frantic-search?utm_source=api"
+    },
+    {
+      "card": "Wooded Foothills",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2317.jpg",
+      "official": "https://cards.scryfall.io/normal/front/4/e/4e11ea8a-f895-438d-a3b7-f070238e4161.jpg?1782691183",
+      "colors": [],
+      "typeLine": "Land",
+      "set": "Modern Horizons 3",
+      "uri": "https://scryfall.com/card/mh3/236/wooded-foothills?utm_source=api"
+    },
+    {
+      "card": "Mana Vault",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2318.jpg",
+      "official": "https://cards.scryfall.io/normal/front/c/1/c1a31d52-a407-4ded-bfca-cc812f11afa0.jpg?1782737761",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Double Masters 2022",
+      "uri": "https://scryfall.com/card/2x2/308/mana-vault?utm_source=api"
+    },
+    {
+      "card": "Treasonous Ogre",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2319.jpg",
+      "official": "https://cards.scryfall.io/normal/front/a/e/ae48c31d-6fd9-457f-adb8-37f367724ba1.jpg?1782713339",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Creature — Ogre Shaman",
+      "set": "Conspiracy",
+      "uri": "https://scryfall.com/card/cns/36/treasonous-ogre?utm_source=api"
+    },
+    {
+      "card": "Echo of Eons",
+      "kind": "signed",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2320.jpg",
+      "official": "https://cards.scryfall.io/normal/front/f/f/ff590af2-2d6c-4f16-a9b8-1a6dab6e9ad5.jpg?1782708536",
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Sorcery",
+      "set": "Modern Horizons",
+      "uri": "https://scryfall.com/card/mh1/46/echo-of-eons?utm_source=api"
+    },
+    {
+      "card": "Mountain",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2321.jpg",
+      "official": "https://cards.scryfall.io/normal/front/4/2/426b0211-3d5d-4e53-bcf6-21823c655ffd.jpg?1782681935",
+      "colors": [],
+      "typeLine": "Basic Land — Mountain",
+      "set": "Marvel Super Heroes Commander",
+      "uri": "https://scryfall.com/card/msc/858/mountain?utm_source=api"
+    },
+    {
+      "card": "Wheel of Misfortune",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2322.jpg",
+      "official": "https://cards.scryfall.io/normal/front/7/4/74177b51-a300-49d9-8ea7-557b19cf80c7.jpg?1782705965",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Sorcery",
+      "set": "Commander Legends",
+      "uri": "https://scryfall.com/card/cmr/211/wheel-of-misfortune?utm_source=api"
+    },
+    {
+      "card": "Rite of Flame",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2323.jpg",
+      "official": "https://cards.scryfall.io/normal/front/c/0/c062caf7-f0eb-44db-9f74-e6711a13fada.jpg?1782717036",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Sorcery",
+      "set": "Coldsnap",
+      "uri": "https://scryfall.com/card/csp/96/rite-of-flame?utm_source=api"
+    },
+    {
+      "card": "Lotus Petal",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2324.jpg",
+      "official": "https://cards.scryfall.io/normal/front/f/8/f85ab5f9-508e-45de-8fa1-ce1f16552ffc.jpg?1782750662",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Tempest Remastered",
+      "uri": "https://scryfall.com/card/tpr/225/lotus-petal?utm_source=api"
+    },
+    {
+      "card": "Pyretic Ritual",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2325.jpg",
+      "official": "https://cards.scryfall.io/normal/front/1/e/1e577638-a7ed-4bcc-90fb-0cffe87d5a28.jpg?1782715387",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Instant",
+      "set": "Magic 2011",
+      "uri": "https://scryfall.com/card/m11/153/pyretic-ritual?utm_source=api"
+    },
+    {
+      "card": "Runaway Steam-Kin",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2326.jpg",
+      "official": "https://cards.scryfall.io/normal/front/d/8/d8c9c111-fbc7-44e1-94bd-1ca164370623.jpg?1782709105",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Creature — Elemental",
+      "set": "Guilds of Ravnica",
+      "uri": "https://scryfall.com/card/grn/115/runaway-steam-kin?utm_source=api"
+    },
+    {
+      "card": "Will of the Jeskai",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2327.jpg",
+      "official": "https://cards.scryfall.io/normal/front/d/0/d05bac1f-d455-4528-93b2-a94c29b5dc2c.jpg?1782686915",
+      "colors": [
+        "R"
+      ],
+      "typeLine": "Sorcery",
+      "set": "Tarkir: Dragonstorm Commander",
+      "uri": "https://scryfall.com/card/tdc/40/will-of-the-jeskai?utm_source=api"
+    },
+    {
+      "card": "Sol Ring",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2328.jpg",
+      "official": "https://cards.scryfall.io/normal/front/9/1/91fdb56b-54d5-4272-8319-505ff987fe9b.jpg?1782682494",
+      "colors": [],
+      "typeLine": "Artifact",
+      "set": "Marvel Super Heroes Commander",
+      "uri": "https://scryfall.com/card/msc/211/sol-ring?utm_source=api"
+    },
+    {
+      "card": "Windfall",
+      "kind": "alter",
+      "artist": null,
+      "note": null,
+      "deck": "Cast spells:✔ resolve spells:?",
+      "image": "/images/mtg-alters/2329.jpg",
+      "official": "https://cards.scryfall.io/normal/front/9/c/9ce7113b-08f7-4584-b65f-a7b5caa90c2f.jpg?1782692347",
+      "colors": [
+        "U"
+      ],
+      "typeLine": "Sorcery",
+      "set": "Outlaws of Thunder Junction Commander",
+      "uri": "https://scryfall.com/card/otc/123/windfall?utm_source=api"
+    }
+  ]
 }

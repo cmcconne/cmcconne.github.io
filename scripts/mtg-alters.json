@@ -1,4 +1,89 @@
 {
-  "_comment": "Alters & artist proofs. Put image files in public/images/mtg-alters/ and add one entry per card here. `card` = exact card name (front-face for // cards). `image` = filename in that folder. `kind` = alter | proof | signed. Optional: `artist`, `note`, `deck` (deck name to scope to a single deck; omit to apply to every deck the card is in). Images: portrait, MTG card proportions (~488x680 or larger), JPG preferred.",
-  "alters": []
+  "_comment": "Alters & artist proofs. Images in public/images/mtg-alters/. card=exact name; kind=alter|proof|signed; deck scopes to one deck (deck-scoped wins over global); artist/note optional. Portrait ~488x680+ JPG.",
+  "alters": [
+    {
+      "card": "Frantic Search",
+      "image": "2316.jpg",
+      "kind": "signed",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Wooded Foothills",
+      "image": "2317.jpg",
+      "kind": "signed",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Mana Vault",
+      "image": "2318.jpg",
+      "kind": "signed",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Treasonous Ogre",
+      "image": "2319.jpg",
+      "kind": "signed",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Echo of Eons",
+      "image": "2320.jpg",
+      "kind": "signed",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Mountain",
+      "image": "2321.jpg",
+      "kind": "alter",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Wheel of Misfortune",
+      "image": "2322.jpg",
+      "kind": "alter",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Rite of Flame",
+      "image": "2323.jpg",
+      "kind": "alter",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Lotus Petal",
+      "image": "2324.jpg",
+      "kind": "alter",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Pyretic Ritual",
+      "image": "2325.jpg",
+      "kind": "alter",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Runaway Steam-Kin",
+      "image": "2326.jpg",
+      "kind": "alter",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Will of the Jeskai",
+      "image": "2327.jpg",
+      "kind": "alter",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Sol Ring",
+      "image": "2328.jpg",
+      "kind": "alter",
+      "deck": "Cast spells:✔ resolve spells:?"
+    },
+    {
+      "card": "Windfall",
+      "image": "2329.jpg",
+      "kind": "alter",
+      "deck": "Cast spells:✔ resolve spells:?"
+    }
+  ]
 }
