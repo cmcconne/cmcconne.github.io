@@ -23,6 +23,9 @@
         <span class="showcase-name">{{ section.name }}</span>
       }
       <span class="showcase-tagline">{{ section.tagline }}</span>
+      @if (stat(section.slug); as s) {
+        <span class="showcase-stat">{{ s }}</span>
+      }
     </a>
   }
 </nav>
