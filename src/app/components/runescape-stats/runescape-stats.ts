@@ -325,4 +325,14 @@ export class RunescapeStatsComponent {
   protected hideBroken(e: Event): void {
     (e.target as HTMLElement).style.display = 'none';
   }
+
+  /** Pretty clan-role name (WOM slug, e.g. "deputy_owner" → "Deputy Owner"). */
+  protected clanRole(role?: string): string {
+    return role ? this.womName(role) : '';
+  }
+
+  /** WOM group page for the clan. */
+  protected clanUrl(id?: number): string {
+    return id ? `https://wiseoldman.net/groups/${id}` : '';
+  }
 }

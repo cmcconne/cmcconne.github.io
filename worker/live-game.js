@@ -464,15 +464,48 @@ async function getWom(cfg) {
   const headers = { 'User-Agent': 'charlies-showcase/1.0 (personal fan site)' };
   const gainUrl = (p) =>
     `https://api.wiseoldman.net/v2/players/${player}/gained?period=${p}`;
-  const [detRes, wRes, mRes, yRes, recRes] = await Promise.all([
+  const [detRes, wRes, mRes, yRes, recRes, grpRes] = await Promise.all([
     fetch(`https://api.wiseoldman.net/v2/players/${player}`, { headers }),
     fetch(gainUrl('week'), { headers }),
     fetch(gainUrl('month'), { headers }),
     fetch(gainUrl('year'), { headers }),
     fetch(`https://api.wiseoldman.net/v2/players/${player}/records`, { headers }),
+    fetch(`https://api.wiseoldman.net/v2/players/${player}/groups`, { headers }),
   ]);
   if (!detRes.ok) throw new Error(`wom ${detRes.status}`);
   const det = await detRes.json();
+
+  // Account identity: name, type, overall Hi-scores rank.
+  const overallSnap = det.latestSnapshot?.data?.skills?.overall;
+  const identity = {
+    name: det.displayName ?? null,
+    type: det.type ?? null,
+    combatLevel: det.combatLevel ?? null,
+    ehp: Math.round(det.ehp ?? 0),
+    ehb: Math.round(det.ehb ?? 0),
+    overallRank: overallSnap?.rank ?? null,
+  };
+
+  // Clan/group membership (name + role/rank in the clan).
+  let clan = null;
+  try {
+    const groups = grpRes.ok ? await grpRes.json() : [];
+    if (Array.isArray(groups) && groups.length) {
+      // Prefer the largest group as the "main" clan.
+      const m = [...groups].sort(
+        (a, b) => (b.group?.memberCount ?? 0) - (a.group?.memberCount ?? 0),
+      )[0];
+      clan = {
+        id: m.group?.id ?? null,
+        name: m.group?.name ?? null,
+        clanChat: m.group?.clanChat ?? null,
+        memberCount: m.group?.memberCount ?? null,
+        role: m.role ?? null,
+      };
+    }
+  } catch {
+    /* clan optional */
+  }
 
   // Boss kill counts from the latest snapshot (for the KC highlight).
   const bossSnap = det.latestSnapshot?.data?.bosses || {};
@@ -524,7 +557,7 @@ async function getWom(cfg) {
     year: buildPeriod(yRes.ok ? await yRes.json() : null),
   };
 
-  return { updatedAt: det.updatedAt, periods, bosses, records };
+  return { updatedAt: det.updatedAt, identity, clan, periods, bosses, records };
 }
 
 function json(obj, status, cors) {

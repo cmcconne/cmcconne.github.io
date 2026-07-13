@@ -71,6 +71,33 @@
     font-size: 1.05rem;
   }
 
+  .clan {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+
+    .clan-badge { font-size: 0.85rem; }
+
+    a {
+      color: var(--osrs-orange);
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+
+    .clan-rank {
+      padding: 0.05rem 0.45rem;
+      border: 1px solid #100c07;
+      border-radius: 3px;
+      background: rgba(0, 0, 0, 0.3);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--osrs-yellow);
+    }
+  }
+
   .totals {
     display: flex;
     gap: 1.5rem;
@@ -298,18 +325,6 @@
 }
 
 // --- Footer bits (on the page background, no panel) --------------------------
-.overall-rank {
-  margin: 1.25rem 0 0;
-  color: var(--osrs-orange);
-  font-size: 1.1rem;
-  text-shadow: 1px 1px black;
-
-  strong {
-    color: var(--osrs-white);
-    font-variant-numeric: tabular-nums;
-  }
-}
-
 .rp-credit {
   margin: 1rem 0 0;
   font-size: 0.9rem;

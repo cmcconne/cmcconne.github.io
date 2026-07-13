@@ -41,12 +41,27 @@
         <div class="profile-info">
           <span class="username">{{ st.username }}</span>
           <span class="sub">Old School RuneScape</span>
+          @if (wom()?.clan; as c) {
+            <span class="clan">
+              <span class="clan-badge" aria-hidden="true">🛡️</span>
+              <a [href]="clanUrl(c.id)" target="_blank" rel="noopener">{{ c.name }}</a>
+              @if (c.role) {
+                <span class="clan-rank">{{ clanRole(c.role) }}</span>
+              }
+            </span>
+          }
         </div>
         <div class="totals">
           @if (st.overall?.xp) {
             <div class="total">
               <span class="total-value">{{ gp(st.overall!.xp) }}</span>
               <span class="total-label">Total XP</span>
+            </div>
+          }
+          @if (st.overall?.rank) {
+            <div class="total">
+              <span class="total-value">#{{ st.overall!.rank | number }}</span>
+              <span class="total-label">Overall rank</span>
             </div>
           }
         </div>
@@ -198,12 +213,6 @@
       <app-osrs-ca />
 
       <app-osrs-progress />
-
-      @if (st.overall?.rank) {
-        <p class="overall-rank">
-          Overall Hiscores rank <strong>#{{ st.overall?.rank | number }}</strong>
-        </p>
-      }
 
       <p class="rp-credit">
         Stats via the

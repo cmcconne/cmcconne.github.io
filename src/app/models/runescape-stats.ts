@@ -56,9 +56,28 @@ export interface WomPeriod {
   bosses: WomGain[];
 }
 
+/** A Wise Old Man clan/group membership. */
+export interface WomClan {
+  id?: number;
+  name?: string;
+  clanChat?: string;
+  memberCount?: number;
+  /** The player's role/rank within the clan (WOM slug, e.g. "imp"). */
+  role?: string;
+}
+
 /** Wise Old Man data: gains over week/month/year + boss KCs + PB records. */
 export interface WomData {
   updatedAt?: string;
+  identity?: {
+    name?: string;
+    type?: string;
+    combatLevel?: number;
+    ehp?: number;
+    ehb?: number;
+    overallRank?: number;
+  };
+  clan?: WomClan | null;
   periods?: {
     week: WomPeriod | null;
     month: WomPeriod | null;
