@@ -245,20 +245,33 @@ export class RunescapeStatsComponent {
    * KC rows for the active category + period, highest first (capped).
    * period 'total' = lifetime kills; day/week/month = personal-best records.
    */
-  protected readonly activeKcs = computed<{ metric: string; value: number }[]>(() => {
-    const w = this.wom();
-    if (!w) return [];
-    const period = this.kcPeriod();
-    const wantRaid = this.kcTab() === 'raids';
-    const rows =
-      period === 'total'
-        ? (w.bosses ?? []).map((b) => ({ metric: b.metric, value: b.kills }))
-        : Object.entries(w.records?.[period] ?? {}).map(([metric, value]) => ({ metric, value }));
-    return rows
-      .filter((r) => RunescapeStatsComponent.RAID_METRICS.has(r.metric) === wantRaid)
-      .sort((a, b) => b.value - a.value)
-      .slice(0, 10);
-  });
+  protected readonly activeKcs = computed<{ metric: string; value: number; rank?: number }[]>(
+    () => {
+      const w = this.wom();
+      if (!w) return [];
+      const period = this.kcPeriod();
+      const wantRaid = this.kcTab() === 'raids';
+      const rows =
+        period === 'total'
+          ? (w.bosses ?? []).map((b) => ({ metric: b.metric, value: b.kills, rank: b.rank }))
+          : Object.entries(w.records?.[period] ?? {}).map(([metric, value]) => ({ metric, value }));
+      return rows
+        .filter((r) => RunescapeStatsComponent.RAID_METRICS.has(r.metric) === wantRaid)
+        .sort((a, b) => b.value - a.value)
+        .slice(0, 10);
+    },
+  );
+
+  /** Hover text for a KC tile: name + value, plus Hiscores rank when known. */
+  protected kcTitle(row: { metric: string; value: number; rank?: number }): string {
+    const name = this.womName(row.metric);
+    if (this.kcPeriod() === 'total') {
+      const rank =
+        row.rank && row.rank > 0 ? ` · Hi-scores rank #${row.rank.toLocaleString()}` : '';
+      return `${name} — ${row.value.toLocaleString()} KC${rank}`;
+    }
+    return `${name} — best ${this.kcPeriod()}: ${row.value.toLocaleString()} kills`;
+  }
 
   protected setPeriod(p: 'week' | 'month' | 'year'): void {
     this.womPeriod.set(p);

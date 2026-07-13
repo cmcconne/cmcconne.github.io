@@ -179,9 +179,8 @@
           @if (activeKcs().length) {
             <div class="kc-grid">
               @for (b of activeKcs(); track b.metric) {
-                <div class="kc" [attr.title]="womName(b.metric) + ' — ' + (b.value | number) + (kcPeriod() === 'total' ? ' KC' : ' best')">
-                  <img class="kc-icon" [src]="bossIcon(b.metric)" [alt]="b.metric" (error)="hideBroken($event)" loading="lazy" />
-                  <span class="kc-name">{{ womName(b.metric) }}</span>
+                <div class="kc" [title]="kcTitle(b)">
+                  <img class="kc-icon" [src]="bossIcon(b.metric)" [alt]="womName(b.metric)" (error)="hideBroken($event)" loading="lazy" />
                   <span class="kc-count">{{ b.value | number }}</span>
                 </div>
               }
