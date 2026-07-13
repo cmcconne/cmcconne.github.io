@@ -100,7 +100,8 @@
 
   .totals {
     display: flex;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.25rem;
   }
 
   .total {

@@ -52,10 +52,28 @@
           }
         </div>
         <div class="totals">
+          @if (st.combatLevel) {
+            <div class="total">
+              <span class="total-value">{{ st.combatLevel }}</span>
+              <span class="total-label">Combat</span>
+            </div>
+          }
           @if (st.overall?.xp) {
             <div class="total">
               <span class="total-value">{{ gp(st.overall!.xp) }}</span>
               <span class="total-label">Total XP</span>
+            </div>
+          }
+          @if (wom()?.identity?.ehp; as ehp) {
+            <div class="total">
+              <span class="total-value">{{ ehp | number }}</span>
+              <span class="total-label">EHP</span>
+            </div>
+          }
+          @if (wom()?.identity?.ehb; as ehb) {
+            <div class="total">
+              <span class="total-value">{{ ehb | number }}</span>
+              <span class="total-label">EHB</span>
             </div>
           }
           @if (st.overall?.rank) {
